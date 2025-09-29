@@ -54,11 +54,14 @@ def actualizar_cantidad(index):
     nueva_cantidad = st.session_state[f"qty_{index}"]
     st.session_state.cotizacion[index]['cantidad'] = nueva_cantidad
 
+        # --- REEMPLAZA TU CLASE PDF COMPLETA CON ESTA ---
+
+# --- REEMPLAZA TU CLASE PDF COMPLETA CON ESTA ---
+
 class PDF(FPDF):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.agente = ""
-        self.vigencia = 0
 
     def header(self):
         try:
@@ -72,25 +75,31 @@ class PDF(FPDF):
 
     def footer(self):
         self.set_y(-25)
+
+        # 1. Establecemos la fuente a Negrita ('B') para el texto principal
         self.set_font('Arial', 'B', 8)
+
+        # 2. Escribimos ambas líneas en negritas
         self.cell(0, 4, f"Atendido por: {self.agente}", align='L', ln=1)
-        self.cell(0, 4, f"Vigencia de la cotización: {self.vigencia} días", align='L', ln=1)
-        self.cell(0, 4, "Quedo a sus ordenes.", align='L', ln=1)
+        self.cell(0, 4, "La presente cotización es válida únicamente durante el mes y año de su emisión.", align='L', ln=1)
+
+        # 3. Cambiamos la fuente a Itálica ('I') solo para el número de página
         self.set_y(-15)
         self.set_font('Arial', 'I', 8)
         self.cell(0, 10, f'Página {self.page_no()}', 0, 0, 'C')
-
-def crear_pdf(cotizacion_df, cliente, agente, vigencia):
+def crear_pdf(cotizacion_df, cliente, agente): # <-- Se quita "vigencia" de aquí
     pdf = PDF(orientation='L')
-    pdf.agente = agente
-    pdf.vigencia = vigencia
+    pdf.agente = agente # <-- Se pasa solo el agente
     pdf.add_page()
     pdf.set_font('Arial', 'B', 12)
     pdf.cell(0, 8, f'Cliente: {cliente}', 0, 1)
     pdf.cell(0, 8, f'Fecha: {datetime.now().strftime("%d/%m/%Y")}', 0, 1)
+    # Ya no se escribe el agente ni la vigencia aquí
     pdf.ln(5)
 
+    # ... (El resto del código para crear la tabla sigue exactamente igual) ...
     col_widths = {'codigo': 30, 'descripcion': 155, 'cantidad': 20, 'precio_unitario': 30, 'importe': 30}
+
     pdf.set_font('Arial', 'B', 10)
     pdf.set_fill_color(230, 230, 230)
     for col_name, width in col_widths.items():
@@ -98,11 +107,13 @@ def crear_pdf(cotizacion_df, cliente, agente, vigencia):
     pdf.ln()
 
     pdf.set_font('Arial', '', 9)
-    row_height = 8
+    row_height = 8 
+
     for _, row in cotizacion_df.iterrows():
         descripcion = row['descripcion']
         if len(descripcion) > 90:
             descripcion = descripcion[:87] + "..."
+
         pdf.cell(col_widths['codigo'], row_height, str(row['codigo']), 1, 0, 'C')
         pdf.cell(col_widths['descripcion'], row_height, descripcion, 1, 0, 'L')
         pdf.cell(col_widths['cantidad'], row_height, str(row['cantidad']), 1, 0, 'C')
@@ -114,9 +125,8 @@ def crear_pdf(cotizacion_df, cliente, agente, vigencia):
     pdf.set_font('Arial', 'B', 12)
     pdf.cell(ancho_total_tabla - col_widths['importe'], 10, 'Total', 1, 0, 'R')
     pdf.cell(col_widths['importe'], 10, f"${total:,.2f}", 1, 1, 'R')
+
     return bytes(pdf.output())
-
-
 # ==============================================================================
 # SECCIÓN 2: LÓGICA PRINCIPAL DE LA APLICACIÓN
 # ==============================================================================
@@ -132,8 +142,7 @@ if 'cliente' not in st.session_state:
     st.session_state.cliente = ""
 if 'agente' not in st.session_state:
     st.session_state.agente = ""
-if 'vigencia' not in st.session_state:
-    st.session_state.vigencia = 15
+
 
 # --- ENCABEZADO Y TÍTULO ---
 col1, col_medio, col2 = st.columns([1, 3, 1])
@@ -146,12 +155,9 @@ st.write("Crea y gestiona cotizaciones para enviar a tus clientes.")
 st.markdown("---")
 
 # --- ENTRADA DE DATOS GENERALES ---
+# --- ENTRADA DE DATOS GENERALES (CORREGIDO) ---
 st.session_state.cliente = st.text_input("📝 **Nombre del Cliente:**", st.session_state.cliente).upper()
-col_agente, col_vigencia = st.columns(2)
-with col_agente:
-    st.session_state.agente = st.text_input("👤 **Atendido por (Agente):**", st.session_state.agente).upper()
-with col_vigencia:
-    st.session_state.vigencia = st.number_input("⏳ **Vigencia (días):**", min_value=1, value=st.session_state.vigencia)
+st.session_state.agente = st.text_input("👤 **Atendido por (Agente):**", st.session_state.agente).upper()
 st.markdown("---")
 
 # --- AGREGAR PRODUCTOS A LA COTIZACIÓN ---
@@ -202,7 +208,8 @@ if st.session_state.cotizacion:
 
     col_pdf, col_clear = st.columns(2)
     with col_pdf:
-        pdf_bytes = crear_pdf(cotizacion_actual_df, st.session_state.cliente, st.session_state.agente, st.session_state.vigencia)
+        # LÍNEA CORRECTA
+        pdf_bytes = crear_pdf(cotizacion_actual_df, st.session_state.cliente, st.session_state.agente)
         st.download_button("📄 Descargar Cotización en PDF", data=pdf_bytes, file_name=f"cotizacion_{st.session_state.cliente.replace(' ', '_') or 'cliente'}.pdf", mime="application/octet-stream", use_container_width=True)
     with col_clear:
         if st.button("🗑️ Limpiar Cotización Completa", use_container_width=True, type="primary"):
@@ -210,12 +217,31 @@ if st.session_state.cotizacion:
             st.session_state.cliente = ""
             st.rerun()
 
-    with st.expander("✅ Exportar Cotización para Cliente"):
-        fecha_actual = datetime.now().strftime('%d/%m/%Y')
-        texto_exportar = f"Cliente: {st.session_state.cliente}\nFecha: {fecha_actual}\n\n--- Productos ---\n"
-        for _, row in cotizacion_actual_df.iterrows():
-            texto_exportar += f"- ({row['cantidad']}x) {row['descripcion']}\n  Importe: ${row['importe']:,.2f}\n"
-        texto_exportar += f"\n--- TOTAL: ${total:,.2f} ---\n"
-        st.code(texto_exportar)
+        with st.expander("✅ Exportar Cotización para Cliente"):
+            fecha_actual = datetime.now().strftime('%d/%m/%Y')
+
+            texto_exportar = f"*COTIZACIÓN*\n"
+            texto_exportar += "======================================\n"
+            texto_exportar += f"*Cliente:* {st.session_state.cliente}\n"
+            texto_exportar += f"*Atendido por:* {st.session_state.agente}\n"
+            texto_exportar += f"*Fecha:* {fecha_actual}\n"
+            texto_exportar += "--------------------------------------\n"
+            texto_exportar += "*Productos Solicitados:*\n"
+
+            texto_productos = ""
+            for _, row in cotizacion_actual_df.iterrows():
+                # --- LÍNEA MODIFICADA ---
+                # Añadimos el código del producto [{row['codigo']}]
+                texto_productos += f"\n- ({row['cantidad']}x) [{row['codigo']}] *{row['descripcion']}*\n"
+                texto_productos += f"  Importe: ${row['importe']:,.2f}"
+
+            texto_exportar += texto_productos
+            texto_exportar += "\n--------------------------------------\n"
+            texto_exportar += f"*TOTAL: ${total:,.2f}*\n"
+            texto_exportar += "======================================\n"
+            texto_exportar += "*La presente cotización es válida únicamente durante el mes y año de su emisión.*"
+
+            st.code(texto_exportar)
+            st.info("Copia este texto y pégalo en WhatsApp. Las partes con *asteriscos* se verán en negritas.")
 else:
     st.info("La cotización está vacía. Agrega productos para empezar.")
