@@ -178,27 +178,26 @@ else:
 st.markdown("---")
 
 # --- VISTA DE LA COTIZACIÓN ACTUAL ---
-st.header("📋 Cotización Actual")
-# Busca esta línea en tu código:
-if st.session_state.cotizacion:
-    # --- REEMPLAZA TODO DESDE AQUÍ HACIA ABAJO (hasta el "else") CON ESTE CÓDIGO ---
+# --- REEMPLAZA LA SECCIÓN "VISTA DE LA COTIZACIÓN ACTUAL" CON ESTO ---
 
+st.header("📋 Cotización Actual")
+
+if st.session_state.cotizacion:
+    # --- INICIO DEL BLOQUE DONDE TODO DEBE ESTAR ---
+    
     st.write(f"**Cliente:** {st.session_state.cliente}")
     
-    # --- ESTAS SON LAS LÍNEAS IMPORTANTES QUE PROBABLEMENTE FALTABAN ---
-    # Se crea el DataFrame ANTES de intentar usarlo.
+    # 1. Se crea el DataFrame
     cotizacion_actual_df = pd.DataFrame(st.session_state.cotizacion)
     cotizacion_actual_df['importe'] = cotizacion_actual_df['cantidad'] * cotizacion_actual_df['precio_unitario']
-    # -------------------------------------------------------------------
 
-    # Encabezados de la tabla
+    # 2. Se muestra la tabla
     col_headers = st.columns((2, 6, 2, 2, 2, 1.5))
     campos = ['Código', 'Descripción', 'Cant.', 'P. Unitario', 'Importe', 'Acción']
     for col, campo in zip(col_headers, campos):
         col.markdown(f"**{campo}**")
     st.markdown("---")
 
-    # Bucle para mostrar cada producto
     for i in range(len(st.session_state.cotizacion)):
         producto = st.session_state.cotizacion[i]
         col_data = st.columns((2, 6, 2, 2, 2, 1.5))
@@ -212,39 +211,51 @@ if st.session_state.cotizacion:
             st.session_state.cotizacion.pop(i)
             st.rerun()
 
-    # Ahora, cuando se calcule el total, la variable cotizacion_actual_df ya existirá.
+    # 3. Se calcula y muestra el total
     total = cotizacion_actual_df['importe'].sum()
     st.subheader(f"Total: ${total:,.2f}")
     st.markdown("---")
 
-    # ... (El resto de tu código para los botones de acción y el expander sigue aquí) ...
-st.subheader("Acciones Finales")
-# Creamos tres columnas para los botones
-col_pdf, col_whatsapp, col_clear = st.columns(3)
+    # 4. AHORA SE MUESTRAN LAS ACCIONES (DENTRO DEL 'IF')
+    st.subheader("Acciones Finales")
+    col_pdf, col_whatsapp, col_clear = st.columns(3)
 
-# Botón para descargar el PDF (sin cambios)
-with col_pdf:
-    pdf_bytes = crear_pdf(cotizacion_actual_df, st.session_state.cliente, st.session_state.agente)
-    st.download_button(
-        label="📄 Descargar PDF",
-        data=pdf_bytes,
-        file_name=f"cotizacion_{st.session_state.cliente.replace(' ', '_') or 'cliente'}.pdf",
-        mime="application/octet-stream",
-        use_container_width=True
-    )
+    with col_pdf:
+        pdf_bytes = crear_pdf(cotizacion_actual_df, st.session_state.cliente, st.session_state.agente)
+        st.download_button("📄 Descargar PDF", data=pdf_bytes, file_name=f"cotizacion_{st.session_state.cliente.replace(' ', '_') or 'cliente'}.pdf", mime="application/octet-stream", use_container_width=True)
 
-# Botón nuevo para compartir en WhatsApp
-with col_whatsapp:
-    # Preparamos un mensaje genérico
-    mensaje_whatsapp = quote_plus("Hola, te comparto la cotización solicitada.")
-    whatsapp_url = f"https://wa.me/?text={mensaje_whatsapp}"
+    with col_whatsapp:
+        mensaje_whatsapp = quote_plus("Hola, te comparto la cotización solicitada.")
+        whatsapp_url = f"https://wa.me/?text={mensaje_whatsapp}"
+        st.link_button("📲 Compartir en WhatsApp", url=whatsapp_url, use_container_width=True)
 
-    # st.link_button es un botón que funciona como un enlace
-    st.link_button("📲 Compartir en WhatsApp", url=whatsapp_url, use_container_width=True)
+    with col_clear:
+        if st.button("🗑️ Limpiar Cotización", use_container_width=True, type="primary"):
+            st.session_state.cotizacion = []
+            st.session_state.cliente = ""
+            st.rerun()
 
-# Botón para limpiar la cotización (sin cambios)
-with col_clear:
-    if st.button("🗑️ Limpiar Cotización", use_container_width=True, type="primary"):
-        st.session_state.cotizacion = []
-        st.session_state.cliente = ""
-        st.rerun()
+    with st.expander("✅ Exportar Cotización para Cliente"):
+        fecha_actual = datetime.now().strftime('%d/%m/%Y')
+        texto_exportar = f"*COTIZACIÓN*\n"
+        texto_exportar += "======================================\n"
+        texto_exportar += f"*Cliente:* {st.session_state.cliente}\n"
+        texto_exportar += f"*Atendido por:* {st.session_state.agente}\n"
+        texto_exportar += f"*Fecha:* {fecha_actual}\n"
+        texto_exportar += "--------------------------------------\n"
+        texto_exportar += "*Productos Solicitados:*\n"
+        texto_productos = ""
+        for _, row in cotizacion_actual_df.iterrows():
+            texto_productos += f"\n- ({row['cantidad']}x) [{row['codigo']}] *{row['descripcion']}*\n"
+            texto_productos += f"  Importe: ${row['importe']:,.2f}"
+        texto_exportar += texto_productos
+        texto_exportar += "\n--------------------------------------\n"
+        texto_exportar += f"*TOTAL: ${total:,.2f}*\n"
+        texto_exportar += "======================================\n"
+        texto_exportar += "*La presente cotización es válida únicamente durante el mes y año de su emisión.*"
+        st.code(texto_exportar)
+    
+    # --- FIN DEL BLOQUE DONDE TODO DEBE ESTAR ---
+
+else:
+    st.info("La cotización está vacía. Agrega productos para empezar.")
