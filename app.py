@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 from fpdf import FPDF
+from urllib.parse import quote_plus 
 
 # ==============================================================================
 # SECCIÓN 1: DEFINICIÓN DE TODAS LAS FUNCIONES Y CLASES
@@ -202,46 +203,39 @@ if st.session_state.cotizacion:
             st.session_state.cotizacion.pop(i)
             st.rerun()
 
-    total = cotizacion_actual_df['importe'].sum()
-    st.subheader(f"Total: ${total:,.2f}")
-    st.markdown("---")
+    # --- REEMPLAZA LA SECCIÓN DE ACCIONES CON ESTE BLOQUE ---
 
-    col_pdf, col_clear = st.columns(2)
-    with col_pdf:
-        # LÍNEA CORRECTA
-        pdf_bytes = crear_pdf(cotizacion_actual_df, st.session_state.cliente, st.session_state.agente)
-        st.download_button("📄 Descargar Cotización en PDF", data=pdf_bytes, file_name=f"cotizacion_{st.session_state.cliente.replace(' ', '_') or 'cliente'}.pdf", mime="application/octet-stream", use_container_width=True)
-    with col_clear:
-        if st.button("🗑️ Limpiar Cotización Completa", use_container_width=True, type="primary"):
-            st.session_state.cotizacion = []
-            st.session_state.cliente = ""
-            st.rerun()
+total = cotizacion_actual_df['importe'].sum()
+st.subheader(f"Total: ${total:,.2f}")
+st.markdown("---")
 
-        with st.expander("✅ Exportar Cotización para Cliente"):
-            fecha_actual = datetime.now().strftime('%d/%m/%Y')
+st.subheader("Acciones Finales")
+# Creamos tres columnas para los botones
+col_pdf, col_whatsapp, col_clear = st.columns(3)
 
-            texto_exportar = f"*COTIZACIÓN*\n"
-            texto_exportar += "======================================\n"
-            texto_exportar += f"*Cliente:* {st.session_state.cliente}\n"
-            texto_exportar += f"*Atendido por:* {st.session_state.agente}\n"
-            texto_exportar += f"*Fecha:* {fecha_actual}\n"
-            texto_exportar += "--------------------------------------\n"
-            texto_exportar += "*Productos Solicitados:*\n"
+# Botón para descargar el PDF (sin cambios)
+with col_pdf:
+    pdf_bytes = crear_pdf(cotizacion_actual_df, st.session_state.cliente, st.session_state.agente)
+    st.download_button(
+        label="📄 Descargar PDF",
+        data=pdf_bytes,
+        file_name=f"cotizacion_{st.session_state.cliente.replace(' ', '_') or 'cliente'}.pdf",
+        mime="application/octet-stream",
+        use_container_width=True
+    )
 
-            texto_productos = ""
-            for _, row in cotizacion_actual_df.iterrows():
-                # --- LÍNEA MODIFICADA ---
-                # Añadimos el código del producto [{row['codigo']}]
-                texto_productos += f"\n- ({row['cantidad']}x) [{row['codigo']}] *{row['descripcion']}*\n"
-                texto_productos += f"  Importe: ${row['importe']:,.2f}"
+# Botón nuevo para compartir en WhatsApp
+with col_whatsapp:
+    # Preparamos un mensaje genérico
+    mensaje_whatsapp = quote_plus("Hola, te comparto la cotización solicitada.")
+    whatsapp_url = f"https://wa.me/?text={mensaje_whatsapp}"
 
-            texto_exportar += texto_productos
-            texto_exportar += "\n--------------------------------------\n"
-            texto_exportar += f"*TOTAL: ${total:,.2f}*\n"
-            texto_exportar += "======================================\n"
-            texto_exportar += "*La presente cotización es válida únicamente durante el mes y año de su emisión.*"
+    # st.link_button es un botón que funciona como un enlace
+    st.link_button("📲 Compartir en WhatsApp", url=whatsapp_url, use_container_width=True)
 
-            st.code(texto_exportar)
-            st.info("Copia este texto y pégalo en WhatsApp. Las partes con *asteriscos* se verán en negritas.")
-else:
-    st.info("La cotización está vacía. Agrega productos para empezar.")
+# Botón para limpiar la cotización (sin cambios)
+with col_clear:
+    if st.button("🗑️ Limpiar Cotización", use_container_width=True, type="primary"):
+        st.session_state.cotizacion = []
+        st.session_state.cliente = ""
+        st.rerun()
