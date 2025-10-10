@@ -179,17 +179,26 @@ st.markdown("---")
 
 # --- VISTA DE LA COTIZACIÓN ACTUAL ---
 st.header("📋 Cotización Actual")
+# Busca esta línea en tu código:
 if st.session_state.cotizacion:
+    # --- REEMPLAZA TODO DESDE AQUÍ HACIA ABAJO (hasta el "else") CON ESTE CÓDIGO ---
+
     st.write(f"**Cliente:** {st.session_state.cliente}")
+    
+    # --- ESTAS SON LAS LÍNEAS IMPORTANTES QUE PROBABLEMENTE FALTABAN ---
+    # Se crea el DataFrame ANTES de intentar usarlo.
     cotizacion_actual_df = pd.DataFrame(st.session_state.cotizacion)
     cotizacion_actual_df['importe'] = cotizacion_actual_df['cantidad'] * cotizacion_actual_df['precio_unitario']
+    # -------------------------------------------------------------------
 
+    # Encabezados de la tabla
     col_headers = st.columns((2, 6, 2, 2, 2, 1.5))
     campos = ['Código', 'Descripción', 'Cant.', 'P. Unitario', 'Importe', 'Acción']
     for col, campo in zip(col_headers, campos):
         col.markdown(f"**{campo}**")
     st.markdown("---")
 
+    # Bucle para mostrar cada producto
     for i in range(len(st.session_state.cotizacion)):
         producto = st.session_state.cotizacion[i]
         col_data = st.columns((2, 6, 2, 2, 2, 1.5))
@@ -203,12 +212,12 @@ if st.session_state.cotizacion:
             st.session_state.cotizacion.pop(i)
             st.rerun()
 
-    # --- REEMPLAZA LA SECCIÓN DE ACCIONES CON ESTE BLOQUE ---
+    # Ahora, cuando se calcule el total, la variable cotizacion_actual_df ya existirá.
+    total = cotizacion_actual_df['importe'].sum()
+    st.subheader(f"Total: ${total:,.2f}")
+    st.markdown("---")
 
-total = cotizacion_actual_df['importe'].sum()
-st.subheader(f"Total: ${total:,.2f}")
-st.markdown("---")
-
+    # ... (El resto de tu código para los botones de acción y el expander sigue aquí) ...
 st.subheader("Acciones Finales")
 # Creamos tres columnas para los botones
 col_pdf, col_whatsapp, col_clear = st.columns(3)
