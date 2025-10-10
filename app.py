@@ -222,7 +222,7 @@ if st.session_state.cotizacion:
 
     with col_pdf:
         pdf_bytes = crear_pdf(cotizacion_actual_df, st.session_state.cliente, st.session_state.agente)
-        st.download_button("📄 Descargar PDF", data=pdf_bytes, file_name=f"cotizacion_{st.session_state.cliente.replace(' ', '_') or 'cliente'}.pdf", mime="application/octet-stream", use_container_width=True)
+        st.download_button("📄 Descargar PDF", data=pdf_bytes, file_name=f"COTIZACION_{st.session_state.cliente.replace(' ', '_') or 'cliente'}.pdf", mime="application/octet-stream", use_container_width=True)
 
     with col_whatsapp:
         mensaje_whatsapp = quote_plus("Hola, te comparto la cotización solicitada.")
