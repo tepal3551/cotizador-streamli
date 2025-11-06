@@ -11,11 +11,15 @@ from urllib.parse import quote_plus
 
 # --- REEMPLAZA TU FUNCIÓN cargar_catalogo CON ESTA ---
 
+# --- REEMPLAZA TU FUNCIÓN cargar_catalogo CON ESTA ---
+
+# --- REEMPLAZA TU FUNCIÓN cargar_catalogo CON ESTA ---
+
 @st.cache_data
 def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
     """
     Carga el catálogo de productos y luego aplica las actualizaciones de precios
-    desde un archivo separado.
+    y descripción, o agrega nuevos productos desde un archivo separado.
     """
     catalogo = []
     try:
@@ -37,35 +41,45 @@ def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
 
     df = pd.DataFrame(catalogo)
     if df.empty:
-        return pd.DataFrame()
-        
-    # Hacemos que el código sea el índice para actualizaciones rápidas
+        df = pd.DataFrame(columns=['codigo', 'descripcion', 'precio'])
+
     df = df.set_index('codigo')
 
-    # Paso 2: Cargar y aplicar las actualizaciones de precios
+    # Paso 2: Cargar y aplicar actualizaciones o AGREGAR nuevos productos
     try:
         with open(nombre_archivo_actualizaciones, 'r', encoding='utf-8') as f:
             for line in f:
                 try:
-                    codigo, nuevo_precio_str = line.strip().split(',')
-                    nuevo_precio = float(nuevo_precio_str)
+                    # --- INICIO DE LA LÓGICA ACTUALIZADA ---
+                    # Ahora leemos el formato CODIGO,DESCRIPCION,PRECIO
+                    partes = line.strip().split(',')
+                    if len(partes) < 3: continue # Debe tener al menos 3 partes
+
+                    codigo = partes[0].strip()
+                    nuevo_precio = float(partes[-1].strip())
+                    nueva_descripcion = ','.join(partes[1:-1]).strip()
                     
-                    # Verificamos si el código existe en el catálogo antes de actualizar
                     if codigo in df.index:
+                        # 1. SI EXISTE: Actualiza el precio Y la descripción
                         df.at[codigo, 'precio'] = nuevo_precio
+                        df.at[codigo, 'descripcion'] = nueva_descripcion
+                    else:
+                        # 2. SI NO EXISTE: Lo agrega como un nuevo producto
+                        df.loc[codigo] = {
+                            'descripcion': nueva_descripcion, 
+                            'precio': nuevo_precio
+                        }
+                    # --- FIN DE LA LÓGICA ACTUALIZADA ---
+                        
                 except (ValueError, IndexError):
-                    continue # Ignora líneas mal formateadas en el archivo de actualización
+                    continue
     except FileNotFoundError:
-        # Si no existe el archivo de actualizaciones, no es un error fatal.
-        # Simplemente se usará el catálogo original.
         pass
 
-    # Restablecemos el índice y creamos la columna 'display'
     df = df.reset_index()
     if not df.empty:
         df['display'] = df['codigo'] + " - " + df['descripcion']
     return df
-
 def agregar_producto_y_limpiar():
     producto_display = st.session_state.get("producto_selector")
     cantidad_seleccionada = st.session_state.get("cantidad_input", 1)

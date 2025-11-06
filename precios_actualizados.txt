@@ -1,409 +1,410 @@
-29004,892.5
-28267,1395
-28268,1215
-28271,1125
-28270,1215
-26402,202.5
-103325,796
-28269,1035
-103265,1575
-103266,855
-23066,2475
-22066,2745
-23065,1881
-24357,2151
-24079,2151
-27106,2115
-29073,1305
-29074,1215
-29940,1215
-29010,1125
-103246,2205
-103247,1755
-103248,1035
-103249,1575
-103250,855
-103251,2115
-103252,1035
-103253,1665
-103254,945
-103392,3375
-103263,2565
-103264,1485
-102872,2295
-103255,1215
-103256,2115
-103257,1035
-102859,1665
-103260,945
-103258,1845
-103259,1125
-102865,2655
-103262,1575
-102863,1665
-103261,945
-46559,148
-46600,148
-46699,156
-49740,156
-29936,252
-29937,364
-17849,6.3
-17860,9
-17861,11.7
-17862,14.4
-17863,18
-17864,23.4
-17865,35.1
-17866,49.5
-17867,58.5
-14480,5.4
-14481,7.65
-14482,9.9
-14483,12.6
-14484,15.3
-14485,20.7
-14486,32.4
-14487,44.1
-14488,52.2
-48042,28.8
-48043,49.5
-48044,67.5
-48045,107.1
-48046,125.1
-48047,148.5
-48048,175.5
-48049,215.1
-48050,278.1
-48051,319.5
-48000,23.4
-48006,28.8
-48012,37.8
-48018,44.1
-48024,49.5
-48030,62.1
-48036,71.1
-40151,23.4
-40152,28.8
-40153,37.8
-40154,44.1
-40155,49.5
-40156,62.1
-40157,71.1
-46303,19.8
-46304,20.7
-46305,21.6
-46306,23.4
-46307,24.3
-46994,25.2
-46308,26.1
-49980,35.1
-49981,37.8
-40237,265.5
-40238,265.5
-40239,265.5
-49491,256.5
-45154,256.5
-45155,256.5
-19712,71.1
-17239,71.1
-17895,71.1
-14346,71.1
-10555,71.1
-10440,292.5
-102996,292.5
-27180,40.5
-27174,40.5
-27177,40.5
-12778,62.1
-19059,62.1
-19053,62.1
-19066,62.1
-19067,62.1
-12779,62.1
-19060,62.1
-47185,152.1
-46719,152.1
-47184,125.1
-47804,125.1
-46089,148.5
-47183,121.5
-46329,179.1
-46328,179.1
-47187,112.5
-47186,94.5
-47234,103.5
-49322,247.5
-49321,247.5
-47181,58.5
-47182,67.5
-49859,67.5
-46181,44.1
-47188,49.5
-46021,44.1
-49860,49.5
-48539,58.5
-49534,148.5
-49525,121.5
-48793,112.5
-48792,94.5
-49533,103.5
-45864,36
-45865,36
-49543,44.1
-47542,9.9
-47543,9.9
-47545,11.7
-47546,12.6
-47547,12.6
-47548,15.3
-46221,19.8
-46593,19.8
-46222,28.8
-48459,28.8
-46854,11.7
-46855,11.7
-46856,13.5
-46857,13.5
-46858,14.4
-46859,14.4
-46860,17.1
-46861,17.1
-28057,8.1
-28058,8.1
-27162,8.55
-28059,9.9
-28061,10.8
-28063,12.6
-28064,12.6
-28065,14.4
-27214,14.4
-28066,19.8
-27215,19.8
-27164,27
-27165,27
-46863,36
-48513,43.2
-46864,45
-48085,45
-48794,54
-48128,72
-48129,100.8
-28003,28.8
-28004,36
-28005,39.6
-28006,46.8
-27211,46.8
-28007,52.2
-29070,30.6
-29069,97.2
-28008,73.8
-46225,44.1
-46226,71.1
-46227,99
-46228,130.5
-48078,256.5
-48079,292.5
-45387,256.5
-45386,292.5
-28206,31.5
-28207,49.5
-28208,67.5
-28209,89.1
-46511,11.7
-46512,13.5
-46500,7.2
-47040,6.3
-46525,7.2
-45884,5.4
-46517,9
-46518,9
-46519,10.8
-46520,12.6
-48076,13.5
-46509,9
-27242,8.1
-48093,8.1
-46315,26.1
-46316,26.1
-46317,34.2
-46318,37.8
-46319,31.5
-46012,6.3
-46013,6.3
-49994,445.5
-49993,769.5
-49992,472.5
-49991,832.5
-45664,238.5
-45665,238.5
-45662,319.5
-45663,319.5
-45586,337.5
-45661,337.5
-45883,10.8
-103642,6255
-104175,265.5
-104176,265.5
-104177,265.5
-104165,265.5
-104166,265.5
-104167,265.5
-104168,265.5
-104169,265.5
-104180,265.5
-29904,451.25
-29905,451.25
-29906,451.25
-29907,451.25
-29908,451.25
-29909,451.25
-29910,451.25
-29911,451.25
-104114,332.5
-104115,522.5
-104116,522.5
-104117,84.55
-29922,13.3
-29923,23.75
-29925,8.55
-59988,1217.7
-59989,1566
-59990,7044.3
-59991,1044
-59992,1391.4
-59993,6869.7
-45578,280.25
-45579,280.25
-43929,1215
-44470,65
-44469,56
-44468,55
-44467,53
-44466,52
-44465,49
-44458,31
-44457,28
-40051,27
-44884,255
-44887,695
-44888,835
-44885,1015
-44886,1165
-20685,565
-20686,675
-20687,865
-20688,995
-20689,1185
-45656,105
-45658,185
-45660,275
-45655,55
-45657,95
-45659,145
-29020,1950
-49586,5250
-103718,1050
-103552,1190
-103738,1350
-104011,1750
-103770,1550
-29932,1850
-103670,3150
-104058,1100
-29072,2150
-104077,3550
-104078,4050
-29939,650
-104032,650
-104033,1550
-104038,1200
-104037,495
-104035,1350
-104034,450
-104036,1650
-103938,240
-104039,990
-103837,375
-103838,375
-29924,1150
-45408,195
-45409,195
-44079,875
-44228,1050
-44229,950
-44080,1550
-44258,1750
-44259,1650
-44066,950
-44202,1050
-44203,995
-44072,1250
-44204,1450
-44210,1350
-44073,975
-44215,1150
-44216,1050
-44074,1250
-44222,1450
-44227,1350
-44088,295
-44268,350
-44275,325
-44081,575
-44266,635
-44267,595
-44319,1125
-44333,1225
-44332,1175
-44387,130
-44393,150
-44392,140
-44365,275
-44367,295
-44366,285
-44394,140
-44398,160
-44397,150
-44368,265
-44386,285
-44369,275
-44334,120
-44399,195
-44359,130
-44437,205
-44358,125
-44410,200
-44089,1350
-44090,2050
-44095,1850
-44094,1990
-44096,2600
-44102,2550
-44103,3190
-44104,2350
-44110,2190
-44117,1125
-44112,1690
-44111,690
-44118,450
-44456,675
-44277,2200
-44296,720
-44288,2150
-44318,265
-44297,405
-44317,210
-44278,355
-44279,320
-44287,315
-44907,395
-44908,625
-44909,675
-44913,875
-45847,800
-45846,1400
-45844,900
-45845,3000
-29885,495
-29886,845
+45656,Piola de Sisal (henequén) de 6 mm x 30 m natural, FIERO,105
+45658,Piola de Sisal (henequén) de 8 mm x 30 m natural, FIERO,185
+45660,Piola de Sisal (henequén) de 10 mm x 30 m natural, FIERO,275
+45655,Piola de Sisal (henequén) de 6 mm x 15 m natural, FIERO,55
+45657,Piola de Sisal (henequén) de 8 mm x 15 m natural, FIERO,95
+45659,Piola de Sisal (henequén) de 10 mm x 15 m natural, FIERO,145
+29020,Combo rotomartillo/destornillador impacto, 20V, PRETUL,1950
+49586,Kit video vigilancia, 4 canales, 4 cámaras, 5MP, Disco 1TB,5250
+103718,Rotomartillo 1/2", 800W, TRUPER INDUSTRIAL,1050
+103552,Llave de impacto 1/2" 550W, 258 ft/lb, TRUPER PRO,1190
+103738,Cortadora para azulejos, 4-1/2", 1320W, TRUPER INDUSTRIAL,1350
+104011,Cargador automatico de baterías 100 A, 12V y 24V, TRUPER,1750
+103770,Hidrolavadora eléctrica horizontal 1500 PSI, TRUPER,1550
+29932,Taladro de banco 8", 1/3 HP (250 W), broquero 1/2", PRETUL,1850
+103670,Lijadora de pared y techo 9" 750W, profesional, TRUPER PRO,3150
+104058,Guía carril de corte de 1.4m, para MAX-20SC, TRUPER MAX,1100
+29072,Soldadora inversora 200A, bi-voltaje, Serie 500, PRETUL,2150
+104077,Bomba sumergible acero inox./hierro, a.sucia, 1HP, TRUPER,3550
+104078,Bomba sumergible acero inox./hierro, a.sucia,1-1/2HP, TRUPER,4050
+29939,Bomba presurizadora 1/10 HP, PRETUL,650
+104032,Juego de opresores para resorte de amortiguador, TRUPER,650
+104033,Juego para desmontar rótulas y terminales, 9 piezas, TRUPER,1550
+104038,Juego extractores de baleros y poleas, 13 piezas, TRUPER,1200
+104037,Juego de opresores para pistón de frenos, 22 piezas, TRUPER,495
+104035,Extractor p/tirante interior (bieleta de dirección), TRUPER,1350
+104034,Juego de arco levanta válvulas, 10 piezas, TRUPER,450
+104036,Juego de extractores para rótulas, 5 piezas, TRUPER,1650
+103938,Borla para pulir de lana de 10" con jareta, TRUPER,240
+104039,Pinza ponchadora hidráulica 16 toneladas, Truper,990
+103837,Tijera para poda, mangos extensibles, TRUPER,375
+103838,Tijera para ramas altas, mangos extensibles, TRUPER,375
+29924,Nivel láser verde, alcance 25m, 16 líneas, recargable,PRETUL,1150
+45408,Arbotante exterior con 2 spots, lámparas no incluidas, negro,195
+45409,Arbotante exterior con 2 spots, lámparas no incluida, gris,195
+44079,Mezcladora para lavabo 4", cromo, FOSET KUBO,875
+44228,Mezcladora para lavabo 4", satín, FOSET KUBO,1050
+44229,Mezcladora para lavabo 4", negro, FOSET KUBO,950
+44080,Mezcladora para lavabo taladros separados, cromo, FOSET KUBO,1550
+44258,Mezcladora para lavabo taladros separados, satín, FOSET KUBO,1750
+44259,Mezcladora para lavabo taladros separados, negro, FOSET KUBO,1650
+44066,Monomando corto para lavabo, cromo, FOSET KUBO,950
+44202,Monomando corto para lavabo, satín, FOSET KUBO,1050
+44203,Monomando corto para lavabo, negro, FOSET KUBO,995
+44072,Monomando alto para lavabo, cromo, FOSET KUBO,1250
+44204,Monomando alto para lavabo, satín, FOSET KUBO,1450
+44210,Monomando alto para lavabo, negro, FOSET KUBO,1350
+44073,Monomando cuello alto para fregadero, cromo, FOSET KUBO,975
+44215,Monomando cuello alto para fregadero, satín, FOSET KUBO,1150
+44216,Monomando cuello alto para fregadero, negro, FOSET KUBO,1050
+44074,Monomando nariz retráctil para fregadero,cromo, FOSET KUBO,1250
+44222,Monomando nariz retráctil para fregadero,satín, FOSET KUBO,1450
+44227,Monomando nariz retráctil para fregadero,negro, FOSET KUBO,1350
+44088,Salida de tina con desviador, cromo, FOSET KUBO,295
+44268,Salida de tina con desviador, satín, FOSET KUBO,350
+44275,Salida de tina con desviador, negro, FOSET KUBO,325
+44081,Monomando para regadera sin desviador, cromo, FOSET KUBO,575
+44266,Monomando para regadera sin desviador, satín, FOSET KUBO,635
+44267,Monomando para regadera sin desviador, negro, FOSET KUBO,595
+44319,Juego de 6 accesorios para baño, cromo, FOSET KUBO,1125
+44333,Juego de 6 accesorios para baño, satín, FOSET KUBO,1225
+44332,Juego de 6 accesorios para baño, negro, FOSET KUBO,1175
+44387,Portarrollo sin cubierta, cromo, FOSET KUBO,130
+44393,Portarrollo sin cubierta, satín, FOSET KUBO,150
+44392,Portarrollo sin cubierta, negro, FOSET KUBO,140
+44365,Toallero de barra largo, cromo, FOSET KUBO,275
+44367,Toallero de barra largo, satín, FOSET KUBO,295
+44366,Toallero de barra largo, negro, FOSET KUBO,285
+44394,Jabonera con plato de vidrio, cromo, FOSET KUBO,140
+44398,Jabonera con plato de vidrio, satín, FOSET KUBO,160
+44397,Jabonera con plato de vidrio, negro, FOSET KUBO,150
+44368,Toallero de argolla, cromo, FOSET KUBO,265
+44386,Toallero de argolla, satín, FOSET KUBO,285
+44369,Toallero de argolla, negro, FOSET KUBO,275
+44334,Gancho sencillo para toallas, cromo, FOSET KUBO,120
+44399,Portavaso cepillero con vaso de vidrio, cromo, FOSET KUBO,195
+44359,Gancho sencillo para toallas, satín, FOSET KUBO,130
+44437,Portavaso cepillero con vaso de vidrio, satín, FOSET KUBO,205
+44358,Gancho sencillo para toallas, negro, FOSET KUBO,125
+44410,Portavaso cepillero con vaso de vidrio, negro, FOSET KUBO,200
+44089,Monomando corto para lavabo, negro, FOSET RIVIERA,1350
+44090,Monomando alto para lavabo, negro, FOSET RIVIERA,2050
+44095,Monomando a pared para lavabo, negro, FOSET RIVIERA,1850
+44094,Mezcladora lavabo taladros separados, negro, FOSET RIVIERA,1990
+44096,Mezcladora cuello alto para fregadero, negro, FOSET RIVIERA,2600
+44102,Monomando cuello alto para fregadero, negro, FOSET RIVIERA,2550
+44103,Monomando nariz flexible para fregadero, negro,FOSET RIVIERA,3190
+44104,Monomando retráctil para fregadero, negro, FOSET RIVIERA,2350
+44110,Mezcladora para tina romana, negro, FOSET RIVIERA,2190
+44117,Monomando para regadera sin desviador, negro, FOSET RIVIERA,1125
+44112,Monomando para regadera con desviador, negro, FOSET RIVIERA,1690
+44111,Salida de tina sin desviador, negro, FOSET RIVIERA,690
+44118,Juego manerales palanca para regadera, negro, FOSET RIVIERA,450
+44456,Regadera de teléfono con soporte, negro, FOSET RIVIERA,675
+44277,Juego de 6 accesorios para baño, negro, FOSET RIVIERA,2200
+44296,Toallero de barra largo, negro, FOSET RIVIERA,720
+44288,Repisa portatoallas, negro, FOSET RIVIERA,2150
+44318,Portarrollo sin cubierta, negro, FOSET RIVIERA,265
+44297,Toallero argolla, negro, FOSET RIVIERA,405
+44317,Gancho sencillo para toallas, negro, FOSET RIVIERA,210
+44278,Dispensador de jabón a pared, negro, FOSET RIVIERA,355
+44279,Jabonera con plato de vidrio, negro, FOSET RIVIERA,320
+44287,Portavaso cepillero con vaso de vidrio, negro, FOSET RIVIERA,315
+44907,Tensor cadena con matraca, 1/4"- 5/16",FIERO,395
+44908,Tensor cadena con matraca, 5/16"- 3/8",FIERO,625
+44909,Tensor cadena con matraca, 3/8"- 1/2",FIERO,675
+44913,Tensor cadena con matraca, 1/2"- 5/8",FIERO,875
+45847,Toldo sombra 80%, monofilamento negro, 4m x 3.6m, FIERO,800
+45846,Toldo sombra 80%, monofilamento negro, 6m x 3.6m, FIERO,1400
+45844,Rollo de malla sombra monofilamento 80%, 15m x 1.85m, negro,900
+45845,Rollo de malla sombra monofilamento 80%, 50m x 1.85m, negro,3000
+29885,Bomba presurizadora 1/6 HP, PRETUL,495
+29886,Bomba presurizadora 1/3 HP, PRETUL,845
+29001,Kit taladro 1/2", 20V, 1 batería 2Ah, 32 accesorios, PRETUL,1125
+29004,Hidrolavadora eléctrica 1350 PSI, Pretul,892.5
+28267,Esmeriladora 4-1/2", 20V, 1 batería 4Ah, PRETUL,1395
+28268,Llave de impacto 1/2", 20V, 155 lb/ft, 1 batería 4Ah, PRETUL,1215
+28271,Lijadora roto-orbital 5", 20V, 1 batería 2Ah, PRETUL,1125
+28270,Sierra caladora, 20V, 1 batería 2Ah, PRETUL,1215
+26402,Destornillador de dos posiciones, 3.6V, PRETUL,202.5
+103325,Lijadora orbital 1/4 hoja, 300W, TRUPER INDUSTRIAL,796
+28269,Destornillador de impacto 1/4", 20V, 1 batería 2Ah, PRETUL,1035
+103265,Sopladora para taller, 20V, 1 batería 2Ah, TRUPER PRO,1575
+103266,Sopladora para taller, 20V, sin accesorios, TRUPER PRO,855
+23066,Compresor lubricado, 40L, 3HP, horizontal, 127V, PRETUL,2475
+22066,Kit Compresor lub, 40L, manguera y pistola baja,127V, PRETUL,2745
+23065,Compresor lubricado, 20L, 2-1/2HP, horizontal, 127V, PRETUL,1881
+24357,Kit Compresor lub, 20L, manguera y pistola baja,127V, PRETUL,2151
+24079,Kit Compresor lub, 20L, manguera y pistola grav,127V, PRETUL,2151
+27106,Kit Compresor lub, 20L, manguera y accesorios, 127V, PRETUL,2115
+29073,Inflador/soplador para auto, 20V, 1 batería 2Ah, PRETUL,1305
+29074,Inflador inalámbrico portátil, 20 V para auto, PRETUL,1215
+29940,Aspiradora para auto, 20V, 1 batería 2Ah, PRETUL,1215
+29010,Pistola para pintar, 20V, 1 batería 2Ah, PRETUL,1125
+103246,Rotomartillo 1/2", 20V, 2 baterías 2Ah, TRUPER PRO,2205
+103247,Rotomartillo 1/2", 20V, 1 batería 2Ah, TRUPER PRO,1755
+103248,Rotomartillo 1/2", 20V, sin accesorios, TRUPER PRO,1035
+103249,Taladro 1/2", 20V, 1 batería 2Ah, TRUPER PRO,1575
+103250,Taladro 1/2", 20V, sin accesorios, TRUPER PRO,855
+103251,Llave de impacto 1/2", 20V, 184 lb/ft, 1 batería 4Ah, PRO,2115
+103252,Llave de impacto 1/2", 20V, 184 lb/ft, sin accesorios, PRO,1035
+103253,Destornillador de impacto 1/4", 20V, 1 batería 2Ah, PRO,1665
+103254,Destornillador de impacto 1/4", 20V, sin accesorios, PRO,945
+103392,Combo rotomartillo/destornillador impacto, 20V, TRUPER PRO,3375
+103263,Rotomartillo SDS Plus 20V, 2 J, 1 batería 4Ah, TRUPER PRO,2565
+103264,Rotomartillo SDS Plus 20V, 2 J, sin accesorios, TRUPER PRO,1485
+102872,Esmeriladora 4-1/2", 20V, 1 batería 4Ah, TRUPER PRO,2295
+103255,Esmeriladora 4-1/2", 20V, sin accesorios, TRUPER PRO,1215
+103256,Sierra circular 6-1/2", 20V, 1 batería 4Ah, TRUPER PRO,2115
+103257,Sierra circular 6-1/2", 20V, sin accesorios, TRUPER PRO,1035
+102859,Sierra caladora 20V, 1 batería 2Ah, TRUPER PRO,1665
+103260,Sierra caladora 20V, sin accesorios, TRUPER PRO,945
+103258,Sierra sable, 20V, 1 batería 2Ah, TRUPER PRO,1845
+103259,Sierra sable, 20V, sin accesorios, TRUPER PRO,1125
+102865,Router (Rebajadora) 1/4", 1 batería 4 Ah, TRUPER PRO,2655
+103262,Router (Rebajadora) 1/4", sin accesorios, TRUPER PRO,1575
+102863,Lijadora roto-orbital 5", 20V, 1 batería 2Ah, TRUPER PRO,1665
+103261,Lijadora roto-orbital 5", 20V, sin accesorios, TRUPER PRO,945
+46559,Cerradura sobreponer izq instala-fácil, llave puntos, caja,148
+46600,Cerradura sobreponer der instala-fácil, llave puntos, caja,148
+46699,Cerradura sobreponer izq instala-fácil, llave puntos,blíster,156
+49740,Cerradura sobreponer der instala-fácil, llave puntos,blíster,156
+29936,Luminario suburbano LED 50 W 6500 K, VOLTECK BASIC,252
+29937,Luminario suburbano LED 100 W 6500 K, VOLTECK BASIC,364
+17849,Brocha profesional de 1/2" mango de plástico, Truper Expert,6.3
+17860,Brocha profesional de 1" mango de plástico, Truper Expert,9
+17861,Brocha profesional de 1-1/2" mango de plástico, Expert,11.7
+17862,Brocha profesional de 2" mango de plástico, Truper Expert,14.4
+17863,Brocha profesional de 2-1/2" mango de plástico, Expert,18
+17864,Brocha profesional de 3" mango de plástico, Truper Expert,23.4
+17865,Brocha profesional de 4" mango de plástico, Truper Expert,35.1
+17866,Brocha profesional de 5" mango de plástico, Truper Expert,49.5
+17867,Brocha profesional de 6" mango de plástico, Truper Expert,58.5
+14480,Brocha profesional de 1/2" con mango de plástico, Truper,5.4
+14481,Brocha profesional de 1" con mango de plástico, Truper,7.65
+14482,Brocha profesional de 1-1/2" con mango de plástico, Truper,9.9
+14483,Brocha profesional de 2" con mango de plástico, Truper,12.6
+14484,Brocha profesional de 2-1/2" con mango de plástico, Truper,15.3
+14485,Brocha profesional de 3" con mango de plástico, Truper,20.7
+14486,Brocha profesional de 4" con mango de plástico, Truper,32.4
+14487,Brocha profesional de 5" con mango de plástico, Truper,44.1
+14488,Brocha profesional de 6" con mango de plástico, Truper,52.2
+48042,Extensión eléctrica de uso rudo 2 m 2x16 AWG, Volteck,28.8
+48043,Extensión eléctrica de uso rudo 4 m 2x16 AWG, Volteck,49.5
+48044,Extensión eléctrica de uso rudo 6 m 2x16 AWG, Volteck,67.5
+48045,Extensión eléctrica de uso rudo 8 m 2x16 AWG, Volteck,107.1
+48046,Extensión eléctrica de uso rudo 10 m 2x16 AWG, Volteck,125.1
+48047,Extensión eléctrica de uso rudo 12 m 2x16 AWG, Volteck,148.5
+48048,Extensión eléctrica de uso rudo 15 m 2x16 AWG, Volteck,175.5
+48049,Extensión eléctrica de uso rudo 20 m 2x16 AWG, Volteck,215.1
+48050,Extensión eléctrica de uso rudo 25 m 2x16 AWG, Volteck,278.1
+48051,Extensión eléctrica de uso rudo 30 m 2x16 AWG, Volteck,319.5
+48000,Extensión eléctrica doméstica 2 m clavija plana, blanca,23.4
+48006,Extensión eléctrica doméstica 3 m clavija plana, blanca,28.8
+48012,Extensión eléctrica doméstica 4 m clavija plana, blanca,37.8
+48018,Extensión eléctrica doméstica 5 m clavija plana, blanca,44.1
+48024,Extensión eléctrica doméstica 6 m clavija plana, blanca,49.5
+48030,Extensión eléctrica doméstica 8 m clavija plana, blanca,62.1
+48036,Extensión eléctrica doméstica 10 m clavija plana, blanca,71.1
+40151,Extensión eléctrica doméstica 2 m clavija recta, blanca,23.4
+40152,Extensión eléctrica doméstica 3 m clavija recta, blanca,28.8
+40153,Extensión eléctrica doméstica 4 m clavija recta, blanca,37.8
+40154,Extensión eléctrica doméstica 5 m clavija recta, blanca,44.1
+40155,Extensión eléctrica doméstica 6 m clavija recta, blanca,49.5
+40156,Extensión eléctrica doméstica 8 m clavija recta, blanca,62.1
+40157,Extensión eléctrica doméstica 10 m clavija recta, blanca,71.1
+46303,Calentador de inmersión p/agua #1 de 8 L, 400 W, Volteck,19.8
+46304,Calentador de inmersión p/agua #2 de 10 L, 500 W, Volteck,20.7
+46305,Calentador de inmersión p/agua #3 de 12 L, 600 W, Volteck,21.6
+46306,Calentador de inmersión p/agua #4 de 15 L, 750 W, Volteck,23.4
+46307,Calentador de inmersión p/agua #5 de 18 L, 900 W, Volteck,24.3
+46994,Calentador de inmersión p/agua #5.5 de 20 L 1000 W, Volteck,25.2
+46308,Calentador de inmersión p/agua #6 de 23 L, 1100 W, Volteck,26.1
+49980,Calentador de inmersión p/agua #8 de 30 L, 1500 W, Volteck,35.1
+49981,Calentador de inmersión p/agua #10 de 38 L, 1900 W, Volteck,37.8
+40237,Regadera eléctrica, 4 temperaturas, 16.5cm, blanca, FOSET,265.5
+40238,Regadera eléctrica, 4 temperaturas, 16.5cm, gris, FOSET,265.5
+40239,Regadera eléctrica, 4 temperaturas, 16.5cm, azul, FOSET,265.5
+49491,Regadera eléctrica, 4 temperaturas, 14.5cm, blanca, FOSET,256.5
+45154,Regadera eléctrica, 4 temperaturas, 14.5cm, gris, FOSET,256.5
+45155,Regadera eléctrica, 4 temperaturas, 14.5cm, azul, FOSET,256.5
+19712,Pala cuadrada para niños con mango de 30", Truper,71.1
+17239,Pala redonda para niños con mango de 30", Truper,71.1
+17895,Rastrillo para niños, mango de 42", Truper,71.1
+14346,Escoba de jardín para niños con mango de 42", Truper,71.1
+10555,Azadón para niños con mango de 42", Truper,71.1
+10440,Carretilla para niños, concha plástica 54 x 38 cm, Truper,292.5
+102996,Carretilla para niños, concha metálica 54 x 40 cm, Truper,292.5
+27180,Pintura en aerosol, metálica, oro, 400 ml, PRETUL,40.5
+27174,Pintura en aerosol metálica, plata ,400 ml, PRETUL,40.5
+27177,Pintura en aerosol metálica, cromo, 400 ml, PRETUL,40.5
+12778,Pintura en aerosol, negro metálico, bote esbelto, 400 ml,62.1
+19059,Pintura en aerosol, plata metálico, bote esbelto, 400 ml,62.1
+19053,Pintura en aerosol, cromo metálico, bote esbelto, 400 ml,62.1
+19066,Pintura en aerosol, oro metálico, bote esbelto, 400 ml,62.1
+19067,Pintura en aerosol, cobre metálico, bote esbelto, 400 ml,62.1
+12779,Pintura en aerosol, rojo metálico, bote esbelto, 400 ml,62.1
+19060,Pintura en aerosol, azul metálico, bote esbelto, 400 ml,62.1
+47185,Multicontacto 14 AWG 6 entradas supresor de picos 600 joules,152.1
+46719,Multicontacto 14 AWG, 6 entradas sup. de picos 600 J, negro,152.1
+47184,Multicontacto 14 AWG 6 entradas supresor de picos 450 joules,125.1
+47804,Multicontacto 14 AWG 6 ent., sup. de picos 450 joules, negro,125.1
+46089,Multicontacto 16 AWG 3 entradas 2 puertos USB supresor 300 J,148.5
+47183,Multicontacto 14 AWG 6 entradas supresor de picos 270 joules,121.5
+46329,Multicontacto 14 AWG 6 entradas, 2 puertos USB, 850 J marfil,179.1
+46328,Multicontacto 14 AWG 6 entradas, 2 puertos USB, 850 J, negro,179.1
+47187,Multicontacto 14 AWG 8 entradas supresor de picos 110 joules,112.5
+47186,Multicontacto 14 AWG uso rudo con 8 entradas, Volteck,94.5
+47234,Multicontacto 14 AWG uso rudo con 10 entradas, Volteck,103.5
+49322,Multicontacto 16 AWG doméstico 3 entradas 4 ptos USB, blanco,247.5
+49321,Multicontacto 16 AWG doméstico, 3 entradas 4 ptos USB, negro,247.5
+47181,Multicontacto 16 AWG uso rudo con 4 entradas, Volteck,58.5
+47182,Multicontacto 16 AWG uso rudo con 6 entradas, Volteck,67.5
+49859,Multicontacto 16 AWG doméstico con 6 entradas, negro Volteck,67.5
+46181,Multicontacto económico 4 entradas, blanco, VOLTECK,44.1
+47188,Multicontacto 16 AWG doméstico 6 entradas, Volteck,49.5
+46021,Multicontacto 16 AWG doméstico 6 entradas, colores a granel,44.1
+49860,Multicontacto 16 AWG doméstico económico 6 entradas, negro,49.5
+48539,Multicontacto doméstico con 4 entradas, negro, VOLTECK,58.5
+49534,Multicontacto 3 entradas 2 ptos USB sup de picos 300 J negro,148.5
+49525,Multicontacto uso rudo 6 entradas sup. de picos 270 J, negro,121.5
+48793,Multicontacto uso rudo 8 entradas sup. de picos 460 J, negro,112.5
+48792,Multicontacto de uso rudo con 8 entradas, negro, VOLTECK,94.5
+49533,Multicontacto de uso rudo con 10 entradas, negro, VOLTECK,103.5
+45864,Multicontacto doméstico 3 entradas, VOLTECK,36
+45865,Multicontacto doméstico 3 entradas, negro VOLTECK,36
+49543,Multicontacto económico 4 entradas, negro, VOLTECK,44.1
+47542,Foco LED 3W (25W) G45, 6500K blanca fría, 270 lm, caja,9.9
+47543,Foco LED 3W (25W) G45, 3000K blanca cálida, 270 lm, caja,9.9
+47545,Foco LED 6W (40W) A19, 3000K blanca cálida, 440 lm, caja,11.7
+47546,Foco LED 9W (60W) A19, 6500K blanca fría, 800 lm, caja,12.6
+47547,Foco LED 9W (60W) A19, 3000K blanca cálida, 800 lm, caja,12.6
+47548,Foco LED 12W (75W) A19, 6500K blanca fría, 1050 lm, caja,15.3
+46221,Foco LED 14W (100W) A19, 6500K blanca fría, 1500 lm, caja,19.8
+46593,Foco LED 14W (100W) A19, 3000K blanca cálida, 1500 lm, caja,19.8
+46222,Foco LED 18W (125W) A25, 6500K blanca fría, 1900 lm, caja,28.8
+48459,Foco LED 18W (125W) A25, 3000K blanca cálida, 1900 lm, caja,28.8
+46854,Foco LED 3W (25W) G45, 6500K blanca fría, 270 lm, blíster,11.7
+46855,Foco LED 3W (25W) G45, 3000K blanca cálida, 270 lm, blíster,11.7
+46856,Foco LED 6W (40W) A19, 6500K blanca fría, 440 lm, blíster,13.5
+46857,Foco LED 6W (40W) A19, 3000K blanca cálida, 440 lm, blíster,13.5
+46858,Foco LED 9W (60W) A19, 6500K blanca fría, 800 lm, blíster,14.4
+46859,Foco LED 9W (60W) A19, 3000K blanca cálida, 800 lm, blíster,14.4
+46860,Foco LED 12W (75W) A19, 6500K blanca fría, 1050 lm, blíster,17.1
+46861,Foco LED 12W (75W) A19, 3000K blanca cálida, 1050lm, blíster,17.1
+28057,Foco LED 3W (25W) G45, 6500K blanca fría, 270 lm, BASIC,8.1
+28058,Foco LED 3W (25W) G45, 3000K blanca cálida, 270 lm, BASIC,8.1
+27162,Foco LED 5W (40W) G45, 6500K blanca fría, 450 lm, BASIC,8.55
+28059,Foco LED 6W (40W) A19, 6500K blanca fría, 570 lm, BASIC,9.9
+28061,Foco LED 8W (60W) A19, 6500K blanca fría, 790 lm, BASIC,10.8
+28063,Foco LED 10W (75W) A19, 6500K blanca fría, 950 lm, BASIC,12.6
+28064,Foco LED 10W (75W) A19, 3000K blanca cálida, 950 lm, BASIC,12.6
+28065,Foco LED 14W (75W) A19, 6500K blanca fría, 1150 lm, BASIC,14.4
+27214,Foco LED 14W (75W) A19, 3000K blanca cálida, 1150 lm, BASIC,14.4
+28066,Foco LED 16W (100W) A22, 6500K blanca fría, 1550 lm, BASIC,19.8
+27215,Foco LED 16W (100W) A22, 3000K blanca cálida, 1550 lm, BASIC,19.8
+27164,Foco LED 18W (125W) A25, 6500K blanca fría, 1800 lm, BASIC,27
+27165,Foco LED 18W (125W) A25, 3000K blanca cálida, 1800 lm, BASIC,27
+46863,Pack 4 focos LED 3W (25W) G45, 6500K blanca fría, 270 lm,36
+48513,Pack 4 focos LED 6W (40W) A19, 6500K blanca fría, 440 lm,43.2
+46864,Pack 4 focos LED 9W (60W) A19, 6500K blanca fría, 800 lm,45
+48085,Pack 4 focos LED 9W (60W) A19, 3000K blanca cálida, 800 lm,45
+48794,Pack 4 focos LED 12W (75W) A19, 6500K blanca fría, 1050 lm,54
+48128,Pack 4 focos LED 14W (100W) A19, 6500K blanca fría, 1500 lm,72
+48129,Pack 4 focos LED 18W (125W) A25, 6500K blanca fría, 1900 lm,100.8
+28003,Pack 4 focos LED 3W (25W) G45, 6500K fría, 270 lm, BASIC,28.8
+28004,Pack 4 focos LED 6W (40W) A19, 6500K fría, 570 lm, BASIC,36
+28005,Pack 4 focos LED 8W (60W) A19, 6500K fría, 790 lm, BASIC,39.6
+28006,Pack 4 focos LED 10W (75W) A19, 6500K fría, 950 lm, BASIC,46.8
+27211,Pack 4 focos LED 10W (75W) A19, 3000K cálida, 950 lm, BASIC,46.8
+28007,Pack 4 focos LED 14W (75W) A19, 6500K fría, 1150 lm, BASIC,52.2
+29070,Pack 4 focos LED 5W (40W) G45, 6500K fría, 450 lm, BASIC,30.6
+29069,Pack 4 focos LED 18W (125W) A25, 6500K fría, 1800 lm, BASIC,97.2
+28008,Pack 4 focos LED 16W (100W) A22, 6500K fría, 1550 lm, BASIC,73.8
+46225,Foco LED alta potencia 20W (170W) 6500K blanca fría, E26,44.1
+46226,Foco LED alta potencia 30W (250W) 6500K blanca fría, E26,71.1
+46227,Foco LED alta potencia 40W (350W) 6500K blanca fría, E26,99
+46228,Foco LED alta potencia 50W (450W) 6500K blanca fría, E26,130.5
+48078,Foco LED alta potencia 60W (650W) 6500K blanca fría, E39,256.5
+48079,Foco LED alta potencia 70W (750W) 6500K blanca fría, E39,292.5
+45387,Foco LED alta potencia 60W (650W) 6500K blanca fría, E26,256.5
+45386,Foco LED alta potencia 70W (750W) 6500K blanca fría, E26,292.5
+28206,Foco LED alta potencia 20W (170W) 6500K blanca fría, BASIC,31.5
+28207,Foco LED alta potencia 25W (250W) 6500K blanca fría, BASIC,49.5
+28208,Foco LED alta potencia 35W (350W) 6500K blanca fría, BASIC,67.5
+28209,Foco LED alta potencia 40W (450W) 6500K blanca fría, BASIC,89.1
+46511,Portalámpara de baquelita, doble contacto, Volteck,11.7
+46512,Portalámpara de baquelita, cadena y doble contacto, Volteck,13.5
+46500,Portalámpara de baquelita, sencillo, Volteck,7.2
+47040,Portalámpara de baquelita, sencillo a granel, Volteck,6.3
+46525,Portalámpara de baquelita, con adaptador, marfil, Volteck,7.2
+45884,Portalámpara de baquelita, con adaptador a granel, VOLTECK,5.4
+46517,Portalámpara de baquelita, tipo anuncio, Volteck,9
+46518,Portalámpara de baquelita, 2-1/4", Volteck,9
+46519,Portalámpara de baquelita, 3-1/2", Volteck,10.8
+46520,Portalámpara 4" de baquelita, Volteck,12.6
+48076,Portalámpara 4-1/2" de baquelita, Volteck,13.5
+46509,Portalámpara de PVC para intemperie, Volteck,9
+27242,Portalámpara de PVC para intemperie, Volteck Basic,8.1
+48093,Portalámpara de PVC para intemperie, a granel, Volteck,8.1
+46315,Blíster con 4 pilas alcalinas AA, VOLTECK,26.1
+46316,Blíster con 4 pilas alcalinas AAA, VOLTECK,26.1
+46317,Blíster con 2 pilas alcalinas C, VOLTECK,34.2
+46318,Blíster con 2 pilas alcalinas D, VOLTECK,37.8
+46319,Blíster con 1 pila alcalina 9V, VOLTECK,31.5
+46012,Despachador con 16 pilas alcalinas AA, VOLTECK,6.3
+46013,Despachador con 16 pilas alcalinas AAA, VOLTECK,6.3
+49994,Serie de 7.3 m con 12 luces incandescentes para exterior,445.5
+49993,Serie de 14.6 m con 24 luces incandescentes para exterior,769.5
+49992,Serie de 7.3 m con 12 luces de LED para exterior, Volteck,472.5
+49991,Serie de 14.6 m con 24 luces de LED para exterior, Volteck,832.5
+45664,Multicontacto 4 entradas, 1 USB A + 1 USB C, blanco, VOLTECK,238.5
+45665,Multicontacto 4 entradas, 1 USB A + 1 USB C, negro, VOLTECK,238.5
+45662,Multicontacto 6 entradas, 2 USB A + 2 USB C, blanco, VOLTECK,319.5
+45663,Multicontacto 6 entradas, 2 USB A + 2 USB C, negro, VOLTECK,319.5
+45586,Multicontacto 8 entradas, 2 USB A + 2 USB C, blanco, VOLTECK,337.5
+45661,Multicontacto 8 entradas, 2 USB A + 2 USB C, negro, VOLTECK,337.5
+45883,Portalámpara 4" de baquelita a granel, VOLTECK,10.8
+44470,Kilo de alambre galvanizado, calibre 22, FIERO,65
+44469,Kilo de alambre galvanizado, calibre 20, FIERO,56
+44468,Kilo de alambre galvanizado, calibre 18, FIERO,55
+44467,Kilo de alambre galvanizado, calibre 16, FIERO,53
+44466,Kilo de alambre galvanizado, calibre 14.5, FIERO,52
+44465,Kilo de alambre galvanizado, calibre 12.5, FIERO,49
+44458,Kilo de alambre recocido calibre 15 en rollo de 1 kg, FIERO,31
+44457,Kilo de alambre recocido calibre 15 en rollo de 20 kg, FIERO,28
+40051,Kilo de alambre recocido calibre 15 en rollo de 60 kg, FIERO,27
+44884,Rollo de alambre de púas 100m calibre 15.5, FIERO,255
+44887,Rollo de alambre de púas 300m calibre 15.5, FIERO,695
+44888,Rollo de alambre de púas 360m calibre 15.5, FIERO,835
+44885,Rollo de alambre de púas 300m calibre 12.5, FIERO,1015
+44886,Rollo de alambre de púas 350m calibre 12.5, FIERO,1165
+20685,Escalera de tijera tipo III 2escalones, PRETUL,565
+20686,Escalera de tijera tipo III 3 escalones, PRETUL,675
+20687,Escalera de tijera tipo III 4 escalones y bandeja, PRETUL,865
+20688,Escalera de tijera tipo III 5 escalones y bandeja, PRETUL,995
+20689,Escalera de tijera tipo III 6 escalones y bandeja, PRETUL,1185
+103642,Motosierra telescópica 25 cc, gasolina, barra de 10", TRUPER,6255
+104175,Chaleco brigadista reforzado, azul marino, M, TRUPER EXPERT,265.5
+104176,Chaleco brigadista reforzado, azul marino, G, TRUPER EXPERT,265.5
+104177,Chaleco brigadista reforzado, azul marino, XG, TRUPER EXPERT,265.5
+104165,Chaleco brigadista reforzado, naranja, M, TRUPER EXPERT,265.5
+104166,Chaleco brigadista reforzado, naranja, G, TRUPER EXPERT,265.5
+104167,Chaleco brigadista reforzado, naranja, XG, TRUPER EXPERT,265.5
+104168,Chaleco brigadista reforzado, azul rey, M, TRUPER EXPERT,265.5
+104169,Chaleco brigadista reforzado, azul rey, G, TRUPER EXPERT,265.5
+104180,Chaleco brigadista reforzado, azul rey, XG, TRUPER EXPERT,265.5
+29904,Tenis de seguridad #23, casquillo metálico, negros, PRETUL,451.25
+29905,Tenis de seguridad #24, casquillo metálico, negros, PRETUL,451.25
+29906,Tenis de seguridad #25, casquillo metálico, negros, PRETUL,451.25
+29907,Tenis de seguridad #26, casquillo metálico, negros, PRETUL,451.25
+29908,Tenis de seguridad #27, casquillo metálico, negros, PRETUL,451.25
+29909,Tenis de seguridad #28, casquillo metálico, negros, PRETUL,451.25
+29910,Tenis de seguridad #29, casquillo metálico, negros, PRETUL,451.25
+29911,Tenis de seguridad #30, casquillo metálico, negros, PRETUL,451.25
+104114,Tapón auditivo reutilizable triple barrera c/cordón, 50 pz,332.5
+104115,Tapón auditivo reutilizable barrera c/cordón-estuche, 50 pz,522.5
+104116,Tapón auditivo desechable de espuma con cordón, 100 pz,522.5
+104117,Bote con tapones auditivos desechables de espuma, 30 pares,84.55
+29922,Mini encendedor para cocina, 13 cm, Pretul,13.3
+29923,Encendedor para cocina, 27 cm, con recargador, Pretul,23.75
+29925,Recargador de gas butano para encendedor, 18ml, Pretul,8.55
+59988,Panel perfocel 60 x 60 cm TRUPER,1217.7
+59989,Panel perfocel 80x 80 cm TRUPER,1566
+59990,Panel perfocel 120 x 240 cm TRUPER,7044.3
+59991,Panel ranurado 60 x 60 cm TRUPER,1044
+59992,Panel ranurado 80 x 80 cm TRUPER,1391.4
+59993,Panel ranurado 120 x 240 cm TRUPER,6869.7
+45578,Piola de nylon paracord de 4mm, rollo, negro, 1kg, FIERO,280.25
+45579,Piola de nylon paracord de 4mm, rollo, camo, 1kg, FIERO,280.25
+43929,Calentador instantáneo, 5L, 1 servicio, gas LP, FOSET BASIC,1215
