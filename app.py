@@ -9,11 +9,18 @@ from urllib.parse import quote_plus
 # (Todo alineado a la izquierda)
 # ==============================================================================
 
+# --- REEMPLAZA TU FUNCIÓN cargar_catalogo CON ESTA ---
+
 @st.cache_data
-def cargar_catalogo(nombre_archivo):
+def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
+    """
+    Carga el catálogo de productos y luego aplica las actualizaciones de precios
+    desde un archivo separado.
+    """
     catalogo = []
     try:
-        with open(nombre_archivo, 'r', encoding='utf-8') as f:
+        # Paso 1: Cargar el catálogo completo
+        with open(nombre_archivo_catalogo, 'r', encoding='utf-8') as f:
             for line in f:
                 try:
                     partes = line.strip().split(',')
@@ -25,9 +32,36 @@ def cargar_catalogo(nombre_archivo):
                 except (ValueError, IndexError):
                     continue
     except FileNotFoundError:
-        st.error(f"Error: No se encontró el archivo '{nombre_archivo}'.")
+        st.error(f"Error: No se encontró el archivo de catálogo '{nombre_archivo_catalogo}'.")
         return pd.DataFrame()
+
     df = pd.DataFrame(catalogo)
+    if df.empty:
+        return pd.DataFrame()
+        
+    # Hacemos que el código sea el índice para actualizaciones rápidas
+    df = df.set_index('codigo')
+
+    # Paso 2: Cargar y aplicar las actualizaciones de precios
+    try:
+        with open(nombre_archivo_actualizaciones, 'r', encoding='utf-8') as f:
+            for line in f:
+                try:
+                    codigo, nuevo_precio_str = line.strip().split(',')
+                    nuevo_precio = float(nuevo_precio_str)
+                    
+                    # Verificamos si el código existe en el catálogo antes de actualizar
+                    if codigo in df.index:
+                        df.at[codigo, 'precio'] = nuevo_precio
+                except (ValueError, IndexError):
+                    continue # Ignora líneas mal formateadas en el archivo de actualización
+    except FileNotFoundError:
+        # Si no existe el archivo de actualizaciones, no es un error fatal.
+        # Simplemente se usará el catálogo original.
+        pass
+
+    # Restablecemos el índice y creamos la columna 'display'
+    df = df.reset_index()
     if not df.empty:
         df['display'] = df['codigo'] + " - " + df['descripcion']
     return df
@@ -135,8 +169,8 @@ def crear_pdf(cotizacion_df, cliente, agente): # <-- Se quita "vigencia" de aqu�
 # --- CONFIGURACIÓN E INICIALIZACIÓN ---
 st.set_page_config(page_title="Cotizador de Pedidos Truper", page_icon="🔩", layout="wide")
 NOMBRE_ARCHIVO_CATALOGO = "CATALAGO 25 TRUP PRUEBA COTIZADOR.txt"
-catalogo_df = cargar_catalogo(NOMBRE_ARCHIVO_CATALOGO)
-
+NOMBRE_ARCHIVO_ACTUALIZACIONES = "precios_actualizados.txt"
+catalogo_df = cargar_catalogo(NOMBRE_ARCHIVO_CATALOGO, NOMBRE_ARCHIVO_ACTUALIZACIONES)
 if 'cotizacion' not in st.session_state:
     st.session_state.cotizacion = []
 if 'cliente' not in st.session_state:
