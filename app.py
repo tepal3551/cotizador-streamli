@@ -6,14 +6,7 @@ from urllib.parse import quote_plus
 
 # ==============================================================================
 # SECCIÓN 1: DEFINICIÓN DE TODAS LAS FUNCIONES Y CLASES
-# (Todo alineado a la izquierda)
 # ==============================================================================
-
-# --- REEMPLAZA TU FUNCIÓN cargar_catalogo CON ESTA ---
-
-# --- REEMPLAZA TU FUNCIÓN cargar_catalogo CON ESTA ---
-
-# --- REEMPLAZA TU FUNCIÓN cargar_catalogo CON ESTA ---
 
 @st.cache_data
 def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
@@ -50,7 +43,6 @@ def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
         with open(nombre_archivo_actualizaciones, 'r', encoding='utf-8') as f:
             for line in f:
                 try:
-                    # --- INICIO DE LA LÓGICA ACTUALIZADA ---
                     # Ahora leemos el formato CODIGO,DESCRIPCION,PRECIO
                     partes = line.strip().split(',')
                     if len(partes) < 3: continue # Debe tener al menos 3 partes
@@ -69,7 +61,6 @@ def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
                             'descripcion': nueva_descripcion, 
                             'precio': nuevo_precio
                         }
-                    # --- FIN DE LA LÓGICA ACTUALIZADA ---
                         
                 except (ValueError, IndexError):
                     continue
@@ -80,6 +71,7 @@ def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
     if not df.empty:
         df['display'] = df['codigo'] + " - " + df['descripcion']
     return df
+
 def agregar_producto_y_limpiar():
     producto_display = st.session_state.get("producto_selector")
     cantidad_seleccionada = st.session_state.get("cantidad_input", 1)
@@ -102,10 +94,6 @@ def agregar_producto_y_limpiar():
 def actualizar_cantidad(index):
     nueva_cantidad = st.session_state[f"qty_{index}"]
     st.session_state.cotizacion[index]['cantidad'] = nueva_cantidad
-
-        # --- REEMPLAZA TU CLASE PDF COMPLETA CON ESTA ---
-
-# --- REEMPLAZA TU CLASE PDF COMPLETA CON ESTA ---
 
 class PDF(FPDF):
     def __init__(self, *args, **kwargs):
@@ -136,17 +124,16 @@ class PDF(FPDF):
         self.set_y(-15)
         self.set_font('Arial', 'I', 8)
         self.cell(0, 10, f'Página {self.page_no()}', 0, 0, 'C')
-def crear_pdf(cotizacion_df, cliente, agente): # <-- Se quita "vigencia" de aquí
+
+def crear_pdf(cotizacion_df, cliente, agente): 
     pdf = PDF(orientation='L')
-    pdf.agente = agente # <-- Se pasa solo el agente
+    pdf.agente = agente 
     pdf.add_page()
     pdf.set_font('Arial', 'B', 12)
     pdf.cell(0, 8, f'Cliente: {cliente}', 0, 1)
     pdf.cell(0, 8, f'Fecha: {datetime.now().strftime("%d/%m/%Y")}', 0, 1)
-    # Ya no se escribe el agente ni la vigencia aquí
     pdf.ln(5)
 
-    # ... (El resto del código para crear la tabla sigue exactamente igual) ...
     col_widths = {'codigo': 30, 'descripcion': 155, 'cantidad': 20, 'precio_unitario': 30, 'importe': 30}
 
     pdf.set_font('Arial', 'B', 10)
@@ -176,6 +163,68 @@ def crear_pdf(cotizacion_df, cliente, agente): # <-- Se quita "vigencia" de aqu�
     pdf.cell(col_widths['importe'], 10, f"${total:,.2f}", 1, 1, 'R')
 
     return bytes(pdf.output())
+
+
+# ==============================================================================
+# 🆕 FUNCIONES PARA CARGAR PEDIDO POR TEXTO 🆕
+# ==============================================================================
+
+def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
+    """
+    Analiza un bloque de texto (pedido) y lo convierte en una lista de productos 
+    para agregar a la cotización, buscando los códigos en el catálogo.
+    """
+    lineas = [line.strip() for line in texto_pedido.split('\n') if line.strip()]
+    nuevos_productos = []
+    
+    # Crea un mapeo rápido de código a información del producto (precio, descripción)
+    # Solo crea este mapa una vez para eficiencia
+    catalogo_map = df_catalogo.set_index('codigo').to_dict('index') 
+
+    for linea in lineas:
+        partes = linea.split()
+        if not partes:
+            continue
+            
+        codigo_posible = partes[0].strip()
+        cantidad_posible = 1 # Asumimos 1 por defecto
+
+        # Intenta encontrar el primer número en la línea como cantidad
+        for parte in partes:
+            try:
+                # La lógica original es correcta para encontrar el primer entero
+                cantidad_posible = int(parte)
+                if cantidad_posible > 0:
+                    break 
+                else:
+                    cantidad_posible = 1 
+            except ValueError:
+                continue
+
+        # Lógica de búsqueda: Asumimos que el código es la primera palabra
+        if codigo_posible in catalogo_map:
+            info = catalogo_map[codigo_posible]
+            
+            # Verificar si el producto ya está en la cotización (para evitar duplicados al cargar)
+            if not any(p['codigo'] == codigo_posible for p in st.session_state.cotizacion):
+                nuevos_productos.append({
+                    'codigo': codigo_posible,
+                    'descripcion': info['descripcion'],
+                    'cantidad': cantidad_posible,
+                    'precio_unitario': info['precio']
+                })
+
+    # Agregar los productos válidos a la sesión
+    if nuevos_productos:
+        st.session_state.cotizacion.extend(nuevos_productos)
+        st.success(f"Se agregaron **{len(nuevos_productos)}** productos a la cotización.")
+    else:
+        st.warning("No se encontraron códigos de producto válidos para agregar en el texto proporcionado.")
+
+def limpiar_area_texto():
+    """Limpia el contenido del área de texto del pedido."""
+    st.session_state.pedido_texto = ""
+
 # ==============================================================================
 # SECCIÓN 2: LÓGICA PRINCIPAL DE LA APLICACIÓN
 # ==============================================================================
@@ -191,6 +240,8 @@ if 'cliente' not in st.session_state:
     st.session_state.cliente = ""
 if 'agente' not in st.session_state:
     st.session_state.agente = ""
+if 'pedido_texto' not in st.session_state:
+    st.session_state.pedido_texto = ""
 
 
 # --- ENCABEZADO Y TÍTULO ---
@@ -204,7 +255,6 @@ st.write("Crea y gestiona cotizaciones para enviar a tus clientes.")
 st.markdown("---")
 
 # --- ENTRADA DE DATOS GENERALES ---
-# --- ENTRADA DE DATOS GENERALES (CORREGIDO) ---
 st.session_state.cliente = st.text_input("📝 **Nombre del Cliente:**", st.session_state.cliente).upper()
 st.session_state.agente = st.text_input("👤 **Atendido por (Agente):**", st.session_state.agente).upper()
 st.markdown("---")
@@ -225,9 +275,38 @@ else:
     st.warning("El catálogo está vacío o no se pudo cargar.")
 st.markdown("---")
 
-# --- VISTA DE LA COTIZACIÓN ACTUAL ---
-# --- REEMPLAZA LA SECCIÓN "VISTA DE LA COTIZACIÓN ACTUAL" CON ESTO ---
+# ==============================================================================
+# 🆕 LÓGICA DE STREAMLIT PARA CARGAR PEDIDO POR TEXTO 🆕
+# ==============================================================================
+st.header("📝 Carga Rápida de Pedido por Texto")
 
+with st.expander("▶️ Pegar y Cargar Pedido de Cliente"):
+    st.markdown("Pega aquí el texto del pedido del cliente. El sistema intentará identificar el **Código** (primera palabra) y la **Cantidad** (primer número entero) por línea. Por ejemplo:")
+    st.code("TRU-1500 5\nSTA-200 10\nTRU-3000") # Ejemplo ilustrativo
+    
+    # Usamos la clave 'pedido_texto' para ligarlo a la función limpiar_area_texto
+    texto_pedido = st.text_area("Pega el pedido aquí:", height=150, key="pedido_texto", help="Un código y una cantidad por línea, idealmente.")
+    
+    col_cargar, col_limpiar = st.columns([1, 1])
+    con_texto = True if texto_pedido else False
+    
+    with col_cargar:
+        if st.button("🚀 Procesar Pedido y Cargar", use_container_width=True, type="primary", disabled=not con_texto):
+            if catalogo_df.empty:
+                st.error("No se puede procesar: El catálogo está vacío.")
+            else:
+                analizar_y_cargar_pedido(texto_pedido, catalogo_df)
+                # Opcional: limpiar el área de texto después de cargar
+                # st.session_state.pedido_texto = "" 
+                st.rerun() 
+
+    with col_limpiar:
+        st.button("🧹 Limpiar Texto", use_container_width=True, on_click=limpiar_area_texto, disabled=not con_texto)
+
+st.markdown("---")
+# ==============================================================================
+
+# --- VISTA DE LA COTIZACIÓN ACTUAL ---
 st.header("📋 Cotización Actual")
 
 if st.session_state.cotizacion:
@@ -295,7 +374,7 @@ if st.session_state.cotizacion:
         texto_productos = ""
         for _, row in cotizacion_actual_df.iterrows():
             texto_productos += f"\n- ({row['cantidad']}x) [{row['codigo']}] *{row['descripcion']}*\n"
-            texto_productos += f"  Importe: ${row['importe']:,.2f}"
+            texto_productos += f"  Importe: ${row['importe']:,.2f}"
         texto_exportar += texto_productos
         texto_exportar += "\n--------------------------------------\n"
         texto_exportar += f"*TOTAL: ${total:,.2f}*\n"
