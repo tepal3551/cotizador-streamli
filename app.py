@@ -9,71 +9,86 @@ from urllib.parse import quote_plus
 # ==============================================================================
 
 @st.cache_data
-# --- REEMPLAZAR ESTA FUNCIÓN COMPLETA EN LA SECCIÓN 1 ---
-
-def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
+def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
     """
-    Analiza un bloque de texto (pedido) adaptado al nuevo formato 
-    '* CÓDIGO *CANTIDAD* DESCRIPCIÓN'.
+    Carga el catálogo de productos y luego aplica las actualizaciones de precios
+    y descripción, o agrega nuevos productos desde un archivo separado.
     """
-    lineas = [line.strip() for line in texto_pedido.split('\n') if line.strip()]
-    nuevos_productos = []
-    
-    # Crea un mapeo rápido de código a información del producto (precio, descripción)
-    catalogo_map = df_catalogo.set_index('codigo').to_dict('index') 
-    productos_en_sesion = {p['codigo'] for p in st.session_state.cotizacion}
+    catalogo = []
+    try:
+        # Paso 1: Cargar el catálogo completo
+        with open(nombre_archivo_catalogo, 'r', encoding='utf-8') as f:
+            for line in f:
+                try:
+                    partes = line.strip().split(',')
+                    if len(partes) < 3: continue
+                    codigo = partes[0].strip()
+                    precio = float(partes[-1].strip())
+                    descripcion = ','.join(partes[1:-1]).strip()
+                    catalogo.append({'codigo': codigo, 'descripcion': descripcion, 'precio': precio})
+                except (ValueError, IndexError):
+                    continue
+    except FileNotFoundError:
+        st.error(f"Error: No se encontró el archivo de catálogo '{nombre_archivo_catalogo}'.")
+        return pd.DataFrame()
 
-    for linea in lineas:
-        # 1. Nos enfocamos solo en las líneas de detalle de producto
-        if '* Detalle del Pedido:' in linea or '* Cliente:' in linea or not linea.startswith('*'):
-            continue
+    df = pd.DataFrame(catalogo)
+    if df.empty:
+        df = pd.DataFrame(columns=['codigo', 'descripcion', 'precio'])
 
-        # 2. Reemplazamos todos los asteriscos por un separador temporal, 
-        #    pero solo si la línea contiene el patrón esperado (varios *)
-        #    Ej: * 44282 *2* CADENA...
-        partes = [p.strip() for p in linea.split('*') if p.strip()]
-        
-        # Debe haber al menos 3 partes relevantes: [CÓDIGO], [CANTIDAD], [DESCRIPCIÓN]
-        if len(partes) < 3:
-            continue
+    df = df.set_index('codigo')
 
-        try:
-            # La primera parte DEBERÍA ser el código (ej: '44282')
-            codigo_posible = partes[0]
-            
-            # La segunda parte DEBERÍA ser la cantidad (ej: '2')
-            cantidad_posible = int(partes[1])
-            
-            if cantidad_posible <= 0:
-                cantidad_posible = 1 # Asegurar cantidad mínima
-                
-        except ValueError:
-            # Si el código o la cantidad no son válidos, pasamos a la siguiente línea
-            continue
-            
-        # 3. Lógica de verificación y adición
-        if codigo_posible in catalogo_map:
-            if codigo_posible in productos_en_sesion:
-                # El producto ya fue agregado, no lo duplicamos
-                continue
+    # Paso 2: Cargar y aplicar actualizaciones o AGREGAR nuevos productos
+    try:
+        with open(nombre_archivo_actualizaciones, 'r', encoding='utf-8') as f:
+            for line in f:
+                try:
+                    partes = line.strip().split(',')
+                    if len(partes) < 3: continue 
 
-            info = catalogo_map[codigo_posible]
-            
-            nuevos_productos.append({
-                'codigo': codigo_posible,
-                'descripcion': info['descripcion'],
-                'cantidad': cantidad_posible,
-                'precio_unitario': info['precio']
+                    codigo = partes[0].strip()
+                    nuevo_precio = float(partes[-1].strip())
+                    nueva_descripcion = ','.join(partes[1:-1]).strip()
+                    
+                    if codigo in df.index:
+                        df.at[codigo, 'precio'] = nuevo_precio
+                        df.at[codigo, 'descripcion'] = nueva_descripcion
+                    else:
+                        df.loc[codigo] = {
+                            'descripcion': nueva_descripcion, 
+                            'precio': nuevo_precio
+                        }
+                        
+                except (ValueError, IndexError):
+                    continue
+    except FileNotFoundError:
+        pass
+
+    df = df.reset_index()
+    if not df.empty:
+        df['display'] = df['codigo'] + " - " + df['descripcion']
+    return df
+
+def agregar_producto_y_limpiar():
+    producto_display = st.session_state.get("producto_selector")
+    cantidad_seleccionada = st.session_state.get("cantidad_input", 1)
+    if producto_display:
+        # Aquí debes usar el catalogo_df definido en la sección 2
+        producto_info = st.session_state.catalogo_df[st.session_state.catalogo_df['display'] == producto_display].iloc[0]
+        if any(p['codigo'] == producto_info['codigo'] for p in st.session_state.cotizacion):
+            st.warning("Este producto ya está en la cotización.")
+        else:
+            st.session_state.cotizacion.append({
+                'codigo': producto_info['codigo'],
+                'descripcion': producto_info['descripcion'],
+                'cantidad': cantidad_seleccionada,
+                'precio_unitario': producto_info['precio']
             })
-
-    # Agregar los productos válidos a la sesión
-    if nuevos_productos:
-        st.session_state.cotizacion.extend(nuevos_productos)
-        st.success(f"Se agregaron **{len(nuevos_productos)}** productos a la cotización.")
+            st.session_state.producto_selector = None
+            st.session_state.cantidad_input = 1
     else:
-        st.warning("No se encontraron códigos de producto válidos o el formato no es el esperado en el texto proporcionado.")
+        st.warning("Por favor, selecciona un producto.")
 
-# --- FIN DE LA FUNCIÓN MEJORADA ---
 def actualizar_cantidad(index):
     nueva_cantidad = st.session_state[f"qty_{index}"]
     st.session_state.cotizacion[index]['cantidad'] = nueva_cantidad
@@ -95,15 +110,9 @@ class PDF(FPDF):
 
     def footer(self):
         self.set_y(-25)
-
-        # 1. Establecemos la fuente a Negrita ('B') para el texto principal
         self.set_font('Arial', 'B', 8)
-
-        # 2. Escribimos ambas líneas en negritas
         self.cell(0, 4, f"Atendido por: {self.agente}", align='L', ln=1)
         self.cell(0, 4, "La presente cotización es válida únicamente durante el mes y año de su emisión.", align='L', ln=1)
-
-        # 3. Cambiamos la fuente a Itálica ('I') solo para el número de página
         self.set_y(-15)
         self.set_font('Arial', 'I', 8)
         self.cell(0, 10, f'Página {self.page_no()}', 0, 0, 'C')
@@ -148,64 +157,67 @@ def crear_pdf(cotizacion_df, cliente, agente):
     return bytes(pdf.output())
 
 
-# ==============================================================================
-# 🆕 FUNCIONES PARA CARGAR PEDIDO POR TEXTO 🆕
-# ==============================================================================
-
 def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
     """
-    Analiza un bloque de texto (pedido) y lo convierte en una lista de productos 
-    para agregar a la cotización, buscando los códigos en el catálogo.
+    Analiza un bloque de texto (pedido) adaptado al nuevo formato 
+    '* CÓDIGO *CANTIDAD* DESCRIPCIÓN'.
     """
     lineas = [line.strip() for line in texto_pedido.split('\n') if line.strip()]
     nuevos_productos = []
     
     # Crea un mapeo rápido de código a información del producto (precio, descripción)
-    # Solo crea este mapa una vez para eficiencia
     catalogo_map = df_catalogo.set_index('codigo').to_dict('index') 
+    productos_en_sesion = {p['codigo'] for p in st.session_state.cotizacion}
 
     for linea in lineas:
-        partes = linea.split()
-        if not partes:
+        # 1. Nos enfocamos solo en las líneas de detalle de producto
+        if '* Detalle del Pedido:' in linea or '* Cliente:' in linea or not linea.startswith('*'):
+            continue
+
+        # 2. Partimos por el asterisco para obtener las partes
+        partes = [p.strip() for p in linea.split('*') if p.strip()]
+        
+        # Debe haber al menos 3 partes relevantes: [CÓDIGO], [CANTIDAD], [DESCRIPCIÓN]
+        if len(partes) < 3:
+            continue
+
+        try:
+            # La primera parte DEBERÍA ser el código (ej: '44282')
+            codigo_posible = partes[0]
+            
+            # La segunda parte DEBERÍA ser la cantidad (ej: '2')
+            cantidad_posible = int(partes[1])
+            
+            if cantidad_posible <= 0:
+                cantidad_posible = 1 
+                
+        except ValueError:
             continue
             
-        codigo_posible = partes[0].strip()
-        cantidad_posible = 1 # Asumimos 1 por defecto
-
-        # Intenta encontrar el primer número en la línea como cantidad
-        for parte in partes:
-            try:
-                # La lógica original es correcta para encontrar el primer entero
-                cantidad_posible = int(parte)
-                if cantidad_posible > 0:
-                    break 
-                else:
-                    cantidad_posible = 1 
-            except ValueError:
+        # 3. Lógica de verificación y adición
+        if codigo_posible in catalogo_map:
+            if codigo_posible in productos_en_sesion:
                 continue
 
-        # Lógica de búsqueda: Asumimos que el código es la primera palabra
-        if codigo_posible in catalogo_map:
             info = catalogo_map[codigo_posible]
             
-            # Verificar si el producto ya está en la cotización (para evitar duplicados al cargar)
-            if not any(p['codigo'] == codigo_posible for p in st.session_state.cotizacion):
-                nuevos_productos.append({
-                    'codigo': codigo_posible,
-                    'descripcion': info['descripcion'],
-                    'cantidad': cantidad_posible,
-                    'precio_unitario': info['precio']
-                })
+            nuevos_productos.append({
+                'codigo': codigo_posible,
+                'descripcion': info['descripcion'],
+                'cantidad': cantidad_posible,
+                'precio_unitario': info['precio']
+            })
 
     # Agregar los productos válidos a la sesión
     if nuevos_productos:
         st.session_state.cotizacion.extend(nuevos_productos)
         st.success(f"Se agregaron **{len(nuevos_productos)}** productos a la cotización.")
     else:
-        st.warning("No se encontraron códigos de producto válidos para agregar en el texto proporcionado.")
+        st.warning("No se encontraron códigos de producto válidos o el formato no es el esperado en el texto proporcionado.")
 
 def limpiar_area_texto():
     """Limpia el contenido del área de texto del pedido."""
+    st.session_state.pedido_texto = "" # Implementación correcta
 
 
 # ==============================================================================
@@ -217,6 +229,10 @@ st.set_page_config(page_title="Cotizador de Pedidos Truper", page_icon="🔩", l
 NOMBRE_ARCHIVO_CATALOGO = "CATALAGO 25 TRUP PRUEBA COTIZADOR.txt"
 NOMBRE_ARCHIVO_ACTUALIZACIONES = "precios_actualizados.txt"
 catalogo_df = cargar_catalogo(NOMBRE_ARCHIVO_CATALOGO, NOMBRE_ARCHIVO_ACTUALIZACIONES)
+
+# Guardar el DataFrame en session_state para que 'agregar_producto_y_limpiar' lo pueda usar
+st.session_state.catalogo_df = catalogo_df 
+
 if 'cotizacion' not in st.session_state:
     st.session_state.cotizacion = []
 if 'cliente' not in st.session_state:
@@ -264,11 +280,10 @@ st.markdown("---")
 st.header("📝 Carga Rápida de Pedido por Texto")
 
 with st.expander("▶️ Pegar y Cargar Pedido de Cliente"):
-    st.markdown("Pega aquí el texto del pedido del cliente. El sistema intentará identificar el **Código** (primera palabra) y la **Cantidad** (primer número entero) por línea. Por ejemplo:")
-    st.code("TRU-1500 5\nSTA-200 10\nTRU-3000") # Ejemplo ilustrativo
+    st.markdown("Pega aquí el texto del pedido del cliente. **Formato esperado: `* CÓDIGO *CANTIDAD* DESCRIPCIÓN`**")
+    st.code("* 44282 *5* CADENA DE PASEO...\n* 49212 *1* TERMOPAR...") # Ejemplo ilustrativo
     
-    # Usamos la clave 'pedido_texto' para ligarlo a la función limpiar_area_texto
-    texto_pedido = st.text_area("Pega el pedido aquí:", height=150, key="pedido_texto", help="Un código y una cantidad por línea, idealmente.")
+    texto_pedido = st.text_area("Pega el pedido aquí:", height=150, key="pedido_texto", help="Copia el detalle del pedido directamente del formato que usas.")
     
     col_cargar, col_limpiar = st.columns([1, 1])
     con_texto = True if texto_pedido else False
@@ -279,8 +294,6 @@ with st.expander("▶️ Pegar y Cargar Pedido de Cliente"):
                 st.error("No se puede procesar: El catálogo está vacío.")
             else:
                 analizar_y_cargar_pedido(texto_pedido, catalogo_df)
-                # Opcional: limpiar el área de texto después de cargar
-                # st.session_state.pedido_texto = "" 
                 st.rerun() 
 
     with col_limpiar:
@@ -335,7 +348,9 @@ if st.session_state.cotizacion:
         st.download_button("📄 Descargar PDF", data=pdf_bytes, file_name=f"COTIZACION_{st.session_state.cliente.replace(' ', '_') or 'cliente'}.pdf", mime="application/octet-stream", use_container_width=True)
 
     with col_whatsapp:
-        mensaje_whatsapp = quote_plus("Hola, te comparto la cotización solicitada.")
+        # Generar un mensaje de WhatsApp que incluya parte del detalle (opcional)
+        # Por simplicidad, se usa solo el mensaje inicial, el PDF es el importante.
+        mensaje_whatsapp = quote_plus(f"Hola {st.session_state.cliente}, te comparto la cotización solicitada por un total de ${total:,.2f}.")
         whatsapp_url = f"https://wa.me/?text={mensaje_whatsapp}"
         st.link_button("📲 Compartir en WhatsApp", url=whatsapp_url, use_container_width=True)
 
