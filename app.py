@@ -206,7 +206,7 @@ def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
 
 def limpiar_area_texto():
     """Limpia el contenido del área de texto del pedido."""
-    st.session_state.pedido_texto = ""
+
 
 # ==============================================================================
 # SECCIÓN 2: LÓGICA PRINCIPAL DE LA APLICACIÓN
