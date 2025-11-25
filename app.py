@@ -9,88 +9,71 @@ from urllib.parse import quote_plus
 # ==============================================================================
 
 @st.cache_data
-def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
+# --- REEMPLAZAR ESTA FUNCIÓN COMPLETA EN LA SECCIÓN 1 ---
+
+def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
     """
-    Carga el catálogo de productos y luego aplica las actualizaciones de precios
-    y descripción, o agrega nuevos productos desde un archivo separado.
+    Analiza un bloque de texto (pedido) adaptado al nuevo formato 
+    '* CÓDIGO *CANTIDAD* DESCRIPCIÓN'.
     """
-    catalogo = []
-    try:
-        # Paso 1: Cargar el catálogo completo
-        with open(nombre_archivo_catalogo, 'r', encoding='utf-8') as f:
-            for line in f:
-                try:
-                    partes = line.strip().split(',')
-                    if len(partes) < 3: continue
-                    codigo = partes[0].strip()
-                    precio = float(partes[-1].strip())
-                    descripcion = ','.join(partes[1:-1]).strip()
-                    catalogo.append({'codigo': codigo, 'descripcion': descripcion, 'precio': precio})
-                except (ValueError, IndexError):
-                    continue
-    except FileNotFoundError:
-        st.error(f"Error: No se encontró el archivo de catálogo '{nombre_archivo_catalogo}'.")
-        return pd.DataFrame()
+    lineas = [line.strip() for line in texto_pedido.split('\n') if line.strip()]
+    nuevos_productos = []
+    
+    # Crea un mapeo rápido de código a información del producto (precio, descripción)
+    catalogo_map = df_catalogo.set_index('codigo').to_dict('index') 
+    productos_en_sesion = {p['codigo'] for p in st.session_state.cotizacion}
 
-    df = pd.DataFrame(catalogo)
-    if df.empty:
-        df = pd.DataFrame(columns=['codigo', 'descripcion', 'precio'])
+    for linea in lineas:
+        # 1. Nos enfocamos solo en las líneas de detalle de producto
+        if '* Detalle del Pedido:' in linea or '* Cliente:' in linea or not linea.startswith('*'):
+            continue
 
-    df = df.set_index('codigo')
+        # 2. Reemplazamos todos los asteriscos por un separador temporal, 
+        #    pero solo si la línea contiene el patrón esperado (varios *)
+        #    Ej: * 44282 *2* CADENA...
+        partes = [p.strip() for p in linea.split('*') if p.strip()]
+        
+        # Debe haber al menos 3 partes relevantes: [CÓDIGO], [CANTIDAD], [DESCRIPCIÓN]
+        if len(partes) < 3:
+            continue
 
-    # Paso 2: Cargar y aplicar actualizaciones o AGREGAR nuevos productos
-    try:
-        with open(nombre_archivo_actualizaciones, 'r', encoding='utf-8') as f:
-            for line in f:
-                try:
-                    # Ahora leemos el formato CODIGO,DESCRIPCION,PRECIO
-                    partes = line.strip().split(',')
-                    if len(partes) < 3: continue # Debe tener al menos 3 partes
+        try:
+            # La primera parte DEBERÍA ser el código (ej: '44282')
+            codigo_posible = partes[0]
+            
+            # La segunda parte DEBERÍA ser la cantidad (ej: '2')
+            cantidad_posible = int(partes[1])
+            
+            if cantidad_posible <= 0:
+                cantidad_posible = 1 # Asegurar cantidad mínima
+                
+        except ValueError:
+            # Si el código o la cantidad no son válidos, pasamos a la siguiente línea
+            continue
+            
+        # 3. Lógica de verificación y adición
+        if codigo_posible in catalogo_map:
+            if codigo_posible in productos_en_sesion:
+                # El producto ya fue agregado, no lo duplicamos
+                continue
 
-                    codigo = partes[0].strip()
-                    nuevo_precio = float(partes[-1].strip())
-                    nueva_descripcion = ','.join(partes[1:-1]).strip()
-                    
-                    if codigo in df.index:
-                        # 1. SI EXISTE: Actualiza el precio Y la descripción
-                        df.at[codigo, 'precio'] = nuevo_precio
-                        df.at[codigo, 'descripcion'] = nueva_descripcion
-                    else:
-                        # 2. SI NO EXISTE: Lo agrega como un nuevo producto
-                        df.loc[codigo] = {
-                            'descripcion': nueva_descripcion, 
-                            'precio': nuevo_precio
-                        }
-                        
-                except (ValueError, IndexError):
-                    continue
-    except FileNotFoundError:
-        pass
-
-    df = df.reset_index()
-    if not df.empty:
-        df['display'] = df['codigo'] + " - " + df['descripcion']
-    return df
-
-def agregar_producto_y_limpiar():
-    producto_display = st.session_state.get("producto_selector")
-    cantidad_seleccionada = st.session_state.get("cantidad_input", 1)
-    if producto_display:
-        producto_info = catalogo_df[catalogo_df['display'] == producto_display].iloc[0]
-        if any(p['codigo'] == producto_info['codigo'] for p in st.session_state.cotizacion):
-            st.warning("Este producto ya está en la cotización.")
-        else:
-            st.session_state.cotizacion.append({
-                'codigo': producto_info['codigo'],
-                'descripcion': producto_info['descripcion'],
-                'cantidad': cantidad_seleccionada,
-                'precio_unitario': producto_info['precio']
+            info = catalogo_map[codigo_posible]
+            
+            nuevos_productos.append({
+                'codigo': codigo_posible,
+                'descripcion': info['descripcion'],
+                'cantidad': cantidad_posible,
+                'precio_unitario': info['precio']
             })
-            st.session_state.producto_selector = None
-            st.session_state.cantidad_input = 1
-    else:
-        st.warning("Por favor, selecciona un producto.")
 
+    # Agregar los productos válidos a la sesión
+    if nuevos_productos:
+        st.session_state.cotizacion.extend(nuevos_productos)
+        st.success(f"Se agregaron **{len(nuevos_productos)}** productos a la cotización.")
+    else:
+        st.warning("No se encontraron códigos de producto válidos o el formato no es el esperado en el texto proporcionado.")
+
+# --- FIN DE LA FUNCIÓN MEJORADA ---
 def actualizar_cantidad(index):
     nueva_cantidad = st.session_state[f"qty_{index}"]
     st.session_state.cotizacion[index]['cantidad'] = nueva_cantidad
