@@ -70,6 +70,8 @@ def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
     return df
 
 # --- FUNCIÓN DE ANALISIS DE PEDIDO (VERSION FLEXIBLE) ---
+# --- REEMPLAZAR LA FUNCIÓN ANALIZAR_Y_CARGAR_PEDIDO CON ESTA VERSIÓN FLEXIBLE ---
+
 def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
     """
     Analiza un bloque de texto (pedido) que contenga CÓDIGO y CANTIDAD 
@@ -85,6 +87,7 @@ def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
 
     for linea in lineas:
         # 1. Limpiamos viñetas iniciales y espacios (incluye *, -, •, viñeta unicode)
+        # Esto hace que la línea empiece directamente con el código
         linea_limpia = re.sub(r'^[*-•–\s]+', '', linea).strip()
         
         if not linea_limpia:
@@ -93,6 +96,7 @@ def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
         # Separamos máximo 3 partes: [CÓDIGO], [CANTIDAD], [RESTO]
         partes = linea_limpia.split(maxsplit=2) 
         
+        # Debe tener al menos 2 partes para tener código y cantidad
         if len(partes) < 2:
             continue
 
@@ -104,6 +108,7 @@ def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
                 cantidad_posible = 1 
                 
         except ValueError:
+            # Si la segunda parte no es un número entero (la cantidad), pasamos
             continue
             
         # 2. Lógica de verificación y adición
@@ -126,6 +131,7 @@ def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
     else:
         st.warning("No se encontraron códigos válidos o no se pudo identificar el patrón `CÓDIGO CANTIDAD` al inicio de las líneas.")
 
+# --- FIN DE LA FUNCIÓN DE ANALISIS DE PEDIDO FLEXIBLE ---
 # --- FIN DE LA FUNCIÓN DE ANALISIS DE PEDIDO ---
 
 def agregar_producto_y_limpiar():
