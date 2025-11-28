@@ -74,6 +74,8 @@ def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
 
 import re # Asegúrate de que 'import re' esté al inicio del script
 
+# --- REEMPLAZAR LA FUNCIÓN ANALIZAR_Y_CARGAR_PEDIDO COMPLETA CON ESTA VERSIÓN ---
+
 def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
     """
     Analiza un bloque de texto que contenga CÓDIGO y CANTIDAD al inicio.
@@ -81,15 +83,26 @@ def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
     """
     lineas = [line.strip() for line in texto_pedido.split('\n') if line.strip()]
     nuevos_productos = []
-    diagnostico_fallos = [] # Lista para almacenar los errores de diagnóstico
+    diagnostico_fallos = [] 
     
-    catalogo_map = df_catalogo.set_index('codigo').to_dict('index') 
+    # Preparamos el catálogo para una búsqueda rápida
+    try:
+        catalogo_map = df_catalogo.set_index('codigo').to_dict('index')
+    except KeyError:
+        # Esto ocurre si df_catalogo está vacío o no tiene columna 'codigo'
+        st.error("Error de Catálogo: El DataFrame cargado no tiene la columna 'codigo'.")
+        return
+
     productos_en_sesion = {p['codigo'] for p in st.session_state.cotizacion}
 
     for linea in lineas:
         # 1. Limpieza Total: Quitamos viñetas (•, *, -) y normalizamos el separador de cantidad (*N* -> N).
-        linea_limpia = re.sub(r'^[*-•–\s]+', '', linea) # Quita viñetas iniciales
-        # Convierte formatos como *2* en ' 2 '
+        # Esto nos deja una cadena simple tipo: "44282 2 CADENA DE PASEO..."
+        
+        # 1a. Quita viñetas y espacios iniciales
+        linea_limpia = re.sub(r'^[*-•–\s]+', '', linea) 
+        
+        # 1b. Convierte patrones como '*2*' en un espacio simple: ' 2 '
         linea_limpia = re.sub(r'\s*\*\s*', ' ', linea_limpia).strip() 
         
         if not linea_limpia:
@@ -109,7 +122,7 @@ def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
                 if cantidad_posible <= 0:
                     cantidad_posible = 1
             except ValueError:
-                pass # Ignoramos líneas donde la cantidad no es un número.
+                pass # La línea es texto o el segundo elemento no es un número.
 
         # 2. Verificación de Catálogo
         if codigo_posible and codigo_posible in catalogo_map:
@@ -129,7 +142,6 @@ def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
             # --- DIAGNÓSTICO: Si se extrajo un código pero no está en el catálogo, lo guardamos.
             if codigo_posible and cantidad_posible > 0:
                 diagnostico_fallos.append(f"Cód. no enc.: '{codigo_posible}' (Cant: {cantidad_posible}) Línea original: {linea.strip()}")
-            # --- FIN DIAGNÓSTICO ---
 
 
     # 3. Presentación de Resultados y Fallos
@@ -141,8 +153,9 @@ def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
         
     if diagnostico_fallos:
         st.error("❌ Fallos de Coincidencia de Catálogo/Formato (Revisa los códigos):")
-        st.code('\n'.join(diagnostico_fallos))# --- FIN DE LA FUNCIÓN DE ANALISIS DE PEDIDO ---
+        st.code('\n'.join(diagnostico_fallos))
 
+# --- FIN DE LA FUNCIÓN DE ANALISIS DE PEDIDO ---
 def agregar_producto_y_limpiar():
     producto_display = st.session_state.get("producto_selector")
     cantidad_seleccionada = st.session_state.get("cantidad_input", 1)
