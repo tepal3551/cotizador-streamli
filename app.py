@@ -76,57 +76,50 @@ import re # Asegúrate de que 'import re' esté al inicio del script
 
 # --- REEMPLAZAR LA FUNCIÓN ANALIZAR_Y_CARGAR_PEDIDO COMPLETA CON ESTA VERSIÓN ---
 
+import re # Asegúrate de que 'import re' esté al inicio del script
+
 def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
     """
-    Analiza un bloque de texto que contenga CÓDIGO y CANTIDAD al inicio.
-    Incluye diagnóstico si la coincidencia con el catálogo falla.
+    Analiza un bloque de texto buscando el patrón numérico CÓDIGO y CANTIDAD 
+    siendo totalmente tolerante a viñetas, asteriscos y espacios intermedios.
     """
     lineas = [line.strip() for line in texto_pedido.split('\n') if line.strip()]
     nuevos_productos = []
     diagnostico_fallos = [] 
     
-    # Preparamos el catálogo para una búsqueda rápida
-    try:
-        catalogo_map = df_catalogo.set_index('codigo').to_dict('index')
-    except KeyError:
-        # Esto ocurre si df_catalogo está vacío o no tiene columna 'codigo'
-        st.error("Error de Catálogo: El DataFrame cargado no tiene la columna 'codigo'.")
-        return
-
+    catalogo_map = df_catalogo.set_index('codigo').to_dict('index') 
     productos_en_sesion = {p['codigo'] for p in st.session_state.cotizacion}
 
-    # --- REEMPLAZAR EL BLOQUE DE LIMPIEZA DENTRO DEL 'for linea in lineas:' ---
+    # Patrón RegEx: Busca al inicio de la línea:
+    # 1. Caracteres no numéricos opcionales (viñeta, *)
+    # 2. El CÓDIGO (un grupo de 4 a 6 dígitos consecutivos) -> Grupo 1
+    # 3. Caracteres no numéricos opcionales (espacio, *)
+    # 4. La CANTIDAD (un grupo de 1 a 3 dígitos consecutivos) -> Grupo 2
+    PATRON_PEDIDO = re.compile(r'^[^\d]*(\d{4,6})[^\d]*(\d{1,3})')
 
     for linea in lineas:
-        # 1. Limpieza Total: Quitamos viñetas (•, *, -) y normalizamos el separador de cantidad.
         
-        # 1a. Limpieza de viñetas iniciales y reemplazo de TODOS los asteriscos por un espacio.
-        # Esto convierte '• 44282 *2*...' en ' 44282  2  CADENA...'
-        linea_limpia = re.sub(r'^[*-•–\s]+', '', linea) 
-        linea_limpia = linea_limpia.replace('*', ' ') # Reemplazo directo de todos los asteriscos
-        
-        # 1b. Normaliza múltiples espacios a uno solo (Esto convierte ' 44282  2 ' en '44282 2')
-        linea_limpia = re.sub(r'\s+', ' ', linea_limpia).strip() 
-        
-        if not linea_limpia:
+        # Ignoramos líneas que son encabezados o texto largo sin patrón numérico al inicio
+        if 'DETALLE DEL PEDIDO' in linea.upper() or len(linea.split()) < 2:
             continue
             
         codigo_posible = None
-        # ... (El resto del código de split y try/except sigue igual) ...
         cantidad_posible = 0
 
-        # Separamos máximo 3 partes: [CÓDIGO], [CANTIDAD], [RESTO]
-        partes = linea_limpia.split(maxsplit=2) 
-        
-        if len(partes) >= 2:
+        # Buscamos el patrón en la línea
+        match = PATRON_PEDIDO.match(linea)
+
+        if match:
             try:
-                codigo_posible = partes[0]
-                cantidad_posible = int(partes[1])
+                # El grupo 1 es el CÓDIGO, el grupo 2 es la CANTIDAD
+                codigo_posible = match.group(1).strip()
+                cantidad_posible = int(match.group(2))
                 
                 if cantidad_posible <= 0:
                     cantidad_posible = 1
-            except ValueError:
-                pass # La línea es texto o el segundo elemento no es un número.
+            except Exception:
+                # Si falla la conversión a entero, seguimos.
+                pass 
 
         # 2. Verificación de Catálogo
         if codigo_posible and codigo_posible in catalogo_map:
@@ -143,9 +136,9 @@ def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
             })
             
         else:
-            # --- DIAGNÓSTICO: Si se extrajo un código pero no está en el catálogo, lo guardamos.
+            # DIAGNÓSTICO: Si se extrajo un código pero no está en el catálogo, lo guardamos.
             if codigo_posible and cantidad_posible > 0:
-                diagnostico_fallos.append(f"Cód. no enc.: '{codigo_posible}' (Cant: {cantidad_posible}) Línea original: {linea.strip()}")
+                diagnostico_fallos.append(f"Cód. no enc.: '{codigo_posible}' (Cant: {cantidad_posible}) Línea: {linea.strip()}")
 
 
     # 3. Presentación de Resultados y Fallos
@@ -153,10 +146,12 @@ def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
         st.session_state.cotizacion.extend(nuevos_productos)
         st.success(f"Se agregaron **{len(nuevos_productos)}** productos a la cotización.")
     else:
-        st.warning("No se encontraron productos válidos o el formato es irreconocible.")
+        # Solo mostramos la advertencia general si no hay códigos que coincidan con el patrón
+        if not diagnostico_fallos:
+             st.warning("No se encontraron productos válidos. Verifique el formato CÓDIGO CANTIDAD.")
         
     if diagnostico_fallos:
-        st.error("❌ Fallos de Coincidencia de Catálogo/Formato (Revisa los códigos):")
+        st.error("❌ Fallos de Coincidencia de Catálogo (Verifique si estos códigos existen en su archivo):")
         st.code('\n'.join(diagnostico_fallos))
 
 # --- FIN DE LA FUNCIÓN DE ANALISIS DE PEDIDO ---
