@@ -76,47 +76,43 @@ import re # Asegúrate de que 'import re' esté al inicio del script
 
 def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
     """
-    Analiza un bloque de texto buscando CÓDIGO y CANTIDAD al inicio,
-    siendo altamente tolerante a viñetas y asteriscos.
-    
-    Formato que ahora SÍ debe procesar: [Viñeta] CÓDIGO CANTIDAD/(*CANTIDAD*) DESCRIPCIÓN...
+    Analiza un bloque de texto que contenga CÓDIGO y CANTIDAD al inicio.
+    Incluye diagnóstico si la coincidencia con el catálogo falla.
     """
     lineas = [line.strip() for line in texto_pedido.split('\n') if line.strip()]
     nuevos_productos = []
+    diagnostico_fallos = [] # Lista para almacenar los errores de diagnóstico
     
-    # Preparamos el catálogo para una búsqueda rápida
     catalogo_map = df_catalogo.set_index('codigo').to_dict('index') 
     productos_en_sesion = {p['codigo'] for p in st.session_state.cotizacion}
 
     for linea in lineas:
-        # 1. Limpieza Total: Quitamos viñetas (•, *, -), y cualquier asterisco que rodee un número.
-        # Esto simplifica la línea a CÓDIGO CANTIDAD DESCRIPCIÓN
+        # 1. Limpieza Total: Quitamos viñetas (•, *, -) y normalizamos el separador de cantidad (*N* -> N).
         linea_limpia = re.sub(r'^[*-•–\s]+', '', linea) # Quita viñetas iniciales
-        linea_limpia = re.sub(r'\s*\*\s*', ' ', linea_limpia).strip() # Reemplaza * rodeado de espacios por un solo espacio.
+        # Convierte formatos como *2* en ' 2 '
+        linea_limpia = re.sub(r'\s*\*\s*', ' ', linea_limpia).strip() 
         
         if not linea_limpia:
             continue
             
-        # 2. Separación Simple: Asumimos que la primera palabra es Código y la segunda es Cantidad.
-        # Ejemplo: "44282 2 CADENA..." -> partes = ["44282", "2", "CADENA..."]
+        codigo_posible = None
+        cantidad_posible = 0
+
+        # Separamos máximo 3 partes: [CÓDIGO], [CANTIDAD], [RESTO]
         partes = linea_limpia.split(maxsplit=2) 
         
-        if len(partes) < 2:
-            continue
-
-        try:
-            codigo_posible = partes[0]
-            cantidad_posible = int(partes[1])
-            
-            if cantidad_posible <= 0:
-                cantidad_posible = 1 
+        if len(partes) >= 2:
+            try:
+                codigo_posible = partes[0]
+                cantidad_posible = int(partes[1])
                 
-        except ValueError:
-            # Si la segunda parte no es un número entero, pasamos a la siguiente línea
-            continue
-            
-        # 3. Verificación y Adición
-        if codigo_posible in catalogo_map:
+                if cantidad_posible <= 0:
+                    cantidad_posible = 1
+            except ValueError:
+                pass # Ignoramos líneas donde la cantidad no es un número.
+
+        # 2. Verificación de Catálogo
+        if codigo_posible and codigo_posible in catalogo_map:
             if codigo_posible in productos_en_sesion:
                 continue
 
@@ -128,13 +124,24 @@ def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
                 'cantidad': cantidad_posible,
                 'precio_unitario': info['precio']
             })
+            
+        else:
+            # --- DIAGNÓSTICO: Si se extrajo un código pero no está en el catálogo, lo guardamos.
+            if codigo_posible and cantidad_posible > 0:
+                diagnostico_fallos.append(f"Cód. no enc.: '{codigo_posible}' (Cant: {cantidad_posible}) Línea original: {linea.strip()}")
+            # --- FIN DIAGNÓSTICO ---
 
+
+    # 3. Presentación de Resultados y Fallos
     if nuevos_productos:
         st.session_state.cotizacion.extend(nuevos_productos)
         st.success(f"Se agregaron **{len(nuevos_productos)}** productos a la cotización.")
     else:
-        st.warning("No se encontraron códigos válidos en el texto. Asegúrate de que el CÓDIGO y la CANTIDAD sean los dos primeros elementos de cada línea.")# --- FIN DE LA FUNCIÓN DE ANALISIS DE PEDIDO FLEXIBLE ---
-# --- FIN DE LA FUNCIÓN DE ANALISIS DE PEDIDO ---
+        st.warning("No se encontraron productos válidos o el formato es irreconocible.")
+        
+    if diagnostico_fallos:
+        st.error("❌ Fallos de Coincidencia de Catálogo/Formato (Revisa los códigos):")
+        st.code('\n'.join(diagnostico_fallos))# --- FIN DE LA FUNCIÓN DE ANALISIS DE PEDIDO ---
 
 def agregar_producto_y_limpiar():
     producto_display = st.session_state.get("producto_selector")
