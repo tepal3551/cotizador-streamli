@@ -76,54 +76,46 @@ import re # Asegúrate de que 'import re' esté al inicio del script
 
 def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
     """
-    Analiza un bloque de texto buscando el patrón de CÓDIGO y CANTIDAD,
-    manejando viñetas (•, *) y diferentes separadores (*, espacio).
+    Analiza un bloque de texto buscando CÓDIGO y CANTIDAD al inicio,
+    siendo altamente tolerante a viñetas y asteriscos.
+    
+    Formato que ahora SÍ debe procesar: [Viñeta] CÓDIGO CANTIDAD/(*CANTIDAD*) DESCRIPCIÓN...
     """
     lineas = [line.strip() for line in texto_pedido.split('\n') if line.strip()]
     nuevos_productos = []
     
+    # Preparamos el catálogo para una búsqueda rápida
     catalogo_map = df_catalogo.set_index('codigo').to_dict('index') 
     productos_en_sesion = {p['codigo'] for p in st.session_state.cotizacion}
 
     for linea in lineas:
-        # 1. Limpieza Inicial: Quita viñetas Unicode, asteriscos y espacios iniciales.
-        # Esto deja la línea empezando por el CÓDIGO.
-        linea_limpia = re.sub(r'^[*-•–\s]+', '', linea).strip()
+        # 1. Limpieza Total: Quitamos viñetas (•, *, -), y cualquier asterisco que rodee un número.
+        # Esto simplifica la línea a CÓDIGO CANTIDAD DESCRIPCIÓN
+        linea_limpia = re.sub(r'^[*-•–\s]+', '', linea) # Quita viñetas iniciales
+        linea_limpia = re.sub(r'\s*\*\s*', ' ', linea_limpia).strip() # Reemplaza * rodeado de espacios por un solo espacio.
         
         if not linea_limpia:
             continue
+            
+        # 2. Separación Simple: Asumimos que la primera palabra es Código y la segunda es Cantidad.
+        # Ejemplo: "44282 2 CADENA..." -> partes = ["44282", "2", "CADENA..."]
+        partes = linea_limpia.split(maxsplit=2) 
         
-        # 2. Intento de Extracción de CÓDIGO y CANTIDAD usando dos estrategias:
-        
-        codigo_posible = None
-        cantidad_posible = 0
-
-        # --- ESTRATEGIA A: Patrón con Asteriscos (• 44282 *2*...) ---
-        # Separamos la línea limpia por asteriscos. Ej: "44282 *2* CADENA..." -> ["44282 ", "2", " CADENA..."]
-        partes_asterisco = [p.strip() for p in linea_limpia.split('*') if p.strip()]
-        
-        if len(partes_asterisco) >= 2:
-            try:
-                # La primera parte es el código, la segunda es la cantidad (entre los asteriscos)
-                codigo_posible = partes_asterisco[0].split()[0] # Tomamos solo la primera palabra (el código)
-                cantidad_posible = int(partes_asterisco[1])
-            except (IndexError, ValueError):
-                pass # Si falla, probamos la Estrategia B
-        
-        # --- ESTRATEGIA B: Patrón con Espacios (CÓDIGO CANTIDAD DESCRIPCIÓN...) ---
-        if codigo_posible is None:
-            partes_espacio = linea_limpia.split(maxsplit=2)
-            if len(partes_espacio) >= 2:
-                try:
-                    codigo_posible = partes_espacio[0]
-                    cantidad_posible = int(partes_espacio[1])
-                except (IndexError, ValueError):
-                    continue # Si falla, esta línea no es procesable.
-
-        if codigo_posible is None or cantidad_posible <= 0:
+        if len(partes) < 2:
             continue
 
-        # 3. Lógica de verificación y adición
+        try:
+            codigo_posible = partes[0]
+            cantidad_posible = int(partes[1])
+            
+            if cantidad_posible <= 0:
+                cantidad_posible = 1 
+                
+        except ValueError:
+            # Si la segunda parte no es un número entero, pasamos a la siguiente línea
+            continue
+            
+        # 3. Verificación y Adición
         if codigo_posible in catalogo_map:
             if codigo_posible in productos_en_sesion:
                 continue
@@ -141,8 +133,7 @@ def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
         st.session_state.cotizacion.extend(nuevos_productos)
         st.success(f"Se agregaron **{len(nuevos_productos)}** productos a la cotización.")
     else:
-        st.warning("No se encontraron códigos válidos o el formato es irreconocible.")
-# --- FIN DE LA FUNCIÓN DE ANALISIS DE PEDIDO FLEXIBLE ---
+        st.warning("No se encontraron códigos válidos en el texto. Asegúrate de que el CÓDIGO y la CANTIDAD sean los dos primeros elementos de cada línea.")# --- FIN DE LA FUNCIÓN DE ANALISIS DE PEDIDO FLEXIBLE ---
 # --- FIN DE LA FUNCIÓN DE ANALISIS DE PEDIDO ---
 
 def agregar_producto_y_limpiar():
