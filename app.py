@@ -95,20 +95,24 @@ def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
 
     productos_en_sesion = {p['codigo'] for p in st.session_state.cotizacion}
 
+    # --- REEMPLAZAR EL BLOQUE DE LIMPIEZA DENTRO DEL 'for linea in lineas:' ---
+
     for linea in lineas:
-        # 1. Limpieza Total: Quitamos viñetas (•, *, -) y normalizamos el separador de cantidad (*N* -> N).
-        # Esto nos deja una cadena simple tipo: "44282 2 CADENA DE PASEO..."
+        # 1. Limpieza Total: Quitamos viñetas (•, *, -) y normalizamos el separador de cantidad.
         
-        # 1a. Quita viñetas y espacios iniciales
+        # 1a. Limpieza de viñetas iniciales y reemplazo de TODOS los asteriscos por un espacio.
+        # Esto convierte '• 44282 *2*...' en ' 44282  2  CADENA...'
         linea_limpia = re.sub(r'^[*-•–\s]+', '', linea) 
+        linea_limpia = linea_limpia.replace('*', ' ') # Reemplazo directo de todos los asteriscos
         
-        # 1b. Convierte patrones como '*2*' en un espacio simple: ' 2 '
-        linea_limpia = re.sub(r'\s*\*\s*', ' ', linea_limpia).strip() 
+        # 1b. Normaliza múltiples espacios a uno solo (Esto convierte ' 44282  2 ' en '44282 2')
+        linea_limpia = re.sub(r'\s+', ' ', linea_limpia).strip() 
         
         if not linea_limpia:
             continue
             
         codigo_posible = None
+        # ... (El resto del código de split y try/except sigue igual) ...
         cantidad_posible = 0
 
         # Separamos máximo 3 partes: [CÓDIGO], [CANTIDAD], [RESTO]
