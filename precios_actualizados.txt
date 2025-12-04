@@ -1,115 +1,3 @@
-45656,Piola de Sisal (henequén) de 6 mm x 30 m natural, FIERO,105
-45658,Piola de Sisal (henequén) de 8 mm x 30 m natural, FIERO,185
-45660,Piola de Sisal (henequén) de 10 mm x 30 m natural, FIERO,275
-45655,Piola de Sisal (henequén) de 6 mm x 15 m natural, FIERO,55
-45657,Piola de Sisal (henequén) de 8 mm x 15 m natural, FIERO,95
-45659,Piola de Sisal (henequén) de 10 mm x 15 m natural, FIERO,145
-29020,Combo rotomartillo/destornillador impacto, 20V, PRETUL,1950
-49586,Kit video vigilancia, 4 canales, 4 cámaras, 5MP, Disco 1TB,5250
-103718,Rotomartillo 1/2", 800W, TRUPER INDUSTRIAL,1050
-103552,Llave de impacto 1/2" 550W, 258 ft/lb, TRUPER PRO,1190
-103738,Cortadora para azulejos, 4-1/2", 1320W, TRUPER INDUSTRIAL,1350
-104011,Cargador automatico de baterías 100 A, 12V y 24V, TRUPER,1750
-103770,Hidrolavadora eléctrica horizontal 1500 PSI, TRUPER,1550
-29932,Taladro de banco 8", 1/3 HP (250 W), broquero 1/2", PRETUL,1850
-103670,Lijadora de pared y techo 9" 750W, profesional, TRUPER PRO,3150
-104058,Guía carril de corte de 1.4m, para MAX-20SC, TRUPER MAX,1100
-29072,Soldadora inversora 200A, bi-voltaje, Serie 500, PRETUL,2150
-104077,Bomba sumergible acero inox./hierro, a.sucia, 1HP, TRUPER,3550
-104078,Bomba sumergible acero inox./hierro, a.sucia,1-1/2HP, TRUPER,4050
-29939,Bomba presurizadora 1/10 HP, PRETUL,650
-104032,Juego de opresores para resorte de amortiguador, TRUPER,650
-104033,Juego para desmontar rótulas y terminales, 9 piezas, TRUPER,1550
-104038,Juego extractores de baleros y poleas, 13 piezas, TRUPER,1200
-104037,Juego de opresores para pistón de frenos, 22 piezas, TRUPER,495
-104035,Extractor p/tirante interior (bieleta de dirección), TRUPER,1350
-104034,Juego de arco levanta válvulas, 10 piezas, TRUPER,450
-104036,Juego de extractores para rótulas, 5 piezas, TRUPER,1650
-103938,Borla para pulir de lana de 10" con jareta, TRUPER,240
-104039,Pinza ponchadora hidráulica 16 toneladas, Truper,990
-103837,Tijera para poda, mangos extensibles, TRUPER,375
-103838,Tijera para ramas altas, mangos extensibles, TRUPER,375
-29924,Nivel láser verde, alcance 25m, 16 líneas, recargable,PRETUL,1150
-45408,Arbotante exterior con 2 spots, lámparas no incluidas, negro,195
-45409,Arbotante exterior con 2 spots, lámparas no incluida, gris,195
-44079,Mezcladora para lavabo 4", cromo, FOSET KUBO,875
-44228,Mezcladora para lavabo 4", satín, FOSET KUBO,1050
-44229,Mezcladora para lavabo 4", negro, FOSET KUBO,950
-44080,Mezcladora para lavabo taladros separados, cromo, FOSET KUBO,1550
-44258,Mezcladora para lavabo taladros separados, satín, FOSET KUBO,1750
-44259,Mezcladora para lavabo taladros separados, negro, FOSET KUBO,1650
-44066,Monomando corto para lavabo, cromo, FOSET KUBO,950
-44202,Monomando corto para lavabo, satín, FOSET KUBO,1050
-44203,Monomando corto para lavabo, negro, FOSET KUBO,995
-44072,Monomando alto para lavabo, cromo, FOSET KUBO,1250
-44204,Monomando alto para lavabo, satín, FOSET KUBO,1450
-44210,Monomando alto para lavabo, negro, FOSET KUBO,1350
-44073,Monomando cuello alto para fregadero, cromo, FOSET KUBO,975
-44215,Monomando cuello alto para fregadero, satín, FOSET KUBO,1150
-44216,Monomando cuello alto para fregadero, negro, FOSET KUBO,1050
-44074,Monomando nariz retráctil para fregadero,cromo, FOSET KUBO,1250
-44222,Monomando nariz retráctil para fregadero,satín, FOSET KUBO,1450
-44227,Monomando nariz retráctil para fregadero,negro, FOSET KUBO,1350
-44088,Salida de tina con desviador, cromo, FOSET KUBO,295
-44268,Salida de tina con desviador, satín, FOSET KUBO,350
-44275,Salida de tina con desviador, negro, FOSET KUBO,325
-44081,Monomando para regadera sin desviador, cromo, FOSET KUBO,575
-44266,Monomando para regadera sin desviador, satín, FOSET KUBO,635
-44267,Monomando para regadera sin desviador, negro, FOSET KUBO,595
-44319,Juego de 6 accesorios para baño, cromo, FOSET KUBO,1125
-44333,Juego de 6 accesorios para baño, satín, FOSET KUBO,1225
-44332,Juego de 6 accesorios para baño, negro, FOSET KUBO,1175
-44387,Portarrollo sin cubierta, cromo, FOSET KUBO,130
-44393,Portarrollo sin cubierta, satín, FOSET KUBO,150
-44392,Portarrollo sin cubierta, negro, FOSET KUBO,140
-44365,Toallero de barra largo, cromo, FOSET KUBO,275
-44367,Toallero de barra largo, satín, FOSET KUBO,295
-44366,Toallero de barra largo, negro, FOSET KUBO,285
-44394,Jabonera con plato de vidrio, cromo, FOSET KUBO,140
-44398,Jabonera con plato de vidrio, satín, FOSET KUBO,160
-44397,Jabonera con plato de vidrio, negro, FOSET KUBO,150
-44368,Toallero de argolla, cromo, FOSET KUBO,265
-44386,Toallero de argolla, satín, FOSET KUBO,285
-44369,Toallero de argolla, negro, FOSET KUBO,275
-44334,Gancho sencillo para toallas, cromo, FOSET KUBO,120
-44399,Portavaso cepillero con vaso de vidrio, cromo, FOSET KUBO,195
-44359,Gancho sencillo para toallas, satín, FOSET KUBO,130
-44437,Portavaso cepillero con vaso de vidrio, satín, FOSET KUBO,205
-44358,Gancho sencillo para toallas, negro, FOSET KUBO,125
-44410,Portavaso cepillero con vaso de vidrio, negro, FOSET KUBO,200
-44089,Monomando corto para lavabo, negro, FOSET RIVIERA,1350
-44090,Monomando alto para lavabo, negro, FOSET RIVIERA,2050
-44095,Monomando a pared para lavabo, negro, FOSET RIVIERA,1850
-44094,Mezcladora lavabo taladros separados, negro, FOSET RIVIERA,1990
-44096,Mezcladora cuello alto para fregadero, negro, FOSET RIVIERA,2600
-44102,Monomando cuello alto para fregadero, negro, FOSET RIVIERA,2550
-44103,Monomando nariz flexible para fregadero, negro,FOSET RIVIERA,3190
-44104,Monomando retráctil para fregadero, negro, FOSET RIVIERA,2350
-44110,Mezcladora para tina romana, negro, FOSET RIVIERA,2190
-44117,Monomando para regadera sin desviador, negro, FOSET RIVIERA,1125
-44112,Monomando para regadera con desviador, negro, FOSET RIVIERA,1690
-44111,Salida de tina sin desviador, negro, FOSET RIVIERA,690
-44118,Juego manerales palanca para regadera, negro, FOSET RIVIERA,450
-44456,Regadera de teléfono con soporte, negro, FOSET RIVIERA,675
-44277,Juego de 6 accesorios para baño, negro, FOSET RIVIERA,2200
-44296,Toallero de barra largo, negro, FOSET RIVIERA,720
-44288,Repisa portatoallas, negro, FOSET RIVIERA,2150
-44318,Portarrollo sin cubierta, negro, FOSET RIVIERA,265
-44297,Toallero argolla, negro, FOSET RIVIERA,405
-44317,Gancho sencillo para toallas, negro, FOSET RIVIERA,210
-44278,Dispensador de jabón a pared, negro, FOSET RIVIERA,355
-44279,Jabonera con plato de vidrio, negro, FOSET RIVIERA,320
-44287,Portavaso cepillero con vaso de vidrio, negro, FOSET RIVIERA,315
-44907,Tensor cadena con matraca, 1/4"- 5/16",FIERO,395
-44908,Tensor cadena con matraca, 5/16"- 3/8",FIERO,625
-44909,Tensor cadena con matraca, 3/8"- 1/2",FIERO,675
-44913,Tensor cadena con matraca, 1/2"- 5/8",FIERO,875
-45847,Toldo sombra 80%, monofilamento negro, 4m x 3.6m, FIERO,800
-45846,Toldo sombra 80%, monofilamento negro, 6m x 3.6m, FIERO,1400
-45844,Rollo de malla sombra monofilamento 80%, 15m x 1.85m, negro,900
-45845,Rollo de malla sombra monofilamento 80%, 50m x 1.85m, negro,3000
-29885,Bomba presurizadora 1/6 HP, PRETUL,495
-29886,Bomba presurizadora 1/3 HP, PRETUL,845
 29001,Kit taladro 1/2", 20V, 1 batería 2Ah, 32 accesorios, PRETUL,1125
 29004,Hidrolavadora eléctrica 1350 PSI, Pretul,892.5
 28267,Esmeriladora 4-1/2", 20V, 1 batería 4Ah, PRETUL,1395
@@ -121,19 +9,20 @@
 28269,Destornillador de impacto 1/4", 20V, 1 batería 2Ah, PRETUL,1035
 103265,Sopladora para taller, 20V, 1 batería 2Ah, TRUPER PRO,1575
 103266,Sopladora para taller, 20V, sin accesorios, TRUPER PRO,855
-23066,Compresor lubricado, 40L, 3HP, horizontal, 127V, PRETUL,2475
-22066,Kit Compresor lub, 40L, manguera y pistola baja,127V, PRETUL,2745
+103552,Llave de impacto 1/2" 550W, 258 ft/lb, TRUPER PRO,952
+103639,Esmeriladora 4-1/2", 20V, int. paleta, 1 batería 4Ah, MAX,2520
+103640,Esmeriladora 4-1/2" 20V, int. paleta, s/accesorios, MAX,1320
 23065,Compresor lubricado, 20L, 2-1/2HP, horizontal, 127V, PRETUL,1881
 24357,Kit Compresor lub, 20L, manguera y pistola baja,127V, PRETUL,2151
 24079,Kit Compresor lub, 20L, manguera y pistola grav,127V, PRETUL,2151
 27106,Kit Compresor lub, 20L, manguera y accesorios, 127V, PRETUL,2115
 29073,Inflador/soplador para auto, 20V, 1 batería 2Ah, PRETUL,1305
 29074,Inflador inalámbrico portátil, 20 V para auto, PRETUL,1215
-29940,Aspiradora para auto, 20V, 1 batería 2Ah, PRETUL,1215
+29940,Aspiradora para auto, 20V, 1 batería 2Ah, PRETUL,1080
 29010,Pistola para pintar, 20V, 1 batería 2Ah, PRETUL,1125
-103246,Rotomartillo 1/2", 20V, 2 baterías 2Ah, TRUPER PRO,2205
-103247,Rotomartillo 1/2", 20V, 1 batería 2Ah, TRUPER PRO,1755
-103248,Rotomartillo 1/2", 20V, sin accesorios, TRUPER PRO,1035
+103246,Rotomartillo 1/2", 20V, 2 baterías 2Ah, TRUPER PRO,1960
+103247,Rotomartillo 1/2", 20V, 1 batería 2Ah, TRUPER PRO,1560
+103248,Rotomartillo 1/2", 20V, sin accesorios, TRUPER PRO,920
 103249,Taladro 1/2", 20V, 1 batería 2Ah, TRUPER PRO,1575
 103250,Taladro 1/2", 20V, sin accesorios, TRUPER PRO,855
 103251,Llave de impacto 1/2", 20V, 184 lb/ft, 1 batería 4Ah, PRO,2115
@@ -147,20 +36,29 @@
 103255,Esmeriladora 4-1/2", 20V, sin accesorios, TRUPER PRO,1215
 103256,Sierra circular 6-1/2", 20V, 1 batería 4Ah, TRUPER PRO,2115
 103257,Sierra circular 6-1/2", 20V, sin accesorios, TRUPER PRO,1035
-102859,Sierra caladora 20V, 1 batería 2Ah, TRUPER PRO,1665
-103260,Sierra caladora 20V, sin accesorios, TRUPER PRO,945
+102859,Sierra caladora 20V, 1 batería 2Ah, TRUPER PRO,1480
+103260,Sierra caladora 20V, sin accesorios, TRUPER PRO,840
 103258,Sierra sable, 20V, 1 batería 2Ah, TRUPER PRO,1845
 103259,Sierra sable, 20V, sin accesorios, TRUPER PRO,1125
-102865,Router (Rebajadora) 1/4", 1 batería 4 Ah, TRUPER PRO,2655
-103262,Router (Rebajadora) 1/4", sin accesorios, TRUPER PRO,1575
-102863,Lijadora roto-orbital 5", 20V, 1 batería 2Ah, TRUPER PRO,1665
-103261,Lijadora roto-orbital 5", 20V, sin accesorios, TRUPER PRO,945
+102865,Router (Rebajadora) 1/4", 1 batería 4 Ah, TRUPER PRO,2360
+103262,Router (Rebajadora) 1/4", sin accesorios, TRUPER PRO,1400
+102863,Lijadora roto-orbital 5", 20V, 1 batería 2Ah, TRUPER PRO,1480
+103261,Lijadora roto-orbital 5", 20V, sin accesorios, TRUPER PRO,840
 46559,Cerradura sobreponer izq instala-fácil, llave puntos, caja,148
 46600,Cerradura sobreponer der instala-fácil, llave puntos, caja,148
 46699,Cerradura sobreponer izq instala-fácil, llave puntos,blíster,156
 49740,Cerradura sobreponer der instala-fácil, llave puntos,blíster,156
 29936,Luminario suburbano LED 50 W 6500 K, VOLTECK BASIC,252
 29937,Luminario suburbano LED 100 W 6500 K, VOLTECK BASIC,364
+45863,Candado para disco de motocicleta, perno de 7 mm, c/alarma,364
+45392,Palanca frontal metálica cromada minimalista para WC, FOSET,39.2
+45393,Palanca frontal metálica cromada clásica para WC, FOSET,47.2
+45397,Palanca frontal plástica blanca para WC, FOSET,8.8
+45398,Palanca frontal metálica cromada robusta para WC, FOSET,63.2
+45507,Parrilla gas empotrable 75cm, 5 quem, inox, esmalte, FOSET,2120
+45508,Parrilla gas empotrable 60cm, 4 quem, inox, esmalte, FOSET,1240
+45509,Parrilla gas empotrable 30cm, 2 quem, inox, esmalte, FOSET,920
+103955,Aspiradora, 20V, 1 batería 2Ah, TRUPER PRO,1880
 17849,Brocha profesional de 1/2" mango de plástico, Truper Expert,6.3
 17860,Brocha profesional de 1" mango de plástico, Truper Expert,9
 17861,Brocha profesional de 1-1/2" mango de plástico, Expert,11.7
@@ -235,35 +133,12 @@
 19067,Pintura en aerosol, cobre metálico, bote esbelto, 400 ml,62.1
 12779,Pintura en aerosol, rojo metálico, bote esbelto, 400 ml,62.1
 19060,Pintura en aerosol, azul metálico, bote esbelto, 400 ml,62.1
-47185,Multicontacto 14 AWG 6 entradas supresor de picos 600 joules,152.1
-46719,Multicontacto 14 AWG, 6 entradas sup. de picos 600 J, negro,152.1
-47184,Multicontacto 14 AWG 6 entradas supresor de picos 450 joules,125.1
-47804,Multicontacto 14 AWG 6 ent., sup. de picos 450 joules, negro,125.1
-46089,Multicontacto 16 AWG 3 entradas 2 puertos USB supresor 300 J,148.5
-47183,Multicontacto 14 AWG 6 entradas supresor de picos 270 joules,121.5
-46329,Multicontacto 14 AWG 6 entradas, 2 puertos USB, 850 J marfil,179.1
-46328,Multicontacto 14 AWG 6 entradas, 2 puertos USB, 850 J, negro,179.1
-47187,Multicontacto 14 AWG 8 entradas supresor de picos 110 joules,112.5
-47186,Multicontacto 14 AWG uso rudo con 8 entradas, Volteck,94.5
-47234,Multicontacto 14 AWG uso rudo con 10 entradas, Volteck,103.5
-49322,Multicontacto 16 AWG doméstico 3 entradas 4 ptos USB, blanco,247.5
-49321,Multicontacto 16 AWG doméstico, 3 entradas 4 ptos USB, negro,247.5
-47181,Multicontacto 16 AWG uso rudo con 4 entradas, Volteck,58.5
-47182,Multicontacto 16 AWG uso rudo con 6 entradas, Volteck,67.5
-49859,Multicontacto 16 AWG doméstico con 6 entradas, negro Volteck,67.5
-46181,Multicontacto económico 4 entradas, blanco, VOLTECK,44.1
-47188,Multicontacto 16 AWG doméstico 6 entradas, Volteck,49.5
-46021,Multicontacto 16 AWG doméstico 6 entradas, colores a granel,44.1
-49860,Multicontacto 16 AWG doméstico económico 6 entradas, negro,49.5
-48539,Multicontacto doméstico con 4 entradas, negro, VOLTECK,58.5
-49534,Multicontacto 3 entradas 2 ptos USB sup de picos 300 J negro,148.5
-49525,Multicontacto uso rudo 6 entradas sup. de picos 270 J, negro,121.5
-48793,Multicontacto uso rudo 8 entradas sup. de picos 460 J, negro,112.5
-48792,Multicontacto de uso rudo con 8 entradas, negro, VOLTECK,94.5
-49533,Multicontacto de uso rudo con 10 entradas, negro, VOLTECK,103.5
-45864,Multicontacto doméstico 3 entradas, VOLTECK,36
-45865,Multicontacto doméstico 3 entradas, negro VOLTECK,36
-49543,Multicontacto económico 4 entradas, negro, VOLTECK,44.1
+48539,Multicontacto doméstico con 4 entradas, negro, VOLTECK,52
+49534,Multicontacto 3 entradas 2 ptos USB sup de picos 300 J negro,132
+48792,Multicontacto de uso rudo con 8 entradas, negro, VOLTECK,84
+49533,Multicontacto de uso rudo con 10 entradas, negro, VOLTECK,92
+45864,Multicontacto doméstico 3 entradas, VOLTECK,32
+45865,Multicontacto doméstico 3 entradas, negro VOLTECK,32
 47542,Foco LED 3W (25W) G45, 6500K blanca fría, 270 lm, caja,9.9
 47543,Foco LED 3W (25W) G45, 3000K blanca cálida, 270 lm, caja,9.9
 47545,Foco LED 6W (40W) A19, 3000K blanca cálida, 440 lm, caja,11.7
@@ -328,6 +203,7 @@
 46500,Portalámpara de baquelita, sencillo, Volteck,7.2
 47040,Portalámpara de baquelita, sencillo a granel, Volteck,6.3
 46525,Portalámpara de baquelita, con adaptador, marfil, Volteck,7.2
+45883,Portalámpara 4" de baquelita a granel, VOLTECK,10.8
 45884,Portalámpara de baquelita, con adaptador a granel, VOLTECK,5.4
 46517,Portalámpara de baquelita, tipo anuncio, Volteck,9
 46518,Portalámpara de baquelita, 2-1/4", Volteck,9
@@ -346,65 +222,111 @@
 46013,Despachador con 16 pilas alcalinas AAA, VOLTECK,6.3
 49994,Serie de 7.3 m con 12 luces incandescentes para exterior,445.5
 49993,Serie de 14.6 m con 24 luces incandescentes para exterior,769.5
-49992,Serie de 7.3 m con 12 luces de LED para exterior, Volteck,472.5
-49991,Serie de 14.6 m con 24 luces de LED para exterior, Volteck,832.5
-45664,Multicontacto 4 entradas, 1 USB A + 1 USB C, blanco, VOLTECK,238.5
-45665,Multicontacto 4 entradas, 1 USB A + 1 USB C, negro, VOLTECK,238.5
-45662,Multicontacto 6 entradas, 2 USB A + 2 USB C, blanco, VOLTECK,319.5
-45663,Multicontacto 6 entradas, 2 USB A + 2 USB C, negro, VOLTECK,319.5
-45586,Multicontacto 8 entradas, 2 USB A + 2 USB C, blanco, VOLTECK,337.5
-45661,Multicontacto 8 entradas, 2 USB A + 2 USB C, negro, VOLTECK,337.5
-45883,Portalámpara 4" de baquelita a granel, VOLTECK,10.8
-44470,Kilo de alambre galvanizado, calibre 22, FIERO,65
-44469,Kilo de alambre galvanizado, calibre 20, FIERO,56
-44468,Kilo de alambre galvanizado, calibre 18, FIERO,55
-44467,Kilo de alambre galvanizado, calibre 16, FIERO,53
-44466,Kilo de alambre galvanizado, calibre 14.5, FIERO,52
-44465,Kilo de alambre galvanizado, calibre 12.5, FIERO,49
-44458,Kilo de alambre recocido calibre 15 en rollo de 1 kg, FIERO,31
-44457,Kilo de alambre recocido calibre 15 en rollo de 20 kg, FIERO,28
-40051,Kilo de alambre recocido calibre 15 en rollo de 60 kg, FIERO,27
-44884,Rollo de alambre de púas 100m calibre 15.5, FIERO,255
-44887,Rollo de alambre de púas 300m calibre 15.5, FIERO,695
-44888,Rollo de alambre de púas 360m calibre 15.5, FIERO,835
-44885,Rollo de alambre de púas 300m calibre 12.5, FIERO,1015
-44886,Rollo de alambre de púas 350m calibre 12.5, FIERO,1165
-20685,Escalera de tijera tipo III 2escalones, PRETUL,565
-20686,Escalera de tijera tipo III 3 escalones, PRETUL,675
-20687,Escalera de tijera tipo III 4 escalones y bandeja, PRETUL,865
-20688,Escalera de tijera tipo III 5 escalones y bandeja, PRETUL,995
-20689,Escalera de tijera tipo III 6 escalones y bandeja, PRETUL,1185
-103642,Motosierra telescópica 25 cc, gasolina, barra de 10", TRUPER,6255
-104175,Chaleco brigadista reforzado, azul marino, M, TRUPER EXPERT,265.5
-104176,Chaleco brigadista reforzado, azul marino, G, TRUPER EXPERT,265.5
-104177,Chaleco brigadista reforzado, azul marino, XG, TRUPER EXPERT,265.5
-104165,Chaleco brigadista reforzado, naranja, M, TRUPER EXPERT,265.5
-104166,Chaleco brigadista reforzado, naranja, G, TRUPER EXPERT,265.5
-104167,Chaleco brigadista reforzado, naranja, XG, TRUPER EXPERT,265.5
-104168,Chaleco brigadista reforzado, azul rey, M, TRUPER EXPERT,265.5
-104169,Chaleco brigadista reforzado, azul rey, G, TRUPER EXPERT,265.5
-104180,Chaleco brigadista reforzado, azul rey, XG, TRUPER EXPERT,265.5
-29904,Tenis de seguridad #23, casquillo metálico, negros, PRETUL,451.25
-29905,Tenis de seguridad #24, casquillo metálico, negros, PRETUL,451.25
-29906,Tenis de seguridad #25, casquillo metálico, negros, PRETUL,451.25
-29907,Tenis de seguridad #26, casquillo metálico, negros, PRETUL,451.25
-29908,Tenis de seguridad #27, casquillo metálico, negros, PRETUL,451.25
-29909,Tenis de seguridad #28, casquillo metálico, negros, PRETUL,451.25
-29910,Tenis de seguridad #29, casquillo metálico, negros, PRETUL,451.25
-29911,Tenis de seguridad #30, casquillo metálico, negros, PRETUL,451.25
-104114,Tapón auditivo reutilizable triple barrera c/cordón, 50 pz,332.5
-104115,Tapón auditivo reutilizable barrera c/cordón-estuche, 50 pz,522.5
-104116,Tapón auditivo desechable de espuma con cordón, 100 pz,522.5
-104117,Bote con tapones auditivos desechables de espuma, 30 pares,84.55
-29922,Mini encendedor para cocina, 13 cm, Pretul,13.3
-29923,Encendedor para cocina, 27 cm, con recargador, Pretul,23.75
-29925,Recargador de gas butano para encendedor, 18ml, Pretul,8.55
-59988,Panel perfocel 60 x 60 cm TRUPER,1217.7
-59989,Panel perfocel 80x 80 cm TRUPER,1566
-59990,Panel perfocel 120 x 240 cm TRUPER,7044.3
-59991,Panel ranurado 60 x 60 cm TRUPER,1044
-59992,Panel ranurado 80 x 80 cm TRUPER,1391.4
-59993,Panel ranurado 120 x 240 cm TRUPER,6869.7
-45578,Piola de nylon paracord de 4mm, rollo, negro, 1kg, FIERO,280.25
-45579,Piola de nylon paracord de 4mm, rollo, camo, 1kg, FIERO,280.25
+45665,Multicontacto 4 entradas, 1 USB A + 1 USB C, negro, VOLTECK,212
+45663,Multicontacto 6 entradas, 2 USB A + 2 USB C, negro, VOLTECK,284
+43050,Calentador instantáneo, 11L, 2 servicios, gas LP, FOSET,2691
+45271,Calentador instantáneo, 6L, 1 servicio, gas LP, FOSET,1665
+43051,Calentador instantáneo, 13L, 3 servicios, gas LP, FOSET,3195
 43929,Calentador instantáneo, 5L, 1 servicio, gas LP, FOSET BASIC,1215
+42859,Rollo malla borreguera, 1m x 50m acero galvanizado, 23kg,935
+42860,Rollo malla borreguera, 1.2m x 50m acero galvanizado, 26kg,1065
+42861,Rollo malla borreguera, 1.4m x 50m acero galvanizado, 28kg,1195
+42862,Rollo malla borreguera, 1.67m x 50m acero galvanizado, 31kg,1325
+44656,Rollo malla hexagonal cal.22, 1x 45m, abertura 25mm, 13kg,795
+44657,Rollo malla hexagonal cal.22, 1.2x 45m, abertura 25mm, 16kg,985
+44658,Rollo malla hexagonal cal.22, 1.5x 45m, abertura 25mm, 20kg,1165
+44659,Rollo malla hexagonal cal.22, 1.75x 45m, abertura 25mm, 23kg,1350
+44660,Rollo malla hexagonal cal.20, 1.5x 45m, abertura 38mm, 19kg,1125
+44661,Rollo malla hexagonal cal.20, 1.75x 45m, abertura 38mm, 21kg,1295
+42949,Rollo malla ciclónica cal.12.5, 1.5x20m, abertura 55mm 39kg,1665
+42950,Rollo malla ciclónica cal.12.5, 1.75x20m, abertura 55mm 46kg,2050
+42951,Rollo malla ciclónica cal.12.5, 2x20m, abertura 55mm 51kg,2235
+42954,Rollo malla ciclónica cal.12.5, 1.5x20m, abertura 63mm 37kg,1515
+42955,Rollo malla ciclónica cal.12.5, 1.75x20m, abertura 63mm 38kg,1850
+42956,Rollo malla ciclónica cal.12.5, 2x20m, abertura 63mm 45kg,2050
+42957,Rollo malla ciclónica cal.12.5, 1x20m, abertura 69mm 21kg,850
+42958,Rollo malla ciclónica cal.12.5, 1.25x20m, abertura69mm 26kg,1065
+42959,Rollo malla ciclónica cal.12.5, 1.5x20m, abertura 69mm 31kg,1365
+42960,Rollo malla ciclónica cal.12.5, 1.75x20m, abertura69mm 35kg,1565
+42961,Rollo malla ciclónica cal.12.5, 2x20m, abertura 69mm 40kg,1850
+45274,Calentador solar de agua, 8 tubos, 94L, 2 personas, FOSET,3150
+45270,Calentador solar de agua 10 tubos, 120L, 3 personas, FOSET,3950
+48287,Calentador solar de agua, 12 tubos, 150L, 4 personas, FOSET,4450
+45272,Calentador solar, 15 tubos, 195L, 5 per,5150
+45273,Calentador solar de agua, 20 tubos, 240L, 7 personas, FOSET,6450
+49965,Calentador solar HeatPipe, 12 tubos, 150L, 4 personas, FOSET,9350
+49966,Calentador solar HeatPipe, 18 tubos, 200L, 5 personas, FOSET,12750
+49135,Sanitario one piece alargado de porcelana, blanco, FOSET,1990
+48107,Cilindro portátil para gas LP, 20lb (9kg) FOSET,875
+45890,Cilindro portátil para gas LP, 20kg (44lb) FOSET,1590
+103474,Sierra ranuradora de concreto, 5", 1400 W, TRUPER PRO,1755
+103789,Disco de diamante 5" para ranuradora de concreto, TRUPER,175.5
+45666,Parrilla de gas de sobreponer,2 quemadores, inox, FOSET AERO,535.5
+45667,Parrilla de gas de sobreponer,4 quemadores, inox, FOSET AERO,895.5
+104191,Pintura esmalte para rotular, naranja, cubeta 19 L, TRUPER,2707.5
+56013,Exhibidor de conexiones PE-AL-PE, FOSET,1289.15
+103642,Motosierra telescópica 25 cc, gasolina, barra de 10", TRUPER,6950
+104175,Chaleco brigadista reforzado, azul marino, M, TRUPER EXPERT,295
+104176,Chaleco brigadista reforzado, azul marino, G, TRUPER EXPERT,295
+104177,Chaleco brigadista reforzado, azul marino, XG, TRUPER EXPERT,295
+104165,Chaleco brigadista reforzado, naranja, M, TRUPER EXPERT,295
+104166,Chaleco brigadista reforzado, naranja, G, TRUPER EXPERT,295
+104167,Chaleco brigadista reforzado, naranja, XG, TRUPER EXPERT,295
+104168,Chaleco brigadista reforzado, azul rey, M, TRUPER EXPERT,295
+104169,Chaleco brigadista reforzado, azul rey, G, TRUPER EXPERT,295
+104180,Chaleco brigadista reforzado, azul rey, XG, TRUPER EXPERT,295
+29904,Tenis de seguridad #23, casquillo metálico, negros, PRETUL,475
+29905,Tenis de seguridad #24, casquillo metálico, negros, PRETUL,475
+29906,Tenis de seguridad #25, casquillo metálico, negros, PRETUL,475
+29907,Tenis de seguridad #26, casquillo metálico, negros, PRETUL,475
+29908,Tenis de seguridad #27, casquillo metálico, negros, PRETUL,475
+29909,Tenis de seguridad #28, casquillo metálico, negros, PRETUL,475
+29910,Tenis de seguridad #29, casquillo metálico, negros, PRETUL,475
+29911,Tenis de seguridad #30, casquillo metálico, negros, PRETUL,475
+104114,Tapón auditivo reutilizable triple barrera c/cordón, 50 pz,350
+104115,Tapón auditivo reutilizable barrera c/cordón-estuche, 50 pz,550
+104116,Tapón auditivo desechable de espuma con cordón, 100 pz,550
+104117,Bote con tapones auditivos desechables de espuma, 30 pares,89
+29922,Mini encendedor para cocina, 13 cm, Pretul,14
+29923,Encendedor para cocina, 27 cm, con recargador, Pretul,25
+29925,Recargador de gas butano para encendedor, 18ml, Pretul,9
+59988,Panel perfocel 60 x 60 cm TRUPER,1353
+59989,Panel perfocel 80x 80 cm TRUPER,1740
+59990,Panel perfocel 120 x 240 cm TRUPER,7827
+59991,Panel ranurado 60 x 60 cm TRUPER,1160
+59992,Panel ranurado 80 x 80 cm TRUPER,1546
+59993,Panel ranurado 120 x 240 cm TRUPER,7633
+45578,Piola de nylon paracord de 4mm, rollo, negro, 1kg, FIERO,295
+45579,Piola de nylon paracord de 4mm, rollo, camo, 1kg, FIERO,295
+43929,Calentador instantáneo, 5L, 1 servicio, gas LP, FOSET BASIC,1350
+23066,Compresor lubricado, 40L, 3HP, horizontal, 127V, PRETUL,2750
+22066,Kit Compresor lub, 40L, manguera y pistola baja,127V, PRETUL,3050
+47185,Multicontacto 14 AWG 6 entradas supresor de picos 600 joules,169
+46719,Multicontacto 14 AWG, 6 entradas sup. de picos 600 J, negro,169
+47184,Multicontacto 14 AWG 6 entradas supresor de picos 450 joules,139
+47804,Multicontacto 14 AWG 6 ent., sup. de picos 450 joules, negro,139
+46089,Multicontacto 16 AWG 3 entradas 2 puertos USB supresor 300 J,165
+47183,Multicontacto 14 AWG 6 entradas supresor de picos 270 joules,135
+46329,Multicontacto 14 AWG 6 entradas, 2 puertos USB, 850 J marfil,199
+46328,Multicontacto 14 AWG 6 entradas, 2 puertos USB, 850 J, negro,199
+47187,Multicontacto 14 AWG 8 entradas supresor de picos 110 joules,125
+47186,Multicontacto 14 AWG uso rudo con 8 entradas, Volteck,105
+47234,Multicontacto 14 AWG uso rudo con 10 entradas, Volteck,115
+49322,Multicontacto 16 AWG doméstico 3 entradas 4 ptos USB, blanco,275
+49321,Multicontacto 16 AWG doméstico, 3 entradas 4 ptos USB, negro,275
+47181,Multicontacto 16 AWG uso rudo con 4 entradas, Volteck,65
+47182,Multicontacto 16 AWG uso rudo con 6 entradas, Volteck,75
+49859,Multicontacto 16 AWG doméstico con 6 entradas, negro Volteck,75
+46181,Multicontacto económico 4 entradas, blanco, VOLTECK,49
+47188,Multicontacto 16 AWG doméstico 6 entradas, Volteck,55
+46021,Multicontacto 16 AWG doméstico 6 entradas, colores a granel,49
+49860,Multicontacto 16 AWG doméstico económico 6 entradas, negro,55
+49525,Multicontacto uso rudo 6 entradas sup. de picos 270 J, negro,135
+48793,Multicontacto uso rudo 8 entradas sup. de picos 460 J, negro,125
+49543,Multicontacto económico 4 entradas, negro, VOLTECK,49
+49992,Serie de 7.3 m con 12 luces de LED para exterior, Volteck,525
+49991,Serie de 14.6 m con 24 luces de LED para exterior, Volteck,925
+45664,Multicontacto 4 entradas, 1 USB A + 1 USB C, blanco, VOLTECK,265
+45662,Multicontacto 6 entradas, 2 USB A + 2 USB C, blanco, VOLTECK,355
+45586,Multicontacto 8 entradas, 2 USB A + 2 USB C, blanco, VOLTECK,375
+45661,Multicontacto 8 entradas, 2 USB A + 2 USB C, negro, VOLTECK,375
