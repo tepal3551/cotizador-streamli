@@ -1,297 +1,111 @@
-41274, Tubo rígido de cobre 1/2" tipo "M", 3m, 0.9kg, FOSET, 305
-41275, Tubo rígido de cobre 3/4" tipo "M", 3m, 1.4kg, FOSET, 495
-41276, Tubo rígido de cobre 1" tipo "M", 3m, 2.0kg, FOSET, 725
-41271, Tubo rígido de cobre 1/2" tipo "L", 3m, 1.2kg, FOSET, 435
-41272, Tubo rígido de cobre 3/4" tipo "L", 3m, 1.9kg, FOSET, 685
-41273, Tubo rígido de cobre 1" tipo "L", 3m, 2.9kg, FOSET, 1115
-48151, Tubo rígido de cobre 1/2" tipo "N", 3m, 0.5kg, FOSET, 195
-48152, Tubo rígido de cobre 3/4" tipo "N", 3m, 0.9kg, FOSET, 355
-48153, Tubo rígido de cobre 1" tipo "N", 3m, 1.4kg, FOSET, 565
-48155, Tubo flexible de cobre 1/4", rollo de 15m, 1.7kg, FOSET, 705
-48156, Tubo flexible de cobre 5/16", rollo de 15m, 2.3kg, FOSET, 985
-48157, Tubo flexible de cobre 3/8", rollo de 15m, 2.6kg, FOSET, 1075
-48158, Tubo flexible de cobre 1/2", rollo de 15m, 3.7kg, FOSET, 1535
-46056, Rollo de 100 m de cable THHW-LS 12 AWG blanco, Volteck, 1250
-46052, Rollo de 100 m de cable THHW-LS 12 AWG negro, Volteck, 1250
-46060, Rollo de 100 m de cable THHW-LS 12 AWG rojo, Volteck, 1250
-46064, Rollo de 100 m de cable THHW-LS 12 AWG verde, Volteck, 1250
-46055, Rollo de 100 m de cable THHW-LS 10 AWG blanco, Volteck, 1900
-46051, Rollo de 100 m de cable THHW-LS 10 AWG negro, Volteck, 1900
-46059, Rollo de 100 m de cable THHW-LS 10 AWG rojo, Volteck, 1900
-46063, Rollo de 100 m de cable THHW-LS 10 AWG verde, Volteck, 1900
-46054, Rollo de 100 m de cable THHW-LS 8 AWG blanco, Volteck, 3100
-46050, Rollo de 100 m de cable THHW-LS 8 AWG negro, Volteck, 3100
-46058, Rollo de 100 m de cable THHW-LS 8 AWG rojo, Volteck, 3100
-46062, Rollo de 100 m de cable THHW-LS 8 AWG verde, Volteck, 3100
-40113, Metro de cable THHW-LS 12 AWG blanco en carrete de 500 m, 12.5
-40117, Metro de cable THHW-LS 12 AWG negro en carrete de 500 m, 12.5
-40125, Metro de cable THHW-LS 12 AWG rojo en carrete de 500 m, 12.5
-40121, Metro de cable THHW-LS 12 AWG verde en carrete de 500 m, 12.5
-40114, Metro de cable THHW-LS 10 AWG blanco en carrete de 500 m, 19
-40118, Metro de cable THHW-LS 10 AWG negro en carrete de 500 m, 19
-40126, Metro de cable THHW-LS 10 AWG rojo en carrete de 500 m, 19
-40122, Metro de cable THHW-LS 10 AWG verde en carrete de 500 m, 19
-40115, Metro de cable THHW-LS 8 AWG blanco en carrete de 500 m, 31
-40119, Metro de cable THHW-LS 8 AWG negro en carrete de 500 m, 31
-40127, Metro de cable THHW-LS 8 AWG rojo en carrete de 500 m, 31
-40123, Metro de cable THHW-LS 8 AWG verde en carrete de 500 m, 31
-40146, Carrete con 20 m de cable THHW-LS 12 AWG blanco, Volteck, 270
-40145, Carrete con 20 m de cable THHW-LS 12 AWG negro, Volteck, 270
-40147, Carrete con 20 m de cable THHW-LS 12 AWG rojo, Volteck, 270
-40252, Carrete con 20 m de cable THHW-LS 12 AWG verde, Volteck, 270
-40143, Carrete con 10 m de cable THHW-LS 10 AWG blanco, Volteck, 215
-40142, Carrete con 10 m de cable THHW-LS 10 AWG negro, Volteck, 215
-40144, Carrete con 10 m de cable THHW-LS 10 AWG rojo, Volteck, 215
-40251, Carrete con 10 m de cable THHW-LS 10 AWG verde, Volteck, 215
-40247, Carrete con 10 m de cable THHW-LS 8 AWG blanco, Volteck, 330
-40248, Carrete con 10 m de cable THHW-LS 8 AWG negro, Volteck, 330
-40249, Carrete con 10 m de cable THHW-LS 8 AWG rojo, Volteck, 330
-40250, Carrete con 10 m de cable THHW-LS 8 AWG verde, Volteck, 330
-46069, Rollo de 100 m de cordón dúplex flexible SPT 18 AWG, Volteck, 800
-46068, Rollo de 100 m de cordón dúplex flexible SPT 16 AWG, Volteck, 1250
-46067, Rollo de 100 m de cordón dúplex flexible SPT 14 AWG, Volteck, 1900
-46079, Rollo de 100 m cordón dúplex 12 AWG, Volteck, 2700
-40045, Metro de cordón dúplex flexible SPT 18 AWG en carrete 500 m, 8
-40043, Metro de cordón dúplex flexible SPT 16 AWG en carrete 500 m, 12.5
-40042, Metro de cordón dúplex flexible SPT 14 AWG en carrete 500 m, 19
-40046, Metro de cordón dúplex 12 AWG, carrete 500 m, Volteck, 27
-40202, Carrete con 20 m cordón dúplex flexible SPT 18 AWG, Volteck, 175
-40201, Carrete con 12 m cordón dúplex flexible SPT 16 AWG, Volteck, 160
-40200, Carrete con 10 m cordón dúplex flexible SPT 14 AWG, Volteck, 205
-46057, Rollo de 100 m de cable THHW-LS 14 AWG blanco, Volteck, 900
-46053, Rollo de 100 m de cable THHW-LS 14 AWG negro, Volteck, 900
-46061, Rollo de 100 m de cable THHW-LS 14 AWG rojo, Volteck, 900
-46065, Rollo de 100 m de cable THHW-LS 14 AWG verde, Volteck, 900
-40112, Metro de cable THHW-LS 14 AWG blanco en carrete de 500 m, 9
-40116, Metro de cable THHW-LS 14 AWG negro en carrete de 500 m, 9
-40124, Metro de cable THHW-LS 14 AWG rojo en carrete de 500 m, 9
-40120, Metro de cable THHW-LS 14 AWG verde en carrete de 500 m, 9
-40149, Carrete con 25 m de cable THHW-LS 14 AWG blanco, Volteck, 240
-40148, Carrete con 25 m de cable THHW-LS 14 AWG negro, Volteck, 240
-40150, Carrete con 25 m de cable THHW-LS 14 AWG rojo, Volteck, 240
-40253, Carrete con 25 m de cable THHW-LS 14 AWG verde, Volteck, 240
-40004, Metro de cable uso extra rudo 2 x 14 AWG en rollo de 100 m, 24
-40003, Metro de cable uso extra rudo 2 x 12 AWG en rollo de 100 m, 36
-40002, Metro de cable uso extra rudo 2 x 10 AWG en rollo de 100 m, 55
-40007, Metro de cable uso extra rudo 3 x 14 AWG en rollo de 100 m, 34
-40006, Metro de cable uso extra rudo 3 x 12 AWG en rollo de 100 m, 50
-40005, Metro de cable uso extra rudo 3 x 10 AWG en rollo de 100 m, 78
-44884, Rollo de alambre de púas 100m calibre 15.5, FIERO, 239
-44887, Rollo de alambre de púas 300m calibre 15.5, FIERO, 665
-44888, Rollo de alambre de púas 360m calibre 15.5, FIERO, 795
-48107, Cilindro portátil para gas LP, 20lb (9kg) FOSET, 850
-45890, Cilindro portátil para gas LP, 20kg (44lb) FOSET, 1550
-45891, Cilindro portátil para gas LP, 30kg (66lb) FOSET, 1900
-49373, Codo Conduit 90° 3/4" pared gruesa (2 mm), et. amarilla, 48
-49372, Codo Conduit 90° 1/2" pared gruesa (1.8 mm), et. amarilla, 37
-49135, Sanitario one piece alargado de porcelana, blanco, FOSET, 2050
-103740, Sierra circular 7-1/4" 1900W, TRUPER INDUSTRIAL, 2115
-103690, Pistola eléctrica para pintar de 700W, Truper Expert, 1215
-103775, Generador inversor silencioso 3 kW, encendido electrónico, 14175
-103773, Generador inversor silencioso 3 kW, encendido manual, TRUPER, 12555
-103958, Cazanga 20", sin mango, TRUPER, 112.5
-103957, Cazanga 26", sin mango, TRUPER, 135
-104020, Inflador de aire inalámbrico portátil 150 PSI, TRUPER, 495
-21689, Inflador portátil para auto, 12 V, PRETUL, 229.5
-20167, Bomba centrífuga para agua modelo europeo, 1 HP, PRETUL, 1125
-20173, Bomba centrífuga para agua modelo europeo, 3/4 HP, PRETUL, 1035
-20172, Bomba centrífuga para agua modelo europeo, 1/2 HP, PRETUL, 855
-29898, Bomba sumergible acero inoxidable,agua sucia,1-1/2HP, PRETUL, 1282.5
-29897, Bomba sumergible acero inoxidable, agua sucia, 1HP, PRETUL, 1187.5
-103970, Guantes de látex para pintor, CH, Truper, 35.1
-103971, Guantes de látex para pintor, XG, Truper, 35.1
-104157, Bolsa con par de plantillas memory foam p/zapato talla 23, 94.05
-104158, Bolsa con par de plantillas memory foam p/zapato talla 24, 94.05
-104159, Bolsa con par de plantillas memory foam p/zapato talla 25, 94.05
-104170, Bolsa con par de plantillas memory foam p/zapato talla 26, 94.05
-104171, Bolsa con par de plantillas memory foam p/zapato talla 27, 94.05
-104172, Bolsa con par de plantillas memory foam p/zapato talla 28, 94.05
-104173, Bolsa con par de plantillas memory foam p/zapato talla 29, 94.05
-104174, Bolsa con par de plantillas memory foam p/zapato talla 30, 94.05
-44197, Lector de código de barras 2D, bluetooth, VOLTECK, 985.5
-44196, Lector de código de barras 2D, inalámbrico, VOLTECK, 625.5
-44195, Lector de código de barras 2D, alámbrico, USB, VOLTECK, 517.5
-44189, Lector de código de barras 1D, alámbrico, USB, VOLTECK, 337.5
-44899, Mezcladora lavabo taladros separados, cromo, FOSET AERO, 1035
-44898, Mezcladora lavabo 4" cromo, tipo bar, palanca, FOSET AERO, 765
-44889, Mezcladora lavabo 4" cromo, cuello alto, palanca, FOSET AERO, 945
-44882, Monomando corto lavabo, cromo, FOSET AERO, 895.5
-44883, Monomando alto lavabo, cromo, FOSET AERO, 1251
-44902, Mezcladora fregadero 8" cromo, c. largo, palanca, FOSET AERO, 895.5
-44903, Monomando nariz retráctil para fregadero, cromo, FOSET AERO, 1125
-44904, Monomando fregadero cromo, semi profesional, FOSET AERO, 1665
-44905, Juego manerales para regadera, cromo, FOSET AERO, 292.5
-44906, Monomando para regadera, cromo, FOSET AERO, 945
-56015, Exhibidor de pijas cabeza plana, FIERO, 118.75
-56016, Exhibidor de pijas cabeza hexagonal, FIERO, 118.75
-56017, Exhibidor de taquetes y sujetadores, FIERO, 142.5
-56018, Exhibidor de tuercas, FIERO, 190
-103247, Rotomartillo 1/2", 20V, 1 batería 2Ah, TRUPER PRO, 1950
-103251, Llave de impacto 1/2", 20V, 184 lb/ft, 1 batería 4Ah, PRO, 2350
-103256, Sierra circular 6-1/2", 20V, 1 batería 4Ah, TRUPER PRO, 2350
-103257, Sierra circular 6-1/2", 20V, sin accesorios, TRUPER PRO, 1150
-17849, Brocha profesional de 1/2" mango de plástico, Truper Expert, 7
-17860, Brocha profesional de 1" mango de plástico, Truper Expert, 10
-17861, Brocha profesional de 1-1/2" mango de plástico, Expert, 13
-17862, Brocha profesional de 2" mango de plástico, Truper Expert, 16
-17863, Brocha profesional de 2-1/2" mango de plástico, Expert, 20
-17864, Brocha profesional de 3" mango de plástico, Truper Expert, 26
-17865, Brocha profesional de 4" mango de plástico, Truper Expert, 39
-17866, Brocha profesional de 5" mango de plástico, Truper Expert, 55
-17867, Brocha profesional de 6" mango de plástico, Truper Expert, 65
-14480, Brocha profesional de 1/2" con mango de plástico, Truper, 6
-14481, Brocha profesional de 1" con mango de plástico, Truper, 8.5
-14482, Brocha profesional de 1-1/2" con mango de plástico, Truper, 11
-14483, Brocha profesional de 2" con mango de plástico, Truper, 14
-14484, Brocha profesional de 2-1/2" con mango de plástico, Truper, 17
-14485, Brocha profesional de 3" con mango de plástico, Truper, 23
-14486, Brocha profesional de 4" con mango de plástico, Truper, 36
-14487, Brocha profesional de 5" con mango de plástico, Truper, 49
-14488, Brocha profesional de 6" con mango de plástico, Truper, 58
-48042, Extensión eléctrica de uso rudo 2 m 2x16 AWG, Volteck, 32
-48043, Extensión eléctrica de uso rudo 4 m 2x16 AWG, Volteck, 55
-48044, Extensión eléctrica de uso rudo 6 m 2x16 AWG, Volteck, 75
-48045, Extensión eléctrica de uso rudo 8 m 2x16 AWG, Volteck, 119
-48046, Extensión eléctrica de uso rudo 10 m 2x16 AWG, Volteck, 139
-48047, Extensión eléctrica de uso rudo 12 m 2x16 AWG, Volteck, 165
-48048, Extensión eléctrica de uso rudo 15 m 2x16 AWG, Volteck, 195
-48049, Extensión eléctrica de uso rudo 20 m 2x16 AWG, Volteck, 239
-48050, Extensión eléctrica de uso rudo 25 m 2x16 AWG, Volteck, 309
-48051, Extensión eléctrica de uso rudo 30 m 2x16 AWG, Volteck, 355
-48000, Extensión eléctrica doméstica 2 m clavija plana, blanca, 26
-48006, Extensión eléctrica doméstica 3 m clavija plana, blanca, 32
-48012, Extensión eléctrica doméstica 4 m clavija plana, blanca, 42
-48018, Extensión eléctrica doméstica 5 m clavija plana, blanca, 49
-48024, Extensión eléctrica doméstica 6 m clavija plana, blanca, 55
-48030, Extensión eléctrica doméstica 8 m clavija plana, blanca, 69
-48036, Extensión eléctrica doméstica 10 m clavija plana, blanca, 79
-40151, Extensión eléctrica doméstica 2 m clavija recta, blanca, 26
-40152, Extensión eléctrica doméstica 3 m clavija recta, blanca, 32
-40153, Extensión eléctrica doméstica 4 m clavija recta, blanca, 42
-40154, Extensión eléctrica doméstica 5 m clavija recta, blanca, 49
-40155, Extensión eléctrica doméstica 6 m clavija recta, blanca, 55
-40156, Extensión eléctrica doméstica 8 m clavija recta, blanca, 69
-40157, Extensión eléctrica doméstica 10 m clavija recta, blanca, 79
-40237, Regadera eléctrica, 4 temperaturas, 16.5cm, blanca, FOSET, 295
-40238, Regadera eléctrica, 4 temperaturas, 16.5cm, gris, FOSET, 295
-40239, Regadera eléctrica, 4 temperaturas, 16.5cm, azul, FOSET, 295
-49491, Regadera eléctrica, 4 temperaturas, 14.5cm, blanca, FOSET, 285
-45154, Regadera eléctrica, 4 temperaturas, 14.5cm, gris, FOSET, 285
-45155, Regadera eléctrica, 4 temperaturas, 14.5cm, azul, FOSET, 285
-19712, Pala cuadrada para niños con mango de 30", Truper, 79
-17239, Pala redonda para niños con mango de 30", Truper, 79
-17895, Rastrillo para niños, mango de 42", Truper, 79
-14346, Escoba de jardín para niños con mango de 42", Truper, 79
-10555, Azadón para niños con mango de 42", Truper, 79
-10440, Carretilla para niños, concha plástica 54 x 38 cm, Truper, 325
-102996, Carretilla para niños, concha metálica 54 x 40 cm, Truper, 325
-27180, Pintura en aerosol, metálica, oro, 400 ml, PRETUL, 45
-27174, Pintura en aerosol metálica, plata ,400 ml, PRETUL, 45
-27177, Pintura en aerosol metálica, cromo, 400 ml, PRETUL, 45
-12778, Pintura en aerosol, negro metálico, bote esbelto, 400 ml, 69
-19059, Pintura en aerosol, plata metálico, bote esbelto, 400 ml, 69
-19053, Pintura en aerosol, cromo metálico, bote esbelto, 400 ml, 69
-19066, Pintura en aerosol, oro metálico, bote esbelto, 400 ml, 69
-19067, Pintura en aerosol, cobre metálico, bote esbelto, 400 ml, 69
-12779, Pintura en aerosol, rojo metálico, bote esbelto, 400 ml, 69
-19060, Pintura en aerosol, azul metálico, bote esbelto, 400 ml, 69
-48539, Multicontacto doméstico con 4 entradas, negro, VOLTECK, 65
-49534, Multicontacto 3 entradas 2 ptos USB sup de picos 300 J negro, 165
-48792, Multicontacto de uso rudo con 8 entradas, negro, VOLTECK, 105
-49533, Multicontacto de uso rudo con 10 entradas, negro, VOLTECK, 115
-45864, Multicontacto doméstico 3 entradas, VOLTECK, 40
-45865, Multicontacto doméstico 3 entradas, negro VOLTECK, 40
-47542, Foco LED 3W (25W) G45, 6500K blanca fría, 270 lm, caja, 11
-47543, Foco LED 3W (25W) G45, 3000K blanca cálida, 270 lm, caja, 11
-47545, Foco LED 6W (40W) A19, 3000K blanca cálida, 440 lm, caja, 13
-47546, Foco LED 9W (60W) A19, 6500K blanca fría, 800 lm, caja, 14
-47547, Foco LED 9W (60W) A19, 3000K blanca cálida, 800 lm, caja, 14
-47548, Foco LED 12W (75W) A19, 6500K blanca fría, 1050 lm, caja, 17
-46221, Foco LED 14W (100W) A19, 6500K blanca fría, 1500 lm, caja, 22
-46593, Foco LED 14W (100W) A19, 3000K blanca cálida, 1500 lm, caja, 22
-46222, Foco LED 18W (125W) A25, 6500K blanca fría, 1900 lm, caja, 32
-48459, Foco LED 18W (125W) A25, 3000K blanca cálida, 1900 lm, caja, 32
-46854, Foco LED 3W (25W) G45, 6500K blanca fría, 270 lm, blíster, 13
-46855, Foco LED 3W (25W) G45, 3000K blanca cálida, 270 lm, blíster, 13
-46856, Foco LED 6W (40W) A19, 6500K blanca fría, 440 lm, blíster, 15
-46857, Foco LED 6W (40W) A19, 3000K blanca cálida, 440 lm, blíster, 15
-46858, Foco LED 9W (60W) A19, 6500K blanca fría, 800 lm, blíster, 16
-46859, Foco LED 9W (60W) A19, 3000K blanca cálida, 800 lm, blíster, 16
-46860, Foco LED 12W (75W) A19, 6500K blanca fría, 1050 lm, blíster, 19
-46861, Foco LED 12W (75W) A19, 3000K blanca cálida, 1050lm, blíster, 19
-28057, Foco LED 3W (25W) G45, 6500K blanca fría, 270 lm, BASIC, 9
-28058, Foco LED 3W (25W) G45, 3000K blanca cálida, 270 lm, BASIC, 9
-27162, Foco LED 5W (40W) G45, 6500K blanca fría, 450 lm, BASIC, 9.5
-28059, Foco LED 6W (40W) A19, 6500K blanca fría, 570 lm, BASIC, 11
-28061, Foco LED 8W (60W) A19, 6500K blanca fría, 790 lm, BASIC, 12
-28063, Foco LED 10W (75W) A19, 6500K blanca fría, 950 lm, BASIC, 14
-28064, Foco LED 10W (75W) A19, 3000K blanca cálida, 950 lm, BASIC, 14
-28065, Foco LED 14W (75W) A19, 6500K blanca fría, 1150 lm, BASIC, 16
-27214, Foco LED 14W (75W) A19, 3000K blanca cálida, 1150 lm, BASIC, 16
-28066, Foco LED 16W (100W) A22, 6500K blanca fría, 1550 lm, BASIC, 22
-27215, Foco LED 16W (100W) A22, 3000K blanca cálida, 1550 lm, BASIC, 22
-27164, Foco LED 18W (125W) A25, 6500K blanca fría, 1800 lm, BASIC, 30
-27165, Foco LED 18W (125W) A25, 3000K blanca cálida, 1800 lm, BASIC, 30
-46863, Pack 4 focos LED 3W (25W) G45, 6500K blanca fría, 270 lm, 40
-48513, Pack 4 focos LED 6W (40W) A19, 6500K blanca fría, 440 lm, 48
-46864, Pack 4 focos LED 9W (60W) A19, 6500K blanca fría, 800 lm, 50
-48085, Pack 4 focos LED 9W (60W) A19, 3000K blanca cálida, 800 lm, 50
-48794, Pack 4 focos LED 12W (75W) A19, 6500K blanca fría, 1050 lm, 60
-48128, Pack 4 focos LED 14W (100W) A19, 6500K blanca fría, 1500 lm, 80
-48129, Pack 4 focos LED 18W (125W) A25, 6500K blanca fría, 1900 lm, 112
-28003, Pack 4 focos LED 3W (25W) G45, 6500K fría, 270 lm, BASIC, 32
-28004, Pack 4 focos LED 6W (40W) A19, 6500K fría, 570 lm, BASIC, 40
-28005, Pack 4 focos LED 8W (60W) A19, 6500K fría, 790 lm, BASIC, 44
-28006, Pack 4 focos LED 10W (75W) A19, 6500K fría, 950 lm, BASIC, 52
-27211, Pack 4 focos LED 10W (75W) A19, 3000K cálida, 950 lm, BASIC, 52
-28007, Pack 4 focos LED 14W (75W) A19, 6500K fría, 1150 lm, BASIC, 58
-29070, Pack 4 focos LED 5W (40W) G45, 6500K fría, 450 lm, BASIC, 34
-29069, Pack 4 focos LED 18W (125W) A25, 6500K fría, 1800 lm, BASIC, 108
-28008, Pack 4 focos LED 16W (100W) A22, 6500K fría, 1550 lm, BASIC, 82
-46225, Foco LED alta potencia 20W (170W) 6500K blanca fría, E26, 49
-46226, Foco LED alta potencia 30W (250W) 6500K blanca fría, E26, 79
-46227, Foco LED alta potencia 40W (350W) 6500K blanca fría, E26, 110
-46228, Foco LED alta potencia 50W (450W) 6500K blanca fría, E26, 145
-48078, Foco LED alta potencia 60W (650W) 6500K blanca fría, E39, 285
-48079, Foco LED alta potencia 70W (750W) 6500K blanca fría, E39, 325
-45387, Foco LED alta potencia 60W (650W) 6500K blanca fría, E26, 285
-45386, Foco LED alta potencia 70W (750W) 6500K blanca fría, E26, 325
-28206, Foco LED alta potencia 20W (170W) 6500K blanca fría, BASIC, 35
-28207, Foco LED alta potencia 25W (250W) 6500K blanca fría, BASIC, 55
-28208, Foco LED alta potencia 35W (350W) 6500K blanca fría, BASIC, 75
-28209, Foco LED alta potencia 40W (450W) 6500K blanca fría, BASIC, 99
-46511, Portalámpara de baquelita, doble contacto, Volteck, 13
-46512, Portalámpara de baquelita, cadena y doble contacto, Volteck, 15
-46500, Portalámpara de baquelita, sencillo, Volteck, 8
-47040, Portalámpara de baquelita, sencillo a granel, Volteck, 7
-46525, Portalámpara de baquelita, con adaptador, marfil, Volteck, 8
-45883, Portalámpara 4" de baquelita a granel, VOLTECK, 12
-45884, Portalámpara de baquelita, con adaptador a granel, VOLTECK, 6
-46517, Portalámpara de baquelita, tipo anuncio, Volteck, 10
-46518, Portalámpara de baquelita, 2-1/4", Volteck, 10
-46519, Portalámpara de baquelita, 3-1/2", Volteck, 12
-46520, Portalámpara 4" de baquelita, Volteck, 14
-48076, Portalámpara 4-1/2" de baquelita, Volteck, 15
-46509, Portalámpara de PVC para intemperie, Volteck, 10
-27242, Portalámpara de PVC para intemperie, Volteck Basic, 9
-48093, Portalámpara de PVC para intemperie, a granel, Volteck, 9
-46315, Blíster con 4 pilas alcalinas AA, VOLTECK, 29
-46316, Blíster con 4 pilas alcalinas AAA, VOLTECK, 29
-46317, Blíster con 2 pilas alcalinas C, VOLTECK, 38
-46318, Blíster con 2 pilas alcalinas D, VOLTECK, 42
-46319, Blíster con 1 pila alcalina 9V, VOLTECK, 35
-46012, Despachador con 16 pilas alcalinas AA, VOLTECK, 7
-46013, Despachador con 16 pilas alcalinas AAA, VOLTECK, 7
-49994, Serie de 7.3 m con 12 luces incandescentes para exterior, 495
-49993, Serie de 14.6 m con 24 luces incandescentes para exterior, 855
-45665, Multicontacto 4 entradas, 1 USB A + 1 USB C, negro, VOLTECK, 265
-45663, Multicontacto 6 entradas, 2 USB A + 2 USB C, negro, VOLTECK, 355
-103474, Sierra ranuradora de concreto, 5", 1400 W, TRUPER PRO, 1950
-103789, Disco de diamante 5" para ranuradora de concreto, TRUPER, 195
-45666, Parrilla de gas de sobreponer,2 quemadores, inox, FOSET AERO, 595
-45667, Parrilla de gas de sobreponer,4 quemadores, inox, FOSET AERO, 995
-104191, Pintura esmalte para rotular, naranja, cubeta 19 L, TRUPER, 2850
-56013, Exhibidor de conexiones PE-AL-PE, FOSET, 1357
+41274, Tubo rígido de cobre 1/2" tipo "M", 3m, 0.9kg, FOSET, 320
+41275, Tubo rígido de cobre 3/4" tipo "M", 3m, 1.4kg, FOSET, 525
+41276, Tubo rígido de cobre 1" tipo "M", 3m, 2.0kg, FOSET, 765
+41271, Tubo rígido de cobre 1/2" tipo "L", 3m, 1.2kg, FOSET, 455
+41272, Tubo rígido de cobre 3/4" tipo "L", 3m, 1.9kg, FOSET, 735
+41273, Tubo rígido de cobre 1" tipo "L", 3m, 2.9kg, FOSET, 1175
+48151, Tubo rígido de cobre 1/2" tipo "N", 3m, 0.5kg, FOSET, 210
+48152, Tubo rígido de cobre 3/4" tipo "N", 3m, 0.9kg, FOSET, 375
+48153, Tubo rígido de cobre 1" tipo "N", 3m, 1.4kg, FOSET, 595
+48155, Tubo flexible de cobre 1/4", rollo de 15m, 1.7kg, FOSET, 750
+48156, Tubo flexible de cobre 5/16", rollo de 15m, 2.3kg, FOSET, 1035
+48157, Tubo flexible de cobre 3/8", rollo de 15m, 2.6kg, FOSET, 1125
+48158, Tubo flexible de cobre 1/2", rollo de 15m, 3.7kg, FOSET, 1615
+46057, Rollo de 100 m de cable THHW-LS 14 AWG blanco, VOLTECK, 950
+46053, Rollo de 100 m de cable THHW-LS 14 AWG negro, VOLTECK, 950
+46061, Rollo de 100 m de cable THHW-LS 14 AWG rojo, VOLTECK, 950
+46065, Rollo de 100 m de cable THHW-LS 14 AWG verde, VOLTECK, 950
+46056, Rollo de 100 m de cable THHW-LS 12 AWG blanco, VOLTECK, 1300
+46052, Rollo de 100 m de cable THHW-LS 12 AWG negro, VOLTECK, 1300
+46060, Rollo de 100 m de cable THHW-LS 12 AWG rojo, VOLTECK, 1300
+46064, Rollo de 100 m de cable THHW-LS 12 AWG verde, VOLTECK, 1300
+46055, Rollo de 100 m de cable THHW-LS 10 AWG blanco, VOLTECK, 2000
+46051, Rollo de 100 m de cable THHW-LS 10 AWG negro, VOLTECK, 2000
+46059, Rollo de 100 m de cable THHW-LS 10 AWG rojo, VOLTECK, 2000
+46063, Rollo de 100 m de cable THHW-LS 10 AWG verde, VOLTECK, 2000
+46054, Rollo de 100 m de cable THHW-LS 8 AWG blanco, VOLTECK, 3300
+46050, Rollo de 100 m de cable THHW-LS 8 AWG negro, VOLTECK, 3300
+46058, Rollo de 100 m de cable THHW-LS 8 AWG rojo, VOLTECK, 3300
+46062, Rollo de 100 m de cable THHW-LS 8 AWG verde, VOLTECK, 3300
+40112, Metro de cable THHW-LS 14 AWG blanco en carrete de 500 m, 9.5
+40116, Metro de cable THHW-LS 14 AWG negro en carrete de 500 m, 9.5
+40124, Metro de cable THHW-LS 14 AWG rojo en carrete de 500 m, 9.5
+40120, Metro de cable THHW-LS 14 AWG verde en carrete de 500 m, 9.5
+40113, Metro de cable THHW-LS 12 AWG blanco en carrete de 500 m, 13
+40117, Metro de cable THHW-LS 12 AWG negro en carrete de 500 m, 13
+40125, Metro de cable THHW-LS 12 AWG rojo en carrete de 500 m, 13
+40121, Metro de cable THHW-LS 12 AWG verde en carrete de 500 m, 13
+40114, Metro de cable THHW-LS 10 AWG blanco en carrete de 500 m, 20
+40118, Metro de cable THHW-LS 10 AWG negro en carrete de 500 m, 20
+40126, Metro de cable THHW-LS 10 AWG rojo en carrete de 500 m, 20
+40122, Metro de cable THHW-LS 10 AWG verde en carrete de 500 m, 20
+40115, Metro de cable THHW-LS 8 AWG blanco en carrete de 500 m, 33
+40119, Metro de cable THHW-LS 8 AWG negro en carrete de 500 m, 33
+40127, Metro de cable THHW-LS 8 AWG rojo en carrete de 500 m, 33
+40123, Metro de cable THHW-LS 8 AWG verde en carrete de 500 m, 33
+40149, Carrete con 25 m de cable THHW-LS 14 AWG blanco, VOLTECK, 255
+40148, Carrete con 25 m de cable THHW-LS 14 AWG negro, VOLTECK, 255
+40150, Carrete con 25 m de cable THHW-LS 14 AWG rojo, VOLTECK, 255
+40253, Carrete con 25 m de cable THHW-LS 14 AWG verde, VOLTECK, 255
+40146, Carrete con 20 m de cable THHW-LS 12 AWG blanco, VOLTECK, 280
+40145, Carrete con 20 m de cable THHW-LS 12 AWG negro, VOLTECK, 280
+40147, Carrete con 20 m de cable THHW-LS 12 AWG rojo, VOLTECK, 280
+40252, Carrete con 20 m de cable THHW-LS 12 AWG verde, VOLTECK, 280
+40143, Carrete con 10 m de cable THHW-LS 10 AWG blanco, VOLTECK, 220
+40142, Carrete con 10 m de cable THHW-LS 10 AWG negro, VOLTECK, 220
+40144, Carrete con 10 m de cable THHW-LS 10 AWG rojo, VOLTECK, 220
+40251, Carrete con 10 m de cable THHW-LS 10 AWG verde, VOLTECK, 220
+40247, Carrete con 10 m de cable THHW-LS 8 AWG blanco, VOLTECK, 350
+40248, Carrete con 10 m de cable THHW-LS 8 AWG negro, VOLTECK, 350
+40249, Carrete con 10 m de cable THHW-LS 8 AWG rojo, VOLTECK, 350
+40250, Carrete con 10 m de cable THHW-LS 8 AWG verde, VOLTECK, 350
+46069, Rollo de 100 m de cordón dúplex flexible SPT 18 AWG, VOLTECK, 850
+46068, Rollo de 100 m de cordón dúplex flexible SPT 16 AWG, VOLTECK, 1300
+46067, Rollo de 100 m de cordón dúplex flexible SPT 14 AWG, VOLTECK, 2000
+46066, Rollo de 100 m de cordón dúplex flexible SPT 12 AWG, VOLTECK, 3000
+46079, Rollo de 100 m cordón dúplex 12 AWG, VOLTECK, 2800
+40045, Metro de cordón dúplex flexible SPT 18 AWG en carrete 500 m, 8.5
+40043, Metro de cordón dúplex flexible SPT 16 AWG en carrete 500 m, 13
+40042, Metro de cordón dúplex flexible SPT 14 AWG en carrete 500 m, 20
+40044, Metro de cordón dúplex flexible SPT 12 AWG en carrete 300 m, 30
+40046, Metro de cordón dúplex 12 AWG, carrete 500 m, VOLTECK, 28
+40202, Carrete con 20 m cordón dúplex flexible SPT 18 AWG, VOLTECK, 185
+40201, Carrete con 12 m cordón dúplex flexible SPT 16 AWG, VOLTECK, 165
+40200, Carrete con 10 m cordón dúplex flexible SPT 14 AWG, VOLTECK, 215
+40004, Metro de cable uso extra rudo 2 x 14 AWG en rollo de 100 m, 25
+40003, Metro de cable uso extra rudo 2 x 12 AWG en rollo de 100 m, 38
+40002, Metro de cable uso extra rudo 2 x 10 AWG en rollo de 100 m, 58
+40007, Metro de cable uso extra rudo 3 x 14 AWG en rollo de 100 m, 35
+40006, Metro de cable uso extra rudo 3 x 12 AWG en rollo de 100 m, 53
+40005, Metro de cable uso extra rudo 3 x 10 AWG en rollo de 100 m, 82
+42859, Rollo malla borreguera, 1m x 50m acero galvanizado, 23kg, 985
+42860, Rollo malla borreguera, 1.2m x 50m acero galvanizado, 26kg, 1115
+42861, Rollo malla borreguera, 1.4m x 50m acero galvanizado, 28kg, 1250
+42862, Rollo malla borreguera, 1.67m x 50m acero galvanizado, 31kg, 1395
+16740, Escalera de tijera tipo III 2 escalones, Truper, 800
+16741, Escalera de tijera tipo III 3 escalones, Truper, 950
+16742, Escalera de tijera tipo III 4 escalones y bandeja, Truper, 1200
+16743, Escalera de tijera tipo III 5 escalones y bandeja, Truper, 1350
+10437, Escalera de tijera tipo III 6 escalones y bandeja, Truper, 1650
+10435, Escalera de tijera tipo II 3 peldaños, Truper, 1100
+10264, Escalera de tijera tipo ll 4 peldaños y bandeja, Truper, 1450
+10335, Escalera de tijera tipo ll 5 peldaños y bandeja, Truper, 1600
+16744, Escalera de tijera tipo II 6 peldaños y bandeja, Truper, 1900
+10337, Escalera de tijera tipo II 7 peldaños y bandeja, Truper, 2100
+10338, Escalera de tijera tipo ll 8 peldaños y bandeja, Truper, 2450
+10436, Escalera de tijera tipo II 9 peldaños y bandeja, Truper, 2750
+16026, Escalera de extensión, tipo III, 16 peldaños, Truper, 2550
+16027, Escalera de extensión, tipo III, 20 peldaños, Truper, 3200
+16028, Escalera de extensión, tipo III, 24 peldaños, Truper, 3750
+16748, Escalera de extensión, tipo III, 28 escalones, Truper, 5100
+16758, Escalera de extensión, tipo II, 20 peldaños, Truper, 4000
+16759, Escalera de extensión, tipo II, 24 peldaños, Truper, 5000
+47776, Codo Conduit 90° 1" pared delgada (1.6 mm), et. verde, 62
+47775, Codo Conduit 90° 3/4" pared delgada (1 mm), et. verde, 30
+47774, Codo Conduit 90° 1/2" pared delgada (1 mm), et. verde, 23
+44458, Kilo de alambre recocido calibre 15 en rollo de 1Kg, Fiero, 33
+44457, Kilo de alambre recocido calibre 15 en rollo de 20 kg, Fiero, 29
+40051, Kilo de alambre recocido calibre 15 en rollo de 60 kg, Fiero, 28
 45509, Parrilla gas empotrable 30 cm, 2 quemadores, esmalte, FOSET, 920
 45508, Parrilla gas empotrable 60 cm, 4 quemadores, esmalte, FOSET, 1240
 45507, Parrilla gas empotrable 75 cm, 5 quemadores, esmalte, FOSET, 2120
@@ -306,7 +120,6 @@
 103250, Taladro 1/2", 20V, sin accesorios, TRUPER PRO, 760
 103253, Destornillador de impacto 1/4", 20V, 1 batería 2Ah, PRO, 1665
 103254, Destornillador de impacto 1/4", 20V, sin accesorios, PRO, 840
-103392, Combo rotomartillo/destornillador impacto, 20V, TRUPER PRO, 3375
 103263, Rotomartillo SDS Plus 20V, 2 J, 1 batería 4Ah, TRUPER PRO, 2565
 103264, Rotomartillo SDS Plus 20V, 2 J, sin accesorios, TRUPER PRO, 1320
 102872, Esmeriladora 4-1/2", 20V, 1 batería 4Ah, TRUPER PRO, 2295
@@ -324,8 +137,6 @@
 103266, Sopladora para taller, 20V, sin accesorios, TRUPER PRO, 760
 103639, Esmeriladora 4-1/2", 20V, int. paleta, 1 batería 4Ah, MAX, 2520
 103640, Esmeriladora 4-1/2" 20V, int. paleta, s/accesorios, MAX, 1320
-29001, Kit taladro 1/2", 20V, 1 batería 2Ah, 32 accesorios, PRETUL, 1125
-28269, Destornillador de impacto 1/4", 20V, 1 batería 2Ah, PRETUL, 1035
 28267, Esmeriladora 4-1/2", 20V, 1 batería 4Ah, PRETUL, 1395
 28271, Lijadora roto-orbital 5", 20V, 1 batería 2Ah, PRETUL, 1125
 28268, Llave de impacto 1/2", 20V, 155 lb/ft, 1 batería 4Ah, PRETUL, 1215
@@ -334,8 +145,6 @@
 29074, Inflador inalámbrico portátil, 20 V para auto, PRETUL, 1215
 29940, Aspiradora para auto, 20V, 1 batería 2Ah, PRETUL, 1080
 29010, Pistola para pintar, 20V, 1 batería 2Ah, PRETUL, 1125
-29936, Luminario suburbano LED 50 W 6500 K, VOLTECK BASIC, 252
-29937, Luminario suburbano LED 100 W 6500 K, VOLTECK BASIC, 364
 103552, Llave de impacto 1/2" 550W, 258 lb/ft, TRUPER PRO, 952
 103325, Lijadora orbital 1/4 hoja, 300W, TRUPER INDUSTRIAL, 796
 26402, Destornillador de dos posiciones, 3.6V, PRETUL, 202.5
@@ -343,10 +152,6 @@
 24079, Kit Compresor lub, 20L, manguera y pistola grav,127V, PRETUL, 2151
 24357, Kit Compresor lub, 20L, manguera y pistola baja,127V, PRETUL, 2151
 27106, Kit Compresor lub, 20L, manguera y accesorios, 127V, PRETUL, 2115
-46559, Cerradura sobreponer izq instala-fácil, llave puntos, caja, 148
-46600, Cerradura sobreponer der instala-fácil, llave puntos, caja, 148
-46699, Cerradura sobreponer izq instala-fácil, llave puntos,blíster, 156
-49740, Cerradura sobreponer der instala-fácil, llave puntos,blíster, 156
 45863, Candado para disco de motocicleta, perno de 7 mm, c/alarma, 364
 49842, No Break 900 VA / 480 W con 8 contactos, Volteck, 1032
 49841, No Break 700 VA / 360 W con 6 contactos, Volteck, 872
@@ -383,7 +188,7 @@
 44080, Mezcladora para lavabo taladros separados, cromo, FOSET KUBO, 1240
 29004, Hidrolavadora eléctrica 1350 PSI, Pretul, 892.5
 49473, Candado circular acero inox, cilindro latón, 70 mm, 119.2
-29939, Bomba presurizadora 1/10 HP, Pretul, 520
+29939, Bomba presurizadora 1/10 HP, Pretul, 455
 45344, Batería sellada de ácido-plomo 12 Vcc 9 Ah, VOLTECK, 316
 45339, Batería sellada de ácido-plomo 12 Vcc 7 Ah, VOLTECK, 284
 45338, Batería sellada de ácido-plomo 12 Vcc 4.5 Ah, VOLTECK, 236
@@ -397,16 +202,111 @@
 104035, Extractor p/tirante interior (bieleta de dirección), TRUPER, 1080
 104034, Juego de arco levanta válvulas, 10 piezas, TRUPER, 360
 45668, Medidor de nivel de agua para Tinaco, FOSET, 780
-46303, Calentador de inmersión p/agua #1 de 8 L, 400 W, Volteck, 19.8
-46304, Calentador de inmersión p/agua #2 de 10 L, 500 W, Volteck, 20.7
-46305, Calentador de inmersión p/agua #3 de 12 L, 600 W, Volteck, 21.6
-46306, Calentador de inmersión p/agua #4 de 15 L, 750 W, Volteck, 23.4
-46307, Calentador de inmersión p/agua #5 de 18 L, 900 W, Volteck, 24.3
-46994, Calentador de inmersión p/agua #5.5 de 20 L 1000 W, Volteck, 25.2
-46308, Calentador de inmersión p/agua #6 de 23 L, 1100 W, Volteck, 26.1
-49980, Calentador de inmersión p/agua #8 de 30 L, 1500 W, Volteck, 35.1
-49981, Calentador de inmersión p/agua #10 de 38 L, 1900 W, Volteck, 37.8
-45271, Calentador instantáneo, 6L, 1 servicio, gas LP, Foset, 1665
-43050, Calentador instantáneo, 11L, 2 servicios, gas LP, Foset, 2691
-43051, Calentador instantáneo, 13L, 3 servicios, gas LP, Foset, 3195
-43929, Calentador instantáneo, 5L, 1 servicio, gas LP, FOSET Basic, 1215
+103717, Tijera 6" electricista, óxido negro,acero inoxidable, EXPERT, 135.2
+103713, Tijera 8-1/2" multiusos, de acero inoxidable, EXPERT, 103.2
+103714, Tijera 10" multiusos, de acero inoxidable, EXPERT, 135.2
+29920, Tubo LED T5 16W G5, 6500K blanca fría, opalino, BASIC, 52
+29921, Tubo LED T5 8W G5, 6500K blanca fría, opalino, BASIC, 39.2
+45373, Abrazadera con derivación 3/4x1/2x3/4", FOSET, 116
+45369, Abrazadera con derivación 1/2x1/2x1/2", FOSET, 92
+49567, Cemento p/CPVC, amarillo, toda presión, lata 145ml, FOSET, 49.5
+49568, Cemento p/CPVC, amarillo, toda presión, lata 250ml, FOSET, 67.5
+49566, Cemento p/CPVC, amarillo, toda presión, lata 90ml, FOSET, 35.1
+49569, Cemento p/CPVC, amarillo, toda presión, lata 500ml, FOSET, 112.5
+49565, Cemento p/CPVC, amarillo, toda presión, tubo 50ml, FOSET, 22.5
+42027, Cemento p/PVC, azul, alta presión, lata 500ml, FOSET, 112.5
+42026, Cemento p/PVC, azul, alta presión, lata 250ml, FOSET, 62.1
+42025, Cemento p/PVC, azul, alta presión, lata 145ml, FOSET, 44.1
+42024, Cemento p/PVC, azul, alta presión, lata 90ml, FOSET, 31.5
+42023, Cemento p/PVC, azul, alta presión, tubo 50ml, FOSET, 22.5
+44927, Cemento para PVC, gris, máxima viscosidad, lata 250ml, FOSET, 76.5
+44925, Cemento para PVC, gris, máxima viscosidad, lata 90ml, FOSET, 44.1
+44924, Cemento para PVC, gris, máxima viscosidad, tubo 50ml, FOSET, 31.5
+44926, Cemento para PVC, gris, máxima viscosidad, lata 145ml, FOSET, 53.1
+44928, Cemento para PVC, gris, máxima viscosidad, lata 500ml, FOSET, 139.5
+49563, Cemento p/PVC, transparente, baja presión, lata 250ml, FOSET, 58.5
+49562, Cemento p/PVC, transparente, baja presión, lata 145ml, FOSET, 40.5
+49561, Cemento p/PVC, transparente, baja presión, lata 90ml, FOSET, 31.5
+49564, Cemento p/PVC, transparente, baja presión, lata 500ml, FOSET, 103.5
+49560, Cemento p/PVC, transparente, baja presión, tubo 50ml, FOSET, 19.8
+48378, Limpiador para PVC y CPVC, lata 250ml, FOSET, 49.5
+48379, Limpiador para PVC y CPVC, lata 500ml, FOSET, 76.5
+45584, Cerradura de barra libre, derecha, negra, HERMEX, 143.2
+45580, Cerradura de barra libre, izquierda, negra HERMEX, 143.2
+103740, Sierra circular 7-1/4" 1900W, TRUPER INDUSTRIAL, 2350
+103690, Pistola eléctrica para pintar de 700W, Truper Expert, 1350
+103775, Generador inversor silencioso 3 kW, encendido electrónico, 15750
+103773, Generador inversor silencioso 3 kW, encendido manual, TRUPER, 13950
+103958, Cazanga 20", sin mango, TRUPER, 125
+103957, Cazanga 26", sin mango, TRUPER, 150
+104020, Inflador de aire inalámbrico portátil 150 PSI, TRUPER, 550
+21689, Inflador portátil para auto, 12 V, PRETUL, 255
+20167, Bomba centrífuga para agua modelo europeo, 1 HP, PRETUL, 1250
+20173, Bomba centrífuga para agua modelo europeo, 3/4 HP, PRETUL, 1150
+20172, Bomba centrífuga para agua modelo europeo, 1/2 HP, PRETUL, 950
+29898, Bomba sumergible acero inoxidable,agua sucia,1-1/2HP, PRETUL, 1350
+29897, Bomba sumergible acero inoxidable, agua sucia, 1HP, PRETUL, 1250
+103970, Guantes de látex para pintor, CH, Truper, 39
+103971, Guantes de látex para pintor, XG, Truper, 39
+104157, Bolsa con par de plantillas memory foam p/zapato talla 23, 99
+104158, Bolsa con par de plantillas memory foam p/zapato talla 24, 99
+104159, Bolsa con par de plantillas memory foam p/zapato talla 25, 99
+104170, Bolsa con par de plantillas memory foam p/zapato talla 26, 99
+104171, Bolsa con par de plantillas memory foam p/zapato talla 27, 99
+104172, Bolsa con par de plantillas memory foam p/zapato talla 28, 99
+104173, Bolsa con par de plantillas memory foam p/zapato talla 29, 99
+104174, Bolsa con par de plantillas memory foam p/zapato talla 30, 99
+44197, Lector de código de barras 2D, Bluetooth, VOLTECK, 1095
+44196, Lector de código de barras 2D, inalámbrico, VOLTECK, 695
+44195, Lector de código de barras 2D, alámbrico, USB, VOLTECK, 575
+44189, Lector de código de barras 1D, alámbrico, USB, VOLTECK, 375
+44899, Mezcladora lavabo taladros separados, cromo, FOSET AERO, 1150
+44898, Mezcladora lavabo 4" cromo, tipo bar, palanca, FOSET AERO, 850
+44889, Mezcladora lavabo 4" cromo, cuello alto, palanca, FOSET AERO, 1050
+44882, Monomando corto lavabo, cromo, FOSET AERO, 995
+44883, Monomando alto lavabo, cromo, FOSET AERO, 1390
+44902, Mezcladora fregadero 8" cromo, c. largo, palanca, FOSET AERO, 995
+44903, Monomando nariz retráctil para fregadero, cromo, FOSET AERO, 1250
+44904, Monomando fregadero cromo, semi profesional, FOSET AERO, 1850
+44905, Juego 2 manerales palanca para regadera, cromo, FOSET AERO, 325
+44906, Monomando para regadera, cromo, FOSET AERO, 1050
+56015, Exhibidor de pijas cabeza plana, FIERO, 125
+56016, Exhibidor de pijas cabeza hexagonal, FIERO, 125
+56017, Exhibidor de taquetes y sujetadores, FIERO, 150
+56018, Exhibidor de tuercas, FIERO, 200
+103392, Combo rotomartillo/dest + dest/impacto, 20V, TRUPER PRO, 3750
+29001, Kit taladro/destornillador 1/2", 20V, 32 accesorios, PRETUL, 1250
+28269, Destornillador de impacto 1/4", 20V, 1 batería 2Ah, PRETUL, 1150
+29936, Luminario suburbano LED 50 W 6500 K, VOLTECK BASIC, 315
+29937, Luminario suburbano LED 100 W 6500 K, VOLTECK BASIC, 455
+46559, Cerradura sobreponer izq instala-fácil, llave puntos, caja, 185
+46600, Cerradura sobreponer der instala-fácil, llave puntos, caja, 185
+46699, Cerradura sobreponer izq instala-fácil, llave puntos,blíster, 195
+49740, Cerradura sobreponer der instala-fácil, llave puntos,blíster, 195
+46303, Calentador de inmersión para agua #1 (8 L), 400 W, VOLTECK, 22
+46304, Calentador de inmersión para agua #2 (10 L), 500 W, VOLTECK, 23
+46305, Calentador de inmersión para agua #3 (12 L), 600 W, VOLTECK, 24
+46306, Calentador de inmersión para agua #4 (15 L), 750 W, VOLTECK, 26
+46307, Calentador de inmersión para agua #5 (18 L), 900 W, VOLTECK, 27
+46994, Calentador de inmersión para agua #5.5 (20L), 1000W, VOLTECK, 28
+46308, Calentador de inmersión para agua #6 (23 L), 1100 W, VOLTECK, 29
+49980, Calentador de inmersión para agua #8 (30 L), 1500 W, VOLTECK, 39
+49981, Calentador de inmersión para agua #10 (38 L), 1900W, VOLTECK, 42
+45271, Calentador instantáneo, 6L, 1 servicio, gas LP, FOSET, 1850
+43050, Calentador instantáneo, 11L, 2 servicios, gas LP, FOSET, 2990
+43051, Calentador instantáneo, 13L, 3 servicios, gas LP, FOSET, 3550
+43929, Calentador instantáneo, 5L, 1 servicio, gas LP, FOSET BASIC, 1350
+104022, Aspiradora para auto,12 volts, TRUPER, 355.5
+29899, Nivel láser rojo, alcance 5 m, de pilas, PRETUL, 355.5
+104111, Nivel láser verde, alcance 30m,16 líneas, recargable, TRUPER, 3150
+104161, Arnés para desbrozadoras DES-63/520/430/330/52P/45M, TRUPER, 436.5
+104200, Conector "Y" 3/4" cuerpo robusto con tuerca móvil p/manguera, 175.5
+104217, Conector "Y" 3/4" plástico con tuerca móvil p/manguera, 44.1
+43939, Ménsula de acero reforzado galvanizada 8 x 12", FIERO, 49.5
+43940, Ménsula de acero reforzado galvanizada 10 x 16", FIERO, 67.5
+43941, Ménsula de acero reforzado galvanizada 13 x 20", FIERO, 85.5
+43942, Cajón de dinero para 4 billetes y 8 monedas, VOLTECK, 765
+43943, Cajón de dinero para 5 billetes y 8 monedas, VOLTECK, 945
+43944, Impresora de tickets 58mm, USB+BT, corte manual, VOLTECK, 445.5
+43945, Impresora de tickets 58/80mm, USB+BT, autocorte, VOLTECK, 859.5
+43946, Impresora de tickets 80mm, USB+BT+RJ45+WiFi, autocorte, 1210.5
