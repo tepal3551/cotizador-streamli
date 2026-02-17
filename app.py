@@ -4,35 +4,70 @@ from datetime import datetime
 from fpdf import FPDF
 from urllib.parse import quote_plus 
 import re 
+import requests
+from io import BytesIO
 
 # ==============================================================================
-# SECCIÓN 1: CONFIGURACIÓN Y CLASE PDF
+# SECCIÓN 1: CONFIGURACIÓN Y CLASE PDF CORREGIDA
 # ==============================================================================
 
 class PDF(FPDF):
+    def __init__(self, logo_empresa=None, logo_marca=None):
+        super().__init__()
+        self.logo_empresa = logo_empresa
+        self.logo_marca = logo_marca
+
     def header(self):
-        try:
-            # Usamos logos por URL para evitar el MediaFileStorageError
-            self.image("https://i.postimg.cc/HL8bS9xY/logo-empresa.jpg", 10, 8, 33)
-            self.image("https://i.postimg.cc/c4DY0bt1/logo-marca.jpg", self.w - 43, 8, 33)
-        except:
-            pass
+        # Intentar colocar logos si las descargas fueron exitosas
+        if self.logo_empresa:
+            try:
+                self.image(self.logo_empresa, 10, 8, 33)
+            except: pass
+        if self.logo_marca:
+            try:
+                self.image(self.logo_marca, self.w - 43, 8, 33)
+            except: pass
+            
         self.set_font('Arial', 'B', 15)
         self.cell(0, 10, 'Cotizacion de Pedidos', 0, 1, 'C')
         self.ln(20)
 
+    def footer(self):
+        self.set_y(-15)
+        self.set_font('Arial', 'I', 8)
+        self.cell(0, 10, f'Pagina {self.page_no()}', 0, 0, 'C')
+
 def limpiar_para_pdf(texto):
-    """Limpia acentos y símbolos que rompen el PDF (Error de la imagen 2)."""
+    """Limpia profundamente el texto para evitar errores de codificación latin-1."""
     if not texto: return ""
-    remplazos = {
+    replacements = {
         "á": "a", "é": "e", "í": "i", "ó": "o", "ú": "u",
         "Á": "A", "É": "E", "Í": "I", "Ó": "O", "Ú": "U",
-        "ñ": "n", "Ñ": "N", "°": " grados", '"': " pulg", "'": ""
+        "ñ": "n", "Ñ": "N", "°": " grados", '"': " pulg", "'": "",
+        "&": "y", "¿": "", "?": "", "¡": "", "!": ""
     }
     t = str(texto)
-    for original, nuevo in remplazos.items():
-        t = t.replace(original, nuevo)
-    return t.encode('latin-1', 'replace').decode('latin-1')
+    for key, val in replacements.items():
+        t = t.replace(key, val)
+    # Forzar a latin-1 ignorando caracteres desconocidos
+    return t.encode('latin-1', 'ignore').decode('latin-1')
+
+@st.cache_data
+def descargar_logos():
+    """Descarga los logos una sola vez para evitar errores de conexión en el PDF."""
+    urls = {
+        "empresa": "https://i.postimg.cc/HL8bS9xY/logo-empresa.jpg",
+        "marca": "https://i.postimg.cc/c4DY0bt1/logo-marca.jpg"
+    }
+    logos = {}
+    for nombre, url in urls.items():
+        try:
+            r = requests.get(url, timeout=5)
+            if r.status_code == 200:
+                logos[nombre] = BytesIO(r.content)
+        except:
+            logos[nombre] = None
+    return logos
 
 # ==============================================================================
 # SECCIÓN 2: PROCESAMIENTO DE DATOS
@@ -87,7 +122,7 @@ def analizar_y_cargar_pedido(texto, df_cat):
     if nuevos: st.session_state.cotizacion.extend(nuevos)
 
 # ==============================================================================
-# SECCIÓN 3: INTERFAZ DE USUARIO (RESTAURADA)
+# SECCIÓN 3: INTERFAZ DE USUARIO
 # ==============================================================================
 
 st.set_page_config(page_title="Cotizador Truper", layout="wide")
@@ -95,14 +130,16 @@ st.set_page_config(page_title="Cotizador Truper", layout="wide")
 if 'cotizacion' not in st.session_state: st.session_state.cotizacion = []
 if 'tipo_lista' not in st.session_state: st.session_state.tipo_lista = "Distribuidor"
 
-# Encabezado con logos
+# Cargar logos y catálogo
+logos = descargar_logos()
+catalogo_df = cargar_catalogo("CATALAGO 25 TRUP PRUEBA COTIZADOR.txt", "precios_actualizados.txt")
+st.session_state.catalogo_df = catalogo_df
+
+# Encabezado visual
 c1, c2, c3 = st.columns([1,3,1])
 with c1: st.image("https://i.postimg.cc/HL8bS9xY/logo-empresa.jpg", width=120)
 with c2: st.markdown("<h1 style='text-align: center;'>Cotizador Truper</h1>", unsafe_allow_html=True)
 with c3: st.image("https://i.postimg.cc/c4DY0bt1/logo-marca.jpg", width=120)
-
-catalogo_df = cargar_catalogo("CATALAGO 25 TRUP PRUEBA COTIZADOR.txt", "precios_actualizados.txt")
-st.session_state.catalogo_df = catalogo_df
 
 # Ajustes de cliente
 col_c1, col_c2 = st.columns(2)
@@ -112,7 +149,7 @@ with col_c1:
 with col_c2:
     st.session_state.tipo_lista = st.radio("Lista de Precios:", ["Distribuidor", "Dimefet"], horizontal=True)
 
-# --- CARGA MANUAL (SELECTOR) ---
+# --- CARGA MANUAL ---
 with st.expander("🔍 Añadir Producto Individual", expanded=True):
     m1, m2, m3 = st.columns([4,1,1])
     opciones = catalogo_df['display'].tolist() if not catalogo_df.empty else []
@@ -125,7 +162,7 @@ with st.expander("🔍 Añadir Producto Individual", expanded=True):
         st.session_state.cotizacion.append({'codigo': info['codigo'], 'descripcion': info['descripcion'], 'cantidad': c_sel, 'precio_unitario': p_f})
         st.rerun()
 
-# --- CARGA RÁPIDA (PEGAR TEXTO) ---
+# --- CARGA RÁPIDA ---
 with st.expander("🚀 Carga Rápida (Pegar pedido)"):
     texto_p = st.text_area("Pega aquí (Ej: 2424 4)")
     if st.button("Procesar Lista"):
@@ -149,33 +186,38 @@ if st.session_state.cotizacion:
     wa, pdf_btn, clear = st.columns(3)
     wa.link_button("📲 WhatsApp", f"https://wa.me/?text={quote_plus(msj)}", use_container_width=True)
 
-    # Generación de PDF Protegida
+    # --- GENERACIÓN DE PDF CORREGIDA ---
     try:
-        pdf = PDF()
+        # Pasamos los logos descargados a la clase PDF
+        pdf = PDF(logo_empresa=logos["empresa"], logo_marca=logos["marca"])
         pdf.add_page()
         pdf.set_font("Arial", size=11)
         pdf.cell(0, 10, f"Cliente: {limpiar_para_pdf(cliente)}", ln=True)
+        pdf.cell(0, 10, f"Tipo: {limpiar_para_pdf(tipo_doc)}", ln=True)
         pdf.cell(0, 10, f"Fecha: {datetime.now().strftime('%d/%m/%Y')}", ln=True)
         pdf.ln(5)
         
+        # Tabla Encabezado
         pdf.set_font("Arial", 'B', 10)
-        pdf.cell(25, 10, "Codigo", 1); pdf.cell(95, 10, "Descripcion", 1); pdf.cell(20, 10, "Cant", 1); pdf.cell(30, 10, "Subtotal", 1); pdf.ln()
+        pdf.cell(25, 10, "Codigo", 1); pdf.cell(90, 10, "Descripcion", 1); pdf.cell(20, 10, "Cant", 1); pdf.cell(35, 10, "Subtotal", 1); pdf.ln()
         
+        # Detalle
         pdf.set_font("Arial", size=9)
         for _, fila in df_cot.iterrows():
             pdf.cell(25, 8, limpiar_para_pdf(fila['codigo']), 1)
-            pdf.cell(95, 8, limpiar_para_pdf(fila['descripcion'])[:50], 1)
+            pdf.cell(90, 8, limpiar_para_pdf(fila['descripcion'])[:50], 1)
             pdf.cell(20, 8, str(int(fila['cantidad'])), 1, 0, 'C')
-            pdf.cell(30, 8, f"${fila['Subtotal']:,.2f}", 1, 0, 'R')
+            pdf.cell(35, 8, f"${fila['Subtotal']:,.2f}", 1, 0, 'R')
             pdf.ln()
             
         pdf.ln(5); pdf.set_font("Arial", 'B', 12)
         pdf.cell(0, 10, f"TOTAL: ${total:,.2f}  ", ln=True, align='R')
         
+        # Salida de PDF como bytes
         pdf_out = pdf.output(dest='S').encode('latin-1')
-        pdf_btn.download_button("📥 PDF", pdf_out, f"Pedido_{cliente}.pdf", "application/pdf", use_container_width=True)
-    except:
-        pdf_btn.error("Error al generar PDF")
+        pdf_btn.download_button("📥 Descargar PDF", pdf_out, f"Pedido_{cliente}.pdf", "application/pdf", use_container_width=True)
+    except Exception as e:
+        pdf_btn.error(f"Error PDF: {str(e)}")
 
     if clear.button("🗑️ Limpiar Todo", use_container_width=True):
         st.session_state.cotizacion = []
