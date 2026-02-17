@@ -18,7 +18,7 @@ class PDF(FPDF):
         self.logo_marca = logo_marca
 
     def header(self):
-        # Intentar colocar logos si las descargas fueron exitosas
+        # Colocación segura de logos desde memoria
         if self.logo_empresa:
             try:
                 self.image(self.logo_empresa, 10, 8, 33)
@@ -38,23 +38,23 @@ class PDF(FPDF):
         self.cell(0, 10, f'Pagina {self.page_no()}', 0, 0, 'C')
 
 def limpiar_para_pdf(texto):
-    """Limpia profundamente el texto para evitar errores de codificación latin-1."""
+    """Limpia el texto para evitar errores de codificación en FPDF."""
     if not texto: return ""
-    replacements = {
+    remplazos = {
         "á": "a", "é": "e", "í": "i", "ó": "o", "ú": "u",
         "Á": "A", "É": "E", "Í": "I", "Ó": "O", "Ú": "U",
         "ñ": "n", "Ñ": "N", "°": " grados", '"': " pulg", "'": "",
-        "&": "y", "¿": "", "?": "", "¡": "", "!": ""
+        "&": "y", "¼": "1/4", "½": "1/2", "¾": "3/4"
     }
     t = str(texto)
-    for key, val in replacements.items():
-        t = t.replace(key, val)
-    # Forzar a latin-1 ignorando caracteres desconocidos
+    for original, nuevo in remplazos.items():
+        t = t.replace(original, nuevo)
+    # Ignora cualquier carácter que no sea compatible con latin-1
     return t.encode('latin-1', 'ignore').decode('latin-1')
 
 @st.cache_data
 def descargar_logos():
-    """Descarga los logos una sola vez para evitar errores de conexión en el PDF."""
+    """Descarga los logos y los guarda en memoria (evita MediaFileStorageError)."""
     urls = {
         "empresa": "https://i.postimg.cc/HL8bS9xY/logo-empresa.jpg",
         "marca": "https://i.postimg.cc/c4DY0bt1/logo-marca.jpg"
@@ -62,7 +62,7 @@ def descargar_logos():
     logos = {}
     for nombre, url in urls.items():
         try:
-            r = requests.get(url, timeout=5)
+            r = requests.get(url, timeout=10)
             if r.status_code == 200:
                 logos[nombre] = BytesIO(r.content)
         except:
@@ -130,23 +130,26 @@ st.set_page_config(page_title="Cotizador Truper", layout="wide")
 if 'cotizacion' not in st.session_state: st.session_state.cotizacion = []
 if 'tipo_lista' not in st.session_state: st.session_state.tipo_lista = "Distribuidor"
 
-# Cargar logos y catálogo
+# Carga de recursos
 logos = descargar_logos()
 catalogo_df = cargar_catalogo("CATALAGO 25 TRUP PRUEBA COTIZADOR.txt", "precios_actualizados.txt")
 st.session_state.catalogo_df = catalogo_df
 
-# Encabezado visual
-c1, c2, c3 = st.columns([1,3,1])
-with c1: st.image("https://i.postimg.cc/HL8bS9xY/logo-empresa.jpg", width=120)
-with c2: st.markdown("<h1 style='text-align: center;'>Cotizador Truper</h1>", unsafe_allow_html=True)
-with c3: st.image("https://i.postimg.cc/c4DY0bt1/logo-marca.jpg", width=120)
+# Encabezado principal
+c_logo1, c_title, c_logo2 = st.columns([1,3,1])
+with c_logo1:
+    st.image("https://i.postimg.cc/HL8bS9xY/logo-empresa.jpg", width=120)
+with c_title:
+    st.markdown("<h1 style='text-align: center;'>Cotizador Truper</h1>", unsafe_allow_html=True)
+with c_logo2:
+    st.image("https://i.postimg.cc/c4DY0bt1/logo-marca.jpg", width=120)
 
-# Ajustes de cliente
-col_c1, col_c2 = st.columns(2)
-with col_c1:
+# Configuración de Cliente
+col_info1, col_info2 = st.columns(2)
+with col_info1:
     cliente = st.text_input("Cliente:").upper()
-    tipo_doc = st.text_input("Documento:", value="Remision")
-with col_c2:
+    tipo_doc = st.text_input("Documento:", value="Remisión")
+with col_info2:
     st.session_state.tipo_lista = st.radio("Lista de Precios:", ["Distribuidor", "Dimefet"], horizontal=True)
 
 # --- CARGA MANUAL ---
@@ -164,21 +167,21 @@ with st.expander("🔍 Añadir Producto Individual", expanded=True):
 
 # --- CARGA RÁPIDA ---
 with st.expander("🚀 Carga Rápida (Pegar pedido)"):
-    texto_p = st.text_area("Pega aquí (Ej: 2424 4)")
+    texto_p = st.text_area("Pega aquí el pedido")
     if st.button("Procesar Lista"):
         analizar_y_cargar_pedido(texto_p, catalogo_df)
         st.rerun()
 
-# --- TABLA Y ACCIONES FINAL ---
+# --- TABLA Y ACCIONES ---
 if st.session_state.cotizacion:
     df_cot = pd.DataFrame(st.session_state.cotizacion)
     df_cot['Subtotal'] = df_cot['cantidad'] * df_cot['precio_unitario']
     st.table(df_cot.style.format({'precio_unitario': '${:,.2f}', 'Subtotal': '${:,.2f}'}))
     
-    total = df_cot['Subtotal'].sum()
-    st.subheader(f"Total: ${total:,.2f}")
+    total_gral = df_cot['Subtotal'].sum()
+    st.subheader(f"Total: ${total_gral:,.2f}")
 
-    # Mensaje de WhatsApp
+    # WhatsApp
     msj = f"Nuevo Pedido\n\nCliente: {cliente}\nTipo de Documento: {tipo_doc}\n\nDetalle del Pedido:\n\n"
     for _, r in df_cot.iterrows():
         msj += f"* {r['codigo']} {int(r['cantidad'])} {r['descripcion']}\n"
@@ -186,22 +189,21 @@ if st.session_state.cotizacion:
     wa, pdf_btn, clear = st.columns(3)
     wa.link_button("📲 WhatsApp", f"https://wa.me/?text={quote_plus(msj)}", use_container_width=True)
 
-    # --- GENERACIÓN DE PDF CORREGIDA ---
+    # --- GENERACIÓN DE PDF ---
     try:
-        # Pasamos los logos descargados a la clase PDF
         pdf = PDF(logo_empresa=logos["empresa"], logo_marca=logos["marca"])
         pdf.add_page()
         pdf.set_font("Arial", size=11)
         pdf.cell(0, 10, f"Cliente: {limpiar_para_pdf(cliente)}", ln=True)
-        pdf.cell(0, 10, f"Tipo: {limpiar_para_pdf(tipo_doc)}", ln=True)
+        pdf.cell(0, 10, f"Documento: {limpiar_para_pdf(tipo_doc)}", ln=True)
         pdf.cell(0, 10, f"Fecha: {datetime.now().strftime('%d/%m/%Y')}", ln=True)
         pdf.ln(5)
         
-        # Tabla Encabezado
+        # Encabezado Tabla
         pdf.set_font("Arial", 'B', 10)
         pdf.cell(25, 10, "Codigo", 1); pdf.cell(90, 10, "Descripcion", 1); pdf.cell(20, 10, "Cant", 1); pdf.cell(35, 10, "Subtotal", 1); pdf.ln()
         
-        # Detalle
+        # Detalles
         pdf.set_font("Arial", size=9)
         for _, fila in df_cot.iterrows():
             pdf.cell(25, 8, limpiar_para_pdf(fila['codigo']), 1)
@@ -211,11 +213,14 @@ if st.session_state.cotizacion:
             pdf.ln()
             
         pdf.ln(5); pdf.set_font("Arial", 'B', 12)
-        pdf.cell(0, 10, f"TOTAL: ${total:,.2f}  ", ln=True, align='R')
+        pdf.cell(0, 10, f"TOTAL: ${total_gral:,.2f}  ", ln=True, align='R')
         
-        # Salida de PDF como bytes
-        pdf_out = pdf.output(dest='S').encode('latin-1')
-        pdf_btn.download_button("📥 Descargar PDF", pdf_out, f"Pedido_{cliente}.pdf", "application/pdf", use_container_width=True)
+        # CORRECCIÓN CLAVE: No usar .encode() sobre el output de fpdf2/moderno
+        pdf_bytes = pdf.output() 
+        if isinstance(pdf_bytes, str): # Para versiones antiguas que devuelven string
+            pdf_bytes = pdf_bytes.encode('latin-1')
+            
+        pdf_btn.download_button("📥 Descargar PDF", pdf_bytes, f"Cotizacion_{cliente}.pdf", "application/pdf", use_container_width=True)
     except Exception as e:
         pdf_btn.error(f"Error PDF: {str(e)}")
 
