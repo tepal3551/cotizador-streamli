@@ -6,13 +6,13 @@ from urllib.parse import quote_plus
 import re 
 
 # ==============================================================================
-# SECCIÓN 1: CLASE PDF (USANDO TUS LOGOS ORIGINALES)
+# SECCIÓN 1: CONFIGURACIÓN Y CLASE PDF
 # ==============================================================================
 
 class PDF(FPDF):
     def header(self):
         try:
-            # Logos desde las URLs de tu primer código para evitar errores de archivo
+            # Usamos logos por URL para evitar el MediaFileStorageError
             self.image("https://i.postimg.cc/HL8bS9xY/logo-empresa.jpg", 10, 8, 33)
             self.image("https://i.postimg.cc/c4DY0bt1/logo-marca.jpg", self.w - 43, 8, 33)
         except:
@@ -21,85 +21,73 @@ class PDF(FPDF):
         self.cell(0, 10, 'Cotizacion de Pedidos', 0, 1, 'C')
         self.ln(20)
 
-def fpdf_safe(texto):
-    """Limpia el texto para que FPDF no falle con acentos o símbolos de Truper."""
+def limpiar_para_pdf(texto):
+    """Limpia acentos y símbolos que rompen el PDF (Error de la imagen 2)."""
     if not texto: return ""
-    replacements = {
+    remplazos = {
         "á": "a", "é": "e", "í": "i", "ó": "o", "ú": "u",
         "Á": "A", "É": "E", "Í": "I", "Ó": "O", "Ú": "U",
-        "ñ": "n", "Ñ": "N", "’": "'", "“": '"', "”": '"', "—": "-",
-        "°": " o.", "²": "2", "³": "3", "¼": "1/4", "½": "1/2", "¾": "3/4"
+        "ñ": "n", "Ñ": "N", "°": " grados", '"': " pulg", "'": ""
     }
     t = str(texto)
-    for key, val in replacements.items():
-        t = t.replace(key, val)
+    for original, nuevo in remplazos.items():
+        t = t.replace(original, nuevo)
     return t.encode('latin-1', 'replace').decode('latin-1')
 
 # ==============================================================================
-# SECCIÓN 2: LÓGICA DE DATOS
+# SECCIÓN 2: PROCESAMIENTO DE DATOS
 # ==============================================================================
 
 @st.cache_data
-def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
+def cargar_catalogo(archivo_cat, archivo_act):
     catalogo = []
     try:
-        with open(nombre_archivo_catalogo, 'r', encoding='utf-8') as f:
+        with open(archivo_cat, 'r', encoding='utf-8') as f:
             for line in f:
                 try:
                     partes = line.strip().split(',')
                     if len(partes) < 3: continue
-                    codigo = partes[0].strip()
-                    precio = float(partes[-1].strip())
-                    descripcion = ','.join(partes[1:-1]).strip()
-                    catalogo.append({'codigo': codigo, 'descripcion': descripcion, 'precio': precio})
+                    catalogo.append({
+                        'codigo': partes[0].strip(),
+                        'descripcion': ','.join(partes[1:-1]).strip(),
+                        'precio': float(partes[-1].strip())
+                    })
                 except: continue
     except FileNotFoundError: return pd.DataFrame()
 
-    df = pd.DataFrame(catalogo)
-    if df.empty: return pd.DataFrame(columns=['codigo', 'descripcion', 'precio'])
-    df = df.set_index('codigo')
-
+    df = pd.DataFrame(catalogo).set_index('codigo')
     try:
-        with open(nombre_archivo_actualizaciones, 'r', encoding='utf-8') as f:
+        with open(archivo_act, 'r', encoding='utf-8') as f:
             for line in f:
                 try:
-                    partes = line.strip().split(',')
-                    if len(partes) < 3: continue 
-                    codigo = partes[0].strip()
-                    nuevo_precio = float(partes[-1].strip())
-                    nueva_descripcion = ','.join(partes[1:-1]).strip()
-                    df.loc[codigo] = {'descripcion': nueva_descripcion, 'precio': nuevo_precio}
+                    p = line.strip().split(',')
+                    if len(p) < 3: continue
+                    df.loc[p[0].strip()] = {'descripcion': ','.join(p[1:-1]).strip(), 'precio': float(p[-1].strip())}
                 except: continue
-    except FileNotFoundError: pass
-
+    except: pass
+    
     df = df.reset_index()
     df['display'] = df['codigo'] + " - " + df['descripcion']
     return df
 
-def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
-    lineas = [line.strip() for line in texto_pedido.split('\n') if line.strip()]
-    nuevos_productos = []
-    catalogo_map = df_catalogo.set_index('codigo').to_dict('index') 
+def analizar_y_cargar_pedido(texto, df_cat):
+    lineas = [l.strip() for l in texto.split('\n') if l.strip()]
+    catalogo_map = df_cat.set_index('codigo').to_dict('index') 
     PATRON = re.compile(r'^[^\d]*(\d{4,6})[^\d]+(\d{1,3})')
-
+    
+    nuevos = []
     for linea in lineas:
         match = PATRON.search(linea)
         if match:
-            cod = match.group(1)
-            cant = int(match.group(2))
+            cod, cant = match.group(1), int(match.group(2))
             if cod in catalogo_map:
                 p_base = float(catalogo_map[cod]['precio'])
-                # Lógica Dimefet: Precio / 0.90 para que al descontar 10% regrese al base
-                precio_final = p_base if st.session_state.tipo_lista == "Distribuidor" else p_base / 0.90
-                nuevos_productos.append({
-                    'codigo': cod, 'descripcion': catalogo_map[cod]['descripcion'],
-                    'cantidad': cant, 'precio_unitario': precio_final
-                })
-    if nuevos_productos:
-        st.session_state.cotizacion.extend(nuevos_productos)
+                p_final = p_base if st.session_state.tipo_lista == "Distribuidor" else p_base / 0.90
+                nuevos.append({'codigo': cod, 'descripcion': catalogo_map[cod]['descripcion'], 'cantidad': cant, 'precio_unitario': p_final})
+    if nuevos: st.session_state.cotizacion.extend(nuevos)
 
 # ==============================================================================
-# SECCIÓN 3: INTERFAZ
+# SECCIÓN 3: INTERFAZ DE USUARIO (RESTAURADA)
 # ==============================================================================
 
 st.set_page_config(page_title="Cotizador Truper", layout="wide")
@@ -107,54 +95,66 @@ st.set_page_config(page_title="Cotizador Truper", layout="wide")
 if 'cotizacion' not in st.session_state: st.session_state.cotizacion = []
 if 'tipo_lista' not in st.session_state: st.session_state.tipo_lista = "Distribuidor"
 
-# Logos e Interfaz (Cargados por URL)
+# Encabezado con logos
 c1, c2, c3 = st.columns([1,3,1])
 with c1: st.image("https://i.postimg.cc/HL8bS9xY/logo-empresa.jpg", width=120)
 with c2: st.markdown("<h1 style='text-align: center;'>Cotizador Truper</h1>", unsafe_allow_html=True)
 with c3: st.image("https://i.postimg.cc/c4DY0bt1/logo-marca.jpg", width=120)
 
-catalogo_df = cargar_catalogo("CATALAGO 25 TRUP PRUEBA COTIZADOR.txt", "precios_actualizaciones.txt")
+catalogo_df = cargar_catalogo("CATALAGO 25 TRUP PRUEBA COTIZADOR.txt", "precios_actualizados.txt")
 st.session_state.catalogo_df = catalogo_df
 
-# Configuración
-col_info1, col_info2 = st.columns(2)
-with col_info1:
-    cliente = st.text_input("Cliente:", placeholder="Ej: TOME GARCIA MARIA MAGDALENA").upper()
-    tipo_doc = st.text_input("Tipo de Documento:", value="Remision")
-with col_info2:
+# Ajustes de cliente
+col_c1, col_c2 = st.columns(2)
+with col_c1:
+    cliente = st.text_input("Cliente:").upper()
+    tipo_doc = st.text_input("Documento:", value="Remision")
+with col_c2:
     st.session_state.tipo_lista = st.radio("Lista de Precios:", ["Distribuidor", "Dimefet"], horizontal=True)
 
-# Carga Rápida
-with st.expander("🚀 Carga Rapida (Pegar pedido de WhatsApp)"):
-    texto_pegar = st.text_area("Pega aquí (Ej: 2424 4)")
-    if st.button("Procesar Pedido"):
-        analizar_y_cargar_pedido(texto_pegar, catalogo_df)
+# --- CARGA MANUAL (SELECTOR) ---
+with st.expander("🔍 Añadir Producto Individual", expanded=True):
+    m1, m2, m3 = st.columns([4,1,1])
+    opciones = catalogo_df['display'].tolist() if not catalogo_df.empty else []
+    p_sel = m1.selectbox("Producto:", opciones)
+    c_sel = m2.number_input("Cant:", min_value=1, value=1)
+    if m3.button("➕ Añadir"):
+        info = catalogo_df[catalogo_df['display'] == p_sel].iloc[0]
+        p_base = float(info['precio'])
+        p_f = p_base if st.session_state.tipo_lista == "Distribuidor" else p_base / 0.90
+        st.session_state.cotizacion.append({'codigo': info['codigo'], 'descripcion': info['descripcion'], 'cantidad': c_sel, 'precio_unitario': p_f})
         st.rerun()
 
-# Tabla de resultados
+# --- CARGA RÁPIDA (PEGAR TEXTO) ---
+with st.expander("🚀 Carga Rápida (Pegar pedido)"):
+    texto_p = st.text_area("Pega aquí (Ej: 2424 4)")
+    if st.button("Procesar Lista"):
+        analizar_y_cargar_pedido(texto_p, catalogo_df)
+        st.rerun()
+
+# --- TABLA Y ACCIONES FINAL ---
 if st.session_state.cotizacion:
     df_cot = pd.DataFrame(st.session_state.cotizacion)
     df_cot['Subtotal'] = df_cot['cantidad'] * df_cot['precio_unitario']
     st.table(df_cot.style.format({'precio_unitario': '${:,.2f}', 'Subtotal': '${:,.2f}'}))
     
-    total_gral = df_cot['Subtotal'].sum()
-    st.subheader(f"Total Cotizado: ${total_gral:,.2f}")
+    total = df_cot['Subtotal'].sum()
+    st.subheader(f"Total: ${total:,.2f}")
 
-    # WhatsApp (Texto Simple)
-    mensaje_wa = f"Nuevo Pedido\n\nCliente: {cliente}\nTipo de Documento: {tipo_doc}\n\nDetalle del Pedido:\n\n"
+    # Mensaje de WhatsApp
+    msj = f"Nuevo Pedido\n\nCliente: {cliente}\nTipo de Documento: {tipo_doc}\n\nDetalle del Pedido:\n\n"
     for _, r in df_cot.iterrows():
-        mensaje_wa += f"* {r['codigo']} {int(r['cantidad'])} {r['descripcion']}\n"
+        msj += f"* {r['codigo']} {int(r['cantidad'])} {r['descripcion']}\n"
     
-    col_btn1, col_btn2, col_btn3 = st.columns(3)
-    col_btn1.link_button("📲 WhatsApp", f"https://wa.me/?text={quote_plus(mensaje_wa)}", use_container_width=True)
+    wa, pdf_btn, clear = st.columns(3)
+    wa.link_button("📲 WhatsApp", f"https://wa.me/?text={quote_plus(msj)}", use_container_width=True)
 
-    # Generación de PDF (Lógica de tu primer código)
+    # Generación de PDF Protegida
     try:
         pdf = PDF()
         pdf.add_page()
         pdf.set_font("Arial", size=11)
-        pdf.cell(0, 10, f"Cliente: {fpdf_safe(cliente)}", ln=True)
-        pdf.cell(0, 10, f"Tipo: {fpdf_safe(tipo_doc)}", ln=True)
+        pdf.cell(0, 10, f"Cliente: {limpiar_para_pdf(cliente)}", ln=True)
         pdf.cell(0, 10, f"Fecha: {datetime.now().strftime('%d/%m/%Y')}", ln=True)
         pdf.ln(5)
         
@@ -163,20 +163,22 @@ if st.session_state.cotizacion:
         
         pdf.set_font("Arial", size=9)
         for _, fila in df_cot.iterrows():
-            pdf.cell(25, 8, fpdf_safe(fila['codigo']), 1)
-            pdf.cell(95, 8, fpdf_safe(fila['descripcion'])[:50], 1)
+            pdf.cell(25, 8, limpiar_para_pdf(fila['codigo']), 1)
+            pdf.cell(95, 8, limpiar_para_pdf(fila['descripcion'])[:50], 1)
             pdf.cell(20, 8, str(int(fila['cantidad'])), 1, 0, 'C')
             pdf.cell(30, 8, f"${fila['Subtotal']:,.2f}", 1, 0, 'R')
             pdf.ln()
             
         pdf.ln(5); pdf.set_font("Arial", 'B', 12)
-        pdf.cell(0, 10, f"TOTAL: ${total_gral:,.2f}", ln=True, align='R')
+        pdf.cell(0, 10, f"TOTAL: ${total:,.2f}  ", ln=True, align='R')
         
-        pdf_bytes = pdf.output(dest='S').encode('latin-1')
-        col_btn2.download_button("📥 PDF", pdf_bytes, f"Pedido_{cliente}.pdf", "application/pdf", use_container_width=True)
+        pdf_out = pdf.output(dest='S').encode('latin-1')
+        pdf_btn.download_button("📥 PDF", pdf_out, f"Pedido_{cliente}.pdf", "application/pdf", use_container_width=True)
     except:
-        col_btn2.error("Error PDF")
+        pdf_btn.error("Error al generar PDF")
 
-    if col_btn3.button("🗑️ Limpiar"):
+    if clear.button("🗑️ Limpiar Todo", use_container_width=True):
         st.session_state.cotizacion = []
         st.rerun()
+else:
+    st.info("La cotización está vacía.")
