@@ -6,7 +6,43 @@ from urllib.parse import quote_plus
 import re 
 
 # ==============================================================================
-# SECCIÓN 1: DEFINICIÓN DE FUNCIONES
+# SECCIÓN 1: DEFINICIÓN DE CLASE PDF (BASADA EN TU CÓDIGO ORIGINAL)
+# ==============================================================================
+
+class PDF(FPDF):
+    def header(self):
+        try:
+            # Logos desde las URLs de tu primer código
+            self.image("https://i.postimg.cc/HL8bS9xY/logo-empresa.jpg", 10, 8, 33)
+            self.image("https://i.postimg.cc/c4DY0bt1/logo-marca.jpg", self.w - 43, 8, 33)
+        except Exception:
+            pass
+        self.set_font('Arial', 'B', 15)
+        self.cell(0, 10, 'Cotizacion de Pedidos', 0, 1, 'C') # Sin acento para evitar error
+        self.ln(20)
+
+    def footer(self):
+        self.set_y(-15)
+        self.set_font('Arial', 'I', 8)
+        self.cell(0, 10, f'Pagina {self.page_no()}', 0, 0, 'C')
+
+def limpiar_texto(texto):
+    """Limpia caracteres especiales para que FPDF no marque error."""
+    if not texto: return ""
+    # Reemplazos comunes que causan error en FPDF Arial
+    remplazos = {
+        "á": "a", "é": "e", "í": "i", "ó": "o", "ú": "u",
+        "Á": "A", "É": "E", "Í": "I", "Ó": "O", "Ú": "U",
+        "ñ": "n", "Ñ": "N", "´": "", "’": "'", "“": '"', "”": '"', "—": "-"
+    }
+    t = str(texto)
+    for original, reemplazo in remplazos.items():
+        t = t.replace(original, reemplazo)
+    # Elimina cualquier otro caracter no compatible con latin-1
+    return t.encode('latin-1', 'replace').decode('latin-1')
+
+# ==============================================================================
+# SECCIÓN 2: FUNCIONES DE LOGICA
 # ==============================================================================
 
 @st.cache_data
@@ -22,9 +58,8 @@ def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
                     precio = float(partes[-1].strip())
                     descripcion = ','.join(partes[1:-1]).strip()
                     catalogo.append({'codigo': codigo, 'descripcion': descripcion, 'precio': precio})
-                except (ValueError, IndexError): continue
-    except FileNotFoundError:
-        return pd.DataFrame()
+                except: continue
+    except FileNotFoundError: return pd.DataFrame()
 
     df = pd.DataFrame(catalogo)
     if df.empty: return pd.DataFrame(columns=['codigo', 'descripcion', 'precio'])
@@ -47,60 +82,6 @@ def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
     df['display'] = df['codigo'] + " - " + df['descripcion']
     return df
 
-class PDF(FPDF):
-    def header(self):
-        try:
-            # Usamos las URLs directas que proporcionaste antes
-            self.image("https://i.postimg.cc/HL8bS9xY/logo-empresa.jpg", 10, 8, 33)
-            self.image("https://i.postimg.cc/c4DY0bt1/logo-marca.jpg", 165, 8, 33)
-        except:
-            pass
-        self.set_font('Arial', 'B', 15)
-        self.ln(10)
-        self.cell(0, 10, 'Cotización de Pedidos', 0, 1, 'C')
-        self.ln(10)
-
-def generar_pdf(df, cliente, tipo_doc, lista, total):
-    pdf = PDF()
-    pdf.add_page()
-    
-    # Función para limpiar texto y evitar errores de codificación en el PDF
-    def limpiar(t):
-        return str(t).encode('latin-1', 'replace').decode('latin-1')
-
-    pdf.set_font("Arial", size=12)
-    pdf.cell(0, 10, txt=f"Cliente: {limpiar(cliente)}", ln=True)
-    pdf.cell(0, 10, txt=f"Tipo: {limpiar(tipo_doc)}", ln=True)
-    pdf.cell(0, 10, txt=f"Lista: {limpiar(lista)}", ln=True)
-    pdf.cell(0, 10, txt=f"Fecha: {datetime.now().strftime('%d/%m/%Y')}", ln=True)
-    pdf.ln(5)
-    
-    # Encabezados
-    pdf.set_font("Arial", 'B', 10)
-    pdf.set_fill_color(240, 240, 240)
-    pdf.cell(25, 10, "Codigo", 1, 0, 'C', True)
-    pdf.cell(85, 10, "Descripcion", 1, 0, 'C', True)
-    pdf.cell(20, 10, "Cant.", 1, 0, 'C', True)
-    pdf.cell(30, 10, "P. Unit", 1, 0, 'C', True)
-    pdf.cell(30, 10, "Subt.", 1, 0, 'C', True)
-    pdf.ln()
-    
-    pdf.set_font("Arial", size=9)
-    for _, row in df.iterrows():
-        pdf.cell(25, 8, limpiar(row['codigo']), 1)
-        pdf.cell(85, 8, limpiar(row['descripcion'])[:45], 1)
-        pdf.cell(20, 8, str(int(row['cantidad'])), 1, 0, 'C')
-        pdf.cell(30, 8, f"${row['precio_unitario']:,.2f}", 1, 0, 'R')
-        pdf.cell(30, 8, f"${row['Subtotal']:,.2f}", 1, 0, 'R')
-        pdf.ln()
-        
-    pdf.ln(5)
-    pdf.set_font("Arial", 'B', 12)
-    pdf.cell(0, 10, txt=f"TOTAL: ${total:,.2f}  ", ln=True, align='R')
-    return pdf.output(dest='S').encode('latin-1')
-
-# ... (Funciones analizar_y_cargar_pedido y agregar_producto_manual siguen igual)
-
 def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
     lineas = [line.strip() for line in texto_pedido.split('\n') if line.strip()]
     nuevos_productos = []
@@ -121,18 +102,8 @@ def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
     if nuevos_productos:
         st.session_state.cotizacion.extend(nuevos_productos)
 
-def agregar_producto_manual():
-    if st.session_state.prod_sel:
-        info = st.session_state.catalogo_df[st.session_state.catalogo_df['display'] == st.session_state.prod_sel].iloc[0]
-        p_base = float(info['precio'])
-        precio_final = p_base if st.session_state.tipo_lista == "Distribuidor" else p_base / 0.90
-        st.session_state.cotizacion.append({
-            'codigo': info['codigo'], 'descripcion': info['descripcion'],
-            'cantidad': st.session_state.cant_sel, 'precio_unitario': precio_final
-        })
-
 # ==============================================================================
-# SECCIÓN 2: INTERFAZ
+# SECCIÓN 3: INTERFAZ STREAMLIT
 # ==============================================================================
 
 st.set_page_config(page_title="Cotizador Truper", layout="wide")
@@ -140,37 +111,34 @@ st.set_page_config(page_title="Cotizador Truper", layout="wide")
 if 'cotizacion' not in st.session_state: st.session_state.cotizacion = []
 if 'tipo_lista' not in st.session_state: st.session_state.tipo_lista = "Distribuidor"
 
-# Título y Logos (Cargados por URL para evitar errores de archivo)
-col1, col2, col3 = st.columns([1,3,1])
-with col1:
-    st.image("https://i.postimg.cc/HL8bS9xY/logo-empresa.jpg", width=120)
-with col2:
-    st.markdown("<h1 style='text-align: center;'>Cotizador Truper</h1>", unsafe_allow_html=True)
-with col3:
-    st.image("https://i.postimg.cc/c4DY0bt1/logo-marca.jpg", width=120)
+# Encabezado Visual
+c1, c2, c3 = st.columns([1,3,1])
+with c1: st.image("https://i.postimg.cc/HL8bS9xY/logo-empresa.jpg", width=100)
+with c2: st.markdown("<h1 style='text-align: center;'>Cotizador Truper</h1>", unsafe_allow_html=True)
+with c3: st.image("https://i.postimg.cc/c4DY0bt1/logo-marca.jpg", width=100)
 
 catalogo_df = cargar_catalogo("CATALAGO 25 TRUP PRUEBA COTIZADOR.txt", "precios_actualizados.txt")
 st.session_state.catalogo_df = catalogo_df
 
-# Interfaz de usuario
-c1, c2 = st.columns(2)
-with c1:
+# Inputs
+col_a, col_b = st.columns(2)
+with col_a:
     cliente = st.text_input("Cliente:").upper()
-    tipo_doc = st.text_input("Documento:", value="Remisión")
-with c2:
-    st.session_state.tipo_lista = st.radio("Precios:", ["Distribuidor", "Dimefet"], horizontal=True)
+    tipo_doc = st.text_input("Documento:", value="Remision")
+with col_b:
+    st.session_state.tipo_lista = st.radio("Lista:", ["Distribuidor", "Dimefet"], horizontal=True)
 
-with st.expander("🔍 Añadir"):
-    ca, cb, cc = st.columns([4,1,1])
-    ca.selectbox("Producto:", catalogo_df['display'] if not catalogo_df.empty else [], key="prod_sel")
-    cb.number_input("Cant:", min_value=1, key="cant_sel")
-    cc.button("➕", on_click=agregar_producto_manual)
-
-with st.expander("🚀 Carga Rápida"):
-    texto = st.text_area("Pega aquí")
-    if st.button("Procesar"):
-        analizar_y_cargar_pedido(texto, catalogo_df)
-        st.rerun()
+with st.expander("🔍 Busqueda Manual"):
+    f1, f2, f3 = st.columns([4,1,1])
+    prod = f1.selectbox("Producto:", catalogo_df['display'] if not catalogo_df.empty else [])
+    cant = f2.number_input("Cant:", min_value=1, value=1)
+    if f3.button("Añadir"):
+        info = catalogo_df[catalogo_df['display'] == prod].iloc[0]
+        p_base = float(info['precio'])
+        st.session_state.cotizacion.append({
+            'codigo': info['codigo'], 'descripcion': info['descripcion'],
+            'cantidad': cant, 'precio_unitario': p_base if st.session_state.tipo_lista == "Distribuidor" else p_base / 0.90
+        })
 
 if st.session_state.cotizacion:
     df_cot = pd.DataFrame(st.session_state.cotizacion)
@@ -180,22 +148,43 @@ if st.session_state.cotizacion:
     total = df_cot['Subtotal'].sum()
     st.subheader(f"Total: ${total:,.2f}")
 
-    # WhatsApp
+    # Acciones
+    btn1, btn2, btn3 = st.columns(3)
+    
+    # 1. WhatsApp
     mensaje = f"Nuevo Pedido\n\nCliente: {cliente}\nTipo de Documento: {tipo_doc}\n\nDetalle del Pedido:\n\n"
     for _, fila in df_cot.iterrows():
         mensaje += f"* {fila['codigo']} {int(fila['cantidad'])} {fila['descripcion']}\n"
-    wa_url = f"https://wa.me/?text={quote_plus(mensaje)}"
-    
-    a, b, c = st.columns(3)
-    a.link_button("📲 WhatsApp", wa_url, use_container_width=True)
-    
-    # Generar PDF con manejo de errores interno
+    btn1.link_button("📲 WhatsApp", f"https://wa.me/?text={quote_plus(mensaje)}", use_container_width=True)
+
+    # 2. PDF (Logica original mejorada)
     try:
-        pdf_data = generar_pdf(df_cot, cliente, tipo_doc, st.session_state.tipo_lista, total)
-        b.download_button("📥 PDF", pdf_data, f"Cotizacion_{cliente}.pdf", "application/pdf", use_container_width=True)
-    except Exception as e:
-        b.error("Error PDF")
+        pdf = PDF()
+        pdf.add_page()
+        pdf.set_font("Arial", size=11)
+        pdf.cell(0, 10, f"Cliente: {limpiar_texto(cliente)}", ln=True)
+        pdf.cell(0, 10, f"Fecha: {datetime.now().strftime('%d/%m/%Y')}", ln=True)
+        pdf.ln(5)
         
-    if c.button("🗑️ Limpiar", use_container_width=True):
+        # Tabla PDF
+        pdf.set_font("Arial", 'B', 10)
+        pdf.cell(25, 10, "Codigo", 1); pdf.cell(90, 10, "Descripcion", 1); pdf.cell(20, 10, "Cant", 1); pdf.cell(30, 10, "Subtotal", 1); pdf.ln()
+        pdf.set_font("Arial", size=9)
+        for _, r in df_cot.iterrows():
+            pdf.cell(25, 8, limpiar_texto(r['codigo']), 1)
+            pdf.cell(90, 8, limpiar_texto(r['descripcion'])[:45], 1)
+            pdf.cell(20, 8, str(int(r['cantidad'])), 1)
+            pdf.cell(30, 8, f"${r['Subtotal']:,.2f}", 1)
+            pdf.ln()
+        
+        pdf.ln(5); pdf.set_font("Arial", 'B', 12)
+        pdf.cell(0, 10, f"TOTAL: ${total:,.2f}", ln=True, align='R')
+        
+        pdf_out = pdf.output(dest='S').encode('latin-1')
+        btn2.download_button("📥 Descargar PDF", pdf_out, f"Pedido_{cliente}.pdf", "application/pdf", use_container_width=True)
+    except Exception as e:
+        btn2.error("Error al crear PDF")
+
+    if btn3.button("🗑️ Limpiar", use_container_width=True):
         st.session_state.cotizacion = []
         st.rerun()
