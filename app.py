@@ -3,7 +3,7 @@ import pandas as pd
 from datetime import datetime
 from fpdf import FPDF
 from urllib.parse import quote_plus 
-import re # ¡Ahora solo una vez y al inicio!
+import re 
 
 # ==============================================================================
 # SECCIÓN 1: DEFINICIÓN DE TODAS LAS FUNCIONES Y CLASES
@@ -12,12 +12,11 @@ import re # ¡Ahora solo una vez y al inicio!
 @st.cache_data
 def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
     """
-    Carga el catálogo de productos y luego aplica las actualizaciones de precios
-    y descripción, o agrega nuevos productos desde un archivo separado.
+    Carga el catálogo, aplica actualizaciones y calcula el precio Dimefet.
     """
     catalogo = []
+    # 1. Cargar el catálogo base
     try:
-        # Paso 1: Cargar el catálogo completo
         with open(nombre_archivo_catalogo, 'r', encoding='utf-8') as f:
             for line in f:
                 try:
@@ -39,7 +38,7 @@ def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
 
     df = df.set_index('codigo')
 
-    # Paso 2: Cargar y aplicar actualizaciones o AGREGAR nuevos productos
+    # 2. Cargar y aplicar actualizaciones
     try:
         with open(nombre_archivo_actualizaciones, 'r', encoding='utf-8') as f:
             for line in f:
@@ -65,23 +64,18 @@ def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
         pass
 
     df = df.reset_index()
+    
+    # 3. Calcular columna de visualización y Precio Dimefet
     if not df.empty:
         df['display'] = df['codigo'] + " - " + df['descripcion']
+        # NUEVO: Si Precio Dist = Precio Dimefet - 10%, entonces Precio Dimefet = Precio Dist / 0.90
+        df['precio_dimefet'] = df['precio'] / 0.90
+
     return df
-
-# --- FUNCIÓN DE ANALISIS DE PEDIDO (VERSION FLEXIBLE) ---
-# --- REEMPLAZAR LA FUNCIÓN ANALIZAR_Y_CARGAR_PEDIDO CON ESTA VERSIÓN FLEXIBLE ---
-
-import re # Asegúrate de que 'import re' esté al inicio del script
-
-# --- REEMPLAZAR LA FUNCIÓN ANALIZAR_Y_CARGAR_PEDIDO COMPLETA CON ESTA VERSIÓN ---
-
-import re # Asegúrate de que 'import re' esté al inicio del script
 
 def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
     """
-    Analiza un bloque de texto buscando el patrón numérico CÓDIGO y CANTIDAD 
-    siendo totalmente tolerante a viñetas, asteriscos y espacios intermedios.
+    Analiza texto y carga productos considerando el precio seleccionado.
     """
     lineas = [line.strip() for line in texto_pedido.split('\n') if line.strip()]
     nuevos_productos = []
@@ -89,85 +83,79 @@ def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
     
     catalogo_map = df_catalogo.set_index('codigo').to_dict('index') 
     productos_en_sesion = {p['codigo'] for p in st.session_state.cotizacion}
+    
+    # Obtener el tipo de precio seleccionado
+    tipo_precio = st.session_state.get("tipo_precio_selector", "Distribuidor")
 
-    # Patrón RegEx: Busca al inicio de la línea:
-    # 1. Caracteres no numéricos opcionales (viñeta, *)
-    # 2. El CÓDIGO (un grupo de 4 a 6 dígitos consecutivos) -> Grupo 1
-    # 3. Caracteres no numéricos opcionales (espacio, *)
-    # 4. La CANTIDAD (un grupo de 1 a 3 dígitos consecutivos) -> Grupo 2
+    # Patrón RegEx: CÓDIGO (4-6 dígitos) ... CANTIDAD (1-3 dígitos)
     PATRON_PEDIDO = re.compile(r'^[^\d]*(\d{4,6})[^\d]*(\d{1,3})')
 
     for linea in lineas:
-        
-        # Ignoramos líneas que son encabezados o texto largo sin patrón numérico al inicio
         if 'DETALLE DEL PEDIDO' in linea.upper() or len(linea.split()) < 2:
             continue
             
         codigo_posible = None
         cantidad_posible = 0
 
-        # Buscamos el patrón en la línea
         match = PATRON_PEDIDO.match(linea)
 
         if match:
             try:
-                # El grupo 1 es el CÓDIGO, el grupo 2 es la CANTIDAD
                 codigo_posible = match.group(1).strip()
                 cantidad_posible = int(match.group(2))
-                
-                if cantidad_posible <= 0:
-                    cantidad_posible = 1
+                if cantidad_posible <= 0: cantidad_posible = 1
             except Exception:
-                # Si falla la conversión a entero, seguimos.
                 pass 
 
-        # 2. Verificación de Catálogo
         if codigo_posible and codigo_posible in catalogo_map:
             if codigo_posible in productos_en_sesion:
                 continue
 
             info = catalogo_map[codigo_posible]
             
+            # Lógica de selección de precio
+            precio_final = info['precio'] if tipo_precio == "Distribuidor" else info['precio_dimefet']
+            
             nuevos_productos.append({
                 'codigo': codigo_posible,
                 'descripcion': info['descripcion'],
                 'cantidad': cantidad_posible,
-                'precio_unitario': info['precio']
+                'precio_unitario': precio_final
             })
             
         else:
-            # DIAGNÓSTICO: Si se extrajo un código pero no está en el catálogo, lo guardamos.
             if codigo_posible and cantidad_posible > 0:
                 diagnostico_fallos.append(f"Cód. no enc.: '{codigo_posible}' (Cant: {cantidad_posible}) Línea: {linea.strip()}")
 
-
-    # 3. Presentación de Resultados y Fallos
     if nuevos_productos:
         st.session_state.cotizacion.extend(nuevos_productos)
         st.success(f"Se agregaron **{len(nuevos_productos)}** productos a la cotización.")
     else:
-        # Solo mostramos la advertencia general si no hay códigos que coincidan con el patrón
         if not diagnostico_fallos:
              st.warning("No se encontraron productos válidos. Verifique el formato CÓDIGO CANTIDAD.")
         
     if diagnostico_fallos:
-        st.error("❌ Fallos de Coincidencia de Catálogo (Verifique si estos códigos existen en su archivo):")
+        st.error("❌ Fallos de Coincidencia de Catálogo:")
         st.code('\n'.join(diagnostico_fallos))
 
-# --- FIN DE LA FUNCIÓN DE ANALISIS DE PEDIDO ---
 def agregar_producto_y_limpiar():
     producto_display = st.session_state.get("producto_selector")
     cantidad_seleccionada = st.session_state.get("cantidad_input", 1)
+    tipo_precio = st.session_state.get("tipo_precio_selector", "Distribuidor")
+
     if producto_display:
         producto_info = st.session_state.catalogo_df[st.session_state.catalogo_df['display'] == producto_display].iloc[0]
+        
         if any(p['codigo'] == producto_info['codigo'] for p in st.session_state.cotizacion):
             st.warning("Este producto ya está en la cotización.")
         else:
+            precio_final = producto_info['precio'] if tipo_precio == "Distribuidor" else producto_info['precio_dimefet']
+            
             st.session_state.cotizacion.append({
                 'codigo': producto_info['codigo'],
                 'descripcion': producto_info['descripcion'],
                 'cantidad': cantidad_seleccionada,
-                'precio_unitario': producto_info['precio']
+                'precio_unitario': precio_final
             })
             st.session_state.producto_selector = None
             st.session_state.cantidad_input = 1
@@ -179,9 +167,19 @@ def actualizar_cantidad(index):
     st.session_state.cotizacion[index]['cantidad'] = nueva_cantidad
 
 def limpiar_area_texto():
-    """Limpia el contenido del área de texto del pedido."""
-    st.session_state.pedido_texto = "" # Implementación correcta
+    st.session_state.pedido_texto = ""
 
+def actualizar_precios_existentes():
+    """Recalcula los precios de la cotización actual si se cambia el selector."""
+    tipo_nuevo = st.session_state.tipo_precio_selector
+    catalogo = st.session_state.catalogo_df.set_index('codigo')
+    
+    for producto in st.session_state.cotizacion:
+        codigo = producto['codigo']
+        if codigo in catalogo.index:
+            info = catalogo.loc[codigo]
+            nuevo_precio = info['precio'] if tipo_nuevo == "Distribuidor" else info['precio_dimefet']
+            producto['precio_unitario'] = nuevo_precio
 
 class PDF(FPDF):
     def __init__(self, *args, **kwargs):
@@ -256,10 +254,9 @@ st.set_page_config(page_title="Cotizador de Pedidos Truper", page_icon="🔩", l
 NOMBRE_ARCHIVO_CATALOGO = "CATALAGO 25 TRUP PRUEBA COTIZADOR.txt"
 NOMBRE_ARCHIVO_ACTUALIZACIONES = "precios_actualizados.txt"
 
-# ESTA ES LA LÍNEA 218 DONDE OCURRÍA EL ERROR. Ahora que cargar_catalogo está definida, funcionará.
 catalogo_df = cargar_catalogo(NOMBRE_ARCHIVO_CATALOGO, NOMBRE_ARCHIVO_ACTUALIZACIONES)
 
-# Guardar el DataFrame en session_state para que 'agregar_producto_y_limpiar' lo pueda usar
+# Guardar el DataFrame en session_state
 st.session_state.catalogo_df = catalogo_df 
 
 if 'cotizacion' not in st.session_state:
@@ -283,8 +280,21 @@ st.write("Crea y gestiona cotizaciones para enviar a tus clientes.")
 st.markdown("---")
 
 # --- ENTRADA DE DATOS GENERALES ---
-st.session_state.cliente = st.text_input("📝 **Nombre del Cliente:**", st.session_state.cliente).upper()
-st.session_state.agente = st.text_input("👤 **Atendido por (Agente):**", st.session_state.agente).upper()
+col_cliente, col_agente, col_precio = st.columns([2, 2, 1]) 
+
+with col_cliente:
+    st.session_state.cliente = st.text_input("📝 **Nombre del Cliente:**", st.session_state.cliente).upper()
+with col_agente:
+    st.session_state.agente = st.text_input("👤 **Atendido por (Agente):**", st.session_state.agente).upper()
+with col_precio:
+    # Selector de Precio con callback
+    st.radio(
+        "💰 **Lista de Precios:**",
+        options=["Distribuidor", "Dimefet"],
+        key="tipo_precio_selector",
+        on_change=actualizar_precios_existentes
+    )
+
 st.markdown("---")
 
 # --- AGREGAR PRODUCTOS A LA COTIZACIÓN ---
@@ -304,7 +314,7 @@ else:
 st.markdown("---")
 
 # ==============================================================================
-# 🆕 LÓGICA DE STREAMLIT PARA CARGAR PEDIDO POR TEXTO 🆕
+# LÓGICA DE CARGAR PEDIDO POR TEXTO
 # ==============================================================================
 st.header("📝 Carga Rápida de Pedido por Texto")
 
@@ -335,8 +345,6 @@ st.markdown("---")
 st.header("📋 Cotización Actual")
 
 if st.session_state.cotizacion:
-    # --- INICIO DEL BLOQUE DONDE TODO DEBE ESTAR ---
-    
     st.write(f"**Cliente:** {st.session_state.cliente}")
     
     # 1. Se crea el DataFrame
@@ -368,7 +376,7 @@ if st.session_state.cotizacion:
     st.subheader(f"Total: ${total:,.2f}")
     st.markdown("---")
 
-    # 4. AHORA SE MUESTRAN LAS ACCIONES (DENTRO DEL 'IF')
+    # 4. Acciones
     st.subheader("Acciones Finales")
     col_pdf, col_whatsapp, col_clear = st.columns(3)
 
@@ -399,15 +407,13 @@ if st.session_state.cotizacion:
         texto_productos = ""
         for _, row in cotizacion_actual_df.iterrows():
             texto_productos += f"\n- ({row['cantidad']}x) [{row['codigo']}] *{row['descripcion']}*\n"
-            texto_productos += f"  Importe: ${row['importe']:,.2f}"
+            texto_productos += f"  Importe: ${row['importe']:,.2f}"
         texto_exportar += texto_productos
         texto_exportar += "\n--------------------------------------\n"
         texto_exportar += f"*TOTAL: ${total:,.2f}*\n"
         texto_exportar += "======================================\n"
         texto_exportar += "*La presente cotización es válida únicamente durante el mes y año de su emisión.*"
         st.code(texto_exportar)
-    
-    # --- FIN DEL BLOQUE DONDE TODO DEBE ESTAR ---
 
 else:
     st.info("La cotización está vacía. Agrega productos para empezar.")
