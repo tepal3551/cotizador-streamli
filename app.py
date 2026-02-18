@@ -418,7 +418,7 @@ if st.session_state.cotizacion:
 
     for _, row in cotizacion_actual_df.iterrows():
         # Formato: * CÓDIGO CANTIDAD DESCRIPCIÓN
-        texto_pedido_firme += f"* {row['codigo']} {row['cantidad']} {row['descripcion']}\n"
+        texto_pedido_firme += f"* {row['codigo']} *{row['cantidad']}* {row['descripcion']}\n"
 
     with col_btn_pedido:
         st.write("") # Espacio para alinear
