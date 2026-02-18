@@ -376,44 +376,57 @@ if st.session_state.cotizacion:
     st.subheader(f"Total: ${total:,.2f}")
     st.markdown("---")
 
-    # 4. Acciones
-    st.subheader("Acciones Finales")
-    col_pdf, col_whatsapp, col_clear = st.columns(3)
+    # 4. Acciones y Generación de Pedido
+    st.subheader("🚀 Acciones Finales")
+    
+    # --- SECCIÓN A: DOCUMENTOS Y PDF ---
+    col_pdf, col_whatsapp_cot, col_clear = st.columns(3)
 
     with col_pdf:
+        # Generamos el PDF de la cotización (con precios)
         pdf_bytes = crear_pdf(cotizacion_actual_df, st.session_state.cliente, st.session_state.agente)
-        st.download_button("📄 Descargar PDF", data=pdf_bytes, file_name=f"COTIZACION_{st.session_state.cliente.replace(' ', '_') or 'cliente'}.pdf", mime="application/octet-stream", use_container_width=True)
+        st.download_button("📄 Descargar Cotización (PDF)", data=pdf_bytes, file_name=f"COTIZACION_{st.session_state.cliente.replace(' ', '_') or 'cliente'}.pdf", mime="application/octet-stream", use_container_width=True)
 
-    with col_whatsapp:
-        mensaje_whatsapp = quote_plus(f"Hola {st.session_state.cliente}, te comparto la cotización solicitada por un total de ${total:,.2f}.")
-        whatsapp_url = f"https://wa.me/?text={mensaje_whatsapp}"
-        st.link_button("📲 Compartir en WhatsApp", url=whatsapp_url, use_container_width=True)
+    with col_whatsapp_cot:
+        # Botón para enviar la COTIZACIÓN (con precios)
+        mensaje_cotizacion = f"Hola {st.session_state.cliente}, te envío la cotización por ${total:,.2f}."
+        whatsapp_url_cot = f"https://wa.me/?text={quote_plus(mensaje_cotizacion)}"
+        st.link_button("💲 Enviar Cotización (WA)", url=whatsapp_url_cot, use_container_width=True)
 
     with col_clear:
-        if st.button("🗑️ Limpiar Cotización", use_container_width=True, type="primary"):
+        if st.button("🗑️ Limpiar Todo", use_container_width=True, type="primary"):
             st.session_state.cotizacion = []
             st.session_state.cliente = ""
             st.rerun()
 
-    with st.expander("✅ Exportar Cotización para Cliente"):
-        fecha_actual = datetime.now().strftime('%d/%m/%Y')
-        texto_exportar = f"*COTIZACIÓN*\n"
-        texto_exportar += "======================================\n"
-        texto_exportar += f"*Cliente:* {st.session_state.cliente}\n"
-        texto_exportar += f"*Atendido por:* {st.session_state.agente}\n"
-        texto_exportar += f"*Fecha:* {fecha_actual}\n"
-        texto_exportar += "--------------------------------------\n"
-        texto_exportar += "*Productos Solicitados:*\n"
-        texto_productos = ""
-        for _, row in cotizacion_actual_df.iterrows():
-            texto_productos += f"\n- ({row['cantidad']}x) [{row['codigo']}] *{row['descripcion']}*\n"
-            texto_productos += f"  Importe: ${row['importe']:,.2f}"
-        texto_exportar += texto_productos
-        texto_exportar += "\n--------------------------------------\n"
-        texto_exportar += f"*TOTAL: ${total:,.2f}*\n"
-        texto_exportar += "======================================\n"
-        texto_exportar += "*La presente cotización es válida únicamente durante el mes y año de su emisión.*"
-        st.code(texto_exportar)
+    st.markdown("---")
 
-else:
-    st.info("La cotización está vacía. Agrega productos para empezar.")
+    # --- SECCIÓN B: GENERAR PEDIDO EN FIRME (Tu nuevo requerimiento) ---
+    st.header("📦 Enviar Pedido Autorizado")
+    st.info("Usa esta sección cuando el cliente ya aprobó la compra y vas a pasar el pedido a almacén.")
+
+    col_tipo_doc, col_btn_pedido = st.columns([1, 2])
+
+    with col_tipo_doc:
+        # Selector para Remisión o Factura
+        tipo_documento = st.selectbox("Tipo de Documento:", ["Remision", "Factura", "Nota de Venta"])
+
+    # 1. Construcción del texto EXACTO como lo pediste
+    texto_pedido_firme = f"Cliente: {st.session_state.cliente}\n"
+    texto_pedido_firme += f"Tipo de Documento: {tipo_documento}\n\n"
+    texto_pedido_firme += "Detalle del Pedido:\n\n"
+
+    for _, row in cotizacion_actual_df.iterrows():
+        # Formato: * CÓDIGO CANTIDAD DESCRIPCIÓN
+        texto_pedido_firme += f"* {row['codigo']} {row['cantidad']} {row['descripcion']}\n"
+
+    with col_btn_pedido:
+        st.write("") # Espacio para alinear
+        st.write("")
+        # Botón de WhatsApp con el formato de pedido
+        whatsapp_url_pedido = f"https://wa.me/?text={quote_plus(texto_pedido_firme)}"
+        st.link_button("📲 Enviar Pedido a Almacén/Oficina", url=whatsapp_url_pedido, use_container_width=True, type="primary")
+
+    # Visualización previa del texto para que verifiques antes de enviar
+    with st.expander("👁️ Ver vista previa del texto del pedido"):
+        st.code(texto_pedido_firme, language="text")
