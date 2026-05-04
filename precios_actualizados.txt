@@ -1,86 +1,75 @@
- 
-
-103246,Rotomartillo/destornillador 1/2", 20V, 2 baterías 2Ah, PRO,2205,
-103248,Rotomartillo/destornillador 1/2", 20V, sin accesorios, PRO,805,
-102872,Esmeriladora 4-1/2", 20V, 1 batería 4Ah, TRUPER PRO,2295,
-103255,Esmeriladora 4-1/2", 20V, sin accesorios, TRUPER PRO,1080,
-103955,Aspiradora, 20V, 1 batería 2Ah, TRUPER PRO,1880,
-103249,Taladro/destornillador 1/2", 20V, 1 batería 2Ah, TRUPER PRO,1575,
-103250,Taladro/destornillador 1/2", 20V, sin accesorios, TRUPER PRO,665,
-102865,Router (Rebajadora) 1/4", 1 batería 4 Ah, TRUPER PRO,2360,
-103262,Router (Rebajadora) 1/4", sin accesorios, TRUPER PRO,1225,
-102863,Lijadora roto-orbital 5", 20V, 1 batería 2Ah, TRUPER PRO,1480,
-103552,Llave de impacto 1/2" 550W, 258 lb/ft, TRUPER PRO,952,
-29940,Aspiradora para auto, 20V, 1 batería 2Ah, PRETUL,1080,
-28270,Sierra caladora, 20V, 1 batería 2Ah, PRETUL,1215,
-29939,Bomba presurizadora 1/10 HP, PRETUL,455.,
-20172,Bomba centrífuga para agua modelo europeo, 1/2 HP, PRETUL,760,
-20173,Bomba centrífuga para agua modelo europeo, 3/4 HP, PRETUL,920,
-20167,Bomba centrífuga para agua modelo europeo, 1 HP, PRETUL,1000,
-29004,Hidrolavadora eléctrica 1350 PSI, PRETUL,892.5,
-29952,Sierra de mesa 10", 2-1/2 HP (1900 W), con base, PRETUL,3195,
-29932,Taladro de banco 8", 1/3 HP (250 W), broquero 1/2", PRETUL,1480,
-24357,Kit Compresor lub, 20L, manguera y pistola baja,127V, PRETUL,2151,
-24079,Kit Compresor lub, 20L, manguera y pistola grav,127V, PRETUL,2151,
-27106,Kit Compresor lub, 20L, manguera y accesorios, 127V, PRETUL,2115,
-103717,Tijera 6" electricista, óxido negro,acero inoxidable, EXPERT,135.2,
-103713,Tijera 8-1/2" multiusos, de acero inoxidable, EXPERT,103.2,
-103714,Tijera 10" multiusos, de acero inoxidable, EXPERT,135.2,
-103646,Rollo de manguera plana 1" x 7.5m de descarga con conexiones,300,
-103647,Rollo de manguera plana 1.5"x7.5m de descarga con conexiones,420,
-103648,Rollo de manguera plana 2" x 7.5m de descarga con conexiones,580,
-103649,Rollo de manguera plana 3" x 7.5m de descarga con conexiones,920,
-10940,Inflallantas de 12 oz (340 g), TRUPER,46.8,
-101723,Inflallantas de 20 oz (550 g), TRUPER,64.8,
-104035,Extractor p/tirante interior (bieleta de dirección), TRUPER,1080,
-104037,Juego de opresores para pistón de frenos, 22 piezas, TRUPER,396,
-104038,Juego extractores de baleros y poleas, 13 piezas, TRUPER,960,
-104034,Juego de arco levanta válvulas, 10 piezas, TRUPER,360,
-104033,Juego para desmontar rótulas y terminales, 9 piezas, TRUPER,1240,
-104032,Juego de opresores para resorte de amortiguador, TRUPER,520,
-104036,Juego de extractores para rótulas, 5 piezas, TRUPER,1320,
-103908,Pistola eléctrica de 10W para silicón de 5/16", 127V, TRUPER,60,
-103927,Pistola p/pintar Híbrida vaso plástico,1.3mm, TRUPER,196,
-103928,Pistola p/pintar híbrida vaso plástico,1.5mm, TRUPER,196,
-103929,Pistola p/pintar Híbrida vaso plástico,3.0mm, TRUPER,196,
-29899,Nivel láser rojo, alcance 5 m, de pilas, PRETUL,316,
-29925,Recargador de gas butano para encendedor, 18ml, PRETUL,7.2,
-29943,Diablo de carga de 370 kg, ruedas de hule sólido, asa "D",756,
-49840,No Break 500 VA / 240 W con 4 contactos, VOLTECK,792,
-49841,No Break 700 VA / 360 W con 6 contactos, VOLTECK,872,
-45338,Batería sellada de ácido-plomo 12 Vcc 4.5 Ah, VOLTECK,236,
-45339,Batería sellada de ácido-plomo 12 Vcc 7 Ah, VOLTECK,284,
-29921,Tubo LED T5 8W G5, 6500K blanca fría, opalino, BASIC,39.2,
-29920,Tubo LED T5 16W G5, 6500K blanca fría, opalino, BASIC,52,
-44177,Juego de mangueras para lavadora, vinilo, c/codo 90, BASIC,108,
-45668,Medidor de nivel de agua para tinaco, FOSET,780,
-45486,Kit de instalación p/regadera CPVC 1/2" con monomando, FOSET,356,
-45859,Monomando de empotrar para regadera PPR 1/2", FOSET,412,
-45398,Palanca frontal metálica cromada robusta para WC, FOSET,63.2,
-45393,Palanca frontal metálica cromada clásica para WC, FOSET,47.2,
-45392,Palanca frontal metálica cromada minimalista para WC, FOSET,39.2,
-45397,Palanca frontal plástica blanca para WC, FOSET,8.8,
-45369,Abrazadera con derivación 1/2x1/2x1/2", FOSET,92,
-45373,Abrazadera con derivación 3/4x1/2x3/4", FOSET,116,
-49473,Candado circular acero inox, cilindro latón, 70 mm,119.2,
-45863,Candado para disco de motocicleta, perno de 7 mm, c/alarma,364,
-45333,Cerradura manija "Módena" p/recámara, cromo mate, HERMEX,356,
-45334,Cerradura manija "Módena" p/baño, cromo mate, HERMEX,348,
-43995,Cerradura manija "Módena" p/recámara, níquel satinado,HERMEX,356,
-43996,Cerradura manija "Módena" p/baño, níquel satinado, HERMEX,348,
-45335,Cerradura manija "Módena" p/recámara, negro mate, HERMEX,356,
-45337,Cerradura manija "Módena" p/baño, negro mate, HERMEX,348,
-45866,Pasador de sobreponer, modelo 31, cromo, HERMEX,63.2,
-49149,Raqueta mata moscas y mosquitos, recargable, VOLTECK,67.5,
-43893,Raqueta mata moscas y mosquitos con base, recargable VOLTECK,108,
-104280,Disco removedor / limpieza 4-1/2" centro 7/8", TRUPER,85.5, 
-
- 
-
- 
-
- 
-
- 
-
- 
+103246,Rotomartillo/destornillador 1/2", 20V, 2 baterías 2Ah, PRO,2205
+103248,Rotomartillo/destornillador 1/2", 20V, sin accesorios, PRO,805
+102872,Esmeriladora 4-1/2", 20V, 1 batería 4Ah, TRUPER PRO,2295
+103255,Esmeriladora 4-1/2", 20V, sin accesorios, TRUPER PRO,1080
+103955,Aspiradora, 20V, 1 batería 2Ah, TRUPER PRO,1880
+103249,Taladro/destornillador 1/2", 20V, 1 batería 2Ah, TRUPER PRO,1575
+103250,Taladro/destornillador 1/2", 20V, sin accesorios, TRUPER PRO,665
+102865,Router (Rebajadora) 1/4", 1 batería 4 Ah, TRUPER PRO,2360
+103262,Router (Rebajadora) 1/4", sin accesorios, TRUPER PRO,1225
+102863,Lijadora roto-orbital 5", 20V, 1 batería 2Ah, TRUPER PRO,1480
+103552,Llave de impacto 1/2" 550W, 258 lb/ft, TRUPER PRO,952
+29940,Aspiradora para auto, 20V, 1 batería 2Ah, PRETUL,1080
+28270,Sierra caladora, 20V, 1 batería 2Ah, PRETUL,1215
+29939,Bomba presurizadora 1/10 HP, PRETUL,455.
+20172,Bomba centrífuga para agua modelo europeo, 1/2 HP, PRETUL,760
+20173,Bomba centrífuga para agua modelo europeo, 3/4 HP, PRETUL,920
+20167,Bomba centrífuga para agua modelo europeo, 1 HP, PRETUL,1000
+29004,Hidrolavadora eléctrica 1350 PSI, PRETUL,892.5
+29952,Sierra de mesa 10", 2-1/2 HP (1900 W), con base, PRETUL,3195
+29932,Taladro de banco 8", 1/3 HP (250 W), broquero 1/2", PRETUL,1480
+23065,Compresor lubricado, 20L, 2-1/2HP, horizontal, 127V, PRETUL,1881
+24357,Kit Compresor lub, 20L, manguera y pistola baja,127V, PRETUL,2151
+24079,Kit Compresor lub, 20L, manguera y pistola grav,127V, PRETUL,2151
+27106,Kit Compresor lub, 20L, manguera y accesorios, 127V, PRETUL,2115
+103717,Tijera 6" electricista, óxido negro,acero inoxidable, EXPERT,135.2
+103713,Tijera 8-1/2" multiusos, de acero inoxidable, EXPERT,103.2
+103714,Tijera 10" multiusos, de acero inoxidable, EXPERT,135.2
+103646,Rollo de manguera plana 1" x 7.5m de descarga con conexiones,300
+103647,Rollo de manguera plana 1.5"x7.5m de descarga con conexiones,420
+103648,Rollo de manguera plana 2" x 7.5m de descarga con conexiones,580
+103649,Rollo de manguera plana 3" x 7.5m de descarga con conexiones,920
+10940,Inflallantas de 12 oz (340 g), TRUPER,46.8
+101723,Inflallantas de 20 oz (550 g), TRUPER,64.8
+104035,Extractor p/tirante interior (bieleta de dirección), TRUPER,1080
+104037,Juego de opresores para pistón de frenos, 22 piezas, TRUPER,396
+104038,Juego extractores de baleros y poleas, 13 piezas, TRUPER,960
+104034,Juego de arco levanta válvulas, 10 piezas, TRUPER,360
+104033,Juego para desmontar rótulas y terminales, 9 piezas, TRUPER,1240
+104032,Juego de opresores para resorte de amortiguador, TRUPER,520
+104036,Juego de extractores para rótulas, 5 piezas, TRUPER,1320
+103908,Pistola eléctrica de 10W para silicón de 5/16", 127V, TRUPER,60
+103927,Pistola p/pintar Híbrida vaso plástico,1.3mm, TRUPER,196
+103928,Pistola p/pintar híbrida vaso plástico,1.5mm, TRUPER,196
+103929,Pistola p/pintar Híbrida vaso plástico,3.0mm, TRUPER,196
+29899,Nivel láser rojo, alcance 5 m, de pilas, PRETUL,316
+29925,Recargador de gas butano para encendedor, 18ml, PRETUL,7.2
+29943,Diablo de carga de 370 kg, ruedas de hule sólido, asa "D",756
+49840,No Break 500 VA / 240 W con 4 contactos, VOLTECK,792
+49841,No Break 700 VA / 360 W con 6 contactos, VOLTECK,872
+45338,Batería sellada de ácido-plomo 12 Vcc 4.5 Ah, VOLTECK,236
+45339,Batería sellada de ácido-plomo 12 Vcc 7 Ah, VOLTECK,284
+29921,Tubo LED T5 8W G5, 6500K blanca fría, opalino, BASIC,39.2
+29920,Tubo LED T5 16W G5, 6500K blanca fría, opalino, BASIC,52
+44177,Juego de mangueras para lavadora, vinilo, c/codo 90, BASIC,108
+45668,Medidor de nivel de agua para tinaco, FOSET,780
+45486,Kit de instalación p/regadera CPVC 1/2" con monomando, FOSET,356
+45859,Monomando de empotrar para regadera PPR 1/2", FOSET,412
+45398,Palanca frontal metálica cromada robusta para WC, FOSET,63.2
+45393,Palanca frontal metálica cromada clásica para WC, FOSET,47.2
+45392,Palanca frontal metálica cromada minimalista para WC, FOSET,39.2
+45397,Palanca frontal plástica blanca para WC, FOSET,8.8
+45369,Abrazadera con derivación 1/2x1/2x1/2", FOSET,92
+45373,Abrazadera con derivación 3/4x1/2x3/4", FOSET,116
+49473,Candado circular acero inox, cilindro latón, 70 mm,119.2
+45863,Candado para disco de motocicleta, perno de 7 mm, c/alarma,364
+45333,Cerradura manija "Módena" p/recámara, cromo mate, HERMEX,356
+45334,Cerradura manija "Módena" p/baño, cromo mate, HERMEX,348
+43995,Cerradura manija "Módena" p/recámara, níquel satinado,HERMEX,356
+43996,Cerradura manija "Módena" p/baño, níquel satinado, HERMEX,348
+45335,Cerradura manija "Módena" p/recámara, negro mate, HERMEX,356
+45337,Cerradura manija "Módena" p/baño, negro mate, HERMEX,348
+45866,Pasador de sobreponer, modelo 31, cromo, HERMEX,63.2
+49149,Raqueta mata moscas y mosquitos, recargable, VOLTECK,67.5
+43893,Raqueta mata moscas y mosquitos con base, recargable VOLTECK,108
+104280,Disco removedor / limpieza 4-1/2" centro 7/8", TRUPER,85.5
