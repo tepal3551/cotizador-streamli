@@ -132,6 +132,8 @@ def guardar_cotizacion_pausa(nombre_cliente, tipo_lista, partidas):
         json.dump(registro, f, ensure_ascii=False, indent=4)
     st.success(f"💾 Cotización de '{nombre_cliente}' guardada en pausa.")
 
+import tempfile # Asegúrate de que este import esté arriba con los demás
+
 def generar_pdf(cliente, vendedor, tipo_doc, tipo_lista, df_cot, total):
     pdf = FPDF()
     pdf.add_page()
@@ -162,10 +164,10 @@ def generar_pdf(cliente, vendedor, tipo_doc, tipo_lista, df_cot, total):
     pdf.set_font("Arial", 'B', 12)
     pdf.cell(0, 10, f"Total Global: ${total:,.2f}", ln=True, align='R')
     
-    # --- CAMBIO AQUÍ: Usamos output directamente ---
-    return pdf.output(dest='S').encode('latin1')
-# ==============================================================================
-# SECCIÓN 2: INTERFAZ Y LÓGICA DE CONTROL DE STREAMLIT
+    # Creamos un archivo temporal para que FPDF guarde ahí
+    tmp_file = tempfile.NamedTemporaryFile(delete=False, suffix='.pdf')
+    pdf.output(tmp_file.name)
+    return tmp_file.name # Devolvemos la ruta del archivo# SECCIÓN 2: INTERFAZ Y LÓGICA DE CONTROL DE STREAMLIT
 # ==============================================================================
 
 st.set_page_config(page_title="Cotizador de Pedidos", layout="wide")
@@ -323,56 +325,45 @@ if vendedor_sel:
                 st.rerun()
 
         # --- SECCIÓN 3: CONEXIÓN DE FOLIO CENTRAL Y EXPORTACIÓN AL ERP ---
+     # --- SECCIÓN 3: CONEXIÓN DE FOLIO CENTRAL Y EXPORTACIÓN AL ERP ---
+       # --- SECCIÓN 3: FINALIZAR Y EXPORTAR ---
         st.markdown("---")
-        st.header("⚙️ Finalizar y Exportar para Carga en ERP")
+        st.header("⚙️ Finalizar y Exportar")
         
-        URL_API_FOLIOS = "TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI" 
-        
-        if st.button("🚀 OBTENER FOLIO CONSECUTIVO Y GENERAR EXCEL", type="primary", use_container_width=True):
+        # 1. BOTÓN DE EXPORTACIÓN A EXCEL (ERP)
+        if st.button("🚀 OBTENER FOLIO Y GENERAR EXCEL PARA ERP", type="primary", use_container_width=True):
             if not cliente_sel:
-                st.error("❌ No puedes exportar al ERP sin seleccionar un cliente válido de la lista.")
+                st.error("❌ Selecciona un cliente primero.")
             else:
+                # Folio y Lógica ERP aquí...
                 folio_asignado = "1254" 
+                # (Tu lógica de requests.get va aquí)
                 
-                if URL_API_FOLIOS != "TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI":
-                    try:
-                        respuesta = requests.get(URL_API_FOLIOS, timeout=5)
-                        if respuesta.status_code == 200:
-                            datos_central = respuesta.json()
-                            folio_asignado = str(datos_central.get("siguienteFolio", folio_asignado))
-                    except:
-                        st.warning("⚠️ No se conectó a la API de folios en la nube. Usando folio secuencial base.")
-
                 filas_erp = []
-                fecha_alta = datetime.now().strftime("%d/%m/%Y")
-                
                 for item in st.session_state.cotizacion:
-                    filas_erp.append({
-                        "no_ped": folio_asignado,
-                        "f_alta": fecha_alta,
-                        "cve_cte": cve_cliente_actual,
-                        "cve_age": cve_agente_actual, 
-                        "cve_prod": item['codigo'],
-                        "cant_prod": item['cantidad'],
-                        "cve_suc": "1",
-                        "cve_mon": "P",
-                        "lugar": "A2" 
-                    })
-                    
-                df_final_erp = pd.DataFrame(filas_erp)
+                    filas_erp.append({"no_ped": folio_asignado, "cve_prod": item['codigo'], "cant_prod": item['cantidad'], "cve_cte": cve_cliente_actual, "cve_age": cve_agente_actual, "cve_suc": "1", "cve_mon": "P", "lugar": "A2"})
                 
+                df_final_erp = pd.DataFrame(filas_erp)
                 output_buffer = BytesIO()
                 with pd.ExcelWriter(output_buffer, engine='openpyxl') as writer:
                     df_final_erp.to_excel(writer, index=False, sheet_name='Pedido')
                 
-                st.success(f"🎉 ¡Éxito! Folio oficial consecutivo asignado por el sistema central: **{folio_asignado}**")
-                
-                st.download_button(
-                    label="📥 Descargar Archivo Excel Estructurado para ERP",
-                    data=output_buffer.getvalue(),
-                    file_name=f"{folio_asignado}_Pedido_ERP.xlsx",
-                    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                    use_container_width=True
-                )
-    else:
-        st.info("La cotización está vacía. Añade productos para empezar.")
+                st.session_state.ultimo_folio = folio_asignado
+                st.session_state.excel_data = output_buffer.getvalue()
+                st.success(f"🎉 Folio: {folio_asignado}")
+
+        # MOSTRAR BOTONES DE DESCARGA SOLO SI HAY DATOS
+        col_d1, col_d2 = st.columns(2)
+        
+        # Botón descarga Excel (si se generó)
+        if 'excel_data' in st.session_state:
+            col_d1.download_button("📥 Descargar Excel ERP", data=st.session_state.excel_data, 
+                                  file_name=f"Pedido_{st.session_state.ultimo_folio}.xlsx", 
+                                  mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", use_container_width=True)
+
+        # Botón descarga PDF (Siempre disponible)
+        ruta_pdf = generar_pdf(nombre_limpio, vendedor_sel, tipo_doc, st.session_state.tipo_lista, df_cot, total_cotizacion)
+        with open(ruta_pdf, "rb") as f:
+            pdf_data = f.read()
+        col_d2.download_button("📄 Descargar PDF", data=pdf_data, file_name=f"Cotizacion_{nombre_limpio}.pdf", 
+                               mime="application/pdf", use_container_width=True)
