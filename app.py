@@ -361,37 +361,33 @@ if vendedor_sel:
                                   file_name=f"Pedido_{st.session_state.ultimo_folio}.xlsx", 
                                   mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", use_container_width=True)
 
-    # 4 BOTONES: Pausa, PDF, WhatsApp, Limpiar
+    # --- BLOQUE DE BOTONES (LIMPIO Y ÚNICO) ---
         c_btn1, c_btn2, c_btn3, c_btn4 = st.columns(4)
         
         nombre_limpio = cliente_sel.split(" - ", 1)[1] if cliente_sel else "MOSTRADOR"
         
+        # 1. BOTÓN PAUSA
         with c_btn1:
-            if st.button("💾 Guardar en Pausa", use_container_width=True):
+            if st.button("💾 Guardar en Pausa", key="btn_pausa_unico"):
                 guardar_cotizacion_pausa(nombre_limpio, st.session_state.tipo_lista, st.session_state.cotizacion)
         
-        # Generar el PDF SOLO cuando se necesite
-        ruta_pdf = generar_pdf(nombre_limpio, vendedor_sel, tipo_doc, st.session_state.tipo_lista, df_cot, total_cotizacion)
-        with open(ruta_pdf, "rb") as f:
-            pdf_data = f.read()
-
+        # 2. BOTÓN PDF (Generado solo una vez aquí)
         with c_btn2:
-            st.download_button(
-                label="📄 Descargar PDF",
-                data=pdf_data,
-                file_name=f"Cotizacion_{nombre_limpio}.pdf",
-                mime="application/pdf",
-                use_container_width=True,
-                key="btn_pdf_unico" # KEY ÚNICA PARA EVITAR DUPLICADOS
-            )
-            # Limpiar archivo temporal después de leerlo
-            if os.path.exists(ruta_pdf):
-                os.remove(ruta_pdf)
+            ruta_pdf = generar_pdf(nombre_limpio, vendedor_sel, tipo_doc, st.session_state.tipo_lista, df_cot, total_cotizacion)
+            with open(ruta_pdf, "rb") as f:
+                pdf_data = f.read()
+            st.download_button("📄 Descargar PDF", data=pdf_data, file_name=f"Cotizacion_{nombre_limpio}.pdf", 
+                               mime="application/pdf", use_container_width=True, key="btn_pdf_unico")
+            if os.path.exists(ruta_pdf): os.remove(ruta_pdf)
 
+        # 3. BOTÓN WHATSAPP
         with c_btn3:
-            st.info("💡 Descarga el PDF y compártelo.")
-
+            mensaje_wa = f"*Pedido {nombre_limpio}*"
+            url_wa = f"https://wa.me/?text={quote_plus(mensaje_wa)}"
+            st.link_button("📲 WhatsApp", url_wa, use_container_width=True)
+            
+        # 4. BOTÓN LIMPIAR
         with c_btn4:
-            if st.button("🗑️ Limpiar", use_container_width=True):
+            if st.button("🗑️ Limpiar", key="btn_limpiar_unico"):
                 st.session_state.cotizacion = []
                 st.rerun()
