@@ -56,12 +56,11 @@ def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
 def cargar_clientes_desde_sheets():
     """Descarga la lista de clientes dinámicamente desde Google Sheets."""
     sheet_id = '1QzmVhpIiwWN2Scz8J9_jn2GeLI2jIz2Mv5I6HDiKQVs'
-    nombre_pestana = 'Clientes' # <-- Cambia esto si tu pestaña se llama diferente
+    nombre_pestana = 'Clientes' 
     url_clientes = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={nombre_pestana}"
     
     try:
         df = pd.read_csv(url_clientes)
-        # Asumimos que la Columna A es la Clave y la Columna B es el Nombre
         df_clientes = pd.DataFrame()
         df_clientes['clave'] = df.iloc[:, 0].astype(str).str.strip()
         df_clientes['nombre'] = df.iloc[:, 1].astype(str).str.strip().str.upper()
@@ -148,17 +147,35 @@ def guardar_cotizacion_pausa(nombre_cliente, tipo_lista, partidas):
 # SECCIÓN 2: INTERFAZ Y LÓGICA DE CONTROL DE STREAMLIT
 # ==============================================================================
 
-st.set_page_config(page_title="Cotizador Corporativo", layout="wide")
+st.set_page_config(page_title="Cotizador de Pedidos", layout="wide")
 
 if 'cotizacion' not in st.session_state: st.session_state.cotizacion = []
 if 'tipo_lista' not in st.session_state: st.session_state.tipo_lista = "Distribuidor"
 
-# Carga de catálogos (Mixto: TXT local + Google Sheets)
+# Diccionario de los 13 Vendedores con sus claves correspondientes para el ERP
+# Reemplaza "VENDEDOR X" por los nombres reales de tu equipo de ventas
+diccionario_vendedores = {
+    "VENDEDOR 1": "AGE01",
+    "VENDEDOR 2": "AGE02",
+    "VENDEDOR 3": "AGE03",
+    "VENDEDOR 4": "AGE04",
+    "VENDEDOR 5": "AGE05",
+    "VENDEDOR 6": "AGE06",
+    "VENDEDOR 7": "AGE07",
+    "VENDEDOR 8": "AGE08",
+    "VENDEDOR 9": "AGE09",
+    "VENDEDOR 10": "AGE10",
+    "VENDEDOR 11": "AGE11",
+    "VENDEDOR 12": "AGE12",
+    "VENDEDOR 13": "AGE13",
+}
+
+# Carga de catálogos (TXT local + Clientes de Google Sheets)
 catalogo_df = cargar_catalogo("CATALAGO 25 TRUP PRUEBA COTIZADOR.txt", "precios_actualizados.txt")
 st.session_state.catalogo_df = catalogo_df
 df_clientes = cargar_clientes_desde_sheets()
 
-st.title("🔩 Cotizador de Pedidos Inteligente")
+st.title("🔩 Cotizador de Pedidos")
 st.markdown("---")
 
 # --- BLOQUE 1: RECUPERAR COTIZACIÓN EN PAUSA ---
@@ -170,27 +187,44 @@ if os.path.exists(archivo_registro):
     
     if cotizaciones_guardadas:
         with st.sidebar.expander("📂 Recuperar Cotización en Pausa"):
-            cot_seleccionada = st.selectbox("Selecciona un cliente para editar:", options=list(cotizaciones_guardadas.keys()))
-            if st.button("Cargar y Editar"):
+            cot_seleccionada = st.sidebar.selectbox("Selecciona un cliente para editar:", options=list(cotizaciones_guardadas.keys()))
+            if st.sidebar.button("Cargar y Editar"):
                 datos_recuperados = cotizaciones_guardadas[cot_seleccionada]
                 st.session_state.cotizacion = datos_recuperados["partidas"]
                 st.session_state.tipo_lista = datos_recuperados["tipo_lista"]
                 st.sidebar.success(f"Cargadas {len(st.session_state.cotizacion)} partidas de {cot_seleccionada}")
                 st.rerun()
 
-# --- BLOQUE 2: CONFIGURACIÓN GENERAL DEL PEDIDO ---
-col_gen1, col_gen2, col_gen3 = st.columns(3)
+# --- BLOQUE 2: CONFIGURACIÓN GENERAL DEL PEDIDO (DATOS MAESTROS) ---
+col_gen1, col_gen2 = st.columns(2)
+
 with col_gen1:
-    cliente_sel = st.selectbox("🏢 Selecciona el Cliente:", options=df_clientes['nombre'].tolist())
-    cve_cliente_actual = df_clientes[df_clientes['nombre'] == cliente_sel]['clave'].values[0]
-    st.caption(f"Clave de Cliente ERP: **{cve_cliente_actual}**")
+    # Selector de Vendedor
+    vendedor_sel = st.selectbox("👤 ¿Qué vendedor eres?", options=list(diccionario_vendedores.keys()))
+    cve_agente_actual = diccionario_vendedores[vendedor_sel]
+    st.caption(f"Clave Agente ERP: **{cve_agente_actual}**")
+    
+    # Buscador Predictivo de Cliente (Filtra de acuerdo a las coincidencias al escribir)
+    cliente_sel = st.selectbox(
+        "🏢 Escribe y selecciona el Cliente:", 
+        options=df_clientes['nombre'].tolist(),
+        index=None,
+        placeholder="Comienza a escribir el nombre del cliente..."
+    )
+    
+    if cliente_sel:
+        cve_cliente_actual = df_clientes[df_clientes['nombre'] == cliente_sel]['clave'].values[0]
+        st.caption(f"Clave de Cliente ERP: **{cve_cliente_actual}**")
+    else:
+        cve_cliente_actual = "CTE000"
+
 with col_gen2:
     tipo_doc = st.selectbox("📄 Tipo de Documento:", ["Remision", "Factura"])
-with col_gen3:
     st.session_state.tipo_lista = st.radio("💰 Lista de Precios comercial:", ["Distribuidor", "Dimefet"], horizontal=True)
 
 # --- BLOQUE 3: AGREGAR ARTÍCULOS ---
-tab_manual, tab_rapida = st.tabs(["🔍 Búsqueda Individual", "🚀 Carga Rápida por Texto"])
+st.markdown("---")
+tab_manual, tab_rapida = st.tabs(["🔍 Búsqueda Individual de Productos", "🚀 Carga Rápida por Texto"])
 
 with tab_manual:
     col_m1, col_m2, col_m3 = st.columns([4,1,1])
@@ -231,9 +265,11 @@ if st.session_state.cotizacion:
     c_btn1, c_btn2, c_btn3 = st.columns(3)
     with c_btn1:
         if st.button("💾 Guardar en Pausa", use_container_width=True):
-            guardar_cotizacion_pausa(cliente_sel, st.session_state.tipo_lista, st.session_state.cotizacion)
+            nombre_para_guardar = cliente_sel if cliente_sel else "CLIENTE_MOSTRADOR"
+            guardar_cotizacion_pausa(nombre_para_guardar, st.session_state.tipo_lista, st.session_state.cotizacion)
     with c_btn2:
-        mensaje_wa = f"*Nuevo Pedido*\n\n*Cliente:* {cliente_sel}\n*Tipo de Documento:* {tipo_doc}\n\n*Detalle del Pedido:*\n\n"
+        nombre_para_wa = cliente_sel if cliente_sel else "SIN NOMBRE"
+        mensaje_wa = f"*Nuevo Pedido*\n\n*Cliente:* {nombre_para_wa}\n*Tipo de Documento:* {tipo_doc}\n\n*Detalle del Pedido:*\n\n"
         for _, fila in df_cot.iterrows():
             mensaje_wa += f"* {fila['codigo']} {fila['cantidad']} {fila['descripcion']}\n"
         url_wa = f"https://wa.me/?text={quote_plus(mensaje_wa)}"
@@ -247,51 +283,54 @@ if st.session_state.cotizacion:
     st.markdown("---")
     st.header("⚙️ Finalizar y Exportar para Carga en ERP")
     
-    # PEGA AQUÍ LA URL DE TU APPS SCRIPT
+    # URL de tu Google Apps Script que ya maneja los folios de forma centralizada
     URL_API_FOLIOS = "TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI" 
     
-    if st.button("🚀 OBTENER FOLIO Y GENERAR EXCEL", type="primary", use_container_width=True):
-        folio_asignado = "COT-MANUAL-1" 
-        
-        if URL_API_FOLIOS != "TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI":
-            try:
-                respuesta = requests.get(URL_API_FOLIOS, timeout=5)
-                if respuesta.status_code == 200:
-                    datos_central = respuesta.json()
-                    folio_asignado = str(datos_central.get("siguienteFolio", folio_asignado))
-            except:
-                st.warning("⚠️ No se conectó a la API. Usando folio de respaldo.")
-
-        filas_erp = []
-        fecha_alta = datetime.now().strftime("%d/%m/%Y")
-        
-        for item in st.session_state.cotizacion:
-            filas_erp.append({
-                "no_ped": folio_asignado,
-                "f_alta": fecha_alta,
-                "cve_cte": cve_cliente_actual,
-                "cve_age": "AGE01",
-                "cve_prod": item['codigo'],
-                "cant_prod": item['cantidad'],
-                "cve_suc": "1",
-                "cve_mon": "P",
-                "lugar": "A2"
-            })
+    if st.button("🚀 OBTENER FOLIO CONSECUTIVO Y GENERAR EXCEL", type="primary", use_container_width=True):
+        if not cliente_sel:
+            st.error("❌ No puedes exportar al ERP sin seleccionar un cliente válido de la lista.")
+        else:
+            folio_asignado = "1254" # Valor base secuencial por si no responde la API
             
-        df_final_erp = pd.DataFrame(filas_erp)
-        
-        output_buffer = BytesIO()
-        with pd.ExcelWriter(output_buffer, engine='openpyxl') as writer:
-            df_final_erp.to_excel(writer, index=False, sheet_name='Pedido')
-        
-        st.success(f"🎉 ¡Éxito! Folio oficial asignado: **{folio_asignado}**")
-        
-        st.download_button(
-            label="📥 Descargar Archivo Excel Estructurado para ERP",
-            data=output_buffer.getvalue(),
-            file_name=f"{folio_asignado}_Pedido_ERP.xlsx",
-            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-            use_container_width=True
-        )
+            if URL_API_FOLIOS != "TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI":
+                try:
+                    respuesta = requests.get(URL_API_FOLIOS, timeout=5)
+                    if respuesta.status_code == 200:
+                        datos_central = respuesta.json()
+                        folio_asignado = str(datos_central.get("siguienteFolio", folio_asignado))
+                except:
+                    st.warning("⚠️ No se conectó a la API de folios en la nube. Usando folio secuencial base.")
+
+            filas_erp = []
+            fecha_alta = datetime.now().strftime("%d/%m/%Y")
+            
+            for item in st.session_state.cotizacion:
+                filas_erp.append({
+                    "no_ped": folio_asignado,
+                    "f_alta": fecha_alta,
+                    "cve_cte": cve_cliente_actual,
+                    "cve_age": cve_agente_actual, # Asigna dinámicamente la clave del vendedor elegido
+                    "cve_prod": item['codigo'],
+                    "cant_prod": item['cantidad'],
+                    "cve_suc": "1",
+                    "cve_mon": "P",
+                    "lugar": "A2" # Almacén fijo asignado exclusivamente para el cotizador
+                })
+                
+            df_final_erp = pd.DataFrame(filas_erp)
+            
+            output_buffer = BytesIO()
+            with pd.ExcelWriter(output_buffer, engine='openpyxl') as writer:
+                df_final_erp.to_excel(writer, index=False, sheet_name='Pedido')
+            
+            st.success(f"🎉 ¡Éxito! Folio oficial consecutivo asignado por el sistema central: **{folio_asignado}**")
+            
+            st.download_button(
+                label="📥 Descargar Archivo Excel Estructurado para ERP",
+                data=output_buffer.getvalue(),
+                file_name=f"{folio_asignado}_Pedido_ERP.xlsx",
+                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                use_container_width=True
+            )
 else:
-    st.info("La cotización está vacía. Añade productos de forma manual o mediante la carga rápida.")
+    st.info("La cotización está vacía. Añade productos para empezar.")
