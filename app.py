@@ -56,7 +56,7 @@ def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
 @st.cache_data(ttl=600) # Se refresca cada 10 minutos
 def cargar_clientes_desde_sheets():
     """Descarga la lista de clientes dinámicamente desde Google Sheets."""
-    sheet_id = '1QzmVhpliwWN2Scz8J9_jn2GeLI2jIz2Mv5l6HDiKQVs'
+    sheet_id = '1QzmVhpIiwWN2Scz8J9_jn2GeLI2jIz2Mv5I6HDiKQVs'
     
     # Usamos el enlace directo de exportación, que es el mejor amigo de Python
     url_clientes = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&sheet=Clientes"
