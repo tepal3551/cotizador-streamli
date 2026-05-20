@@ -361,26 +361,37 @@ if vendedor_sel:
                                   file_name=f"Pedido_{st.session_state.ultimo_folio}.xlsx", 
                                   mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", use_container_width=True)
 
-        # Botón descarga PDF (Siempre disponible)
-     # Botón descarga PDF (Siempre disponible)
-    with c_btn2:
-            # 1. Definimos la ruta del archivo
-            ruta_pdf = generar_pdf(nombre_limpio, vendedor_sel, tipo_doc, st.session_state.tipo_lista, df_cot, total_cotizacion)
-            
-            # 2. Leemos el archivo en modo binario
-            with open(ruta_pdf, "rb") as f:
-                pdf_data = f.read()
-            
-            # 3. Descarga directa
+    # 4 BOTONES: Pausa, PDF, WhatsApp, Limpiar
+        c_btn1, c_btn2, c_btn3, c_btn4 = st.columns(4)
+        
+        nombre_limpio = cliente_sel.split(" - ", 1)[1] if cliente_sel else "MOSTRADOR"
+        
+        with c_btn1:
+            if st.button("💾 Guardar en Pausa", use_container_width=True):
+                guardar_cotizacion_pausa(nombre_limpio, st.session_state.tipo_lista, st.session_state.cotizacion)
+        
+        # Generar el PDF SOLO cuando se necesite
+        ruta_pdf = generar_pdf(nombre_limpio, vendedor_sel, tipo_doc, st.session_state.tipo_lista, df_cot, total_cotizacion)
+        with open(ruta_pdf, "rb") as f:
+            pdf_data = f.read()
+
+        with c_btn2:
             st.download_button(
                 label="📄 Descargar PDF",
                 data=pdf_data,
                 file_name=f"Cotizacion_{nombre_limpio}.pdf",
                 mime="application/pdf",
                 use_container_width=True,
-                key="btn_pdf_final"
+                key="btn_pdf_unico" # KEY ÚNICA PARA EVITAR DUPLICADOS
             )
-            
-            # 4. IMPORTANTE: Limpiamos el archivo temporal inmediatamente después de leerlo
+            # Limpiar archivo temporal después de leerlo
             if os.path.exists(ruta_pdf):
                 os.remove(ruta_pdf)
+
+        with c_btn3:
+            st.info("💡 Descarga el PDF y compártelo.")
+
+        with c_btn4:
+            if st.button("🗑️ Limpiar", use_container_width=True):
+                st.session_state.cotizacion = []
+                st.rerun()
