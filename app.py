@@ -144,14 +144,12 @@ def generar_pdf(cliente, vendedor, tipo_doc, tipo_lista, df_cot, total):
     pdf.cell(0, 8, f"Fecha: {datetime.now().strftime('%d/%m/%Y')}", ln=True)
     pdf.ln(5)
     
-    # Encabezados de tabla
     pdf.set_font("Arial", 'B', 9)
     pdf.cell(25, 8, "Codigo", 1)
     pdf.cell(105, 8, "Descripcion", 1)
     pdf.cell(20, 8, "Cant.", 1, 0, 'C')
     pdf.cell(40, 8, "Importe", 1, 1, 'C')
     
-    # Filas
     pdf.set_font("Arial", '', 8)
     for _, row in df_cot.iterrows():
         pdf.cell(25, 8, str(row['codigo']), 1)
@@ -164,8 +162,8 @@ def generar_pdf(cliente, vendedor, tipo_doc, tipo_lista, df_cot, total):
     pdf.set_font("Arial", 'B', 12)
     pdf.cell(0, 10, f"Total Global: ${total:,.2f}", ln=True, align='R')
     
-    return bytes(pdf.output(dest='S'), 'latin1')
-
+    # --- CAMBIO AQUÍ: Usamos output directamente ---
+    return pdf.output(dest='S').encode('latin1')
 # ==============================================================================
 # SECCIÓN 2: INTERFAZ Y LÓGICA DE CONTROL DE STREAMLIT
 # ==============================================================================
