@@ -53,19 +53,22 @@ def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
     return df
 
 @st.cache_data(ttl=600) # Se refresca cada 10 minutos
+@st.cache_data(ttl=600) # Se refresca cada 10 minutos
 def cargar_clientes_desde_sheets():
     """Descarga la lista de clientes dinámicamente desde Google Sheets."""
-    # ID CORRECTO APLICADO AQUÍ
     sheet_id = '1QzmVhpliwWN2Scz8J9_jn2GeLI2jIz2Mv5l6HDiKQVs'
-    url_clientes = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet=Clientes"
+    
+    # Usamos el enlace directo de exportación, que es el mejor amigo de Python
+    url_clientes = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&sheet=Clientes"
     
     try:
+        # Intentamos leer el archivo directamente
         df = pd.read_csv(url_clientes)
         return df
     except Exception as e:
-        st.warning("⚠️ No se pudo conectar a Google Sheets para los clientes.")
+        # Si falla, imprimimos el error exacto en pantalla para no adivinar
+        st.error(f"🚨 Error técnico de Google Sheets: {e}")
         return pd.DataFrame()
-
 def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
     """Analiza líneas de texto identificando código y cantidad de forma ultra flexible."""
     lineas = [line.strip() for line in texto_pedido.split('\n') if line.strip()]
