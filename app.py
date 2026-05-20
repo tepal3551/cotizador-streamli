@@ -52,25 +52,19 @@ def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
     df['display'] = df['codigo'] + " - " + df['descripcion']
     return df
 
-@st.cache_data(ttl=600) # Se refresca cada 10 minutos para traer nuevos clientes
+@st.cache_data(ttl=600) # Se refresca cada 10 minutos
 def cargar_clientes_desde_sheets():
     """Descarga la lista de clientes dinámicamente desde Google Sheets."""
-    sheet_id = '1QzmVhpIiwWN2Scz8J9_jn2GeLI2jIz2Mv5I6HDiKQVs'
-    nombre_pestana = 'Clientes' 
-    url_clientes = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={nombre_pestana}"
+    # ID CORRECTO APLICADO AQUÍ
+    sheet_id = '1QzmVhpliwWN2Scz8J9_jn2GeLI2jIz2Mv5l6HDiKQVs'
+    url_clientes = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet=Clientes"
     
     try:
         df = pd.read_csv(url_clientes)
-        df_clientes = pd.DataFrame()
-        df_clientes['clave'] = df.iloc[:, 0].astype(str).str.strip()
-        df_clientes['nombre'] = df.iloc[:, 1].astype(str).str.strip().str.upper()
-        return df_clientes
+        return df
     except Exception as e:
-        st.warning("⚠️ No se pudo conectar a Google Sheets para los clientes. Usando respaldo local.")
-        return pd.DataFrame([
-            {"clave": "CTE001", "nombre": "TOME GARCIA MARIA MAGDALENA"},
-            {"clave": "CTE000", "nombre": "CLIENTE PUBLICO GENERAL"}
-        ])
+        st.warning("⚠️ No se pudo conectar a Google Sheets para los clientes.")
+        return pd.DataFrame()
 
 def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
     """Analiza líneas de texto identificando código y cantidad de forma ultra flexible."""
@@ -152,25 +146,7 @@ st.set_page_config(page_title="Cotizador de Pedidos", layout="wide")
 if 'cotizacion' not in st.session_state: st.session_state.cotizacion = []
 if 'tipo_lista' not in st.session_state: st.session_state.tipo_lista = "Distribuidor"
 
-# Diccionario de los 13 Vendedores con sus claves correspondientes para el ERP
-# Reemplaza "VENDEDOR X" por los nombres reales de tu equipo de ventas
-diccionario_vendedores = {
-    "VENDEDOR 1": "AGE01",
-    "VENDEDOR 2": "AGE02",
-    "VENDEDOR 3": "AGE03",
-    "VENDEDOR 4": "AGE04",
-    "VENDEDOR 5": "AGE05",
-    "VENDEDOR 6": "AGE06",
-    "VENDEDOR 7": "AGE07",
-    "VENDEDOR 8": "AGE08",
-    "VENDEDOR 9": "AGE09",
-    "VENDEDOR 10": "AGE10",
-    "VENDEDOR 11": "AGE11",
-    "VENDEDOR 12": "AGE12",
-    "VENDEDOR 13": "AGE13",
-}
-
-# Carga de catálogos (TXT local + Clientes de Google Sheets)
+# Carga de catálogos
 catalogo_df = cargar_catalogo("CATALAGO 25 TRUP PRUEBA COTIZADOR.txt", "precios_actualizados.txt")
 st.session_state.catalogo_df = catalogo_df
 df_clientes = cargar_clientes_desde_sheets()
@@ -199,24 +175,46 @@ if os.path.exists(archivo_registro):
 col_gen1, col_gen2 = st.columns(2)
 
 with col_gen1:
-    # Selector de Vendedor
-    vendedor_sel = st.selectbox("👤 ¿Qué vendedor eres?", options=list(diccionario_vendedores.keys()))
-    cve_agente_actual = diccionario_vendedores[vendedor_sel]
-    st.caption(f"Clave Agente ERP: **{cve_agente_actual}**")
+    cve_agente_actual = "AGE00"
+    cve_cliente_actual = "CTE000"
+    cliente_sel = None
     
-    # Buscador Predictivo de Cliente (Filtra de acuerdo a las coincidencias al escribir)
-    cliente_sel = st.selectbox(
-        "🏢 Escribe y selecciona el Cliente:", 
-        options=df_clientes['nombre'].tolist(),
-        index=None,
-        placeholder="Comienza a escribir el nombre del cliente..."
-    )
-    
-    if cliente_sel:
-        cve_cliente_actual = df_clientes[df_clientes['nombre'] == cliente_sel]['clave'].values[0]
-        st.caption(f"Clave de Cliente ERP: **{cve_cliente_actual}**")
+    # Validamos que la hoja de Google Sheets cargó correctamente y tiene las columnas necesarias
+    if not df_clientes.empty and len(df_clientes.columns) >= 4:
+        # Extraer vendedores únicos (Columnas 0 y 1 de tu Excel)
+        vendedores_df = df_clientes.iloc[:, [0, 1]].drop_duplicates().dropna()
+        opciones_vendedores = [f"{str(row.iloc[0]).strip()} - {str(row.iloc[1]).strip()}" for _, row in vendedores_df.iterrows()]
+        
+        vendedor_sel = st.selectbox("👤 ¿Qué vendedor eres?", options=opciones_vendedores)
+        
+        if vendedor_sel:
+            id_vendedor_actual = vendedor_sel.split(" - ")[0]
+            # Convertimos el ID (ej. "3") al formato que usa tu ERP ("AGE03")
+            if id_vendedor_actual.isdigit():
+                cve_agente_actual = f"AGE{int(id_vendedor_actual):02d}"
+            else:
+                cve_agente_actual = id_vendedor_actual
+                
+            st.caption(f"Clave Agente ERP: **{cve_agente_actual}**")
+            
+            # Filtramos para mostrar ÚNICAMENTE los clientes de este vendedor
+            clientes_filtrados = df_clientes[df_clientes.iloc[:, 0].astype(str).str.strip() == id_vendedor_actual]
+            
+            # Formato Cliente (Columnas 2 y 3 del Excel)
+            opciones_clientes = [f"{str(row.iloc[2]).strip()} - {str(row.iloc[3]).strip().upper()}" for _, row in clientes_filtrados.iterrows()]
+            
+            cliente_sel = st.selectbox(
+                "🏢 Escribe y selecciona el Cliente:", 
+                options=opciones_clientes,
+                index=None,
+                placeholder="Comienza a escribir el nombre del cliente..."
+            )
+            
+            if cliente_sel:
+                cve_cliente_actual = cliente_sel.split(" - ")[0]
+                st.caption(f"Clave de Cliente ERP: **{cve_cliente_actual}**")
     else:
-        cve_cliente_actual = "CTE000"
+        st.error("No se pudo cargar la base de datos de vendedores/clientes. Verifica la conexión.")
 
 with col_gen2:
     tipo_doc = st.selectbox("📄 Tipo de Documento:", ["Remision", "Factura"])
@@ -263,13 +261,15 @@ if st.session_state.cotizacion:
     st.markdown(f"### **Total Global ({st.session_state.tipo_lista}): ${total_cotizacion:,.2f}**")
     
     c_btn1, c_btn2, c_btn3 = st.columns(3)
+    
+    # Extraemos solo el nombre limpio para guardar y para WhatsApp
+    nombre_limpio = cliente_sel.split(" - ", 1)[1] if cliente_sel else "MOSTRADOR"
+    
     with c_btn1:
         if st.button("💾 Guardar en Pausa", use_container_width=True):
-            nombre_para_guardar = cliente_sel if cliente_sel else "CLIENTE_MOSTRADOR"
-            guardar_cotizacion_pausa(nombre_para_guardar, st.session_state.tipo_lista, st.session_state.cotizacion)
+            guardar_cotizacion_pausa(nombre_limpio, st.session_state.tipo_lista, st.session_state.cotizacion)
     with c_btn2:
-        nombre_para_wa = cliente_sel if cliente_sel else "SIN NOMBRE"
-        mensaje_wa = f"*Nuevo Pedido*\n\n*Cliente:* {nombre_para_wa}\n*Tipo de Documento:* {tipo_doc}\n\n*Detalle del Pedido:*\n\n"
+        mensaje_wa = f"*Nuevo Pedido*\n\n*Cliente:* {nombre_limpio}\n*Tipo de Documento:* {tipo_doc}\n\n*Detalle del Pedido:*\n\n"
         for _, fila in df_cot.iterrows():
             mensaje_wa += f"* {fila['codigo']} {fila['cantidad']} {fila['descripcion']}\n"
         url_wa = f"https://wa.me/?text={quote_plus(mensaje_wa)}"
@@ -283,14 +283,13 @@ if st.session_state.cotizacion:
     st.markdown("---")
     st.header("⚙️ Finalizar y Exportar para Carga en ERP")
     
-    # URL de tu Google Apps Script que ya maneja los folios de forma centralizada
     URL_API_FOLIOS = "TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI" 
     
     if st.button("🚀 OBTENER FOLIO CONSECUTIVO Y GENERAR EXCEL", type="primary", use_container_width=True):
         if not cliente_sel:
             st.error("❌ No puedes exportar al ERP sin seleccionar un cliente válido de la lista.")
         else:
-            folio_asignado = "1254" # Valor base secuencial por si no responde la API
+            folio_asignado = "1254" 
             
             if URL_API_FOLIOS != "TU_URL_DE_GOOGLE_APPS_SCRIPT_AQUI":
                 try:
@@ -309,12 +308,12 @@ if st.session_state.cotizacion:
                     "no_ped": folio_asignado,
                     "f_alta": fecha_alta,
                     "cve_cte": cve_cliente_actual,
-                    "cve_age": cve_agente_actual, # Asigna dinámicamente la clave del vendedor elegido
+                    "cve_age": cve_agente_actual, 
                     "cve_prod": item['codigo'],
                     "cant_prod": item['cantidad'],
                     "cve_suc": "1",
                     "cve_mon": "P",
-                    "lugar": "A2" # Almacén fijo asignado exclusivamente para el cotizador
+                    "lugar": "A2" 
                 })
                 
             df_final_erp = pd.DataFrame(filas_erp)
