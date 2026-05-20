@@ -363,16 +363,24 @@ if vendedor_sel:
 
         # Botón descarga PDF (Siempre disponible)
      # Botón descarga PDF (Siempre disponible)
-        ruta_pdf = generar_pdf(nombre_limpio, vendedor_sel, tipo_doc, st.session_state.tipo_lista, df_cot, total_cotizacion)
-        with open(ruta_pdf, "rb") as f:
-            pdf_data = f.read()
-        
-        # AGREGAMOS EL PARÁMETRO key PARA SOLUCIONAR EL ERROR DE DUPLICADOS
-        col_d2.download_button(
-            label="📄 Descargar PDF", 
-            data=pdf_data, 
-            file_name=f"Cotizacion_{nombre_limpio}.pdf", 
-            mime="application/pdf", 
-            use_container_width=True,
-            key="pdf_unico_id" 
-        )
+    with c_btn2:
+            # 1. Definimos la ruta del archivo
+            ruta_pdf = generar_pdf(nombre_limpio, vendedor_sel, tipo_doc, st.session_state.tipo_lista, df_cot, total_cotizacion)
+            
+            # 2. Leemos el archivo en modo binario
+            with open(ruta_pdf, "rb") as f:
+                pdf_data = f.read()
+            
+            # 3. Descarga directa
+            st.download_button(
+                label="📄 Descargar PDF",
+                data=pdf_data,
+                file_name=f"Cotizacion_{nombre_limpio}.pdf",
+                mime="application/pdf",
+                use_container_width=True,
+                key="btn_pdf_final"
+            )
+            
+            # 4. IMPORTANTE: Limpiamos el archivo temporal inmediatamente después de leerlo
+            if os.path.exists(ruta_pdf):
+                os.remove(ruta_pdf)
