@@ -54,6 +54,18 @@ if 'cotizacion' not in st.session_state: st.session_state.cotizacion = []
 # ... mantén tu lógica de carga tal cual la tenías ...
 
 st.title("🔩 Cotizador de Pedidos")
+# 1. Aseguramos que el catálogo esté en session_state ANTES de usarlo
+if 'catalogo_df' not in st.session_state:
+    # Si no existe, lo cargamos por primera vez
+    st.session_state.catalogo_df = cargar_catalogo("CATALAGO 25 TRUP PRUEBA COTIZADOR.txt", "precios_actualizados.txt")
+
+# 2. Ahora sí podemos usarlo con seguridad en cualquier parte
+prod_sel = st.selectbox(
+    "Buscar Producto:", 
+    options=st.session_state.catalogo_df['display'].tolist(), 
+    index=None, 
+    placeholder="Escribe código o nombre..."
+)
 
 # Lógica del botón Agregar (Colócalo justo después de definir el selectbox y number_input)
 prod_sel = st.selectbox("Buscar Producto:", options=st.session_state.catalogo_df['display'].tolist(), index=None)
