@@ -362,8 +362,17 @@ if vendedor_sel:
                                   mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", use_container_width=True)
 
         # Botón descarga PDF (Siempre disponible)
+     # Botón descarga PDF (Siempre disponible)
         ruta_pdf = generar_pdf(nombre_limpio, vendedor_sel, tipo_doc, st.session_state.tipo_lista, df_cot, total_cotizacion)
         with open(ruta_pdf, "rb") as f:
             pdf_data = f.read()
-        col_d2.download_button("📄 Descargar PDF", data=pdf_data, file_name=f"Cotizacion_{nombre_limpio}.pdf", 
-                               mime="application/pdf", use_container_width=True)
+        
+        # AGREGAMOS EL PARÁMETRO key PARA SOLUCIONAR EL ERROR DE DUPLICADOS
+        col_d2.download_button(
+            label="📄 Descargar PDF", 
+            data=pdf_data, 
+            file_name=f"Cotizacion_{nombre_limpio}.pdf", 
+            mime="application/pdf", 
+            use_container_width=True,
+            key="pdf_unico_id" 
+        )
