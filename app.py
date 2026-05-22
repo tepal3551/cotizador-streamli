@@ -83,7 +83,16 @@ def generar_pdf(df, cliente, tipo_doc, lista, total):
     pdf.ln(5)
     pdf.set_font("Arial", 'B', 12)
     pdf.cell(200, 10, txt=f"TOTAL: ${total:,.2f}", ln=True, align='R')
-    return pdf.output(dest='S').encode('latin-1')
+    # Pega esto en su lugar:
+    try:
+        # Intenta usar el método moderno (fpdf2 en Streamlit Cloud)
+        return bytes(pdf.output())
+    except TypeError:
+        # Si falla, usa el método clásico (fpdf antiguo en tu PC local)
+        return pdf.output(dest='S').encode('latin-1')
+    except AttributeError:
+        # Si el objeto ya es bytes, simplemente lo devuelve
+        return pdf.output()
 
 def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
     lineas = [line.strip() for line in texto_pedido.split('\n') if line.strip()]
@@ -130,7 +139,7 @@ col_logo1, col_titulo, col_logo2 = st.columns([1, 4, 1])
 with col_logo1:
     st.write("") # st.image("logo1.png", width=100) 
 with col_titulo:
-    st.title("Cotizador")
+    st.title("Cotizador Truper")
 with col_logo2:
     st.write("") # st.image("logo2.png", width=100)
 catalogo_df = cargar_catalogo("CATALAGO 25 TRUP PRUEBA COTIZADOR.txt", "precios_actualizados.txt")
