@@ -6,144 +6,310 @@ from datetime import datetime
 
 from fpdf import FPDF
 
-from urllib.parse import quote_plus
+from urllib.parse import quote_plus 
 
-import re
-
-import requests
-
-from io import BytesIO
+import re 
 
 
 
-# ==========================================
+# ==============================================================================
 
-# 1. FUNCIONES AUXILIARES Y ERP
+# SECCIÓN 1: DEFINICIÓN DE FUNCIONES
 
-# ==========================================
-
-
-
-@st.cache_data(ttl=300)
-
-def cargar_clientes_sheets():
-
-    # URL de tu Google Sheet (Asegúrate de que sea "Publicar en la web" como CSV)
-
-    sheet_id = '1QzmVhpIiwWN2Scz8J9_jn2GeLI2jIz2Mv5I6HDiKQVs'
-
-    return pd.read_csv(url)
+# ==============================================================================
 
 
 
-def obtener_siguiente_folio():
+@st.cache_data
 
-    # Simulación de la llamada a tu API de Render para el consecutivo
+def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
+
+    """Carga el catálogo y aplica actualizaciones de precios."""
+
+    catalogo = []
 
     try:
 
-        response = requests.get("https://servidor-pedidos.onrender.com")
+        with open(nombre_archivo_catalogo, 'r', encoding='utf-8') as f:
 
-        return response.text.strip()
+            for line in f:
 
-    except:
+                try:
 
-        return "0000" # Fallback
+                    partes = line.strip().split(',')
+
+                    if len(partes) < 3: continue
+
+                    codigo = partes[0].strip()
+
+                    precio = float(partes[-1].strip())
+
+                    descripcion = ','.join(partes[1:-1]).strip()
+
+                    catalogo.append({'codigo': codigo, 'descripcion': descripcion, 'precio': precio})
+
+                except (ValueError, IndexError): continue
+
+    except FileNotFoundError:
+
+        st.error(f"No se encontró el archivo: {nombre_archivo_catalogo}")
+
+        return pd.DataFrame()
 
 
 
-def generar_excel_erp(df_cot, folio, cve_cte, cve_age):
+    df = pd.DataFrame(catalogo)
 
-    # Formato solicitado basado en archivo 1253
+    if df.empty: return pd.DataFrame(columns=['codigo', 'descripcion', 'precio'])
 
-    filas = []
+    df = df.set_index('codigo')
 
-    for _, row in df_cot.iterrows():
 
-        filas.append({
 
-            "no_ped": folio,
+    try:
 
-            "cve_prod": row['codigo'],
+        with open(nombre_archivo_actualizaciones, 'r', encoding='utf-8') as f:
 
-            "cant_prod": row['cantidad'],
+            for line in f:
 
-            "cve_cte": cve_cte,
+                try:
 
-            "cve_age": cve_age,
+                    partes = line.strip().split(',')
 
-            "cve_suc": "1",
+                    if len(partes) < 3: continue 
 
-            "cve_mon": "P",
+                    codigo = partes[0].strip()
 
-            "lugar": "A2"
+                    nuevo_precio = float(partes[-1].strip())
+
+                    nueva_descripcion = ','.join(partes[1:-1]).strip()
+
+                    df.loc[codigo] = {'descripcion': nueva_descripcion, 'precio': nuevo_precio}
+
+                except: continue
+
+    except FileNotFoundError: pass
+
+
+
+    df = df.reset_index()
+
+    df['display'] = df['codigo'] + " - " + df['descripcion']
+
+    return df
+
+
+
+def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
+
+    """Lógica robusta para detectar CÓDIGO y CANTIDAD ignorando viñetas y asteriscos."""
+
+    lineas = [line.strip() for line in texto_pedido.split('\n') if line.strip()]
+
+    nuevos_productos = []
+
+    catalogo_map = df_catalogo.set_index('codigo').to_dict('index') 
+
+    
+
+    # Patrón: Busca 4-6 dígitos (Código) y luego 1-3 dígitos (Cantidad)
+
+    PATRON = re.compile(r'^[^\d]*(\d{4,6})[^\d]*(\d{1,3})')
+
+
+
+    for linea in lineas:
+
+        match = PATRON.match(linea)
+
+        if match:
+
+            cod = match.group(1)
+
+            cant = int(match.group(2))
+
+            if cod in catalogo_map:
+
+                # Calculamos el precio según la lista seleccionada actualmente
+
+                p_base = float(catalogo_map[cod]['precio'])
+
+                precio_final = p_base if st.session_state.tipo_lista == "Distribuidor" else p_base / 0.90
+
+                
+
+                nuevos_productos.append({
+
+                    'codigo': cod,
+
+                    'descripcion': catalogo_map[cod]['descripcion'],
+
+                    'cantidad': cant,
+
+                    'precio_unitario': precio_final
+
+                })
+
+    
+
+    if nuevos_productos:
+
+        st.session_state.cotizacion.extend(nuevos_productos)
+
+        st.success(f"Se cargaron {len(nuevos_productos)} productos.")
+
+    else:
+
+        st.warning("No se reconoció el formato en ninguna línea.")
+
+
+
+def agregar_producto_manual():
+
+    if st.session_state.prod_sel:
+
+        info = st.session_state.catalogo_df[st.session_state.catalogo_df['display'] == st.session_state.prod_sel].iloc[0]
+
+        p_base = float(info['precio'])
+
+        precio_final = p_base if st.session_state.tipo_lista == "Distribuidor" else p_base / 0.90
+
+        
+
+        st.session_state.cotizacion.append({
+
+            'codigo': info['codigo'],
+
+            'descripcion': info['descripcion'],
+
+            'cantidad': st.session_state.cant_sel,
+
+            'precio_unitario': precio_final
 
         })
 
-    df_final = pd.DataFrame(filas)
 
-    buffer = BytesIO()
 
-    with pd.ExcelWriter(buffer, engine='openpyxl') as writer:
+# ==============================================================================
 
-        df_final.to_excel(writer, index=False)
+# SECCIÓN 2: INTERFAZ Y LÓGICA DE APLICACIÓN
 
-    return buffer.getvalue()
+# ==============================================================================
 
 
 
-# ==========================================
-
-# 2. INTERFAZ PRINCIPAL
-
-# ==========================================
+st.set_page_config(page_title="Cotizador Truper", layout="wide")
 
 
 
-# ... (Mantén tus funciones de cargar_catalogo y generar_pdf aquí) ...
+# Inicialización de estados
+
+if 'cotizacion' not in st.session_state: st.session_state.cotizacion = []
+
+if 'tipo_lista' not in st.session_state: st.session_state.tipo_lista = "Distribuidor"
 
 
 
-st.title("🔩 Cotizador de Pedidos")
+# Carga de datos
+
+catalogo_df = cargar_catalogo("CATALAGO 25 TRUP PRUEBA COTIZADOR.txt", "precios_actualizados.txt")
+
+st.session_state.catalogo_df = catalogo_df
 
 
 
-# Selector de Vendedor y Cliente cargado de Sheets
+# Encabezado
 
-df_clientes = cargar_clientes_desde_sheets()
-
-vendedor = st.selectbox("Vendedor", df_clientes['vendedor'].unique())
-
-cliente_info = st.selectbox("Cliente", df_clientes[df_clientes['vendedor'] == vendedor]['nombre'])
-
-cve_cte = df_clientes[df_clientes['nombre'] == cliente_info]['clave'].iloc[0]
+st.title("🔩 Cotizador de Hardware y Eléctricos")
 
 
 
-# ... (Tu lógica de agregar productos) ...
+# --- PANEL DE CONFIGURACIÓN ---
+
+col_cfg1, col_cfg2 = st.columns(2)
+
+with col_cfg1:
+
+    cliente = st.text_input("Cliente:").upper()
+
+    tipo_doc = st.text_input("Tipo de Documento (Remisión/Factura):", value="Remisión")
+
+with col_cfg2:
+
+    st.session_state.tipo_lista = st.radio("Selecciona Lista de Precios:", ["Distribuidor", "Dimefet"], horizontal=True)
+
+    st.info("💡 Dimefet aplica un costo para que al descontar 10% regrese a Distribuidor.")
 
 
+
+# --- AGREGAR PRODUCTOS ---
+
+with st.expander("🔍 Búsqueda Manual"):
+
+    c1, c2, c3 = st.columns([4,1,1])
+
+    c1.selectbox("Producto:", catalogo_df['display'], key="prod_sel")
+
+    c2.number_input("Cant:", min_value=1, value=1, key="cant_sel")
+
+    c3.button("➕ Añadir", on_click=agregar_producto_manual)
+
+
+
+with st.expander("🚀 Carga Rápida (Pegar pedido)"):
+
+    texto = st.text_area("Pega aquí (Ej: * 44282 *2* ...)")
+
+    if st.button("Procesar Texto"):
+
+        analizar_y_cargar_pedido(texto, catalogo_df)
+
+        st.rerun()
+
+
+
+# --- TABLA DE COTIZACIÓN ---
 
 if st.session_state.cotizacion:
 
-    # ... (Tabla actual) ...
+    df_cot = pd.DataFrame(st.session_state.cotizacion)
 
-   
+    df_cot['Subtotal'] = df_cot['cantidad'] * df_cot['precio_unitario']
 
-    st.subheader("🚀 Finalizar Pedido")
+    
 
-    if st.button("Generar Pedido para ERP (Excel)"):
+    st.table(df_cot.style.format({'precio_unitario': '${:,.2f}', 'Subtotal': '${:,.2f}'}))
 
-        folio = obtener_siguiente_folio()
+    
 
-        excel_data = generar_excel_erp(df_cot, folio, cve_cte, "AGE01")
+    total = df_cot['Subtotal'].sum()
 
-        st.download_button("Descargar Excel ERP", data=excel_data, file_name=f"Pedido_{folio}.xlsx")
-
-        st.success(f"Folio generado: {folio}")
+    st.subheader(f"Total Cotizado ({st.session_state.tipo_lista}): ${total:,.2f}")
 
 
 
-    # Tu botón de PDF y WhatsApp original
+    # --- BOTÓN WHATSAPP ---
 
-    # app
+    mensaje = f"*Nuevo Pedido*\n\n*Cliente:* {cliente}\n*Tipo de Documento:* {tipo_doc}\n\n*Detalle del Pedido:*\n"
+
+    for _, fila in df_cot.iterrows():
+
+        mensaje += f"* {fila['codigo']} {fila['cantidad']} {fila['descripcion']}\n"
+
+    
+
+    wa_url = f"https://wa.me/?text={quote_plus(mensaje)}"
+
+    st.link_button("📲 Enviar a WhatsApp", wa_url)
+
+    
+
+    if st.button("🗑️ Limpiar Todo"):
+
+        st.session_state.cotizacion = []
+
+        st.rerun()
+
+else:
+
+    st.info("La cotización está vacía.")
