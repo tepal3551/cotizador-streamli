@@ -128,12 +128,11 @@ if 'tipo_lista' not in st.session_state: st.session_state.tipo_lista = "Distribu
 # --- LOGOS Y TÍTULO ---
 col_logo1, col_titulo, col_logo2 = st.columns([1, 4, 1])
 with col_logo1:
-    st.image("logo1.png", width=100) # Asegúrate que el archivo exista
+    st.write("") # st.image("logo1.png", width=100) 
 with col_titulo:
-    st.title("Cotizador Truper")
+    st.title("Cotizador")
 with col_logo2:
-    st.image("logo2.png", width=100) # Asegúrate que el archivo exista
-
+    st.write("") # st.image("logo2.png", width=100)
 catalogo_df = cargar_catalogo("CATALAGO 25 TRUP PRUEBA COTIZADOR.txt", "precios_actualizados.txt")
 st.session_state.catalogo_df = catalogo_df
 
