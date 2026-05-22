@@ -124,7 +124,10 @@ def agregar_producto_manual():
             'codigo': info['codigo'], 'descripcion': info['descripcion'],
             'cantidad': st.session_state.cant_sel, 'precio_unitario': precio_final
         })
-
+        
+        # --- ESTAS DOS LÍNEAS LIMPIAN LOS CAMPOS DESPUÉS DE AÑADIR ---
+        st.session_state.prod_sel = None 
+        st.session_state.cant_sel = 1
 # ==============================================================================
 # SECCIÓN 2: INTERFAZ
 # ==============================================================================
@@ -156,7 +159,13 @@ with c_cfg2:
 # --- BÚSQUEDA ---
 with st.expander("🔍 Búsqueda"):
     c1, c2, c3 = st.columns([4,1,1])
-    c1.selectbox("Producto:", catalogo_df['display'], key="prod_sel")
+    c1.selectbox(
+        "Producto:", 
+        catalogo_df['display'], 
+        index=None, 
+        placeholder="Escriba o seleccione un producto...",
+        key="prod_sel"
+    )
     c2.number_input("Cant:", min_value=1, value=1, key="cant_sel")
     c3.button("➕ Añadir", on_click=agregar_producto_manual)
 
