@@ -75,7 +75,7 @@ st.title("🔩 Cotizador de Pedidos")
 # Carga de datos de clientes desde Google Sheets
 try:
     df_clientes = cargar_clientes_sheets()
-    vendedores_disponibles = df_clientes['vendedor'].unique()
+    vendedores_disponibles = df_clientes['Nombre Vendedor'].unique()
 except Exception as e:
     st.error(f"Error al conectar con Google Sheets: {e}")
     vendedores_disponibles = []
@@ -96,9 +96,9 @@ with tab_crear:
             vendedor = st.selectbox("Vendedor", vendedores_disponibles)
         with col2:
             clientes_filtrados = df_clientes[df_clientes['vendedor'] == vendedor]
-            cliente_info = st.selectbox("Cliente", clientes_filtrados['nombre'].unique())
+            cliente_info = st.selectbox("Clientes", clientes_filtrados['nombre'].unique())
             
-        cve_cte = df_clientes[df_clientes['nombre'] == cliente_info]['clave'].iloc[0]
+        cve_cte = df_clientes[df_clientes['Nombre Cliente'] == cliente_info]['clave'].iloc[0]
         
         st.write("---")
         st.subheader("Agregar Productos")
@@ -119,7 +119,7 @@ with tab_crear:
                         'codigo': cod_prod,
                         'cantidad': cant_prod
                     })
-                    st.rerun()
+                    st.experimental_rerun()
 
         # Mostrar tabla de productos actual si tiene elementos
         if st.session_state.productos_actuales:
