@@ -8,7 +8,6 @@ from io import BytesIO
 # 1. FUNCIÓN SEGURA DE RECARGA
 # ==========================================
 def safe_rerun():
-    """Ejecuta la recarga de página de forma compatible con cualquier versión de Streamlit"""
     try:
         st.rerun()
     except AttributeError:
@@ -31,11 +30,12 @@ if 'id_cotizacion_editar' not in st.session_state:
 @st.cache_data(ttl=300)
 def cargar_clientes_sheets():
     sheet_id = '1QzmVhpIiwWN2Scz8J9_jn2GeLI2jIz2Mv5I6HDiKQVs'
-    # URL para descargar específicamente la pestaña "clientes" en formato CSV
-    url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet=clientes"
-    df = pd.read_csv(url)
-    # Limpieza estricta de espacios en los nombres de las columnas
+    url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet=Clientes"
+    
+    # 🛡️ BLINDAJE: dtype=str obliga a que TODO sea texto. fillna("") elimina los "NaN" vacíos.
+    df = pd.read_csv(url, dtype=str)
     df.columns = df.columns.astype(str).str.strip()
+    df = df.fillna("")
     return df
 
 def obtener_siguiente_folio():
@@ -43,7 +43,7 @@ def obtener_siguiente_folio():
         response = requests.get("https://servidor-pedidos.onrender.com")
         return response.text.strip()
     except:
-        return "0000"  # Fallback si el servidor no responde
+        return "0000"
 
 def generar_excel_erp(df_cot, folio, cve_cte, cve_age):
     filas = []
@@ -59,7 +59,7 @@ def generar_excel_erp(df_cot, folio, cve_cte, cve_age):
             "cant_prod": row['cantidad'],
             "cve_suc": "PED",
             "cve_mon": "1",
-            "lugar": "A2"  # Ubicación de almacén requerida
+            "lugar": "A2"
         })
     
     df_final = pd.DataFrame(filas)
@@ -68,72 +68,38 @@ def generar_excel_erp(df_cot, folio, cve_cte, cve_age):
         df_final.to_excel(writer, index=False)
     return buffer.getvalue()
 
-# Colocar aquí tu función real para obtener descripciones y precios del catálogo
-def cargar_catalogo():
-    return pd.DataFrame(columns=['codigo', 'descripcion', 'precio'])
-
 # ==========================================
-# 4. INTERFAZ DE USUARIO (SIEMPRE VISIBLE)
+# 4. INTERFAZ DE USUARIO 
 # ==========================================
 
 st.title("🔩 Cotizador de Pedidos")
 
-# Intentar cargar datos de Google Sheets de forma segura
-df_clientes = None
-vendedores_disponibles = []
-error_carga = None
-
 try:
-    df_raw = cargar_clientes_sheets()
-    
-    # Identificación dinámica de columnas por palabras clave
-    col_vendedor = next((c for c in df_raw.columns if 'vend' in c.lower() or 'age' in c.lower()), None)
-    col_cliente = next((c for c in df_raw.columns if ('nom' in c.lower() or 'cli' in c.lower() or 'cte' in c.lower()) and 'cve' not in c.lower() and 'clav' not in c.lower()), None)
-    col_clave = next((c for c in df_raw.columns if 'clav' in c.lower() or 'cve' in c.lower() or 'cod' in c.lower()), None)
-
-    if col_vendedor and col_cliente and col_clave:
-        df_clientes = df_raw.rename(columns={
-            col_vendedor: 'vendedor',
-            col_cliente: 'nombre',
-            col_clave: 'clave'
-        })
-        vendedores_disponibles = sorted(df_clientes['vendedor'].dropna().unique())
-    else:
-        error_carga = f"Columnas faltantes. Detectadas en tu hoja: {list(df_raw.columns)}"
+    df_clientes = cargar_clientes_sheets()
+    # Filtramos celdas que estén realmente vacías después de la limpieza
+    lista_vendedores = [v for v in df_clientes['Nombre Vendedor'].unique() if str(v).strip() != ""]
+    vendedores_disponibles = sorted(lista_vendedores)
 except Exception as e:
-    error_carga = str(e)
+    st.error("Error al leer el archivo de Google Sheets.")
+    st.info(f"Detalle técnico: {e}")
+    st.stop()
 
-# Estructura principal de pestañas
 tab_crear, tab_bandeja = st.tabs(["📝 Crear / Editar Cotización", "🗂️ Bandeja de Cotizaciones"])
 
 # ------------------------------------------
 # PESTAÑA 1: CREAR / EDITAR COTIZACIÓN
 # ------------------------------------------
 with tab_crear:
-    # Si hubo un error con el archivo, se despliega el panel de asistencia sin romper la app
-    if error_carga:
-        st.error("⚠️ No se pudo procesar la información de clientes desde Google Sheets.")
-        st.info(f"**Detalle del problema:** {error_carga}")
-        st.markdown("""
-        **Pasos para solucionarlo:**
-        1. Confirma que la pestaña abajo en tu Google Sheets se llame exactamente **`clientes`** (en minúsculas).
-        2. Asegúrate de que el archivo esté compartido como **'Cualquier persona con el enlace puede ver'**.
-        3. Verifica que la primera fila contenga los títulos de las columnas (ej: *Vendedor*, *Nombre*, *Clave*).
-        """)
-    
-    elif len(vendedores_disponibles) == 0:
-        st.warning("No se encontraron registros de vendedores en el archivo cargado.")
-        
+    if len(vendedores_disponibles) == 0:
+        st.warning("No se encontraron registros de vendedores en el archivo.")
     else:
-        # Modo edición visual
         if st.session_state.id_cotizacion_editar:
             st.warning(f"🔄 Editando la Cotización ID: {st.session_state.id_cotizacion_editar}")
         
         col1, col2 = st.columns(2)
         
         with col1:
-            # Selector de Vendedor: Inicia vacío y filtra dinámicamente al escribir
-            vendedor = st.selectbox(
+            vendedor_nombre = st.selectbox(
                 "Vendedor", 
                 options=vendedores_disponibles,
                 index=None,
@@ -141,25 +107,27 @@ with tab_crear:
             )
             
         with col2:
-            # Selector de Cliente: Permanece oculto/vacío hasta que se elija un vendedor
-            if vendedor:
-                clientes_filtrados = df_clientes[df_clientes['vendedor'] == vendedor]
-                cliente_info = st.selectbox(
+            if vendedor_nombre:
+                clientes_filtrados = df_clientes[df_clientes['Nombre Vendedor'] == vendedor_nombre]
+                lista_clientes = [c for c in clientes_filtrados['Nombre Cliente'].unique() if str(c).strip() != ""]
+                
+                cliente_nombre = st.selectbox(
                     "Cliente", 
-                    options=sorted(clientes_filtrados['nombre'].dropna().unique()),
+                    options=sorted(lista_clientes),
                     index=None,
                     placeholder="Escribe para buscar cliente..."
                 )
             else:
-                cliente_info = None
+                cliente_nombre = None
 
-        # La sección de productos y guardado solo aparece si ambos campos están llenos
-        if vendedor and cliente_info:
-            fila_cliente = df_clientes[df_clientes['nombre'] == cliente_info].iloc[0]
-            cve_cte = fila_cliente['clave']
+        if vendedor_nombre and cliente_nombre:
+            fila_cliente = clientes_filtrados[clientes_filtrados['Nombre Cliente'] == cliente_nombre].iloc[0]
+            # Aseguramos que los IDs se extraigan limpios
+            id_cliente = str(fila_cliente['ID Cliente']).strip()
+            id_vendedor = str(fila_cliente['ID Vendedor']).strip()
             
             st.write("---")
-            st.subheader(f"🛒 Productos para: {cliente_info} ({cve_cte})")
+            st.subheader(f"🛒 Productos para: {cliente_nombre} (ID: {id_cliente})")
             
             col_prod, col_cant, col_btn = st.columns([3, 1, 1])
             with col_prod:
@@ -187,18 +155,20 @@ with tab_crear:
                             id_cot = st.session_state.id_cotizacion_editar
                             st.session_state.cotizaciones_guardadas[id_cot].update({
                                 "productos": st.session_state.productos_actuales,
-                                "vendedor": vendedor,
-                                "cliente": cliente_info,
-                                "cve_cte": cve_cte,
+                                "vendedor_nombre": vendedor_nombre,
+                                "cliente_nombre": cliente_nombre,
+                                "id_cliente": id_cliente,
+                                "id_vendedor": id_vendedor,
                                 "fecha": datetime.now().strftime("%d/%m/%Y %H:%M")
                             })
                             st.success(f"Cotización {id_cot} actualizada.")
                         else:
                             id_cot = f"COT-{int(datetime.now().timestamp())}"
                             st.session_state.cotizaciones_guardadas[id_cot] = {
-                                "vendedor": vendedor,
-                                "cliente": cliente_info,
-                                "cve_cte": cve_cte,
+                                "vendedor_nombre": vendedor_nombre,
+                                "cliente_nombre": cliente_nombre,
+                                "id_cliente": id_cliente,
+                                "id_vendedor": id_vendedor,
                                 "productos": st.session_state.productos_actuales,
                                 "estado": "Pendiente",
                                 "fecha": datetime.now().strftime("%d/%m/%Y %H:%M")
@@ -216,10 +186,10 @@ with tab_crear:
                         safe_rerun()
         else:
             st.write("---")
-            if not vendedor:
-                st.info("💡 Por favor, escribe o selecciona un Vendedor para desplegar sus clientes.")
-            elif not cliente_info:
-                st.info("💡 Ahora selecciona el Nombre del Cliente para habilitar el ingreso de artículos.")
+            if not vendedor_nombre:
+                st.info("💡 Por favor, selecciona un Vendedor de la lista.")
+            elif not cliente_nombre:
+                st.info("💡 Ahora selecciona el Cliente para habilitar el ingreso de artículos.")
 
 # ------------------------------------------
 # PESTAÑA 2: BANDEJA DE COTIZACIONES
@@ -232,7 +202,7 @@ with tab_bandeja:
     else:
         for cot_id, datos in list(st.session_state.cotizaciones_guardadas.items()):
             marcador = "🟢" if datos['estado'] == "Autorizada" else "🟡"
-            titulo = f"{marcador} {cot_id} | {datos['cliente']} | {datos['estado']} ({datos['fecha']})"
+            titulo = f"{marcador} {cot_id} | Cliente: {datos['cliente_nombre']} | {datos['estado']} ({datos['fecha']})"
             
             with st.expander(titulo):
                 df_items = pd.DataFrame(datos['productos'])
@@ -256,7 +226,12 @@ with tab_bandeja:
                             
                 elif datos['estado'] == "Autorizada":
                     st.success(f"Convertida en Pedido con Folio ERP: {datos['folio_erp']}")
-                    excel_data = generar_excel_erp(df_items, datos['folio_erp'], datos['cve_cte'], "AGE01")
+                    excel_data = generar_excel_erp(
+                        df_items, 
+                        datos['folio_erp'], 
+                        datos['id_cliente'], 
+                        datos['id_vendedor']
+                    )
                     st.download_button(
                         label="📥 Descargar Layout de Pedido (Excel)",
                         data=excel_data,
