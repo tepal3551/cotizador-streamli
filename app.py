@@ -552,3 +552,4 @@ with st.expander("📂 Historial de Cotizaciones Guardadas (Cargar y Editar)"):
                 st.session_state.editando_id = datos_cot['id']
                 if 'folio_generado' in st.session_state: del st.session_state.folio_generado
                 st.rerun()
+                
