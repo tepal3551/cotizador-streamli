@@ -395,7 +395,7 @@ with c_cfg3:
     st.session_state.tipo_lista = st.radio("Lista de Precios:", ["Distribuidor", "Dimefet"], horizontal=True)
 
 cve_cliente_real = ""
-cve_vendedor_real = vendedor 
+cve_vendedor_real = cve_age_actual
 nombre_cliente_limpio = "MOSTRADOR"
 
 if cliente_seleccionado and not clientes_df.empty:
