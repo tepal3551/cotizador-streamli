@@ -28,45 +28,42 @@ def limpiar_nombre_archivo(nombre):
     return nombre[:50] if nombre else "MOSTRADOR"
 
 
-
-@st.cache_data
+@st.cache_data(show_spinner=False)
 def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
-    catalogo = []
     try:
-        with open(nombre_archivo_catalogo, 'r', encoding='utf-8') as f:
-            for line in f:
-                try:
-                    partes = line.strip().split(',')
-                    if len(partes) < 3: continue
-                    codigo = partes[0].strip()
-                    precio = float(partes[-1].strip())
-                    descripcion = ','.join(partes[1:-1]).strip()
-                    catalogo.append({'codigo': codigo, 'descripcion': descripcion, 'precio': precio})
-                except (ValueError, IndexError): continue
-    except FileNotFoundError:
-        return pd.DataFrame()
+        df = pd.read_csv(
+            nombre_archivo_catalogo, 
+            header=None, 
+            names=['codigo', 'descripcion', 'precio'],
+            usecols=[0, 1, 2],
+            on_bad_lines='skip',
+            engine='c'
+        )
+        df['codigo'] = df['codigo'].astype(str).str.strip()
+        df['precio'] = pd.to_numeric(df['precio'], errors='coerce').fillna(0.0)
+    except Exception:
+        return pd.DataFrame(columns=['codigo', 'descripcion', 'precio', 'display'])
 
-    df = pd.DataFrame(catalogo)
-    if df.empty: return pd.DataFrame(columns=['codigo', 'descripcion', 'precio'])
     df = df.set_index('codigo')
 
     try:
-        with open(nombre_archivo_actualizaciones, 'r', encoding='utf-8') as f:
-            for line in f:
-                try:
-                    partes = line.strip().split(',')
-                    if len(partes) < 3: continue 
-                    codigo = partes[0].strip()
-                    nuevo_precio = float(partes[-1].strip())
-                    nueva_descripcion = ','.join(partes[1:-1]).strip()
-                    df.loc[codigo] = {'descripcion': nueva_descripcion, 'precio': nuevo_precio}
-                except: continue
-    except FileNotFoundError: pass
+        df_act = pd.read_csv(
+            nombre_archivo_actualizaciones, 
+            header=None, 
+            names=['codigo', 'descripcion', 'precio'],
+            on_bad_lines='skip',
+            engine='c'
+        )
+        for _, fila in df_act.iterrows():
+            cod = str(fila['codigo']).strip()
+            if cod in df.index:
+                df.loc[cod, 'precio'] = float(fila['precio'])
+    except Exception:
+        pass
 
     df = df.reset_index()
     df['display'] = df['codigo'] + " - " + df['descripcion']
     return df
-
 @st.cache_data
 def cargar_clientes(nombre_archivo_clientes):
     clientes = []
