@@ -354,16 +354,24 @@ st.write("### Datos Generales")
 c_cfg1, c_cfg2, c_cfg3 = st.columns(3)
 
 with c_cfg1:
-    vendedor = st.text_input("Clave Vendedor (Sirve de Filtro):", value=st.session_state.vendedor_input)
-    st.session_state.vendedor_input = vendedor
-    
-    opciones_clientes = []
-    if not clientes_df.empty:
-        if vendedor: 
-            df_filtrado = clientes_df[clientes_df['cve_age'] == str(vendedor).strip()]
-            opciones_clientes = df_filtrado['display'].tolist()
-        else: 
-            opciones_clientes = clientes_df['display'].tolist()
+   # Menú rápido y optimizado de vendedores (Evita que el sistema recalcule tecla por tecla)
+    vendedores_dict = {
+        "VENDEDOR 1": "AGE01", "VENDEDOR 2": "AGE02", "VENDEDOR 3": "AGE03",
+        "VENDEDOR 4": "AGE04", "VENDEDOR 5": "AGE05", "VENDEDOR 6": "AGE06",
+        "VENDEDOR 7": "AGE07", "VENDEDOR 8": "AGE08", "VENDEDOR 9": "AGE09",
+        "VENDEDOR 10": "AGE10", "VENDEDOR 11": "AGE11", "VENDEDOR 12": "AGE12",
+        "VENDEDOR 13": "AGE13"
+    }
+    vendedor_sel = st.selectbox("👤 Selecciona tu Usuario / Vendedor:", options=list(vendedores_dict.keys()))
+    cve_age_actual = vendedores_dict[vendedor_sel]
+    st.session_state.vendedor_input = cve_age_actual
+
+    # Filtrado instantáneo en memoria sin saturar al servidor
+    if not clientes_df.empty and 'cve_age' in clientes_df.columns:
+        df_filtrado = clientes_df[clientes_df['cve_age'].astype(str).str.strip() == cve_age_actual]
+        opciones_clientes = df_filtrado['display'].tolist() if not df_filtrado.empty else clientes_df['display'].tolist()
+    else:
+        opciones_clientes = clientes_df['display'].tolist() if not clientes_df.empty else []
     
     index_cliente = None
     if st.session_state.cliente_seleccionado in opciones_clientes:
