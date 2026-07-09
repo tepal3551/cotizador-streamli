@@ -1,31 +1,181 @@
-42949,Rollo malla ciclónica cal.12.5, 1.5x20m, abertura 55mm 39kg,1750
-42950,Rollo malla ciclónica cal.12.5, 1.75x20m, abertura 55mm 46kg,2150
-42951,Rollo malla ciclónica cal.12.5, 2x20m, abertura 55mm 51kg,2350
-42954,Rollo malla ciclónica cal.12.5, 1.5x20m, abertura 63mm 37kg,1600
-42955,Rollo malla ciclónica cal.12.5, 1.75x20m, abertura 63mm 38kg,1950
-42956,Rollo malla ciclónica cal.12.5, 2x20m, abertura 63mm 45kg,2150
-42957,Rollo malla ciclónica cal.12.5, 1x20m, abertura 69mm 21kg,890
-42958,Rollo malla ciclónica cal.12.5, 1.25x20m, abertura69mm 26kg,1115
-42959,Rollo malla ciclónica cal.12.5, 1.5x20m, abertura 69mm 31kg,1435
-42960,Rollo malla ciclónica cal.12.5, 1.75x20m, abertura69mm 35kg,1650
-42961,Rollo malla ciclónica cal.12.5, 2x20m, abertura 69mm 40kg,1950
+40051,Kilo de alambre recocido calibre 15 en rollo de 60 kg, FIERO,33
+44458,Kilo de alambre recocido calibre 15 en rollo de 1 kg, FIERO,38
+44457,Kilo de alambre recocido calibre 15 en rollo de 20 kg, FIERO,34
+45560,Tubo de 1-1/4' CPVC hidráulico RD 11, 3m, 1.5kg, FOSET,170
+45044,Tubo de 1' CPVC hidráulico RD 13.5, 1', 3m, 0.8kg, FOSET,100
+45042,Tubo de 1/2' CPVC hidráulico RD 13.5, 3m, 0.3kg, FOSET,37
+45043,Tubo de 3/4' CPVC hidráulico RD 13.5, 3m, 0.5kg, FOSET,57
+45561,Tubo de 1-1/2' CPVC hidráulico RD 11, 3m, 2.1kg, FOSET,250
+45562,Tubo de 2' CPVC hidráulico RD 11, 3m, 3.5kg, FOSET,430
+44885,Rollo de alambre de púas 300m calibre 12.5, FIERO,1115
+44886,Rollo de alambre de púas 350m calibre 12.5, FIERO,1285
+48155,Rollo de 15m de tubo flexible de cobre 1/4', 1.7kg, FOSET,785
+48156,Rollo de 15m de tubo flexible de cobre 5/16', 2.3kg, FOSET,1085
+48157,Rollo de 15m de tubo flexible de cobre 3/8', 2.6kg, FOSET,1185
+48158,Rollo de 15m de tubo flexible de cobre 1/2', 3.7kg, FOSET,1685
+48151,Tubo de 1/2' de cobre tipo 'N', de 3m, 0.5kg, FOSET,220
+48152,Tubo de 3/4' de cobre tipo 'N', de 3m, 0.9kg, FOSET,390
+48153,Tubo de 1' de cobre tipo 'N', de 3m, 1.4kg, FOSET,620
+41273,Tubo de 1' de cobre tipo 'L', de 3m, 2.9kg, FOSET,1225
+41271,Tubo de 1/2' de cobre tipo 'L', de 3m, 1.2kg, FOSET,475
+41272,Tubo de 3/4' de cobre tipo 'L', de 3m, 1.9kg, FOSET,765
+41276,Tubo de 1' de cobre tipo 'M', de 3m, 2.0kg, FOSET,795
+41274,Tubo de 1/2' de cobre tipo 'M', de 3m, 0.9kg, FOSET,335
+41275,Tubo de 3/4' de cobre tipo 'M', de 3m, 1.4kg, FOSET,550
+42949,Rollo malla ciclónica cal.12.5, 1.5x20m, abertura 55mm 39kg,1950
+42950,Rollo malla ciclónica cal.12.5, 1.75x20m, abertura 55mm 46kg,2350
+42951,Rollo malla ciclónica cal.12.5, 2x20m, abertura 55mm 51kg,2550
+42954,Rollo malla ciclónica cal.12.5, 1.5x20m, abertura 63mm 37kg,1800
+42955,Rollo malla ciclónica cal.12.5, 1.75x20m, abertura 63mm 38kg,2150
+42956,Rollo malla ciclónica cal.12.5, 2x20m, abertura 63mm 45kg,2350
+42957,Rollo malla ciclónica cal.12.5, 1x20m, abertura 69mm 21kg,985
+42958,Rollo malla ciclónica cal.12.5, 1.25x20m, abertura69mm 26kg,1250
+42959,Rollo malla ciclónica cal.12.5, 1.5x20m, abertura 69mm 31kg,1575
+42960,Rollo malla ciclónica cal.12.5, 1.75x20m, abertura69mm 35kg,1850
+42961,Rollo malla ciclónica cal.12.5, 2x20m, abertura 69mm 40kg,2150
+42859,Rollo malla borreguera, 1m x 50m acero galvanizado, 23kg,1085
+42860,Rollo malla borreguera, 1.2m x 50m acero galvanizado, 26kg,1235
+42861,Rollo malla borreguera, 1.4m x 50m acero galvanizado, 28kg,1385
+42862,Rollo malla borreguera, 1.67m x 50m acero galvanizado, 31kg,1535
+45522,Tubo de 2' PVC hidráulico cédula 40, 3m, 3.1kg, FOSET,215
+43040,Tubo de 1' PVC hidráulico cédula 40, 3m, 1.4kg, FOSET,100
+43039,Tubo de 3/4' PVC hidráulico cédula 40, 3m, 1kg, FOSET,68
+45521,Tubo de 1-1/2' PVC hidráulico cédula 40, 3m, 2.3kg, FOSET,155
+43038,Tubo de 1/2' PVC hidráulico cédula 40, 3m, 0.7kg, FOSET,48
+45520,Tubo de 1-1/4' PVC hidráulico cédula 40, 3m, 1.9kg, FOSET,140
+44262,Metro de cadena pulida de 1/4', 35 m en cubeta, Fiero,42
+44263,Metro de cadena pulida de 5/16', 20 m en cubeta, Fiero,72
+44265,Metro de cadena pulida de 1/2', 5 m en cubeta, Fiero,185
+44260,Metro de cadena pulida de 1/8', 75 m en cubeta, Fiero,19
+44261,Metro de cadena pulida de 3/16', 65 m en cubeta, Fiero,24
+44264,Metro de cadena pulida de 3/8', 10 m en cubeta, Fiero,100
+49897,Tubo de 20mm (1/2') PPR hidráulico, 4m, 0.5kg, FOSET,65
+49898,Tubo de 25mm (3/4') PPR hidráulico, 4m, 0.9kg, FOSET,95
+49899,Tubo de 32mm (1') PPR hidráulico, 4m, 1.4kg, FOSET,160
+45444,Tubo de 40mm (1-1/4') PPR hidráulico, 4m, 2.2kg, FOSET,300
+45445,Tubo de 50mm (1-1/2') PPR hidráulico, 4m, 3.4kg, FOSET,475
+45446,Tubo de 63mm (2') PPR hidráulico, 4m, 5.4kg, FOSET,715
+13287,Mini soldadura sólida 1/2-1/2, tubería de baja presión, 85 g,65
+13288,Mini soldadura sólida 50/50 para tubería hidráulica, 70 g,75
+13289,Mini soldadura sólida 95/5 para tubería de gas, 48 g,125
+12283,Soldadura sólida 1/2-1/2 para tubería de baja presión, 450 g,330
+12284,Soldadura sólida 50/50 para tubería hidráulica, 450 g,465
+14365,Soldadura con núcleo resina 50/50, tubería hidráulica, 450 g,465
+14366,Soldadura con núcleo resina 60/40, para electrónica, 450 g,675
+12282,Soldadura sólida 95/5 para tubería de gas, 450 g,1150
+14367,Soldadura con núcleo resina 95/5, tubería de gas, 450 g,1150
+44271,Metro de cadena galvanizada de 1/4', 35 m en cubeta, Fiero,52
+44270,Metro de cadena galvanizada de 3/16', 65 m en cubeta, Fiero,30
+44272,Metro de cadena galvanizada de 5/16', 20 m en cubeta, Fiero,85
+44274,Metro de cadena galvanizada de 1/2', 5 m en cubeta, Fiero,225
+44269,Metro de cadena galvanizada de 1/8', 75 m en cubeta, Fiero,23
+44273,Metro de cadena galvanizada de 3/8', 10 m en cubeta, Fiero,125
+40086,Tubo de 2' PVC hidráulico RD 26, 3m, 1.8kg, FOSET,130
+40083,Tubo de 1' PVC hidráulico RD 26, 3m, 0.6kg, FOSET,47
+40082,Tubo de 3/4' PVC hidráulico RD 26, 3m, 0.5kg, FOSET,35
+40084,Tubo de 1-1/4' PVC hidráulico RD 26, 3m, 0.9kg, FOSET,62
+40085,Tubo de 1-1/2' PVC hidráulico RD 26, 3m, 1.2kg, FOSET,85
+40081,Tubo de 1/2' PVC hidráulico RD 21, 3m, 0.25kg, FOSET,24
+40967,2 metros de cadena galvanizada de 1/8', FIERO,49
+40968,3 metros de cadena galvanizada de 1/8', FIERO,72
+40969,1 metro de cadena galvanizada de 3/16', FIERO,33
+40970,2 metros de cadena galvanizada de 3/16', FIERO,65
+40973,2 metros de cadena galvanizada de 1/4', FIERO,110
+40974,3 metros de cadena galvanizada de 1/4', FIERO,162
+40975,1 metro de cadena galvanizada de 5/16', FIERO,92
+40976,2 metros de cadena galvanizada de 5/16', FIERO,180
+40977,3 metros de cadena galvanizada de 5/16', FIERO,265
+40966,1 metro de cadena galvanizada de 1/8', FIERO,25
+40971,3 metros de cadena galvanizada de 3/16', FIERO,95
+40972,1 metro de cadena galvanizada de 1/4', FIERO,56
+10437,Escalera de tijera tipo III 6 escalones y bandeja, Truper,1750
+10337,Escalera de tijera tipo II 7 peldaños y bandeja, Truper,2200
+10338,Escalera de tijera tipo ll 8 peldaños y bandeja, Truper,2600
+16740,Escalera de tijera tipo III 2 escalones, Truper,850
+16741,Escalera de tijera tipo III 3 escalones, Truper,1000
+16742,Escalera de tijera tipo III 4 escalones y bandeja, Truper,1250
+16743,Escalera de tijera tipo III 5 escalones y bandeja, Truper,1400
+10435,Escalera de tijera tipo II 3 peldaños, Truper,1150
+16744,Escalera de tijera tipo II 6 peldaños y bandeja, Truper,2000
+10436,Escalera de tijera tipo II 9 peldaños y bandeja, Truper,2900
+10264,Escalera de tijera tipo ll 4 peldaños y bandeja, Truper,1525
+10335,Escalera de tijera tipo ll 5 peldaños y bandeja, Truper,1700
+16026,Escalera de extensión, tipo III, 16 peldaños, Truper,2650
+16027,Escalera de extensión, tipo III, 20 peldaños, Truper,3350
+16758,Escalera de extensión, tipo II, 20 peldaños, Truper,4200
+16759,Escalera de extensión, tipo II, 24 peldaños, Truper,5250
+16028,Escalera de extensión, tipo III, 24 peldaños, Truper,3950
+16748,Escalera de extensión, tipo III, 28 escalones, Truper,5350
+44656,Rollo malla hexagonal cal.22, 1x 45m, abertura 25mm, 13kg,835
+44657,Rollo malla hexagonal cal.22, 1.2x 45m, abertura 25mm, 16kg,1035
+44658,Rollo malla hexagonal cal.22, 1.5x 45m, abertura 25mm, 20kg,1225
+44659,Rollo malla hexagonal cal.22, 1.75x 45m, abertura 25mm, 23kg,1415
+20685,Escalera de tijera tipo III 2escalones, PRETUL,600
+20686,Escalera de tijera tipo III 3 escalones, PRETUL,700
+20687,Escalera de tijera tipo III 4 escalones y bandeja, PRETUL,900
+20688,Escalera de tijera tipo III 5 escalones y bandeja, PRETUL,1050
+20689,Escalera de tijera tipo III 6 escalones y bandeja, PRETUL,1250
+40762,Kilo de cuerda negra de polipropileno 4 mm, carrete 20kg,85
+40763,Kilo de cuerda negra de polipropileno 6 mm, carrete 20kg,85
+40764,Kilo de cuerda negra de polipropileno 8 mm, carrete 20kg,85
+40765,Kilo de cuerda negra de polipropileno 10 mm, carrete 20kg,85
+40766,Kilo de cuerda negra de polipropileno 11 mm, carrete 20kg,85
+40767,Kilo de cuerda negra de polipropileno 13 mm, carrete 30kg,85
+40768,Kilo de cuerda negra de polipropileno 16 mm, carrete 30kg,85
+40769,Kilo de cuerda negra de polipropileno 19 mm, carrete 30kg,85
+40770,Kilo de cuerda negra de polipropileno 25 mm, carrete 30kg,85
+40092,Metro de cuerda amarilla de polipropileno 4 mm, rollo 119m,0.9
+40183,Kilo de cuerda amarilla de polipropileno 4 mm, rollo 1kg,105
+40093,Metro de cuerda amarilla de polipropileno 6 mm, rollo 46m,2.35
+40184,Kilo de cuerda amarilla de polipropileno 6 mm, rollo 1kg,105
+40094,Metro de cuerda amarilla de polipropileno 8 mm, rollo 32m,3.3
+40185,Kilo de cuerda amarilla de polipropileno 8 mm, rollo 1kg,105
+40095,Metro de cuerda amarilla de polipropileno 10 mm, rollo 22m,4.8
+40186,Kilo de cuerda amarilla de polipropileno 10 mm, rollo 1kg,105
+40096,Metro de cuerda amarilla de polipropileno 11 mm, rollo 18m,5.9
+40187,Kilo de cuerda amarilla de polipropileno 11 mm, rollo 1kg,105
+40097,Metro de cuerda amarilla de polipropileno 13 mm, rollo 13m,8.2
+40188,Kilo de cuerda amarilla de polipropileno 13 mm, rollo 1kg,105
+44487,Kilo de cuerda amarilla de polipropileno 10mm, carrete 20kg,95
+44488,Kilo de cuerda amarilla de polipropileno 11mm, carrete 20kg,95
+44489,Kilo de cuerda amarilla de polipropileno 13mm, carrete 30kg,95
+44490,Kilo de cuerda amarilla de polipropileno 16mm, carrete 30kg,95
+44491,Kilo de cuerda amarilla de polipropileno 19mm, carrete 30kg,95
+44473,Kilo de cuerda amarilla de polipropileno 25mm, carrete 30kg,95
+44472,Kilo de cuerda amarilla de polipropileno 4mm, carrete 20 kg,95
+44485,Kilo de cuerda amarilla de polipropileno 6mm, carrete 20kg,95
+44486,Kilo de cuerda amarilla de polipropileno 8mm, carrete 20kg,95
+40174,Metro de cuerda amarilla de polipropileno 4mm, carrete 2380m,0.82
+40175,Metro de cuerda amarilla de polipropileno 6mm, carrete 920m,2.1
+40176,Metro de cuerda amarilla de polipropileno 8mm, carrete 640m,3
+40177,Metro de cuerda amarilla de polipropileno 10mm, carrete 440m,4.4
+40178,Metro de cuerda amarilla de polipropileno 11mm, carrete 360m,5.4
+40179,Metro de cuerda amarilla de polipropileno 13mm, carrete 390m,7.5
+40180,Metro de cuerda amarilla de polipropileno 16mm, carrete 264m,11
+40181,Metro de cuerda amarilla de polipropileno 19mm, carrete 198m,14.5
+40182,Metro de cuerda amarilla de polipropileno 25mm, carrete 102m,28
+40993,Metro cuerda amarilla de polipropileno 16mm, rollo 9m,12
+40994,Metro cuerda amarilla de polipropileno 19mm, rollo 7m,15.5
+40957,Kilo de cuerda amarilla de polipropileno 16mm, rollo 1kg,105
+40958,Kilo de cuerda amarilla de polipropileno 19mm, rollo 1kg,105
+40963,Madeja de cuerda amarilla de polipropileno 6mm, 15m, FIERO,35
+40964,Madeja de cuerda amarilla de polipropileno 8mm, 10m, FIERO,33
+40965,Madeja de cuerda amarilla de polipropileno 10mm, 8m, FIERO,39
+44492,Rollo de rafia de 410 m color blanco calibre 2.2 g/m, Fiero,100
+45038,Rollo de rafia de 1125 m color blanco calibre 3.8 g/m,450
+45037,Rollo de rafia de 2045 m color blanco calibre 2.2 g/m,450
+45032,Rollo de rafia de 230 m color blanco calibre 2.2 g/m, Fiero,55
+45033,Rollo de rafia de 230 m colores surtidos calibre 2.2 g/m,55
+45031,Rollo de rafia de 410 m colores surtidos calibre 2.2 g/m,100
+49135,Sanitario one piece alargado de porcelana, blanco, FOSET,1950
+47233,Tubo Conduit 1 1/4' para mufa, pared gruesa (0.9 mm), 3 m,240
+47389,Tubo Conduit 1 1/4' para mufa, pared gruesa (0.9 mm), 1.5 m,125
+47232,Tubo Conduit 1/2' pared extra delgada (0.7 mm), et. azul 3 m,67
+44980,Rollo malla plafón 0.90 x 22m cal.26, abertura 10x25mm, 8kg,595
 47773,Tubo Conduit 1' pared delgada (1.6 mm), et. verde, 3 m,230
 47771,Tubo Conduit 1/2' pared delgada (1 mm), et. verde, 3 m,95
 47772,Tubo Conduit 3/4' pared delgada (1 mm), et. verde, 3 m,125
 46196,Rollo de 11 m x 0.92 m malla mosquitera de acero galvanizado,1195
-48155,Rollo de 15m de tubo flexible de cobre 1/4', 1.7kg, FOSET,750
-48156,Rollo de 15m de tubo flexible de cobre 5/16', 2.3kg, FOSET,1035
-48157,Rollo de 15m de tubo flexible de cobre 3/8', 2.6kg, FOSET,1125
-48158,Rollo de 15m de tubo flexible de cobre 1/2', 3.7kg, FOSET,1615
-48151,Tubo de 1/2' de cobre tipo 'N', de 3m, 0.5kg, FOSET,210
-48152,Tubo de 3/4' de cobre tipo 'N', de 3m, 0.9kg, FOSET,375
-48153,Tubo de 1' de cobre tipo 'N', de 3m, 1.4kg, FOSET,595
-41273,Tubo de 1' de cobre tipo 'L', de 3m, 2.9kg, FOSET,1175
-41271,Tubo de 1/2' de cobre tipo 'L', de 3m, 1.2kg, FOSET,455
-41272,Tubo de 3/4' de cobre tipo 'L', de 3m, 1.9kg, FOSET,735
-41276,Tubo de 1' de cobre tipo 'M', de 3m, 2.0kg, FOSET,765
-41274,Tubo de 1/2' de cobre tipo 'M', de 3m, 0.9kg, FOSET,320
-41275,Tubo de 3/4' de cobre tipo 'M', de 3m, 1.4kg, FOSET,525
 40007,Metro de cable uso extra rudo 3 x 14 AWG en rollo de 100 m,35
 40004,Metro de cable uso extra rudo 2 x 14 AWG en rollo de 100 m,25
 40200,Carrete con 10 m cordón dúplex flexible SPT 14 AWG, Volteck,215
@@ -91,37 +241,11 @@
 40252,Carrete con 20 m de cable THHW-LS 12 AWG verde, Volteck,280
 40253,Carrete con 25 m de cable THHW-LS 14 AWG verde, Volteck,255
 40251,Carrete con 10 m de cable THHW-LS 10 AWG verde, Volteck,220
-42859,Rollo malla borreguera, 1m x 50m acero galvanizado, 23kg,985
-42860,Rollo malla borreguera, 1.2m x 50m acero galvanizado, 26kg,1115
-42861,Rollo malla borreguera, 1.4m x 50m acero galvanizado, 28kg,1250
-42862,Rollo malla borreguera, 1.67m x 50m acero galvanizado, 31kg,1395
-40051,Kilo de alambre recocido calibre 15 en rollo de 60 kg, FIERO,28
-44458,Kilo de alambre recocido calibre 15 en rollo de 1 kg, FIERO,33
-44457,Kilo de alambre recocido calibre 15 en rollo de 20 kg, FIERO,29
 47776,Codo Conduit 90° 1' pared delgada (1.6 mm), et. verde,62
 47774,Codo Conduit 90° 1/2' pared delgada (1 mm), et. verde,23
 47775,Codo Conduit 90° 3/4' pared delgada (1 mm), et. verde,30
-10437,Escalera de tijera tipo III 6 escalones y bandeja, Truper,1650
 46066,Rollo de 100 m de cordón dúplex flexible SPT 12 AWG, Volteck,3000
 40044,Metro de cordón dúplex flexible SPT 12 AWG en carrete 300 m,30
-10337,Escalera de tijera tipo II 7 peldaños y bandeja, Truper,2100
-10338,Escalera de tijera tipo ll 8 peldaños y bandeja, Truper,2450
-16740,Escalera de tijera tipo III 2 escalones, Truper,800
-16741,Escalera de tijera tipo III 3 escalones, Truper,950
-16742,Escalera de tijera tipo III 4 escalones y bandeja, Truper,1200
-16743,Escalera de tijera tipo III 5 escalones y bandeja, Truper,1350
-10435,Escalera de tijera tipo II 3 peldaños, Truper,1100
-16744,Escalera de tijera tipo II 6 peldaños y bandeja, Truper,1900
-10436,Escalera de tijera tipo II 9 peldaños y bandeja, Truper,2750
-10264,Escalera de tijera tipo ll 4 peldaños y bandeja, Truper,1450
-10335,Escalera de tijera tipo ll 5 peldaños y bandeja, Truper,1600
-16026,Escalera de extensión, tipo III, 16 peldaños, Truper,2550
-16027,Escalera de extensión, tipo III, 20 peldaños, Truper,3200
-16758,Escalera de extensión, tipo II, 20 peldaños, Truper,4000
-16759,Escalera de extensión, tipo II, 24 peldaños, Truper,5000
-16028,Escalera de extensión, tipo III, 24 peldaños, Truper,3750
-16748,Escalera de extensión, tipo III, 28 escalones, Truper,5100
-49135,Sanitario one piece alargado de porcelana, blanco, FOSET,2050
 45890,Cilindro portátil para gas LP, 20kg (44lb) Foset,1550
 48107,Cilindro portátil para gas LP, 20lb (9kg) Foset,850
 44887,Rollo de alambre de púas 300m calibre 15.5, FIERO,665
@@ -130,10 +254,6 @@
 49372,Codo Conduit 90° 1/2' pared gruesa (1.8 mm), et. amarilla,37
 49373,Codo Conduit 90° 3/4' pared gruesa (2 mm), et. amarilla,48
 45891,Cilindro portátil para gas LP, 30kg (66lb) Foset,1900
-44656,Rollo malla hexagonal cal.22, 1x 45m, abertura 25mm, 13kg,795
-44657,Rollo malla hexagonal cal.22, 1.2x 45m, abertura 25mm, 16kg,985
-44658,Rollo malla hexagonal cal.22, 1.5x 45m, abertura 25mm, 20kg,1165
-44659,Rollo malla hexagonal cal.22, 1.75x 45m, abertura 25mm, 23kg,1350
 44660,Rollo malla hexagonal cal.20, 1.5x 45m, abertura 38mm, 19kg,1125
 44661,Rollo malla hexagonal cal.20, 1.75x 45m, abertura 38mm, 21kg,1295
 49965,Calentador solar HeatPipe, 12 tubos, 150L, 4 personas, Foset,9350
@@ -143,71 +263,14 @@
 45272,Calentador solar de agua, 15 tubos, 195L, 5 personas, Foset,5150
 45273,Calentador solar de agua, 20 tubos, 240L, 7 personas, Foset,6450
 48287,Calentador solar de agua, 12 tubos, 150L, 4 personas, Foset,4450
-44885,Rollo de alambre de púas 300m calibre 12.5, FIERO,1015
-44886,Rollo de alambre de púas 350m calibre 12.5, FIERO,1165
 44465,Kilo de alambre galvanizado, calibre 12.5, FIERO,49
 44466,Kilo de alambre galvanizado, calibre 14.5, FIERO,52
 44467,Kilo de alambre galvanizado, calibre 16, FIERO,53
 44468,Kilo de alambre galvanizado, calibre 18, FIERO,55
 44469,Kilo de alambre galvanizado, calibre 20, FIERO,56
 44470,Kilo de alambre galvanizado, calibre 22, FIERO,65
-20685,Escalera de tijera tipo III 2escalones, PRETUL,565
-20686,Escalera de tijera tipo III 3 escalones, PRETUL,675
-20687,Escalera de tijera tipo III 4 escalones y bandeja, PRETUL,865
-20688,Escalera de tijera tipo III 5 escalones y bandeja, PRETUL,995
-20689,Escalera de tijera tipo III 6 escalones y bandeja, PRETUL,1185
-40762,Kilo de cuerda negra de polipropileno 4 mm, carrete 20kg,69
-40763,Kilo de cuerda negra de polipropileno 6 mm, carrete 20kg,69
-40764,Kilo de cuerda negra de polipropileno 8 mm, carrete 20kg,69
-40765,Kilo de cuerda negra de polipropileno 10 mm, carrete 20kg,69
-40766,Kilo de cuerda negra de polipropileno 11 mm, carrete 20kg,69
-40767,Kilo de cuerda negra de polipropileno 13 mm, carrete 30kg,69
-40768,Kilo de cuerda negra de polipropileno 16 mm, carrete 30kg,69
-40769,Kilo de cuerda negra de polipropileno 19 mm, carrete 30kg,69
-40770,Kilo de cuerda negra de polipropileno 25 mm, carrete 30kg,69
 44655,Rollo malla hexagonal cal.23, 0.90x 45m, abertura 13mm, 16kg,1295
-47233,Tubo Conduit 1 1/4' para mufa, pared gruesa (0.9 mm), 3 m,229
-47389,Tubo Conduit 1 1/4' para mufa, pared gruesa (0.9 mm), 1.5 m,119
-47232,Tubo Conduit 1/2' pared extra delgada (0.7 mm), et. azul 3 m,64
 44662,Rollo malla hexagonal cal.20, 1.5x 45m, abertura 50mm, 15kg,885
-40092,Metro de cuerda amarilla de polipropileno 4 mm, rollo 119m,0.72
-40183,Kilo de cuerda amarilla de polipropileno 4 mm, rollo 1kg,85
-40093,Metro de cuerda amarilla de polipropileno 6 mm, rollo 46m,1.9
-40184,Kilo de cuerda amarilla de polipropileno 6 mm, rollo 1kg,85
-40094,Metro de cuerda amarilla de polipropileno 8 mm, rollo 32m,2.65
-40185,Kilo de cuerda amarilla de polipropileno 8 mm, rollo 1kg,85
-40095,Metro de cuerda amarilla de polipropileno 10 mm, rollo 22m,3.9
-40186,Kilo de cuerda amarilla de polipropileno 10 mm, rollo 1kg,85
-40096,Metro de cuerda amarilla de polipropileno 11 mm, rollo 18m,4.8
-40187,Kilo de cuerda amarilla de polipropileno 11 mm, rollo 1kg,85
-40097,Metro de cuerda amarilla de polipropileno 13 mm, rollo 13m,6.7
-40188,Kilo de cuerda amarilla de polipropileno 13 mm, rollo 1kg,85
-44487,Kilo de cuerda amarilla de polipropileno 10mm, carrete 20kg,78
-44488,Kilo de cuerda amarilla de polipropileno 11mm, carrete 20kg,78
-44489,Kilo de cuerda amarilla de polipropileno 13mm, carrete 30kg,78
-44490,Kilo de cuerda amarilla de polipropileno 16mm, carrete 30kg,78
-44491,Kilo de cuerda amarilla de polipropileno 19mm, carrete 30kg,78
-44473,Kilo de cuerda amarilla de polipropileno 25mm, carrete 30kg,78
-44472,Kilo de cuerda amarilla de polipropileno 4mm, carrete 20 kg,78
-44485,Kilo de cuerda amarilla de polipropileno 6mm, carrete 20kg,78
-44486,Kilo de cuerda amarilla de polipropileno 8mm, carrete 20kg,78
-40174,Metro de cuerda amarilla de polipropileno 4mm, carrete 2380m,0.67
-40175,Metro de cuerda amarilla de polipropileno 6mm, carrete 920m,1.75
-40176,Metro de cuerda amarilla de polipropileno 8mm, carrete 640m,2.45
-40177,Metro de cuerda amarilla de polipropileno 10mm, carrete 440m,3.6
-40178,Metro de cuerda amarilla de polipropileno 11mm, carrete 360m,4.4
-40179,Metro de cuerda amarilla de polipropileno 13mm, carrete 390m,6.2
-40180,Metro de cuerda amarilla de polipropileno 16mm, carrete 264m,9
-40181,Metro de cuerda amarilla de polipropileno 19mm, carrete 198m,12
-40182,Metro de cuerda amarilla de polipropileno 25mm, carrete 102m,23
-40993,Metro cuerda amarilla de polipropileno 16mm, rollo 9m,9.5
-40994,Metro cuerda amarilla de polipropileno 19mm, rollo 7m,12.5
-40957,Kilo de cuerda amarilla de polipropileno 16mm, rollo 1kg,85
-40958,Kilo de cuerda amarilla de polipropileno 19mm, rollo 1kg,85
-40963,Madeja de cuerda amarilla de polipropileno 6mm, 15m, FIERO,29
-40964,Madeja de cuerda amarilla de polipropileno 8mm, 10m, FIERO,27
-40965,Madeja de cuerda amarilla de polipropileno 10mm, 8m, FIERO,32
-44980,Rollo malla plafón 0.90 x 22m cal.26, abertura 10x25mm, 8kg,565
 45887,Cilindro portátil para gas LP, 2kg (4.5lb) Foset,665
 45888,Cilindro portátil para gas LP, 4kg (9lb) Foset,745
 45889,Cilindro portátil para gas LP, 6kg (13lb) Foset,835
@@ -232,41 +295,8 @@
 45286,Tubo Conduit 1/2' pared gruesa (1.6 mm), et. amarilla, 3 m,172
 45288,Tubo Conduit 1' pared gruesa (1.8 mm), et. amarilla, 3 m,325
 45287,Tubo Conduit 3/4' pared gruesa (1.6 mm), et. amarilla, 3 m,205
-45522,Tubo de 2' PVC hidráulico cédula 40, 3m, 3.1kg, FOSET,165
-43040,Tubo de 1' PVC hidráulico cédula 40, 3m, 1.4kg, FOSET,75
-43039,Tubo de 3/4' PVC hidráulico cédula 40, 3m, 1kg, FOSET,52
-45521,Tubo de 1-1/2' PVC hidráulico cédula 40, 3m, 2.3kg, FOSET,119
-43038,Tubo de 1/2' PVC hidráulico cédula 40, 3m, 0.7kg, FOSET,36
-45520,Tubo de 1-1/4' PVC hidráulico cédula 40, 3m, 1.9kg, FOSET,105
-44262,Metro de cadena pulida de 1/4', 35 m en cubeta, Fiero,38
-44263,Metro de cadena pulida de 5/16', 20 m en cubeta, Fiero,65
-44265,Metro de cadena pulida de 1/2', 5 m en cubeta, Fiero,169
-44260,Metro de cadena pulida de 1/8', 75 m en cubeta, Fiero,17
-44261,Metro de cadena pulida de 3/16', 65 m en cubeta, Fiero,22
-44264,Metro de cadena pulida de 3/8', 10 m en cubeta, Fiero,92
 49374,Codo Conduit 90° 1' pared gruesa (2.2 mm), et. amarilla,72
-44492,Rollo de rafia de 410 m color blanco calibre 2.2 g/m, Fiero,82
-45038,Rollo de rafia de 1125 m color blanco calibre 3.8 g/m,375
-45037,Rollo de rafia de 2045 m color blanco calibre 2.2 g/m,375
-45032,Rollo de rafia de 230 m color blanco calibre 2.2 g/m, Fiero,45
-45033,Rollo de rafia de 230 m colores surtidos calibre 2.2 g/m,45
-45031,Rollo de rafia de 410 m colores surtidos calibre 2.2 g/m,82
 44921,Rollo concertina máxima seguridad, 45cm diámetro x 8m, FIERO,395
-49897,Tubo de 20mm (1/2') PPR hidráulico, 4m, 0.5kg, FOSET,48
-49898,Tubo de 25mm (3/4') PPR hidráulico, 4m, 0.9kg, FOSET,72
-49899,Tubo de 32mm (1') PPR hidráulico, 4m, 1.4kg, FOSET,125
-45444,Tubo de 40mm (1-1/4') PPR hidráulico, 4m, 2.2kg, FOSET,235
-45445,Tubo de 50mm (1-1/2') PPR hidráulico, 4m, 3.4kg, FOSET,355
-45446,Tubo de 63mm (2') PPR hidráulico, 4m, 5.4kg, FOSET,545
-13287,Mini soldadura sólida 1/2-1/2, tubería de baja presión, 85 g,50
-13288,Mini soldadura sólida 50/50 para tubería hidráulica, 70 g,58
-13289,Mini soldadura sólida 95/5 para tubería de gas, 48 g,99
-12283,Soldadura sólida 1/2-1/2 para tubería de baja presión, 450 g,255
-12284,Soldadura sólida 50/50 para tubería hidráulica, 450 g,355
-14365,Soldadura con núcleo resina 50/50, tubería hidráulica, 450 g,355
-14366,Soldadura con núcleo resina 60/40, para electrónica, 450 g,520
-12282,Soldadura sólida 95/5 para tubería de gas, 450 g,875
-14367,Soldadura con núcleo resina 95/5, tubería de gas, 450 g,875
 44495,Bolsa con 1 kg de clavo estándar 1' sin cabeza, Fiero,53
 44496,Bolsa con 1 kg de clavo estándar 1-1/2' sin cabeza, Fiero,53
 44497,Bolsa con 1 kg de clavo estándar 2' sin cabeza, Fiero,53
@@ -327,12 +357,6 @@
 40205,Rollo de 100 metros de cable THW CCA 8 AWG negro, Basic,755
 40206,Rollo de 100 metros de cable THW CCA 8 AWG rojo, Basic,755
 40207,Rollo de 100 metros de cable THW CCA 8 AWG verde, Basic,755
-45560,Tubo de 1-1/4' CPVC hidráulico RD 11, 3m, 1.5kg, FOSET,149
-45044,Tubo de 1' CPVC hidráulico RD 13.5, 1', 3m, 0.8kg, FOSET,85
-45042,Tubo de 1/2' CPVC hidráulico RD 13.5, 3m, 0.3kg, FOSET,32
-45043,Tubo de 3/4' CPVC hidráulico RD 13.5, 3m, 0.5kg, FOSET,49
-45561,Tubo de 1-1/2' CPVC hidráulico RD 11, 3m, 2.1kg, FOSET,215
-45562,Tubo de 2' CPVC hidráulico RD 11, 3m, 3.5kg, FOSET,375
 44513,Caja con 10 kg de grapas 1' galvanizadas p/alambre de púas,425
 44511,Caja con 10 kg de grapas 1' negras p/alambre de púas, Fiero,375
 44514,Caja con 10 kg grapas 1-1/4' galvanizadas p/alambre de púas,425
@@ -355,18 +379,7 @@
 42937,Rollo malla ciclónica cal.11, 1x20m, abertura 63mm, 34kg,1590
 49877,Bomba periférica 1/2HP, altura máx 25m, uso agrícola, FOSET,365
 27019,Bomba periférica 1/2HP, altura máx 20m, uso agrícola, PRETUL,345
-44271,Metro de cadena galvanizada de 1/4', 35 m en cubeta, Fiero,46
-44270,Metro de cadena galvanizada de 3/16', 65 m en cubeta, Fiero,27
-44272,Metro de cadena galvanizada de 5/16', 20 m en cubeta, Fiero,75
-44274,Metro de cadena galvanizada de 1/2', 5 m en cubeta, Fiero,205
-44269,Metro de cadena galvanizada de 1/8', 75 m en cubeta, Fiero,21
-44273,Metro de cadena galvanizada de 3/8', 10 m en cubeta, Fiero,112
 46237,Bomba periférica 1/2HP, altura máx 30m, uso agrícola, FOSET,385
-40086,Tubo de 2' PVC hidráulico RD 26, 3m, 1.8kg, FOSET,102
-40083,Tubo de 1' PVC hidráulico RD 26, 3m, 0.6kg, FOSET,35
-40082,Tubo de 3/4' PVC hidráulico RD 26, 3m, 0.5kg, FOSET,26
-40084,Tubo de 1-1/4' PVC hidráulico RD 26, 3m, 0.9kg, FOSET,47
-40085,Tubo de 1-1/2' PVC hidráulico RD 26, 3m, 1.2kg, FOSET,63
 40048,Metro de cable desnudo de cobre calibre 10 AWG, rollo 25 m,15
 40049,Metro de cable desnudo de cobre calibre 12 AWG, rollo 25 m,10
 40090,Metro de cable desnudo de cobre calibre 10 AWG, rollo 100 m,15
@@ -375,7 +388,6 @@
 42948,Rollo malla ciclónica cal.12.5, 1.25x20m, abertura55mm 34kg,1515
 42952,Rollo malla ciclónica cal.12.5, 1x20m, abertura 63mm 24kg,1085
 42953,Rollo malla ciclónica cal.12.5, 1.25x20m, abertura 63mm 28kg,1350
-40081,Tubo de 1/2' PVC hidráulico RD 21, 3m, 0.25kg, FOSET,18
 44505,Bolsa con 1 kg de clavos alfilerillos de 1' sin cabeza,65
 44504,Bolsa con 1 kg de clavos alfilerillos de 3/4' sin cabeza,65
 44503,Bolsa con 1 kg de clavos alfilerillos de 5/8' sin cabeza,65
@@ -15531,15 +15543,6 @@
 40959,Bolsa de 1 kilo arandelas planas galvanizadas 5/8', FIERO,85
 40960,Bolsa de 1 kilo arandelas planas galvanizadas 3/4', FIERO,85
 40961,Bolsa de 1 kilo arandelas planas galvanizadas 7/8', FIERO,85
-40967,2 metros de cadena galvanizada de 1/8', FIERO,45
-40968,3 metros de cadena galvanizada de 1/8', FIERO,66
-40969,1 metro de cadena galvanizada de 3/16', FIERO,30
-40970,2 metros de cadena galvanizada de 3/16', FIERO,58
-40973,2 metros de cadena galvanizada de 1/4', FIERO,98
-40974,3 metros de cadena galvanizada de 1/4', FIERO,145
-40975,1 metro de cadena galvanizada de 5/16', FIERO,83
-40976,2 metros de cadena galvanizada de 5/16', FIERO,160
-40977,3 metros de cadena galvanizada de 5/16', FIERO,237
 40979,Bolsa con 6 tuercas 1' hexagonales de acero galvanizado,65
 40995,Bolsa con 200 tuercas tipo mariposa, 1/8' , FIERO,95
 40996,Bolsa con 180 tuercas tipo mariposa, 5/32' , FIERO,95
@@ -15741,9 +15744,6 @@
 40944,Bolsa con 5 tuercas cople, 5/16' acero galvanizado , FIERO,19
 40948,Bolsa con 5 tuercas cople, 5/8' acero galvanizado , FIERO,45
 40962,Bolsa de 1 kilo arandelas planas galvanizadas 1', FIERO,85
-40966,1 metro de cadena galvanizada de 1/8', FIERO,23
-40971,3 metros de cadena galvanizada de 3/16', FIERO,85
-40972,1 metro de cadena galvanizada de 1/4', FIERO,50
 40978,Bolsa con 8 tuercas 7/8' hexagonales de acero galvanizado,55
 43960,Cadena de amarre grado 70, 1/2' x 6.1 m,2350
 44035,Cerrojo llave-llave níquel satin , llave de puntos, Hermex,255
@@ -15801,3 +15801,36 @@
 44196,Lector de código de barras 2D, inalámbrico, VOLTECK,695
 44197,Lector de código de barras 2D, bluetooth, VOLTECK,1095
 29898,Bomba sumergible acero inoxidable,agua sucia,1-1/2HP, PRETUL,1350
+104200,Conector 'Y' 3/4' cuerpo robusto con tuerca móvil p/manguera,195
+104214,Lubricante multiusos aerosol aplicador doble acción, 235 ml,45
+104215,Lubricante multiusos aerosol aplicador doble acción, 400 ml,65
+104216,Lubricante multiusos aerosol para grandes superficies 550 ml,85
+104217,Conector 'Y' 3/4' plástico con tuerca móvil p/manguera,49
+104280,Disco removedor / limpieza 4-1/2' centro 7/8', TRUPER,95
+43893,Raqueta mata moscas y mosquitos con base, recargable VOLTECK,120
+43939,Ménsula reforzada de acero, galvanizada, 8 x 12', FIERO,55
+43940,Ménsula reforzada de acero, galvanizada, 10 x 16', FIERO,75
+43941,Ménsula reforzada de acero, galvanizada, 13 x 20', FIERO,95
+43942,Cajón de dinero para 4 billetes y 8 monedas, VOLTECK,850
+43943,Cajón de dinero para 5 billetes y 8 monedas, VOLTECK,1050
+43944,Impresora de tickets 58mm, USB+BT, corte manual, VOLTECK,495
+43945,Impresora de tickets 58/80mm, USB+BT, autocorte, VOLTECK,955
+43946,Impresora de tickets 80mm, USB+BT+RJ45+WiFi, autocorte,1345
+43947,Ventilador de techo para interior 56', negro, VOLTECK,665
+59974,Carro de autoservicio, TRUPER,3740
+59975,Poste izquierdo 32' x 60' para góndola, TRUPER,1662
+59977,Poste izquierdo 16' x 84' para góndola, TRUPER,1790
+59978,Poste derecho 16' x 84' para góndola, TRUPER,1790
+59979,Poste medio 32' x 60' para góndola, TRUPER,1830
+59980,Poste medio 16' x 84' para góndola, TRUPER,1914
+59981,Zoclo de 48' para góndola, TRUPER,241
+59982,Piso de 48' x 16' para góndola, TRUPER,958
+59984,Perfocel de 46' x 5' para góndola, TRUPER,77
+59985,Perfocel de 46' x 28' para góndola, TRUPER,471
+59986,Perfil 'H' de 48' para góndola, TRUPER,155
+59987,Tapa de 48' para góndola, TRUPER,299
+104440,Bolsa con 3 micas para careta CAREL-13 (2025), TRUPER,30
+104441,Bolsa con 2 micas para careta CAREL-913DX (2025), TRUPER,70
+43897,Llave ang. doble salida 3/8', multivuelta, barrilito, FOSET,65
+59983,Perfocel de 46' x 46' para góndola, TRUPER,397
+68079,Repuesto de lona 3 x 3 m para el toldo TOL-3, TRUPER,800
