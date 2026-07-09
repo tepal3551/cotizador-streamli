@@ -1,156 +1,105 @@
-14367,Soldadura con núcleo resina 95/5, tubería de gas, 450 g,1150
-14365,Soldadura con núcleo resina 50/50, tubería hidráulica, 450 g,465
-14366,Soldadura con núcleo resina 60/40, para electrónica, 450 g,675
-12282,Soldadura sólida 95/5 para tubería de gas, 450 g,1150
-12284,Soldadura sólida 50/50 para tubería hidráulica, 450 g,465
-12283,Soldadura sólida 1/2-1/2 para tubería de baja presión, 450 g,330
-13289,Mini soldadura sólida 95/5 para tubería de gas, 48 g,125
-13288,Mini soldadura sólida 50/50 para tubería hidráulica, 70 g,75
-13287,Mini soldadura sólida 1/2-1/2, tubería de baja presión, 85 g,65
-45038,Rollo de rafia de 1125 m color blanco calibre 3.8 g/m,450
-45037,Rollo de rafia de 2045 m color blanco calibre 2.2 g/m,450
-44492,Rollo de rafia de 410 m color blanco calibre 2.2 g/m, Fiero,100
-45032,Rollo de rafia de 230 m color blanco calibre 2.2 g/m, Fiero,55
-45031,Rollo de rafia de 410 m colores surtidos calibre 2.2 g/m,100
-45033,Rollo de rafia de 230 m colores surtidos calibre 2.2 g/m,55
-44472,Kilo de cuerda amarilla de polipropileno 4 mm, rollo 20 kg,95
-44485,Kilo de cuerda amarilla de polipropileno 6 mm, rollo 20 kg,95
-44486,Kilo de cuerda amarilla de polipropileno 8 mm, rollo 20 kg,95
-44487,Kilo de cuerda amarilla de polipropileno 10 mm, rollo 20 kg,95
-44488,Kilo de cuerda amarilla de polipropileno 11 mm, rollo 20 kg,95
-44489,Kilo de cuerda amarilla de polipropileno 13 mm, rollo 30 kg,95
-44490,Kilo de cuerda amarilla de polipropileno 16 mm, rollo 30 kg,95
-44491,Kilo de cuerda amarilla de polipropileno 19 mm, rollo 30 kg,95
-44473,Kilo de cuerda amarilla de polipropileno 25 mm, rollo 30 kg,95
-40183,Kilo de cuerda torcida de polipropileno amarilla de 4 mm,105
-40184,Kilo de cuerda torcida de polipropileno amarilla de 6 mm,105
-40185,Kilo de cuerda torcida de polipropileno amarilla de 8 mm,105
-40186,Kilo de cuerda torcida de polipropileno amarilla de 10 mm,105
-40187,Kilo de cuerda torcida de polipropileno amarilla de 11 mm,105
-40188,Kilo de cuerda torcida de polipropileno amarilla de 13 mm,105
-40957,Kilo de cuerda amarilla de polipropileno 16mm, rollo 1kg,105
-40958,Kilo de cuerda amarilla de polipropileno 19mm, rollo 1kg,105
-40174,Metro de cuerda amarilla de 4 mm en rollo de 2,380 m, Fiero,0.82
-40175,Metro de cuerda amarilla de 6 mm en rollo de 920 m, Fiero,2.1
-40176,Metro de cuerda amarilla de 8 mm en rollo de 640 m, Fiero,3
-40177,Metro de cuerda amarilla de 10 mm en rollo de 440 m, Fiero,4.4
-40178,Metro de cuerda amarilla de 11 mm en rollo de 360 m, Fiero,5.4
-40179,Metro de cuerda amarilla de 13 mm en rollo de 390 m, Fiero,7.5
-40180,Metro de cuerda amarilla de 16 mm en rollo de 264 m, Fiero,11
-40181,Metro de cuerda amarilla de 19 mm en rollo de 198 m, Fiero,14.5
-40182,Metro de cuerda amarilla de 25 mm en rollo de 102 m, Fiero,28
-40092,Metro de cuerda amarilla de 4 mm en rollo de 119 m, Fiero,0.9
-40093,Metro de cuerda amarilla de 6 mm en rollo de 46 m, Fiero,2.35
-40094,Metro de cuerda amarilla de 8 mm en rollo de 32 m, Fiero,3.3
-40095,Metro de cuerda amarilla de 10 mm en rollo de 22 m, Fiero,4.8
-40096,Metro de cuerda amarilla de 11 mm en rollo de 18 m, Fiero,5.9
-40097,Metro de cuerda amarilla de 13 mm en rollo de 13m, Fiero,8.2
-40993,Metro cuerda amarilla de polipropileno 16mm, rollo 9m,12
-40994,Metro cuerda amarilla de polipropileno 19mm, rollo 7m,15.5
-40963,Madeja de cuerda amarilla de polipropileno 6mm, 15m, FIERO,35
-40964,Madeja de cuerda amarilla de polipropileno 8mm, 10m, FIERO,33
-40965,Madeja de cuerda amarilla de polipropileno 10mm, 8m, FIERO,39
-40762,Kilo de cuerda negra de polipropileno 4 mm, carrete 20kg,85
-40763,Kilo de cuerda negra de polipropileno 6 mm, carrete 20kg,85
-40764,Kilo de cuerda negra de polipropileno 8 mm, carrete 20kg,85
-40765,Kilo de cuerda negra de polipropileno 10 mm, carrete 20kg,85
-40766,Kilo de cuerda negra de polipropileno 11 mm, carrete 20kg,85
-40767,Kilo de cuerda negra de polipropileno 13 mm, carrete 30kg,85
-40768,Kilo de cuerda negra de polipropileno 16 mm, carrete 30kg,85
-40769,Kilo de cuerda negra de polipropileno 19 mm, carrete 30kg,85
-40770,Kilo de cuerda negra de polipropileno 25 mm, carrete 30kg,85
-43038,Tubo de 1/2" de PVC hidráulico cédula 40, de 3 m, Foset,48
-43039,Tubo de 3/4" de PVC hidráulico cédula 40, de 3 m, Foset,68
-43040,Tubo de 1" de PVC hidráulico cédula 40, de 3 m, Foset,100
-45520,Tubo de 1-1/4" de PVC hidráulico cédula 40, de 3 m, Foset,140
-45521,Tubo de 1-1/2" de PVC hidráulico cédula 40, de 3 m, Foset,155
-45522,Tubo de 2" de PVC hidráulico cédula 40, de 3 m, Foset,215
-40081,Tubo de 3 m de PVC de 1/2" hidráulico RD 21, Foset,24
-40082,Tubo de 3 m de PVC de 3/4" hidráulico RD 26, Foset,35
-40083,Tubo de 3 m de PVC de 1" hidráulico RD 26, Foset,47
-40084,Tubo de 3 m de PVC de 1-1/4" hidráulico RD 26, Foset,62
-40085,Tubo de 3 m de PVC de 1-1/2" hidráulico RD 26, Foset,85
-40086,Tubo de 3 m de PVC de 2" hidráulico RD 26, Foset,130
-49897,Tubo de 1/2" de PPR hidráulico de 4 m, Foset,65
-49898,Tubo de 3/4" de PPR hidráulico de 4 m, Foset,95
-49899,Tubo de 1" de PPR hidráulico de 4 m, Foset,160
-45444,Tubo de 1-1/4" de PPR hidráulico de 4 m, Foset,300
-45445,Tubo de 1-1/2" de PPR hidráulico de 4 m, Foset,475
-45446,Tubo de 2" de PPR hidráulico de 4 m, Foset,715
-45042,Tubo de 1/2" de CPVC hidráulico RD 13.5 de 3 m, Foset,39
-45043,Tubo de 3/4" de CPVC hidráulico RD 13.5 de 3 m, Foset,60
-45044,Tubo de 1" de CPVC hidráulico RD 13.5 de 3 m, Foset,105
-45560,Tubo de 1-1/4" de CPVC hidráulico RD 11 de 3 m, Foset,180
-45561,Tubo de 1-1/2" de CPVC hidráulico RD 11 de 3 m, Foset,260
-45562,Tubo de 2" de CPVC hidráulico RD 11 de 3 m, Foset,455
-42859,Rollo de 50 m x 1 m de malla ganadera de acero galvanizado,1085
-42860,Rollo de 50 m x 1.2 m de malla ganadera de acero galvanizado,1235
-42861,Rollo de 50 m x 1.4 m de malla ganadera de acero galvanizado,1385
-42862,Rollo de 50 m x 1.67m de malla ganadera de acero galvanizado,1535
-44656,Rollo de malla hexagonal 45m x 1m calibre 22 abertura 25 mm,835
-44657,Rollo de malla hexagonal 45mx1.2m calibre 22 abertura 25mm,1035
-44658,Rollo de malla hexagonal 45m x 1.5m calibre 22 abertura 25mm,1225
-44659,Rollo de malla hexagonal 45mx1.75m calibre 22 abertura 25mm,1415
-42949,Rollo 20m x 1.5m malla ciclónica calibre 12.5 abertura 55 mm,1950
-42950,Rollo 20m x 1.75m malla ciclónica calibre 12.5 abertura 55mm,2350
-42951,Rollo 20 m x 2 m malla ciclónica calibre 12.5 abertura 55 mm,2550
-42954,Rollo 20m x 1.5m malla ciclónica calibre 12.5 abertura 63 mm,1800
-42955,Rollo 20m x 1.75m malla ciclónica calibre 12.5 abertura 63mm,2150
-42956,Rollo 20 m x 2 m malla ciclónica calibre 12.5 abertura 63 mm,2350
-42957,Rollo 20 m x 1 m malla ciclónica calibre 12.5 abertura 69 mm,985
-42958,Rollo 20m x 1.25m malla ciclónica calibre 12.5 abertura 69mm,1250
-42959,Rollo 20m x 1.5m malla ciclónica calibre 12.5 abertura 69 mm,1575
-42960,Rollo 20m x 1.75m malla ciclónica calibre 12.5 abertura 69mm,1850
-42961,Rollo 20 m x 2 m malla ciclónica calibre 12.5 abertura 69 mm,2150
-44458,Kilo de alambre recocido calibre 15 en rollo de 1Kg, Fiero,35
-44457,Kilo de alambre recocido calibre 15 en rollo de 20 kg, Fiero,31
-40051,Kilo de alambre recocido calibre 15 en rollo de 60 kg, Fiero,30
-44885,Rollo de alambre de púas de 300 m calibre 12.5, Fiero,1065
-44886,Rollo de alambre de púas de 350 m calibre 12.5, Fiero,1225
-44269,Metro de cadena galvanizada de 1/8", 75 m en cubeta, Fiero,23
-44270,Metro de cadena galvanizada de 3/16", 65 m en cubeta, Fiero,30
-44271,Metro de cadena galvanizada de 1/4", 35 m en cubeta, Fiero,52
-44272,Metro de cadena galvanizada de 5/16", 20 m en cubeta, Fiero,85
-44273,Metro de cadena galvanizada de 3/8", 10 m en cubeta, Fiero,125
-44274,Metro de cadena galvanizada de 1/2", 5 m en cubeta, Fiero,225
-40966,1 metro de cadena galvanizada de 1/8", FIERO,25
-40967,2 metros de cadena galvanizada de 1/8", FIERO,49
-40968,3 metros de cadena galvanizada de 1/8", FIERO,72
-40969,1 metro de cadena galvanizada de 3/16", FIERO,33
-40970,2 metros de cadena galvanizada de 3/16", FIERO,65
-40971,3 metros de cadena galvanizada de 3/16", FIERO,95
-40972,1 metro de cadena galvanizada de 1/4", FIERO,56
-40973,2 metros de cadena galvanizada de 1/4", FIERO,110
-40974,3 metros de cadena galvanizada de 1/4", FIERO,162
-40975,1 metro de cadena galvanizada de 5/16", FIERO,92
-40976,2 metros de cadena galvanizada de 5/16", FIERO,180
-40977,3 metros de cadena galvanizada de 5/16", FIERO,265
-44260,Metro de cadena pulida de 1/8", 75 m en cubeta, Fiero,19
-44261,Metro de cadena pulida de 3/16", 65 m en cubeta, Fiero,24
-44262,Metro de cadena pulida de 1/4", 35 m en cubeta, Fiero,42
-44263,Metro de cadena pulida de 5/16", 20 m en cubeta, Fiero,72
-44264,Metro de cadena pulida de 3/8", 10 m en cubeta, Fiero,100
-44265,Metro de cadena pulida de 1/2", 5 m en cubeta, Fiero,185
-16740,Escalera de tijera tipo III 2 escalones, Truper,850
-16741,Escalera de tijera tipo III 3 escalones, Truper,1000
-16742,Escalera de tijera tipo III 4 escalones y bandeja, Truper,1250
-16743,Escalera de tijera tipo III 5 escalones y bandeja, Truper,1400
-10437,Escalera de tijera tipo III 6 escalones y bandeja, Truper,1750
-20685,Escalera de tijera tipo III 2escalones, PRETUL,600
-20686,Escalera de tijera tipo III 3 escalones, PRETUL,700
-20687,Escalera de tijera tipo III 4 escalones y bandeja, PRETUL,900
-20688,Escalera de tijera tipo III 5 escalones y bandeja, PRETUL,1050
-20689,Escalera de tijera tipo III 6 escalones y bandeja, PRETUL,1250
-10435,Escalera de tijera tipo II 3 peldaños, Truper,1150
-10264,Escalera de tijera tipo ll 4 peldaños y bandeja, Truper,1525
-10335,Escalera de tijera tipo ll 5 peldaños y bandeja, Truper,1700
-16744,Escalera de tijera tipo II 6 peldaños y bandeja, Truper,2000
-10337,Escalera de tijera tipo II 7 peldaños y bandeja, Truper,2200
-10338,Escalera de tijera tipo ll 8 peldaños y bandeja, Truper,2600
-10436,Escalera de tijera tipo II 9 peldaños y bandeja, Truper,2900
-16748,Escalera de extensión, tipo III, 28 escalones, Truper,5350
-16028,Escalera de extensión, tipo III, 24 peldaños, Truper,3950
-16027,Escalera de extensión, tipo III, 20 peldaños, Truper,3350
-16026,Escalera de extensión, tipo III, 16 peldaños, Truper,2650
-16759,Escalera de extensión, tipo II, 24 peldaños, Truper,5250
-16758,Escalera de extensión, tipo II, 20 peldaños, Truper,4200
+104197,Gato giratorio para remolque con rueda,1000 lbs, TRUPER,855
+104196,Gato fijo para remolque con base, 2000 lbs, TRUPER,675
+104199,Bomba sumergible para fuente, 1/6 HP, TRUPER,1125
+104250,Maleta portaherramientas 16", base plástica, TRUPER EXPERT,315
+104251,Maleta portaherramientas 18", base plástica, TRUPER EXPERT,355.5
+104252,Maleta portaherramientas 20", base plástica, TRUPER EXPERT,427.5
+104238,Disco 3" multimaterial de carburo de tungsteno, TRUPER,63
+104239,Disco 7" multimaterial de carburo de tungsteno, TRUPER,157.5
+104442,Mini linterna LED 280 lm recargable, tipo llavero, TRUPER,67.5
+104406,Bolsa con 1 kg de electrodos E6013 3/32" Blue Point, EXPERT,76.5
+104407,Bolsa con 1 kg de electrodos E6013 1/8" Blue Point, EXPERT,76.5
+104408,Bolsa con 1 kg de electrodos E6013 5/32" Blue Point, EXPERT,76.5
+68090,Cuaderno profesional A4 pasta dura espiral 100 hojas, TRUPER,121.5
+68091,Libreta francesa, A5 pasta dura cosida, 96 hojas, TRUPER,99
+68092,Bufanda tubular polar, TRUPER,90
+43927,Protector de voltaje para electrodomésticos, VOLTECK,157.5
+43727,Portalámpara 4-1/2" de plástico, para sobreponer, VOLTECK,17.1
+43563,Condulet rectangular 1/2" tipo FS de 3 salidas, VOLTECK,56.7
+43564,Condulet rectangular 3/4" tipo FS de 3 salidas, VOLTECK,58.5
+43570,Condulet rectangular 1" tipo FS de 3 salidas, VOLTECK,74.7
+43894,Luminario LED 100 W High Bay 6500 K, VOLTECK,675
+43895,Luminario LED 150 W High Bay 6500 K, VOLTECK,945
+43896,Luminario LED 200 W High Bay 6500 K, VOLTECK,1215
+43854,Llave con resorte para mingitorio, FOSET,472.5
+43734,Manguera para boiler, acero inox. 3/4"H x 3/4"M, 60 cm,108
+43737,Manguera para boiler, acero inox. 3/4"H x 3/4"M, 80 cm,117
+43732,Manguera para boiler, acero inox. 1/2"H x 3/4"M, 60 cm,99
+43733,Manguera para boiler, acero inox. 1/2"H x 3/4"M, 80 cm,108
+43728,Manguera para boiler, acero inox. 1/2"H x 1/2"M, 60 cm,90
+43729,Manguera para boiler, acero inox. 1/2"H x 1/2"M, 80 cm,99
+103246,Rotomartillo/destornillador 1/2", 20V, 2 baterías 2Ah, PRO,1960
+103248,Rotomartillo/destornillador 1/2", 20V, sin accesorios, PRO,805
+103249,Taladro/destornillador 1/2", 20V, 1 batería 2Ah, TRUPER PRO,1400
+103250,Taladro/destornillador 1/2", 20V, sin accesorios, TRUPER PRO,665
+102865,Router (Rebajadora) 1/4", 1 batería 4 Ah, TRUPER PRO,2065
+103262,Router (Rebajadora) 1/4", sin accesorios, TRUPER PRO,1225
+102863,Lijadora roto-orbital 5", 20V, 1 batería 2Ah, TRUPER PRO,1295
+103955,Aspiradora, 20V, 1 batería 2Ah, TRUPER PRO,1645
+103377,Combo cargador dual con 2 baterías de 2Ah, 20V, TRUPER PRO,1120
+103241,Cargador dual de baterías de ion litio 20V, TRUPER PRO,420
+103242,Cargador rápido de baterías de ion litio 20V, TRUPER PRO,770
+104018,Cargador rápido de baterías de ion litio 20V, TRUPER MAX,910.
+16946,Cargador de baterías 12V, para ROTI-12AC y TALI-12AC,122.5
+103552,Llave de impacto 1/2" 550W, 258 lb/ft, TRUPER PRO,833
+29932,Taladro de banco 8", 1/3 HP (250 W), broquero 1/2", PRETUL,1480
+29004,Hidrolavadora eléctrica 1350 PSI, PRETUL,892.5
+20172,Bomba centrífuga para agua modelo europeo, 1/2 HP, PRETUL,760
+20173,Bomba centrífuga para agua modelo europeo, 3/4 HP, PRETUL,920
+20167,Bomba centrífuga para agua modelo europeo, 1 HP, PRETUL,1000
+29939,Bomba presurizadora 1/10 HP, PRETUL,455.
+23065,Compresor lubricado, 20L, 2-1/2HP, horizontal, 127V, PRETUL,1881
+24357,Kit Compresor lub, 20L, manguera y pistola baja,127V, PRETUL,2151
+24079,Kit Compresor lub, 20L, manguera y pistola grav,127V, PRETUL,2151
+27106,Kit Compresor lub, 20L, manguera y accesorios, 127V, PRETUL,2115
+103646,Rollo de manguera plana 1" x 7.5m de descarga con conexiones,300
+103647,Rollo de manguera plana 1.5"x7.5m de descarga con conexiones,420
+103648,Rollo de manguera plana 2" x 7.5m de descarga con conexiones,580
+103649,Rollo de manguera plana 3" x 7.5m de descarga con conexiones,920
+103908,Pistola eléctrica de 10W para silicón de 5/16", 127V, TRUPER,60
+103873,Guante con protección para motociclista, CH, TRUPER,124
+103874,Guante con protección para motociclista, M, TRUPER,124
+103875,Guante con protección para motociclista, G, TRUPER,124
+103877,Guante con protección para motociclista, XG, TRUPER,124
+29925,Recargador de gas butano para encendedor, 18ml, PRETUL,7.2
+103717,Tijera 6" electricista, óxido negro,acero inoxidable, EXPERT,135.2
+103713,Tijera 8-1/2" multiusos, de acero inoxidable, EXPERT,103.2
+103714,Tijera 10" multiusos, de acero inoxidable, EXPERT,135.2
+29921,Tubo LED T5 8W G5, 6500K blanca fría, opalino, BASIC,39.2
+29920,Tubo LED T5 16W G5, 6500K blanca fría, opalino, BASIC,52
+45392,Palanca frontal metálica cromada minimalista para WC, FOSET,39.2
+45393,Palanca frontal metálica cromada clásica para WC, FOSET,47.2
+45397,Palanca frontal plástica blanca para WC, FOSET,8.8
+45398,Palanca frontal metálica cromada robusta para WC, FOSET,63.2
+49473,Candado circular acero inox, cilindro latón, 70 mm,119.2
+45863,Candado para disco de motocicleta, perno de 7 mm, c/alarma,364
+45866,Pasador de sobreponer, modelo 31, cromo, HERMEX,63.2
+43893,Raqueta mata moscas y mosquitos con base, recargable VOLTECK,108
+49149,Raqueta mata moscas y mosquitos, recargable, VOLTECK,67.5
+14695,Fumigador de 12 L manual de mochila, TRUPER,859.5
+14192,Fumigador de 16 L manual de mochila, TRUPER,1035
+14193,Fumigador de 20 L manual de mochila, TRUPER,1125
+101568,Fumigador de 25 L con motor a gasolina de 2 tiempos, TRUPER,3285
+101569,Fumigador de 25 L con motor a gasolina de 4 tiempos, TRUPER,3825
+24584,Fumigador de 16 L manual de mochila, PRETUL,445.5
+24588,Fumigador de 20 L manual de mochila, PRETUL,472.5
+101745,Fumigador de 18 L eléctrico con batería ion litio de 12 V,2205
+24583,Fumigador de 15 L manual de mochila, PRETUL,517.5
+11029,Desmalezadora a gasolina 33 cc mango tipo "bici", 18" corte,3195
+11031,Desmalezadora a gasolina 43 cc mango "bici", 18" corte,3465
+11032,Desmalezadora a gasolina 52 cc mango tipo "bici", 18" corte,3825
+12671,Desmalezadora a gasolina 63 cc mango tipo "bici", 17" corte,4455
+103243,Desbrozadora inalámbrica 40V, 2 baterías 2Ah,1 carg.dual,PRO,2835
+103554,Desbrozadora inalámbrica 40V, sin accesorios, TRUPER PRO,1395
+26104,Desmalezadora a gasolina 52 cc mango tipo "bici" , PRETUL,2295
+28272,Desbrozadora inalámbrica 20V, 1 batería 2Ah, 1 carg. PRETUL,1251
+12496,Desbrozadora a gasolina 26cc mango tipo "D", 17"corte, curva,1755
+12497,Desbrozadora a gasolina 30cc mango tipo "D", 17"corte, recta,2385
+12498,Desbrozadora a gasolina 30cc mango tipo "D", 17"corte, curva,2025
+13521,Desbrozadora eléctrica 1000 W mango "D", 14" corte, TRUPER,1395
+22430,Desbrozadora a gasolina 25cc mango tipo "D", 17"corte, curva,1521
+101263,Desbrozadora eléctrica 550 W mango "D", 13" corte, TRUPER,859.5
+103205,Desbrozadora multifuncional 4 en 1, a gasolina 45 cc, TRUPER,4725
+29951,Desbrozadora eléctrica 300 W mango "D", 9" corte, PRETUL,607.5
+103245,Podadora inalámbrica 40V, 2 baterías 4Ah, 1 carg.dual, PRO,5895
+103642,Motosierra telescópica 25 cc, gasolina, barra de 10", TRUPER,5560
