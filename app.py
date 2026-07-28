@@ -238,9 +238,11 @@ def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
             if cod in catalogo_map:
                 p_base = float(catalogo_map[cod]['precio'])
                 precio_final = p_base if st.session_state.tipo_lista == "Distribuidor" else p_base / 0.90
-                nuevos_productos.append({
+            nuevos_productos.append({
                     'codigo': cod, 'descripcion': catalogo_map[cod]['descripcion'],
-                    'cantidad': cant, 'precio_unitario': precio_final
+                    'cantidad': cant,
+                    'precio_base': p_base,
+                    'precio_unitario': precio_final
                 })
     if nuevos_productos:
         st.session_state.cotizacion.extend(nuevos_productos)
@@ -251,13 +253,21 @@ def agregar_producto_manual():
         info = st.session_state.catalogo_df[st.session_state.catalogo_df['display'] == st.session_state.prod_sel].iloc[0]
         p_base = float(info['precio'])
         precio_final = p_base if st.session_state.tipo_lista == "Distribuidor" else p_base / 0.90
-        st.session_state.cotizacion.append({
+       st.session_state.cotizacion.append({
             'codigo': info['codigo'], 'descripcion': info['descripcion'],
-            'cantidad': st.session_state.cant_sel, 'precio_unitario': precio_final
+            'cantidad': st.session_state.cant_sel,
+            'precio_base': p_base,
+            'precio_unitario': precio_final
         })
         st.session_state.prod_sel = None 
         st.session_state.cant_sel = 1
         if 'folio_generado' in st.session_state: del st.session_state.folio_generado
+
+def recalcular_precios():
+    factor = 1.0 if st.session_state.tipo_lista == "Distribuidor" else 1 / 0.90
+    for item in st.session_state.cotizacion:
+        if 'precio_base' in item:
+            item['precio_unitario'] = item['precio_base'] * factor
 
 ARCHIVO_HISTORIAL = "historial_cotizaciones.json"
 
@@ -387,7 +397,8 @@ with c_cfg2:
     no_ped_manual = st.text_input("No. Pedido (Dejar vacío para autogenerar):", value="")
 
 with c_cfg3:
-    st.session_state.tipo_lista = st.radio("Lista de Precios:", ["Distribuidor", "Dimefet"], horizontal=True)
+  st.radio("Lista de Precios:", ["Distribuidor", "Dimefet"],
+             horizontal=True, key="tipo_lista", on_change=recalcular_precios)
 
 cve_cliente_real = ""
 cve_vendedor_real = vendedor 
