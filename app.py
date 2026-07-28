@@ -419,11 +419,7 @@ with st.expander("🔍 Búsqueda de Productos"):
     c2.number_input("Cant:", min_value=1, value=1, key="cant_sel")
     c3.button("➕ Añadir", on_click=agregar_producto_manual)
 
-with st.expander("🚀 Carga Rápida"):
-    texto = st.text_area("Pega aquí (Código Cantidad)")
-    if st.button("Procesar"):
-        analizar_y_cargar_pedido(texto, catalogo_df)
-        st.rerun()
+
 
 if st.session_state.cotizacion:
     df_cot = pd.DataFrame(st.session_state.cotizacion)
