@@ -262,6 +262,11 @@ def agregar_producto_manual():
         st.session_state.prod_sel = None
         st.session_state.cant_sel = 1
         if 'folio_generado' in st.session_state: del st.session_state.folio_generado
+ def recalcular_precios():
+    factor = 1.0 if st.session_state.tipo_lista == "Distribuidor" else 1 / 0.90
+    for item in st.session_state.cotizacion:
+        if 'precio_base' in item:
+            item['precio_unitario'] = item['precio_base'] * factor
             
 ARCHIVO_HISTORIAL = "historial_cotizaciones.json"
 
