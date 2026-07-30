@@ -123,7 +123,7 @@ def obtener_siguiente_folio_render():
             return 99999
             
         except Exception as e:
-            st.error(f"❌ Error inesperado: {type(e).__name__}: {e}")
+            st.error(f"❌ Error inesperado: {type(e)._name_}: {e}")
             return 99999
     
     return 99999
@@ -228,7 +228,7 @@ def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
     lineas = [line.strip() for line in texto_pedido.split('\n') if line.strip()]
     nuevos_productos = []
     catalogo_map = df_catalogo.set_index('codigo').to_dict('index') 
-    PATRON = re.compile(r'^[^\d]*(\d{4,6})[^\d]*(\d{1,3})')
+    PATRON = re.compile(r'^[^\d](\d{4,6})[^\d](\d{1,3})')
 
     for linea in lineas:
         match = PATRON.match(linea)
@@ -238,11 +238,9 @@ def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
             if cod in catalogo_map:
                 p_base = float(catalogo_map[cod]['precio'])
                 precio_final = p_base if st.session_state.tipo_lista == "Distribuidor" else p_base / 0.90
-            nuevos_productos.append({
+                nuevos_productos.append({
                     'codigo': cod, 'descripcion': catalogo_map[cod]['descripcion'],
-                    'cantidad': cant,
-                    'precio_base': p_base,
-                    'precio_unitario': precio_final
+                    'cantidad': cant, 'precio_unitario': precio_final
                 })
     if nuevos_productos:
         st.session_state.cotizacion.extend(nuevos_productos)
@@ -255,18 +253,12 @@ def agregar_producto_manual():
         precio_final = p_base if st.session_state.tipo_lista == "Distribuidor" else p_base / 0.90
         st.session_state.cotizacion.append({
             'codigo': info['codigo'], 'descripcion': info['descripcion'],
-            'cantidad': st.session_state.cant_sel,
-            'precio_base': p_base,
-            'precio_unitario': precio_final
+            'cantidad': st.session_state.cant_sel, 'precio_unitario': precio_final
         })
-        st.session_state.prod_sel = None
+        st.session_state.prod_sel = None 
         st.session_state.cant_sel = 1
         if 'folio_generado' in st.session_state: del st.session_state.folio_generado
-def recalcular_precios():
-    factor = 1.0 if st.session_state.tipo_lista == "Distribuidor" else 1 / 0.90
-    for item in st.session_state.cotizacion:
-        if 'precio_base' in item:
-            item['precio_unitario'] = item['precio_base'] * factor            
+
 ARCHIVO_HISTORIAL = "historial_cotizaciones.json"
 
 def leer_historial():
@@ -330,9 +322,7 @@ page_bg_img = """
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
 if 'cotizacion' not in st.session_state: st.session_state.cotizacion = []
-if 'tipo_lista_pendiente' in st.session_state:
-    st.session_state.tipo_lista = st.session_state.tipo_lista_pendiente
-    del st.session_state.tipo_lista_pendiente
+if 'tipo_lista' not in st.session_state: st.session_state.tipo_lista = "Distribuidor"
 if 'editando_id' not in st.session_state: st.session_state.editando_id = None
 if 'cliente_seleccionado' not in st.session_state: st.session_state.cliente_seleccionado = None
 if 'vendedor_input' not in st.session_state: st.session_state.vendedor_input = ""
@@ -397,8 +387,7 @@ with c_cfg2:
     no_ped_manual = st.text_input("No. Pedido (Dejar vacío para autogenerar):", value="")
 
 with c_cfg3:
-  st.radio("Lista de Precios:", ["Distribuidor", "Dimefet"],
-             horizontal=True, key="tipo_lista", on_change=recalcular_precios)
+    st.session_state.tipo_lista = st.radio("Lista de Precios:", ["Distribuidor", "Dimefet"], horizontal=True)
 
 cve_cliente_real = ""
 cve_vendedor_real = vendedor 
@@ -421,7 +410,11 @@ with st.expander("🔍 Búsqueda de Productos"):
     c2.number_input("Cant:", min_value=1, value=1, key="cant_sel")
     c3.button("➕ Añadir", on_click=agregar_producto_manual)
 
-
+with st.expander("🚀 Carga Rápida"):
+    texto = st.text_area("Pega aquí (Código Cantidad)")
+    if st.button("Procesar"):
+        analizar_y_cargar_pedido(texto, catalogo_df)
+        st.rerun()
 
 if st.session_state.cotizacion:
     df_cot = pd.DataFrame(st.session_state.cotizacion)
@@ -430,8 +423,8 @@ if st.session_state.cotizacion:
     st.write("### Detalle Actual")
     for i, row in df_cot.iterrows():
         col_item1, col_item2, col_item3 = st.columns([6, 2, 1])
-        col_item1.write(f"**{row['codigo']}** - {row['descripcion']}")
-        col_item2.write(f"{row['cantidad']} x ${row['precio_unitario']:,.2f} = **${row['Subtotal']:,.2f}**")
+        col_item1.write(f"*{row['codigo']}* - {row['descripcion']}")
+        col_item2.write(f"{row['cantidad']} x ${row['precio_unitario']:,.2f} = *${row['Subtotal']:,.2f}*")
         if col_item3.button("❌", key=f"del_{i}"):
             st.session_state.cotizacion.pop(i)
             if 'folio_generado' in st.session_state: del st.session_state.folio_generado
@@ -540,7 +533,7 @@ with st.expander("📂 Historial de Cotizaciones Guardadas (Cargar y Editar)"):
         
         st.write("---")
       # --- AQUÍ ESTÁ EL AJUSTE ---
-        st.write("**Selecciona una cotización para cargarla y editarla:**")
+        st.write("*Selecciona una cotización para cargarla y editarla:*")
         
         # Cambiamos el orden para que muestre: Cliente | Fecha | ID
         opciones_select = [f"{datos['cliente']} | {datos['fecha']} | {cot_id}" for cot_id, datos in historial.items()]
@@ -549,12 +542,13 @@ with st.expander("📂 Historial de Cotizaciones Guardadas (Cargar y Editar)"):
         if cot_seleccionada:
             # Ahora el ID está al final (posición 2 después del split)
             id_a_cargar = cot_seleccionada.split(" | ")[2]
-        if st.button("✏️ Cargar al Editor"):
+            if st.button("✏️ Cargar al Editor"):
+                # ... (el resto sigue igual)
                 datos_cot = historial[id_a_cargar]
                 st.session_state.cotizacion = datos_cot['productos']
                 st.session_state.cliente_seleccionado = datos_cot['cliente']
                 st.session_state.tipo_doc_input = datos_cot['tipo_doc']
-                st.session_state.tipo_lista_pendiente = datos_cot['lista_precios']
+                st.session_state.tipo_lista = datos_cot['lista_precios']
                 st.session_state.editando_id = datos_cot['id']
                 if 'folio_generado' in st.session_state: del st.session_state.folio_generado
                 st.rerun()
