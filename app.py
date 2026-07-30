@@ -549,14 +549,12 @@ with st.expander("📂 Historial de Cotizaciones Guardadas (Cargar y Editar)"):
         if cot_seleccionada:
             # Ahora el ID está al final (posición 2 después del split)
             id_a_cargar = cot_seleccionada.split(" | ")[2]
-            if st.button("✏️ Cargar al Editor"):
-                # ... (el resto sigue igual)
+        if st.button("✏️ Cargar al Editor"):
                 datos_cot = historial[id_a_cargar]
                 st.session_state.cotizacion = datos_cot['productos']
                 st.session_state.cliente_seleccionado = datos_cot['cliente']
                 st.session_state.tipo_doc_input = datos_cot['tipo_doc']
-               st.session_state.tipo_lista_pendiente = datos_cot['lista_precios']
+                st.session_state.tipo_lista_pendiente = datos_cot['lista_precios']
                 st.session_state.editando_id = datos_cot['id']
                 if 'folio_generado' in st.session_state: del st.session_state.folio_generado
                 st.rerun()
-                
