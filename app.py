@@ -243,7 +243,7 @@ def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
                 })
                 
     # Esta línea debe estar exactamente alineada con el 'for' de arriba
-    if nuevos_productos:
+     if nuevos_productos:
         st.session_state.cotizacion.extend(nuevos_productos)
         if 'folio_generado' in st.session_state: del st.session_state.folio_generado
 
