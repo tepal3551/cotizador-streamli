@@ -227,7 +227,7 @@ def generar_pdf(df, cliente, tipo_doc, lista, total):
 def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
     lineas = [line.strip() for line in texto_pedido.split('\n') if line.strip()]
     nuevos_productos = []
-    catalogo_map = df_catalogo.set_index('codigo').to_dict('index') 
+    catalogo_map = df_catalogo.set_index('codigo').to_dict('index')
     PATRON = re.compile(r'^[^\d](\d{4,6})[^\d](\d{1,3})')
 
     for linea in lineas:
@@ -237,10 +237,12 @@ def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
             cant = int(match.group(2))
             if cod in catalogo_map:
                 p_base = float(catalogo_map[cod]['precio'])
-nuevos_productos.append({
-    'codigo': cod, 'descripcion': catalogo_map[cod]['descripcion'],
-    'cantidad': cant, 'precio_base': p_base # <-- Guardamos el precio original
-})
+                nuevos_productos.append({
+                    'codigo': cod, 'descripcion': catalogo_map[cod]['descripcion'],
+                    'cantidad': cant, 'precio_base': p_base
+                })
+                
+    # Esta línea debe estar exactamente alineada con el 'for' de arriba
     if nuevos_productos:
         st.session_state.cotizacion.extend(nuevos_productos)
         if 'folio_generado' in st.session_state: del st.session_state.folio_generado
@@ -248,11 +250,13 @@ nuevos_productos.append({
 def agregar_producto_manual():
     if st.session_state.prod_sel:
         info = st.session_state.catalogo_df[st.session_state.catalogo_df['display'] == st.session_state.prod_sel].iloc[0]
-       p_base = float(info['precio'])
-st.session_state.cotizacion.append({
-    'codigo': info['codigo'], 'descripcion': info['descripcion'],
-    'cantidad': st.session_state.cant_sel, 'precio_base': p_base # <-- Guardamos el precio original
-})
+        p_base = float(info['precio'])
+        
+        st.session_state.cotizacion.append({
+            'codigo': info['codigo'], 'descripcion': info['descripcion'],
+            'cantidad': st.session_state.cant_sel, 'precio_base': p_base
+        })
+        
         st.session_state.prod_sel = None 
         st.session_state.cant_sel = 1
         if 'folio_generado' in st.session_state: del st.session_state.folio_generado
