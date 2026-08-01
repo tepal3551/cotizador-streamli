@@ -237,11 +237,10 @@ def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
             cant = int(match.group(2))
             if cod in catalogo_map:
                 p_base = float(catalogo_map[cod]['precio'])
-                precio_final = p_base if st.session_state.tipo_lista == "Distribuidor" else p_base / 0.90
-                nuevos_productos.append({
-                    'codigo': cod, 'descripcion': catalogo_map[cod]['descripcion'],
-                    'cantidad': cant, 'precio_unitario': precio_final
-                })
+nuevos_productos.append({
+    'codigo': cod, 'descripcion': catalogo_map[cod]['descripcion'],
+    'cantidad': cant, 'precio_base': p_base # <-- Guardamos el precio original
+})
     if nuevos_productos:
         st.session_state.cotizacion.extend(nuevos_productos)
         if 'folio_generado' in st.session_state: del st.session_state.folio_generado
@@ -249,12 +248,11 @@ def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
 def agregar_producto_manual():
     if st.session_state.prod_sel:
         info = st.session_state.catalogo_df[st.session_state.catalogo_df['display'] == st.session_state.prod_sel].iloc[0]
-        p_base = float(info['precio'])
-        precio_final = p_base if st.session_state.tipo_lista == "Distribuidor" else p_base / 0.90
-        st.session_state.cotizacion.append({
-            'codigo': info['codigo'], 'descripcion': info['descripcion'],
-            'cantidad': st.session_state.cant_sel, 'precio_unitario': precio_final
-        })
+       p_base = float(info['precio'])
+st.session_state.cotizacion.append({
+    'codigo': info['codigo'], 'descripcion': info['descripcion'],
+    'cantidad': st.session_state.cant_sel, 'precio_base': p_base # <-- Guardamos el precio original
+})
         st.session_state.prod_sel = None 
         st.session_state.cant_sel = 1
         if 'folio_generado' in st.session_state: del st.session_state.folio_generado
@@ -418,8 +416,25 @@ with st.expander("🚀 Carga Rápida"):
 
 if st.session_state.cotizacion:
     df_cot = pd.DataFrame(st.session_state.cotizacion)
-    df_cot['Subtotal'] = df_cot['cantidad'] * df_cot['precio_unitario']
     
+    # --- AQUÍ EMPIEZA LO NUEVO QUE VAS A PEGAR ---
+    if 'precio_base' not in df_cot.columns:
+        if st.session_state.tipo_lista == "Dimefet":
+            df_cot['precio_base'] = df_cot['precio_unitario'] * 0.90
+        else:
+            df_cot['precio_base'] = df_cot['precio_unitario']
+
+    if st.session_state.tipo_lista == "Distribuidor":
+        df_cot['precio_unitario'] = df_cot['precio_base']
+    else:
+        df_cot['precio_unitario'] = df_cot['precio_base'] / 0.90
+    # --- AQUÍ TERMINA LO NUEVO ---
+
+    # Esta línea ya la tenías, solo se empuja hacia abajo
+    df_cot['Subtotal'] = df_cot['cantidad'] * df_cot['precio_unitario']
+
+    st.write("### Detalle Actual")
+    # ... todo el resto de tu código (el for i, row in df_cot.iterrows(): etc...) se queda exactamente igual.    
     st.write("### Detalle Actual")
     for i, row in df_cot.iterrows():
         col_item1, col_item2, col_item3 = st.columns([6, 2, 1])
