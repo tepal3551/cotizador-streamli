@@ -246,7 +246,7 @@ def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
     lineas = [line.strip() for line in texto_pedido.split('\n') if line.strip()]
     nuevos_productos = []
     catalogo_map = df_catalogo.set_index('codigo').to_dict('index')
-    PATRON = re.compile(r'^[^\d](\d{4,6})[^\d](\d{1,3})')
+    PATRON = re.compile(r'^[^\d]*(\d{4,6})[^\d]*(\d{1,3})')
 
     for linea in lineas:
         match = PATRON.match(linea)
@@ -255,16 +255,16 @@ def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
             cant = int(match.group(2))
             if cod in catalogo_map:
                 p_base = float(catalogo_map[cod]['precio'])
+                precio_final = p_base if st.session_state.tipo_lista == "Distribuidor" else p_base / 0.90
                 nuevos_productos.append({
                     'codigo': cod, 'descripcion': catalogo_map[cod]['descripcion'],
-                    'cantidad': cant, 'precio_base': p_base
+                    'cantidad': cant,
+                    'precio_base': p_base,
+                    'precio_unitario': precio_final
                 })
-                
-    # Esta línea debe estar exactamente alineada con el 'for' de arriba
-     if nuevos_productos:
+    if nuevos_productos:
         st.session_state.cotizacion.extend(nuevos_productos)
         if 'folio_generado' in st.session_state: del st.session_state.folio_generado
-
 def agregar_producto_manual():
     if st.session_state.prod_sel:
         info = st.session_state.catalogo_df[st.session_state.catalogo_df['display'] == st.session_state.prod_sel].iloc[0]
