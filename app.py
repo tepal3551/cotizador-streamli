@@ -67,13 +67,32 @@ def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
     df['display'] = df['codigo'] + " - " + df['descripcion']
     return df
 
-@st.cache_data
+URL_CLIENTES_SHEET = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPh4_poWxwC63UWWeczmFn-iAItg6UYnrZjtzBHcz-7SRs550_0pqwRHS8LCvu3PYe7oLgmn1IKoz/pub?gid=0&single=true&output=csv"
+
+@st.cache_data(ttl=600)
 def cargar_clientes(nombre_archivo_clientes):
+    # 1) Intenta leer desde Google Sheets
+    try:
+        df = pd.read_csv(URL_CLIENTES_SHEET, dtype=str).fillna("")
+        df = df.rename(columns={
+            'ID Vendedor': 'cve_age',
+            'ID Cliente': 'cve',
+            'Nombre Cliente': 'nombre'
+        })
+        df = df[df['cve'].str.strip() != ""]
+        df['cve'] = df['cve'].str.strip()
+        df['cve_age'] = df['cve_age'].str.strip()
+        df['nombre'] = df['nombre'].str.strip()
+        df['display'] = df['cve'] + " - " + df['nombre'] + " (Vend: " + df['cve_age'] + ")"
+        return df[['cve', 'cve_age', 'nombre', 'display']]
+    except Exception:
+        pass
+    # 2) Respaldo: archivo local de GitHub si el Sheet falla
     clientes = []
     try:
         with open(nombre_archivo_clientes, 'r', encoding='utf-8') as f:
             for line in f:
-                partes = line.strip().split(',', 2) 
+                partes = line.strip().split(',', 2)
                 if len(partes) >= 3:
                     cve = partes[0].strip()
                     cve_age = partes[1].strip()
@@ -83,7 +102,6 @@ def cargar_clientes(nombre_archivo_clientes):
     except FileNotFoundError:
         return pd.DataFrame()
     return pd.DataFrame(clientes)
-
 def obtener_siguiente_folio_render():
     url = "https://servidor-pedidos.onrender.com/api/folio-actual"
     intentos_maximos = 3
