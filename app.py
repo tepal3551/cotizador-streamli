@@ -77,7 +77,7 @@ def cargar_clientes(nombre_archivo_clientes):
         df = df.rename(columns={
             'ID Vendedor': 'cve_age',
             'ID Cliente': 'cve',
-            'Nombre Cliente': 'nombre'
+            'Nombre Cliente ': 'nombre'
         })
         df = df[df['cve'].str.strip() != ""]
         df['cve'] = df['cve'].str.strip()
