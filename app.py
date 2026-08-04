@@ -85,8 +85,8 @@ def cargar_clientes(nombre_archivo_clientes):
         df['nombre'] = df['nombre'].str.strip()
         df['display'] = df['cve'] + " - " + df['nombre'] + " (Vend: " + df['cve_age'] + ")"
         return df[['cve', 'cve_age', 'nombre', 'display']]
-    except Exception:
-        pass
+   except Exception as e:
+        st.error(f"Error leyendo Sheet: {e}")
     # 2) Respaldo: archivo local de GitHub si el Sheet falla
     clientes = []
     try:
