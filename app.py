@@ -85,9 +85,9 @@ def cargar_clientes(nombre_archivo_clientes):
         df['nombre'] = df['nombre'].str.strip()
         df['display'] = df['cve'] + " - " + df['nombre'] + " (Vend: " + df['cve_age'] + ")"
         return df[['cve', 'cve_age', 'nombre', 'display']]
-   except Exception as e:
+    except Exception as e:
         st.error(f"Error leyendo Sheet: {e}")
-    # 2) Respaldo: archivo local de GitHub si el Sheet falla
+    # 2) Respaldo: archivo local si el Sheet falla
     clientes = []
     try:
         with open(nombre_archivo_clientes, 'r', encoding='utf-8') as f:
@@ -101,8 +101,7 @@ def cargar_clientes(nombre_archivo_clientes):
                     clientes.append({'cve': cve, 'cve_age': cve_age, 'nombre': nombre, 'display': display})
     except FileNotFoundError:
         return pd.DataFrame()
-    return pd.DataFrame(clientes)
-def obtener_siguiente_folio_render():
+    return pd.DataFrame(clientes)def obtener_siguiente_folio_render():
     url = "https://servidor-pedidos.onrender.com/api/folio-actual"
     intentos_maximos = 3
     
