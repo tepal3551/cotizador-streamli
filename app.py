@@ -103,7 +103,7 @@ def cargar_clientes(nombre_archivo_clientes):
         return pd.DataFrame()
     return pd.DataFrame(clientes)
     def obtener_siguiente_folio_render():
-    url = "https://servidor-pedidos.onrender.com/api/folio-actual"
+        url = "https://servidor-pedidos.onrender.com/api/folio-actual"
     intentos_maximos = 3
     
     for intento in range(1, intentos_maximos + 1):
