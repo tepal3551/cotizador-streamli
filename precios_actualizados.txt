@@ -1,118 +1,3 @@
-104449,Barreta de uña de 1/2" x 30 cm, TRUPER,58.5
-104445,Broca avellanadora #4 para madera, 7/64", TRUPER,71.1
-104446,Broca avellanadora #12 para madera, 7/32", TRUPER,89.1
-104416,Cepillo de alambre curvo de acero al carbono, TRUPER,19.8
-104242,Llave (pistola) de impacto neumática 1", industrial, TRUPER,6525
-104453,Disco de diamante 7", corte porcelanato, TRUPER,315
-29855,Taladro/destornillador 3/8", 12V, 1 batería 2Ah, PRETUL,472.5
-29856,Kit taladro/destornillador 3/8", 12V, 33 accesorios, PRETUL,765
-29854,Batería ion litio, 12V, 2 Ah, PRETUL,247.5
-104426,Pala redonda T-2000, puño "Y", mango 36", TRUPER,211.5
-104459,Rastrillo aireador de 19 dientes, mango 54", fibra vidrio,247.5
-104261,Brocha cerdas sintéticas 5" corte recto, mango de madera,85.5
-104262,Brocha cerdas sintéticas 6" corte recto, mango de madera,99
-29857,Par de plantillas para zapato talla 23, PRETUL,54
-29858,Par de plantillas para zapato talla 24, PRETUL,54
-29859,Par de plantillas para zapato talla 25, PRETUL,54
-29860,Par de plantillas para zapato talla 26, PRETUL,54
-29861,Par de plantillas para zapato talla 27, PRETUL,54
-29862,Par de plantillas para zapato talla 28, PRETUL,54
-29863,Par de plantillas para zapato talla 29, PRETUL,54
-29864,Par de plantillas para zapato talla 30, PRETUL,54
-29879,Cautín 45 W tipo lápiz con accesorios trabajo medio, PRETUL,69.3
-29880,Cautín 60 W tipo lápiz con accesorios trabajo pesado, PRETUL,73.8
-104237,Pulsera antiestática, TRUPER,31.5
-43887,Bolsa con 100 grapas blancas de 5 mm para cable redondo,18
-43886,Bolsa con 100 grapas blancas de 6 mm para cable redondo,22.5
-43885,Bolsa con 100 grapas blancas de 8 mm para cable redondo,24.3
-43884,Bolsa con 100 grapas blancas de 10 mm para cable redondo,27.9
-43883,Bolsa con 100 grapas blancas de 12 mm para cable redondo,33.3
-43882,Bolsa con 100 grapas blancas de 16 mm para cable redondo,55.8
-43890,Bolsa con 100 grapas blancas de 6 mm para cable plano,20.7
-43889,Bolsa con 100 grapas blancas de 8.5 mm para cable plano,22.5
-43888,Bolsa con 100 grapas blancas de 9.5 mm para cable plano,24.3
-43863,Bolsa con 10 capuchones p/cable calibre 18 a 16 AWG, VOLTECK,5.4
-43862,Bolsa con 10 capuchones p/cable calibre 16 a 14 AWG, VOLTECK,6.3
-43861,Bolsa con 10 capuchones p/cable calibre 10 a 8 AWG, VOLTECK,12.6
-43926,Portalámparas con cable de 8 m, VOLTECK,63
-43539,Rollo de 50 m de tubo flexible metálico de 3/8", VOLTECK,427.5
-43548,Conector recto 3/8" para tubo flexible metálico, VOLTECK,6.3
-43549,Conector curvo 3/8" para tubo flexible metálico, VOLTECK,10.8
-43550,Conector recto 1/2" para cable de uso rudo, VOLTECK,6.3
-43551,Conector recto 3/4" para cable de uso rudo, VOLTECK,10.8
-43552,Conector recto 1" para cable de uso rudo, VOLTECK,18
-43908,Foco LED 2 W, tipo ampolleta, 2700K luz ámbar, G9, VOLTECK,26.1
-29845,Luminario LED plafón decorativo 9W 6500K, metálico, BASIC,130.5
-29846,Luminario LED plafón decorativo 15W 6500K, metálico, BASIC,153
-43540,Luminario LED plafón 24W 6500K ultradelgado redondo, VOLTECK,135
-43541,Luminario LED plafón 24W 6500K ultradelgado cuadrado VOLTECK,135
-43903,Arbotante decorativo, rectángulos, base E26/ E27, VOLTECK,256.5
-43914,Kit de Fotocelda de 1/2 vuelta y base, 127 - 220 V, VOLTECK,94.5
-29851,Mini fotocelda con soporte, tensión 127 V, VOLTECK BASIC,40.5
-40052,Juego 2 tapas transparentes de PVC para coladera 5", FOSET,22.5
-43898,Niple unión NPT de latón, 1/4" con tuerca hexagonal, FOSET,10.8
-43899,Niple unión NPT de latón, 3/8" con tuerca hexagonal, FOSET,16.2
-40981,Manguera reforzada con multiconector, desagüe lavadora, 1.5m,90
-40982,Manguera reforzada con multiconector, desagüe lavadora, 3 m,135
-40980,Manguera con multiconector, desagüe lavadora, 3 m, FOSET,67.5
-40983,Manguera de desagüe o llenado lavadora, 1 m, FOSET,31.5
-43864,Válvula de purga de aire 3/4", FOSET,108
-43850,Válvula de banqueta 1/2" para candado, FOSET,130.5
-43851,Válvula de banqueta 3/4" para candado, FOSET,175.5
-43865,Válvula de alivio 3/4", FOSET,67.5
-43739,Válvula esfera de latón, de compresión, 1/2" alta presión,126
-43742,Válvula esfera de latón, de compresión, 3/4" alta presión,162
-43852,Válvula estopera tipo mariposa M-H 1/2 x 1/2", FOSET,67.5
-43853,Válvula estopera tipo mariposa M-H 7/8 x 1/2", FOSET,72
-43670,Brida con cuello flexible para WC, tubería de 4", FOSET,99
-43915,Tensor forjado 5/16 x 4-1/2" ojo-gancho, galvanizado, FIERO,63
-43948,Tensor forjado 3/8 x 6" ojo - gancho, galvanizado, FIERO,76.5
-43916,Tensor forjado 5/8 x 6" ojo - gancho, galvanizado, FIERO,180
-43917,Tensor forjado 5/8 x 12" ojo - gancho, galvanizado, FIERO,225
-43918,Tensor forjado 3/4 x 6" ojo - gancho, galvanizado, FIERO,247.5
-43919,Tensor forjado 3/4 x 12" ojo - gancho, galvanizado, FIERO,315
-43858,Correa retráctil para mascota chica, 3 metros, FIERO,103.5
-43859,Correa retráctil para mascota mediana, 5 metros, FIERO,130.5
-43860,Correa retráctil para mascota grande, 5 metros, FIERO,202.5
-40053,Rollo de rafia de 1500 m color blanco calibre 3 g/m, FIERO,405
-40054,Rollo de rafia de 750 m color blanco calibre 6 g/m, FIERO,405
-40062,Rollo de rafia de 562 m color blanco calibre 8 g/m, FIERO,405
-40261,Bolsa con 1 kg de grapas 1" galvanizadas p/alambre de púas,40.5
-40262,Bolsa con 1 kg grapas 1-1/4" galvanizadas p/alambre de púas,40.5
-40263,Bolsa con 1 kg grapas 1-1/2" galvanizadas p/alambre de púas,40.5
-40264,Bolsa con 1 kg de grapas 1" negras p/alambre de púas, FIERO,36
-40265,Bolsa con 1 kg de grapas 1-1/4" negras p/alambre de púas,36
-43935,Rodaja hule 2", placa fija con balero, carga 40kg, FIERO,36
-43936,Rodaja hule 2-1/2", placa fija con balero, carga 60kg, FIERO,58.5
-43937,Rodaja hule 4", placa fija con balero, carga 60kg, FIERO,76.5
-43938,Rodaja hule 5", placa fija con balero, carga 130kg, FIERO,103.5
-43933,Rodaja hule 2", placa fija con buje, carga 25kg, FIERO,22.5
-43934,Rodaja hule 2-1/2" placa fija con buje, carga 50kg, FIERO,49.5
-43988,Rodaja hule 2", placa giratoria con freno, balero, 40kg,54
-43989,Rodaja hule 2-1/2", placa giratoria con freno, balero, 50kg,85.5
-43990,Rodaja hule 3", placa giratoria con freno, balero, 60kg,94.5
-43991,Rodaja hule 4", placa giratoria con freno, balero, 50kg,99
-43992,Rodaja hule 4", placa giratoria con freno, balero, 100kg,139.5
-43993,Rodaja hule 5", placa giratoria con freno, balero, 60kg,139.5
-43994,Rodaja hule 6", placa giratoria con freno, balero, 150kg,319.5
-43985,Rodaja hule 2", placa giratoria con freno, buje, 25kg,31.5
-43986,Rodaja hule 2-1/2", placa giratoria con freno, buje, 50kg,67.5
-43987,Rodaja hule 3", placa giratoria con freno, buje, 60kg,76.5
-43715,Broche perico galvanizado, HERMEX,3.15
-43880,Mirilla de seguridad, 180°, lente de vidrio, níquel satín,99
-43866,Pasador con cadena para puerta, acabado níquel satín, HERMEX,112.5
-43881,Pasador abatible para puerta, acabado níquel satín, HERMEX,81
-43855,Tope para puerta magnético, acabado níquel satín, HERMEX,76.5
-43869,Tope tipo media luna para puerta, níquel satín, HERMEX,33.3
-43879,Tope tipo codo para puerta, níquel satín, HERMEX,37.8
-43867,Fijapuerta metálico, acabado níquel satín, HERMEX,62.1
-43868,Tope recto para puerta, acabado níquel satín, HERMEX,37.8
-56037,Bomba destapacaños para lavabo, 10 cm,KLINTEK,22.5
-68093,Catálogo Truper 2026 precio distribuidor,166.5
-68096,Catálogo Truper 2026 precio público,166.5
-68097,Catálogo Truper 2026 sin precios,166.5
-68098,Catálogo Truper 2026 Frontera Precio Distribuidor,166.5
-68099,Catálogo Truper 2026 Frontera Precio Publico,166.5
 11029,Desmalezadora a gasolina 33 cc mango tipo "bici" 18", TRUPER,3240
 11031,Desmalezadora a gasolina 43 cc mango tipo "bici" 18", TRUPER,3510
 11032,Desmalezadora a gasolina 52 cc mango tipo "bici" 18", TRUPER,3780
@@ -120,24 +5,15 @@
 13521,Desbrozadora eléctrica 1000 W mango "D", 14" corte, TRUPER,1350
 26104,Desmalezadora a gasolina 52 cc mango tipo "bici" , PRETUL,2340
 101263,Desbrozadora eléctrica 550 W mango "D", 13" corte, TRUPER,900
-12496,Desbrozadora a gasolina 26cc mango tipo "D", 17"corte, curva,1755
-12498,Desbrozadora a gasolina 30cc mango tipo "D", 17"corte, curva,2025
-12497,Desbrozadora a gasolina 30cc mango tipo "D", 17"corte, recta,2295
+12496,Desbrozadora a gasolina 26 cc mango "D" curva, 17", TRUPER,1755
+12498,Desbrozadora a gasolina 30 cc mango "D" curva, 17", TRUPER,2025
+12497,Desbrozadora a gasolina 30 cc mango "D" recta, 17", TRUPER,2295
 29951,Desbrozadora eléctrica 300 W mango "D", 9" corte, PRETUL,585
 22430,Desbrozadora a gasolina 25cc mango tipo "D", 17"corte, curva,1530
 103243,Desbrozadora inalámbrica 40V, 2 baterías 2Ah,1 carg.dual,PRO,2286
 103554,Desbrozadora inalámbrica 40V, sin accesorios, TRUPER PRO,1305
 28272,Desbrozadora inalámbrica 20V, 1 batería 2Ah, 1 carg. PRETUL,1170
 103205,Desbrozadora multifuncional 4 en 1, a gasolina 45 cc, TRUPER,4950
-101569,Fumigador de 25 L con motor a gasolina de 4 tiempos, TRUPER,3825
-101568,Fumigador de 25 L con motor a gasolina de 2 tiempos, TRUPER,3465
-14695,Fumigador de 12 L manual de mochila, TRUPER,900
-14192,Fumigador de 16 L manual de mochila, TRUPER,1080
-14193,Fumigador de 20 L manual de mochila, TRUPER,1170
-101745,Fumigador de mochila 18L, con batería ion litio 12 V, TRUPER,2340
-24584,Fumigador de 16 L manual de mochila, PRETUL,495
-24588,Fumigador de 20 L manual de mochila, PRETUL,540
-24583,Fumigador de 15 L manual de mochila, PRETUL,585
 43893,Raqueta mata moscas y mosquitos con base, recargable VOLTECK,108
 49149,Raqueta mata moscas y mosquitos, recargable, VOLTECK BASIC,67.5
 103245,Podadora inalámbrica 40V, 2 baterías 4Ah, 1 carg.dual, PRO,5355
