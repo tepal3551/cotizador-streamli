@@ -1,3 +1,33 @@
+19052,Pintura aerosol violeta, bote esbelto 400 ml, TRUPER,45
+19061,Pintura aerosol verde metálico, bote esbelto 400 ml, TRUPER,58.5
+40098,Válvula de llenado de 1/2" con flotador #5 y varilla de 22cm,81
+40099,Válvula de llenado de 3/4" con flotador #6 y varilla de 22cm,99
+43405,Regadera redonda 2-1/2" con brazo y chapeton ABS, BASIC,63
+43406,Casquillo de acero inoxidable para contracanasta,10cm,1-1/2",18
+43407,Casquillo de acero inoxidable para contracanasta,15cm,1-1/2",22.5
+43408,Casquillo de acero inoxidable para contracanasta,20cm,1-1/2",31.5
+43414,Rejilla anticucaracha, acero inoxidable 5", FOSET,31.5
+43415,Tapa ciega para coladera, acero inoxidable 5", FOSET,31.5
+43460,Manguera para WC de aluminio, 7/8 x 7/8", 35 cm, BASIC,18
+43461,Manguera para WC de aluminio, 7/8 x 7/8", 50 cm, BASIC,20.7
+43481,Válvula de bola PPR, 1/2" (20 mm), FOSET,13.5
+43485,Válvula de bola PPR, 3/4" (25 mm), FOSET,22.5
+43486,Válvula de bola PPR, 1" (32 mm), FOSET,36
+43487,Puente de PPR 1/2" (20 mm), FOSET,9
+43491,Puente de PPR 3/4" (25 mm), FOSET,13.5
+43497,Tuerca unión PPR, plástica 1", FOSET,16.2
+43144,Tee macho de PPR 3/4" con inserto metálico, FOSET,54
+43146,Tee macho de PPR 1" con inserto metálico, FOSET,85.5
+43142,Tee hembra de PPR 3/4" con inserto metálico, FOSET,36
+43143,Tee hembra de PPR 1" con inserto metálico, FOSET,54
+43141,Tee reducida hembra de PPR 3/4"x 3/4"x 1/2" inserto metálico,27
+43498,Tuerca unión PPR, mixta macho inserto metálico 1/2", FOSET,81
+43502,Tuerca unión PPR, mixta macho inserto metálico 3/4", FOSET,103.5
+43547,Interruptor de 1 polo 10 A, enchufable en blíster, VOLTECK,51.3
+43554,Adaptador con supresor de picos 1470 Joules, VOLTECK,67.5
+43571,Sensor de movimiento con alarma y timbre inalámbrico,265.5
+43891,Compensador de voltaje 1250 VA / 1000 W, VOLTECK,855
+43892,Compensador de voltaje 2500 VA / 2000 W, VOLTECK,1170
 11029,Desmalezadora a gasolina 33 cc mango tipo "bici" 18", TRUPER,3240
 11031,Desmalezadora a gasolina 43 cc mango tipo "bici" 18", TRUPER,3510
 11032,Desmalezadora a gasolina 52 cc mango tipo "bici" 18", TRUPER,3780
