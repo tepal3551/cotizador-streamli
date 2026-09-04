@@ -1,5 +1,131 @@
-44458,Kilo de alambre recocido calibre 15 en rollo de 1 kg, FIERO,38
-44457,Kilo de alambre recocido calibre 15 en rollo de 20 kg, FIERO,34
+44458,Kilo de alambre recocido calibre 15 en rollo de 1 kg, FIERO,36
+44457,Kilo de alambre recocido calibre 15 en rollo de 20 kg, FIERO,32
+42949,Rollo malla ciclónica cal.12.5, 1.5x20m, abertura 55mm 39kg,1750
+42950,Rollo malla ciclónica cal.12.5, 1.75x20m, abertura 55mm 46kg,2150
+42951,Rollo malla ciclónica cal.12.5, 2x20m, abertura 55mm 51kg,2350
+42954,Rollo malla ciclónica cal.12.5, 1.5x20m, abertura 63mm 37kg,1615
+42955,Rollo malla ciclónica cal.12.5, 1.75x20m, abertura 63mm 38kg,1950
+42956,Rollo malla ciclónica cal.12.5, 2x20m, abertura 63mm 45kg,2150
+42957,Rollo malla ciclónica cal.12.5, 1x20m, abertura 69mm 21kg,885
+42958,Rollo malla ciclónica cal.12.5, 1.25x20m, abertura69mm 26kg,1150
+42959,Rollo malla ciclónica cal.12.5, 1.5x20m, abertura 69mm 31kg,1425
+42960,Rollo malla ciclónica cal.12.5, 1.75x20m, abertura69mm 35kg,1665
+42961,Rollo malla ciclónica cal.12.5, 2x20m, abertura 69mm 40kg,1950
+40762,Kilo de cuerda negra de polipropileno 4 mm, carrete 20kg,75
+40763,Kilo de cuerda negra de polipropileno 6 mm, carrete 20kg,75
+40764,Kilo de cuerda negra de polipropileno 8 mm, carrete 20kg,75
+40765,Kilo de cuerda negra de polipropileno 10 mm, carrete 20kg,75
+40766,Kilo de cuerda negra de polipropileno 11 mm, carrete 20kg,75
+40767,Kilo de cuerda negra de polipropileno 13 mm, carrete 30kg,75
+40768,Kilo de cuerda negra de polipropileno 16 mm, carrete 30kg,75
+40769,Kilo de cuerda negra de polipropileno 19 mm, carrete 30kg,75
+40770,Kilo de cuerda negra de polipropileno 25 mm, carrete 30kg,75
+40183,Kilo de cuerda amarilla de polipropileno 4 mm, rollo 1kg,95
+40184,Kilo de cuerda amarilla de polipropileno 6 mm, rollo 1kg,95
+40185,Kilo de cuerda amarilla de polipropileno 8 mm, rollo 1kg,95
+40186,Kilo de cuerda amarilla de polipropileno 10 mm, rollo 1kg,95
+40187,Kilo de cuerda amarilla de polipropileno 11 mm, rollo 1kg,95
+40188,Kilo de cuerda amarilla de polipropileno 13 mm, rollo 1kg,95
+44487,Kilo de cuerda amarilla de polipropileno 10mm, carrete 20kg,85
+44488,Kilo de cuerda amarilla de polipropileno 11mm, carrete 20kg,85
+44489,Kilo de cuerda amarilla de polipropileno 13mm, carrete 30kg,85
+44490,Kilo de cuerda amarilla de polipropileno 16mm, carrete 30kg,85
+44491,Kilo de cuerda amarilla de polipropileno 19mm, carrete 30kg,85
+44473,Kilo de cuerda amarilla de polipropileno 25mm, carrete 30kg,85
+44472,Kilo de cuerda amarilla de polipropileno 4mm, carrete 20 kg,85
+44485,Kilo de cuerda amarilla de polipropileno 6mm, carrete 20kg,85
+44486,Kilo de cuerda amarilla de polipropileno 8mm, carrete 20kg,85
+40174,Metro de cuerda amarilla de polipropileno 4mm, carrete 2380m,0.72
+40175,Metro de cuerda amarilla de polipropileno 6mm, carrete 920m,1.9
+40176,Metro de cuerda amarilla de polipropileno 8mm, carrete 640m,2.7
+40177,Metro de cuerda amarilla de polipropileno 10mm, carrete 440m,3.9
+40178,Metro de cuerda amarilla de polipropileno 11mm, carrete 360m,4.8
+40179,Metro de cuerda amarilla de polipropileno 13mm, carrete 390m,6.6
+40180,Metro de cuerda amarilla de polipropileno 16mm, carrete 264m,10
+40181,Metro de cuerda amarilla de polipropileno 19mm, carrete 198m,13
+40182,Metro de cuerda amarilla de polipropileno 25mm, carrete 102m,25
+40957,Kilo de cuerda amarilla de polipropileno 16mm, rollo 1kg,95
+40958,Kilo de cuerda amarilla de polipropileno 19mm, rollo 1kg,95
+40963,Madeja de cuerda amarilla de polipropileno 6mm, 15m, FIERO,31
+40964,Madeja de cuerda amarilla de polipropileno 8mm, 10m, FIERO,29
+40965,Madeja de cuerda amarilla de polipropileno 10mm, 8m, FIERO,35
+44492,Rollo de rafia de 410 m color blanco calibre 2.2 g/m, FIERO,95
+45038,Rollo de rafia de 1125 m color blanco calibre 3.8 g/m,425
+45037,Rollo de rafia de 2045 m color blanco calibre 2.2 g/m,425
+45032,Rollo de rafia de 230 m color blanco calibre 2.2 g/m, FIERO,52
+45033,Rollo de rafia de 230 m colores surtidos calibre 2.2 g/m,52
+45031,Rollo de rafia de 410 m colores surtidos calibre 2.2 g/m,95
+40007,Metro de cable uso extra rudo 3 x 14 AWG en rollo de 100 m,37
+40004,Metro de cable uso extra rudo 2 x 14 AWG en rollo de 100 m,26
+40200,Carrete con 10 m cordón dúplex flexible SPT 14 AWG, VOLTECK,225
+40201,Carrete con 12 m cordón dúplex flexible SPT 16 AWG, VOLTECK,175
+40202,Carrete con 20 m cordón dúplex flexible SPT 18 AWG, VOLTECK,195
+40247,Carrete con 10 m de cable THHW-LS 8 AWG blanco, VOLTECK,370
+40248,Carrete con 10 m de cable THHW-LS 8 AWG negro, VOLTECK,370
+40249,Carrete con 10 m de cable THHW-LS 8 AWG rojo, VOLTECK,370
+40250,Carrete con 10 m de cable THHW-LS 8 AWG verde, VOLTECK,370
+46067,Rollo de 100 m de cordón dúplex flexible SPT 14 AWG, VOLTECK,2100
+40042,Metro de cordón dúplex flexible SPT 14 AWG en carrete 500 m,21
+46068,Rollo de 100 m de cordón dúplex flexible SPT 16 AWG, VOLTECK,1350
+40043,Metro de cordón dúplex flexible SPT 16 AWG en carrete 500 m,13.5
+46069,Rollo de 100 m de cordón dúplex flexible SPT 18 AWG, VOLTECK,900
+40045,Metro de cordón dúplex flexible SPT 18 AWG en carrete 500 m,9
+46079,Rollo de 100 m cordón dúplex 12 AWG, VOLTECK,2900
+40046,Metro de cordón dúplex 12 AWG, carrete 500 m, VOLTECK,29
+46054,Rollo de 100 m de cable THHW-LS 8 AWG blanco, VOLTECK,3400
+46050,Rollo de 100 m de cable THHW-LS 8 AWG negro, VOLTECK,3400
+46058,Rollo de 100 m de cable THHW-LS 8 AWG rojo, VOLTECK,3400
+46062,Rollo de 100 m de cable THHW-LS 8 AWG verde, VOLTECK,3400
+40115,Metro de cable THHW-LS 8 AWG blanco en carrete de 500 m,34
+40119,Metro de cable THHW-LS 8 AWG negro en carrete de 500 m,34
+40127,Metro de cable THHW-LS 8 AWG rojo en carrete de 500 m,34
+40123,Metro de cable THHW-LS 8 AWG verde en carrete de 500 m,34
+40114,Metro de cable THHW-LS 10 AWG blanco en carrete de 500 m,21
+46055,Rollo de 100 m de cable THHW-LS 10 AWG blanco, VOLTECK,2100
+46051,Rollo de 100 m de cable THHW-LS 10 AWG negro, VOLTECK,2100
+46059,Rollo de 100 m de cable THHW-LS 10 AWG rojo, VOLTECK,2100
+46063,Rollo de 100 m de cable THHW-LS 10 AWG verde, VOLTECK,2100
+40118,Metro de cable THHW-LS 10 AWG negro en carrete de 500 m,21
+40126,Metro de cable THHW-LS 10 AWG rojo en carrete de 500 m,21
+40122,Metro de cable THHW-LS 10 AWG verde en carrete de 500 m,21
+40113,Metro de cable THHW-LS 12 AWG blanco en carrete de 500 m,13.5
+46056,Rollo de 100 m de cable THHW-LS 12 AWG blanco, VOLTECK,1350
+46052,Rollo de 100 m de cable THHW-LS 12 AWG negro, VOLTECK,1350
+46060,Rollo de 100 m de cable THHW-LS 12 AWG rojo, VOLTECK,1350
+46064,Rollo de 100 m de cable THHW-LS 12 AWG verde, VOLTECK,1350
+40117,Metro de cable THHW-LS 12 AWG negro en carrete de 500 m,13.5
+40125,Metro de cable THHW-LS 12 AWG rojo en carrete de 500 m,13.5
+40121,Metro de cable THHW-LS 12 AWG verde en carrete de 500 m,13.5
+40112,Metro de cable THHW-LS 14 AWG blanco en carrete de 500 m,10
+46057,Rollo de 100 m de cable THHW-LS 14 AWG blanco, VOLTECK,1000
+46053,Rollo de 100 m de cable THHW-LS 14 AWG negro, VOLTECK,1000
+46061,Rollo de 100 m de cable THHW-LS 14 AWG rojo, VOLTECK,1000
+46065,Rollo de 100 m de cable THHW-LS 14 AWG verde, VOLTECK,1000
+40116,Metro de cable THHW-LS 14 AWG negro en carrete de 500 m,10
+40124,Metro de cable THHW-LS 14 AWG rojo en carrete de 500 m,10
+40120,Metro de cable THHW-LS 14 AWG verde en carrete de 500 m,10
+40005,Metro de cable uso extra rudo 3 x 10 AWG en rollo de 100 m,85
+40006,Metro de cable uso extra rudo 3 x 12 AWG en rollo de 100 m,55
+40002,Metro de cable uso extra rudo 2 x 10 AWG en rollo de 100 m,60
+40003,Metro de cable uso extra rudo 2 x 12 AWG en rollo de 100 m,40
+40143,Carrete con 10 m de cable THHW-LS 10 AWG blanco, VOLTECK,230
+40142,Carrete con 10 m de cable THHW-LS 10 AWG negro, VOLTECK,230
+40144,Carrete con 10 m de cable THHW-LS 10 AWG rojo, VOLTECK,230
+40146,Carrete con 20 m de cable THHW-LS 12 AWG blanco, VOLTECK,295
+40145,Carrete con 20 m de cable THHW-LS 12 AWG negro, VOLTECK,295
+40147,Carrete con 20 m de cable THHW-LS 12 AWG rojo, VOLTECK,295
+40149,Carrete con 25 m de cable THHW-LS 14 AWG blanco, VOLTECK,270
+40148,Carrete con 25 m de cable THHW-LS 14 AWG negro, VOLTECK,270
+40150,Carrete con 25 m de cable THHW-LS 14 AWG rojo, VOLTECK,270
+40252,Carrete con 20 m de cable THHW-LS 12 AWG verde, VOLTECK,295
+40253,Carrete con 25 m de cable THHW-LS 14 AWG verde, VOLTECK,270
+40251,Carrete con 10 m de cable THHW-LS 10 AWG verde, VOLTECK,230
+46066,Rollo de 100 m de cordón dúplex flexible SPT 12 AWG, VOLTECK,3100
+40044,Metro de cordón dúplex flexible SPT 12 AWG en carrete 300 m,31
+44662,Rollo malla hexagonal cal.20, 1.5x 45m, abertura 50mm, 15kg,800
+40053,Rollo de rafia de 1500 m color blanco calibre 3 g/m, FIERO,425
+40054,Rollo de rafia de 750 m color blanco calibre 6 g/m, FIERO,425
+40062,Rollo de rafia de 562 m color blanco calibre 8 g/m, FIERO,425
 45560,Tubo de 1-1/4' CPVC hidráulico RD 11, 3m, 1.5kg, FOSET,155
 45044,Tubo de 1' CPVC hidráulico RD 13.5, 1', 3m, 0.8kg, FOSET,88
 45042,Tubo de 1/2' CPVC hidráulico RD 13.5, 3m, 0.3kg, FOSET,33
@@ -21,17 +147,6 @@
 41276,Tubo rígido de cobre 1' tipo 'M', 3m, 2.0kg, FOSET,795
 41274,Tubo rígido de cobre 1/2' tipo 'M', 3m, 0.9kg, FOSET,335
 41275,Tubo rígido de cobre 3/4' tipo 'M', 3m, 1.4kg, FOSET,550
-42949,Rollo malla ciclónica cal.12.5, 1.5x20m, abertura 55mm 39kg,1850
-42950,Rollo malla ciclónica cal.12.5, 1.75x20m, abertura 55mm 46kg,2250
-42951,Rollo malla ciclónica cal.12.5, 2x20m, abertura 55mm 51kg,2450
-42954,Rollo malla ciclónica cal.12.5, 1.5x20m, abertura 63mm 37kg,1700
-42955,Rollo malla ciclónica cal.12.5, 1.75x20m, abertura 63mm 38kg,2050
-42956,Rollo malla ciclónica cal.12.5, 2x20m, abertura 63mm 45kg,2250
-42957,Rollo malla ciclónica cal.12.5, 1x20m, abertura 69mm 21kg,935
-42958,Rollo malla ciclónica cal.12.5, 1.25x20m, abertura69mm 26kg,1200
-42959,Rollo malla ciclónica cal.12.5, 1.5x20m, abertura 69mm 31kg,1500
-42960,Rollo malla ciclónica cal.12.5, 1.75x20m, abertura69mm 35kg,1750
-42961,Rollo malla ciclónica cal.12.5, 2x20m, abertura 69mm 40kg,2050
 45522,Tubo de 2' PVC hidráulico cédula 40, 3m, 3.1kg, FOSET,215
 43040,Tubo de 1' PVC hidráulico cédula 40, 3m, 1.4kg, FOSET,100
 43039,Tubo de 3/4' PVC hidráulico cédula 40, 3m, 1kg, FOSET,68
@@ -86,50 +201,6 @@
 20687,Escalera de tijera tipo III 4 escalones y bandeja, PRETUL,900
 20688,Escalera de tijera tipo III 5 escalones y bandeja, PRETUL,1050
 20689,Escalera de tijera tipo III 6 escalones y bandeja, PRETUL,1250
-40762,Kilo de cuerda negra de polipropileno 4 mm, carrete 20kg,80
-40763,Kilo de cuerda negra de polipropileno 6 mm, carrete 20kg,80
-40764,Kilo de cuerda negra de polipropileno 8 mm, carrete 20kg,80
-40765,Kilo de cuerda negra de polipropileno 10 mm, carrete 20kg,80
-40766,Kilo de cuerda negra de polipropileno 11 mm, carrete 20kg,80
-40767,Kilo de cuerda negra de polipropileno 13 mm, carrete 30kg,80
-40768,Kilo de cuerda negra de polipropileno 16 mm, carrete 30kg,80
-40769,Kilo de cuerda negra de polipropileno 19 mm, carrete 30kg,80
-40770,Kilo de cuerda negra de polipropileno 25 mm, carrete 30kg,80
-40183,Kilo de cuerda amarilla de polipropileno 4 mm, rollo 1kg,100
-40184,Kilo de cuerda amarilla de polipropileno 6 mm, rollo 1kg,100
-40185,Kilo de cuerda amarilla de polipropileno 8 mm, rollo 1kg,100
-40186,Kilo de cuerda amarilla de polipropileno 10 mm, rollo 1kg,100
-40187,Kilo de cuerda amarilla de polipropileno 11 mm, rollo 1kg,100
-40188,Kilo de cuerda amarilla de polipropileno 13 mm, rollo 1kg,100
-44487,Kilo de cuerda amarilla de polipropileno 10mm, carrete 20kg,90
-44488,Kilo de cuerda amarilla de polipropileno 11mm, carrete 20kg,90
-44489,Kilo de cuerda amarilla de polipropileno 13mm, carrete 30kg,90
-44490,Kilo de cuerda amarilla de polipropileno 16mm, carrete 30kg,90
-44491,Kilo de cuerda amarilla de polipropileno 19mm, carrete 30kg,90
-44473,Kilo de cuerda amarilla de polipropileno 25mm, carrete 30kg,90
-44472,Kilo de cuerda amarilla de polipropileno 4mm, carrete 20 kg,90
-44485,Kilo de cuerda amarilla de polipropileno 6mm, carrete 20kg,90
-44486,Kilo de cuerda amarilla de polipropileno 8mm, carrete 20kg,90
-40174,Metro de cuerda amarilla de polipropileno 4mm, carrete 2380m,0.78
-40175,Metro de cuerda amarilla de polipropileno 6mm, carrete 920m,2
-40176,Metro de cuerda amarilla de polipropileno 8mm, carrete 640m,2.85
-40177,Metro de cuerda amarilla de polipropileno 10mm, carrete 440m,4.2
-40178,Metro de cuerda amarilla de polipropileno 11mm, carrete 360m,5.1
-40179,Metro de cuerda amarilla de polipropileno 13mm, carrete 390m,7.1
-40180,Metro de cuerda amarilla de polipropileno 16mm, carrete 264m,10.5
-40181,Metro de cuerda amarilla de polipropileno 19mm, carrete 198m,14
-40182,Metro de cuerda amarilla de polipropileno 25mm, carrete 102m,27
-40957,Kilo de cuerda amarilla de polipropileno 16mm, rollo 1kg,100
-40958,Kilo de cuerda amarilla de polipropileno 19mm, rollo 1kg,100
-40963,Madeja de cuerda amarilla de polipropileno 6mm, 15m, FIERO,33
-40964,Madeja de cuerda amarilla de polipropileno 8mm, 10m, FIERO,31
-40965,Madeja de cuerda amarilla de polipropileno 10mm, 8m, FIERO,37
-44492,Rollo de rafia de 410 m color blanco calibre 2.2 g/m, FIERO,100
-45038,Rollo de rafia de 1125 m color blanco calibre 3.8 g/m,450
-45037,Rollo de rafia de 2045 m color blanco calibre 2.2 g/m,450
-45032,Rollo de rafia de 230 m color blanco calibre 2.2 g/m, FIERO,55
-45033,Rollo de rafia de 230 m colores surtidos calibre 2.2 g/m,55
-45031,Rollo de rafia de 410 m colores surtidos calibre 2.2 g/m,100
 49135,Sanitario one piece alargado de porcelana, blanco, FOSET,1950
 47233,Tubo Conduit 1 1/4' para mufa, pared gruesa (0.9 mm), 3 m,240
 47389,Tubo Conduit 1 1/4' para mufa, pared gruesa (0.9 mm), 1.5 m,125
@@ -137,73 +208,6 @@
 47773,Tubo Conduit 1' pared delgada (1.6 mm), et. verde, 3 m,230
 47771,Tubo Conduit 1/2' pared delgada (1 mm), et. verde, 3 m,95
 47772,Tubo Conduit 3/4' pared delgada (1 mm), et. verde, 3 m,125
-40007,Metro de cable uso extra rudo 3 x 14 AWG en rollo de 100 m,35
-40004,Metro de cable uso extra rudo 2 x 14 AWG en rollo de 100 m,25
-40200,Carrete con 10 m cordón dúplex flexible SPT 14 AWG, VOLTECK,215
-40201,Carrete con 12 m cordón dúplex flexible SPT 16 AWG, VOLTECK,165
-40202,Carrete con 20 m cordón dúplex flexible SPT 18 AWG, VOLTECK,185
-40247,Carrete con 10 m de cable THHW-LS 8 AWG blanco, VOLTECK,350
-40248,Carrete con 10 m de cable THHW-LS 8 AWG negro, VOLTECK,350
-40249,Carrete con 10 m de cable THHW-LS 8 AWG rojo, VOLTECK,350
-40250,Carrete con 10 m de cable THHW-LS 8 AWG verde, VOLTECK,350
-46067,Rollo de 100 m de cordón dúplex flexible SPT 14 AWG, VOLTECK,2000
-40042,Metro de cordón dúplex flexible SPT 14 AWG en carrete 500 m,20
-46068,Rollo de 100 m de cordón dúplex flexible SPT 16 AWG, VOLTECK,1300
-40043,Metro de cordón dúplex flexible SPT 16 AWG en carrete 500 m,13
-46069,Rollo de 100 m de cordón dúplex flexible SPT 18 AWG, VOLTECK,850
-40045,Metro de cordón dúplex flexible SPT 18 AWG en carrete 500 m,8.5
-46079,Rollo de 100 m cordón dúplex 12 AWG, VOLTECK,2800
-40046,Metro de cordón dúplex 12 AWG, carrete 500 m, VOLTECK,28
-46054,Rollo de 100 m de cable THHW-LS 8 AWG blanco, VOLTECK,3300
-46050,Rollo de 100 m de cable THHW-LS 8 AWG negro, VOLTECK,3300
-46058,Rollo de 100 m de cable THHW-LS 8 AWG rojo, VOLTECK,3300
-46062,Rollo de 100 m de cable THHW-LS 8 AWG verde, VOLTECK,3300
-40115,Metro de cable THHW-LS 8 AWG blanco en carrete de 500 m,33
-40119,Metro de cable THHW-LS 8 AWG negro en carrete de 500 m,33
-40127,Metro de cable THHW-LS 8 AWG rojo en carrete de 500 m,33
-40123,Metro de cable THHW-LS 8 AWG verde en carrete de 500 m,33
-40114,Metro de cable THHW-LS 10 AWG blanco en carrete de 500 m,20
-46055,Rollo de 100 m de cable THHW-LS 10 AWG blanco, VOLTECK,2000
-46051,Rollo de 100 m de cable THHW-LS 10 AWG negro, VOLTECK,2000
-46059,Rollo de 100 m de cable THHW-LS 10 AWG rojo, VOLTECK,2000
-46063,Rollo de 100 m de cable THHW-LS 10 AWG verde, VOLTECK,2000
-40118,Metro de cable THHW-LS 10 AWG negro en carrete de 500 m,20
-40126,Metro de cable THHW-LS 10 AWG rojo en carrete de 500 m,20
-40122,Metro de cable THHW-LS 10 AWG verde en carrete de 500 m,20
-40113,Metro de cable THHW-LS 12 AWG blanco en carrete de 500 m,13
-46056,Rollo de 100 m de cable THHW-LS 12 AWG blanco, VOLTECK,1300
-46052,Rollo de 100 m de cable THHW-LS 12 AWG negro, VOLTECK,1300
-46060,Rollo de 100 m de cable THHW-LS 12 AWG rojo, VOLTECK,1300
-46064,Rollo de 100 m de cable THHW-LS 12 AWG verde, VOLTECK,1300
-40117,Metro de cable THHW-LS 12 AWG negro en carrete de 500 m,13
-40125,Metro de cable THHW-LS 12 AWG rojo en carrete de 500 m,13
-40121,Metro de cable THHW-LS 12 AWG verde en carrete de 500 m,13
-40112,Metro de cable THHW-LS 14 AWG blanco en carrete de 500 m,9.5
-46057,Rollo de 100 m de cable THHW-LS 14 AWG blanco, VOLTECK,950
-46053,Rollo de 100 m de cable THHW-LS 14 AWG negro, VOLTECK,950
-46061,Rollo de 100 m de cable THHW-LS 14 AWG rojo, VOLTECK,950
-46065,Rollo de 100 m de cable THHW-LS 14 AWG verde, VOLTECK,950
-40116,Metro de cable THHW-LS 14 AWG negro en carrete de 500 m,9.5
-40124,Metro de cable THHW-LS 14 AWG rojo en carrete de 500 m,9.5
-40120,Metro de cable THHW-LS 14 AWG verde en carrete de 500 m,9.5
-40005,Metro de cable uso extra rudo 3 x 10 AWG en rollo de 100 m,82
-40006,Metro de cable uso extra rudo 3 x 12 AWG en rollo de 100 m,53
-40002,Metro de cable uso extra rudo 2 x 10 AWG en rollo de 100 m,58
-40003,Metro de cable uso extra rudo 2 x 12 AWG en rollo de 100 m,38
-40143,Carrete con 10 m de cable THHW-LS 10 AWG blanco, VOLTECK,220
-40142,Carrete con 10 m de cable THHW-LS 10 AWG negro, VOLTECK,220
-40144,Carrete con 10 m de cable THHW-LS 10 AWG rojo, VOLTECK,220
-40146,Carrete con 20 m de cable THHW-LS 12 AWG blanco, VOLTECK,280
-40145,Carrete con 20 m de cable THHW-LS 12 AWG negro, VOLTECK,280
-40147,Carrete con 20 m de cable THHW-LS 12 AWG rojo, VOLTECK,280
-40149,Carrete con 25 m de cable THHW-LS 14 AWG blanco, VOLTECK,255
-40148,Carrete con 25 m de cable THHW-LS 14 AWG negro, VOLTECK,255
-40150,Carrete con 25 m de cable THHW-LS 14 AWG rojo, VOLTECK,255
-40252,Carrete con 20 m de cable THHW-LS 12 AWG verde, VOLTECK,280
-40253,Carrete con 25 m de cable THHW-LS 14 AWG verde, VOLTECK,255
-40251,Carrete con 10 m de cable THHW-LS 10 AWG verde, VOLTECK,220
-46066,Rollo de 100 m de cordón dúplex flexible SPT 12 AWG, VOLTECK,3000
-40044,Metro de cordón dúplex flexible SPT 12 AWG en carrete 300 m,30
 45890,Cilindro portátil para gas LP, 20kg (44lb) FOSET,1550
 48107,Cilindro portátil para gas LP, 20lb (9kg) FOSET,850
 44887,Rollo de alambre de púas 300m calibre 15.5, FIERO,665
@@ -213,7 +217,6 @@
 44660,Rollo malla hexagonal cal.20, 1.5x 45m, abertura 38mm, 19kg,1065
 44661,Rollo malla hexagonal cal.20, 1.75x 45m, abertura 38mm, 21kg,1235
 44655,Rollo malla hexagonal cal.23, 0.90x 45m, abertura 13mm, 16kg,1100
-44662,Rollo malla hexagonal cal.20, 1.5x 45m, abertura 50mm, 15kg,845
 45887,Cilindro portátil para gas LP, 2kg (4.5lb) FOSET,665
 45888,Cilindro portátil para gas LP, 4kg (9lb) FOSET,745
 45889,Cilindro portátil para gas LP, 6kg (13lb) FOSET,835
@@ -265,9 +268,6 @@
 101689,Rollo de 244m película plástica transparente playo 18' cal50,145
 101688,Rollo de 305m película plástica transparente playo, 5' cal60,65
 104118,Rollo de 244m película plástica negra playo, 18', cal 50,150
-40053,Rollo de rafia de 1500 m color blanco calibre 3 g/m, FIERO,450
-40054,Rollo de rafia de 750 m color blanco calibre 6 g/m, FIERO,450
-40062,Rollo de rafia de 562 m color blanco calibre 8 g/m, FIERO,450
 42859,Rollo malla borreguera, 1m x 50m acero galvanizado, 19kg,1100
 42860,Rollo malla borreguera, 1.2m x 50m acero galvanizado, 23kg,1250
 42861,Rollo malla borreguera, 1.4m x 50m acero galvanizado, 26kg,1400
@@ -16031,3 +16031,5 @@
 40262,Bolsa con 1 kg grapas 1-1/4' galvanizadas p/alambre de púas,45
 40263,Bolsa con 1 kg grapas 1-1/2' galvanizadas p/alambre de púas,45
 40265,Bolsa con 1 kg de grapas 1-1/4' negras p/alambre de púas,40
+104577,Soldadura 50/50 para tubería hidráulica, 70 g, SOLDAFÁCIL,75
+104741,Taladro/destornillador 1/2', 20V, 1 batería 2Ah, PRO, MELI,1400
