@@ -1,3 +1,48 @@
+104275,Combo rotomartillo/dest + dest/impacto, 20V, INDUSTRIAL,2700
+104271,Rotomartillo/destornillador 1/2", 20V, 150Nm, 2 baterías 4Ah,2475
+104245,Rotomartillo/destornillador 1/2", 20V, 150Nm, sin accesorios,1120.5
+104243,Rotomartillo/destornillador 1/2", 20V, 70Nm, 2 baterías 2Ah,1530
+104511,Rotomartillo/destornillador 1/2", 20V, 70Nm, 1 batería 2Ah,1080
+104244,Rotomartillo/destornillador 1/2", 20V, 70Nm, sin accesorios,616.5
+104268,Taladro/destornillador 1/2", 20V, 70Nm, 2 baterías 2Ah,1440
+104512,Taladro/destornillador 1/2", 20V, 70Nm, 1 batería 2Ah,990
+104282,Taladro/destornillador 1/2", 20V, 70Nm, sin accesorios,526.5
+104516,Llave de impacto 3/4" 20V 1300Nm, 2 baterías 6Ah, INDUSTRIAL,4410
+104578,Llave de impacto 3/4" 20V 1300Nm, 1 batería 6Ah, INDUSTRIAL,3510
+104517,Llave de impacto 3/4", 20V, 1300Nm, s/accesorios, INDUSTRIAL,2430
+104273,Llave de impacto 1/2" 20V, 850Nm, 2 baterías 4Ah, INDUSTRIAL,2565
+104247,Llave de impacto 1/2", 20V, 850Nm, s/accesorios, INDUSTRIAL,1210.5
+104272,Llave de impacto 1/2" 20V, 650Nm, 2 baterías 4Ah, INDUSTRIAL,2295
+104246,Llave de impacto 1/2", 20V, 650Nm, s/accesorios, INDUSTRIAL,940.5
+104274,Destornillador de impacto 1/4" 20V 2baterías 2Ah, INDUSTRIAL,1665
+104248,Destornillador de impacto 1/4" 20V, s/accesorios, INDUSTRIAL,751.5
+104277,Rotomartillo SDS Plus/destornillador 20V,2.2J,2 baterías 4Ah,2700
+104270,Rotomartillo SDS Plus/destornillador 20V, 2.2 J, sin accs.,1318.5
+104276,Esmeriladora 4-1/2", 20V, 2 baterías 4Ah, INDUSTRIAL,2295
+104249,Esmeriladora 4-1/2", 20V, sin accesorios, INDUSTRIAL,940.5
+104265,Batería ion litio, 20V, 6 Ah, TRUPER INDUSTRIAL,742.5
+104264,Batería ion litio, 20V, 4 Ah, TRUPER INDUSTRIAL,540
+104263,Batería ion litio, 20V, 2 Ah, TRUPER INDUSTRIAL,319.5
+104267,Cargador rápido de baterías de ion litio 20V, INDUSTRIAL,337.5
+104266,Cargador de baterías de ion litio 20V, TRUPER INDUSTRIAL,144
+104184,Rotomartillo SDS Max/destornillador 9 kg, 13 J, 1600W, PRO,2700
+104201,Lijadora de banda 4 x 24", 1200W, TRUPER INDUSTRIAL,2250
+104235,Kit de pistola para soldar plástico 50 W y 200 grapas TRUPER,292.5
+104236,Kit de 1200 grapas para pistola para soldar plástico, TRUPER,135
+104458,Malla desoldadora de cobre, 2 mm x 1.5 m, TRUPER,22.5
+104591,Removedor de polvo (aire comprimido) de 330 ml, TRUPER,63
+104592,Removedor de polvo (aire comprimido) de 660 ml, TRUPER,112.5
+104432,Amarrador de varillas con grip, TRUPER,85.5
+103565,Manguera de succión y descarga 1" para motobomba, rollo 30m,67.5
+103566,Manguera de succión y descarga 1.5" para motobomba,rollo 30m,85.5
+104427,Juego de 3 minicepillos, 28 pinceles acero inoxidable,TRUPER,44.1
+104478,Matraca mini cuadro 1/4" para puntas y dados, TRUPER,90
+104452,Disco de diamante 4-1/2", corte de vidrio, TRUPER,108
+104439,Martillo multifuncional, forjado, 16 oz uña recta, EXPERT,247.5
+29847,Juego de 10 llaves hexagonales std, tipo llavero, PRETUL,36
+29848,Juego de 10 llaves hexagonales mm, tipo llavero, PRETUL,36
+29849,Juego de 14 llaves hexagonales mixtas, tipo llavero, PRETUL,27
+104469,Raspador para piso de 18", mango largo de 60", TRUPER,315
 19052,Pintura aerosol violeta, bote esbelto 400 ml, TRUPER,45
 19061,Pintura aerosol verde metálico, bote esbelto 400 ml, TRUPER,58.5
 40098,Válvula de llenado de 1/2" con flotador #5 y varilla de 22cm,81
@@ -47,3 +92,4 @@
 43893,Raqueta mata moscas y mosquitos con base, recargable VOLTECK,108
 49149,Raqueta mata moscas y mosquitos, recargable, VOLTECK BASIC,67.5
 103245,Podadora inalámbrica 40V, 2 baterías 4Ah, 1 carg.dual, PRO,5355
+
