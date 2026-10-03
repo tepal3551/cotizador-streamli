@@ -1,95 +1,98 @@
-104275,Combo rotomartillo/dest + dest/impacto, 20V, INDUSTRIAL,2700
-104271,Rotomartillo/destornillador 1/2", 20V, 150Nm, 2 baterías 4Ah,2475
-104245,Rotomartillo/destornillador 1/2", 20V, 150Nm, sin accesorios,1120.5
-104243,Rotomartillo/destornillador 1/2", 20V, 70Nm, 2 baterías 2Ah,1530
-104511,Rotomartillo/destornillador 1/2", 20V, 70Nm, 1 batería 2Ah,1080
-104244,Rotomartillo/destornillador 1/2", 20V, 70Nm, sin accesorios,616.5
-104268,Taladro/destornillador 1/2", 20V, 70Nm, 2 baterías 2Ah,1440
-104512,Taladro/destornillador 1/2", 20V, 70Nm, 1 batería 2Ah,990
-104282,Taladro/destornillador 1/2", 20V, 70Nm, sin accesorios,526.5
-104516,Llave de impacto 3/4" 20V 1300Nm, 2 baterías 6Ah, INDUSTRIAL,4410
-104578,Llave de impacto 3/4" 20V 1300Nm, 1 batería 6Ah, INDUSTRIAL,3510
-104517,Llave de impacto 3/4", 20V, 1300Nm, s/accesorios, INDUSTRIAL,2430
-104273,Llave de impacto 1/2" 20V, 850Nm, 2 baterías 4Ah, INDUSTRIAL,2565
-104247,Llave de impacto 1/2", 20V, 850Nm, s/accesorios, INDUSTRIAL,1210.5
-104272,Llave de impacto 1/2" 20V, 650Nm, 2 baterías 4Ah, INDUSTRIAL,2295
-104246,Llave de impacto 1/2", 20V, 650Nm, s/accesorios, INDUSTRIAL,940.5
-104274,Destornillador de impacto 1/4" 20V 2baterías 2Ah, INDUSTRIAL,1665
-104248,Destornillador de impacto 1/4" 20V, s/accesorios, INDUSTRIAL,751.5
-104277,Rotomartillo SDS Plus/destornillador 20V,2.2J,2 baterías 4Ah,2700
-104270,Rotomartillo SDS Plus/destornillador 20V, 2.2 J, sin accs.,1318.5
-104276,Esmeriladora 4-1/2", 20V, 2 baterías 4Ah, INDUSTRIAL,2295
-104249,Esmeriladora 4-1/2", 20V, sin accesorios, INDUSTRIAL,940.5
-104265,Batería ion litio, 20V, 6 Ah, TRUPER INDUSTRIAL,742.5
-104264,Batería ion litio, 20V, 4 Ah, TRUPER INDUSTRIAL,540
-104263,Batería ion litio, 20V, 2 Ah, TRUPER INDUSTRIAL,319.5
-104267,Cargador rápido de baterías de ion litio 20V, INDUSTRIAL,337.5
-104266,Cargador de baterías de ion litio 20V, TRUPER INDUSTRIAL,144
-104184,Rotomartillo SDS Max/destornillador 9 kg, 13 J, 1600W, PRO,2700
-104201,Lijadora de banda 4 x 24", 1200W, TRUPER INDUSTRIAL,2250
-104235,Kit de pistola para soldar plástico 50 W y 200 grapas TRUPER,292.5
-104236,Kit de 1200 grapas para pistola para soldar plástico, TRUPER,135
-104458,Malla desoldadora de cobre, 2 mm x 1.5 m, TRUPER,22.5
-104591,Removedor de polvo (aire comprimido) de 330 ml, TRUPER,63
-104592,Removedor de polvo (aire comprimido) de 660 ml, TRUPER,112.5
-104432,Amarrador de varillas con grip, TRUPER,85.5
-103565,Manguera de succión y descarga 1" para motobomba, rollo 30m,67.5
-103566,Manguera de succión y descarga 1.5" para motobomba,rollo 30m,85.5
-104427,Juego de 3 minicepillos, 28 pinceles acero inoxidable,TRUPER,44.1
-104478,Matraca mini cuadro 1/4" para puntas y dados, TRUPER,90
-104452,Disco de diamante 4-1/2", corte de vidrio, TRUPER,108
-104439,Martillo multifuncional, forjado, 16 oz uña recta, EXPERT,247.5
-29847,Juego de 10 llaves hexagonales std, tipo llavero, PRETUL,36
-29848,Juego de 10 llaves hexagonales mm, tipo llavero, PRETUL,36
-29849,Juego de 14 llaves hexagonales mixtas, tipo llavero, PRETUL,27
-104469,Raspador para piso de 18", mango largo de 60", TRUPER,315
-19052,Pintura aerosol violeta, bote esbelto 400 ml, TRUPER,45
-19061,Pintura aerosol verde metálico, bote esbelto 400 ml, TRUPER,58.5
-40098,Válvula de llenado de 1/2" con flotador #5 y varilla de 22cm,81
-40099,Válvula de llenado de 3/4" con flotador #6 y varilla de 22cm,99
-43405,Regadera redonda 2-1/2" con brazo y chapeton ABS, BASIC,63
-43406,Casquillo de acero inoxidable para contracanasta,10cm,1-1/2",18
-43407,Casquillo de acero inoxidable para contracanasta,15cm,1-1/2",22.5
-43408,Casquillo de acero inoxidable para contracanasta,20cm,1-1/2",31.5
-43414,Rejilla anticucaracha, acero inoxidable 5", FOSET,31.5
-43415,Tapa ciega para coladera, acero inoxidable 5", FOSET,31.5
-43460,Manguera para WC de aluminio, 7/8 x 7/8", 35 cm, BASIC,18
-43461,Manguera para WC de aluminio, 7/8 x 7/8", 50 cm, BASIC,20.7
-43481,Válvula de bola PPR, 1/2" (20 mm), FOSET,13.5
-43485,Válvula de bola PPR, 3/4" (25 mm), FOSET,22.5
-43486,Válvula de bola PPR, 1" (32 mm), FOSET,36
-43487,Puente de PPR 1/2" (20 mm), FOSET,9
-43491,Puente de PPR 3/4" (25 mm), FOSET,13.5
-43497,Tuerca unión PPR, plástica 1", FOSET,16.2
-43144,Tee macho de PPR 3/4" con inserto metálico, FOSET,54
-43146,Tee macho de PPR 1" con inserto metálico, FOSET,85.5
-43142,Tee hembra de PPR 3/4" con inserto metálico, FOSET,36
-43143,Tee hembra de PPR 1" con inserto metálico, FOSET,54
-43141,Tee reducida hembra de PPR 3/4"x 3/4"x 1/2" inserto metálico,27
-43498,Tuerca unión PPR, mixta macho inserto metálico 1/2", FOSET,81
-43502,Tuerca unión PPR, mixta macho inserto metálico 3/4", FOSET,103.5
-43547,Interruptor de 1 polo 10 A, enchufable en blíster, VOLTECK,51.3
-43554,Adaptador con supresor de picos 1470 Joules, VOLTECK,67.5
-43571,Sensor de movimiento con alarma y timbre inalámbrico,265.5
-43891,Compensador de voltaje 1250 VA / 1000 W, VOLTECK,855
-43892,Compensador de voltaje 2500 VA / 2000 W, VOLTECK,1170
-11029,Desmalezadora a gasolina 33 cc mango tipo "bici" 18", TRUPER,3240
-11031,Desmalezadora a gasolina 43 cc mango tipo "bici" 18", TRUPER,3510
-11032,Desmalezadora a gasolina 52 cc mango tipo "bici" 18", TRUPER,3780
-12671,Desmalezadora a gasolina 63 cc mango tipo "bici" 18", TRUPER,4500
-13521,Desbrozadora eléctrica 1000 W mango "D", 14" corte, TRUPER,1350
-26104,Desmalezadora a gasolina 52 cc mango tipo "bici" , PRETUL,2340
-101263,Desbrozadora eléctrica 550 W mango "D", 13" corte, TRUPER,900
-12496,Desbrozadora a gasolina 26 cc mango "D" curva, 17", TRUPER,1755
-12498,Desbrozadora a gasolina 30 cc mango "D" curva, 17", TRUPER,2025
-12497,Desbrozadora a gasolina 30 cc mango "D" recta, 17", TRUPER,2295
-29951,Desbrozadora eléctrica 300 W mango "D", 9" corte, PRETUL,585
-22430,Desbrozadora a gasolina 25cc mango tipo "D", 17"corte, curva,1530
-103243,Desbrozadora inalámbrica 40V, 2 baterías 2Ah,1 carg.dual,PRO,2286
-103554,Desbrozadora inalámbrica 40V, sin accesorios, TRUPER PRO,1305
-28272,Desbrozadora inalámbrica 20V, 1 batería 2Ah, 1 carg. PRETUL,1170
-103205,Desbrozadora multifuncional 4 en 1, a gasolina 45 cc, TRUPER,4950
-43893,Raqueta mata moscas y mosquitos con base, recargable VOLTECK,108
-49149,Raqueta mata moscas y mosquitos, recargable, VOLTECK BASIC,67.5
-103245,Podadora inalámbrica 40V, 2 baterías 4Ah, 1 carg.dual, PRO,5355
-
+103661,Tronzadora / cortadora de metales 14", 2200 W mango recto,2250
+103660,Tronzadora / cortadora de metales 14", 2200 W mango en "D",2250
+104596,Combo rotomartillo/destornillador + esmeriladora, 20 V, IND,2880
+104412,Rotomartillo/destornillador 3/8", 12V, 1 batería 2 Ah, PRO,630
+104413,Taladro/destornillador 3/8", 12V, 1 batería 2Ah, TRUPER PRO,607.5
+104414,Destornillador de impacto 1/4", 12 V brushless, TRUPER PRO,742.5
+104456,Combo rotomartillo/dest + dest/impacto, 12V TRUPER PRO,1305
+104424,Batería ion litio, 12 V, 2 Ah, TRUPER PRO,157.5
+104425,Cargador de baterías de ion litio de 12 V, TRUPER PRO,135
+104259,Pesa patrón para básculas, 10 kg, TRUPER,715.5
+104430,Pesa patrón para básculas, 20 kg, TRUPER,1075.5
+104257,Batería recargable para básculas 4V / 4Ah TRUPER,85.5
+104399,Bomba para enfriadores y refrigeradores, 70W, TRUPER,585
+104681,Broca para concreto de 1/4 x 12" en blíster, TRUPER,31.5
+104682,Broca para concreto de 5/16 x 12" en blíster, TRUPER,40.5
+104683,Broca para concreto de 3/8 x 12" en blíster, TRUPER,49.5
+104684,Broca para concreto de 1/2 x 12" en blíster, TRUPER,63
+104685,Broca para concreto de 5/8 x 6" en blíster, TRUPER,70.2
+104686,Broca para concreto de 5/8 x 12" en blíster, TRUPER,103.5
+104541,Cinta autofusionable de silicón 1" x 3 m de largo, TRUPER,85.5
+104480,Inflador de llantas con manómetro, 1/4" NPT, TRUPER,175.5
+104419,Brocha pelo de camello de 2-1/2" con mango de madera, TRUPER,42.3
+104450,Brocha pelo de camello de 5" con mango de madera, TRUPER,121.5
+104451,Brocha pelo de camello de 6" con mango de madera, TRUPER,148.5
+104241,Mazo de golpe seco, 28 oz, TRUPER,157.5
+104667,Pala carbonera T-2000, puño "Y", mango 33", TRUPER,265.5
+104260,Pinza de chofer 8" doble ángulo de agarre, TRUPER,121.5
+104576,Chaleco brigadista con cintas reflejantes, color amarillo,202.5
+29843,Chaleco brigadista con cintas reflejantes, azul, PRETUL,135
+29842,Chaleco brigadista con cintas reflejantes, naranja, PRETUL,135
+29844,Chaleco brigadista con cintas reflejantes, amarillo, PRETUL,135
+104397,Kit soldadura electrónica con cautín 8W, inalámbrico, TRUPER,270
+104398,Blíster con 3 puntas de repuesto p/cautín CAU-8IK, TRUPER,112.5
+104664,Soldadura 95/5 para tubería de gas, 48 g, SOLDAFÁCIL,118.75
+104662,Soldadura 95/5 para tubería de gas, 158 g, SOLDAFÁCIL,356.25
+104663,Soldadura 95/5 para tubería de gas, 158 g, SOLDAKLIN,356.25
+104577,Soldadura 50/50 para tubería hidráulica, 70 g, SOLDAFÁCIL,71.25
+104660,Soldadura 50/50 para tubería hidráulica, 178 g, SOLDAFÁCIL,163.4
+104661,Soldadura 50/50 para tubería hidráulica, 178 g, SOLDAKLIN,185.25
+104623,Soldadura 60% estaño 40% plomo para electrónica, 17g,28.5
+104622,Soldadura 60% estaño 40% plomo para electrónica, 100g,149.15
+104621,Soldadura 60% estaño 40% plomo para electrónica, 1 Kg,1377.5
+104624,Soldadura 1/2-1/2 para tubería baja presión, 250g, SOLDAKLIN,137.75
+43634,Asiento alargado ligero para WC, abierto, blanco, BASIC,135
+43635,Asiento alargado ligero para WC, abierto, hueso, BASIC,135
+45851,Asiento alargado para WC,cierre lento,abierto,blanco,ELEMENT,360
+45852,Asiento alargado para WC,cierre lento, abierto,hueso,ELEMENT,360
+43738,Asiento alargado acojinado para WC, cerrado, blanco, AQUA,225
+45849,Asiento redondo para WC,cierre lento, abierto,blanco,ELEMENT,315
+45850,Asiento redondo para WC,cierre lento, abierto, hueso,ELEMENT,315
+43593,Tuerca unión roscable de PVC 1/2", FOSET,9
+43594,Tuerca unión roscable de PVC 3/4", FOSET,13.5
+43595,Tuerca unión roscable de PVC 1", FOSET,19.8
+43598,Tuerca unión roscable de PVC 1-1/4", FOSET,31.5
+43599,Tuerca unión roscable de PVC 1-1/2", FOSET,45
+43600,Tuerca unión roscable de PVC 2", FOSET,76.5
+43700,Válvula check de PVC 1/2" roscable, FOSET,20.7
+43704,Válvula check de PVC 3/4" roscable, FOSET,22.5
+43705,Válvula check de PVC 1" roscable, FOSET,36
+43706,Válvula check de PVC 1-1/4" roscable, FOSET,63
+43710,Válvula check de PVC 1-1/2" roscable, FOSET,76.5
+43711,Válvula check de PVC 2" roscable, FOSET,126
+43671,Válvula check de PVC 1/2" para cementar, FOSET,20.7
+43675,Válvula check de PVC 3/4" para cementar, FOSET,22.5
+43676,Válvula check de PVC 1" para cementar, FOSET,36
+43677,Válvula check de PVC 1-1/4" para cementar, FOSET,63
+43698,Válvula check de PVC 1-1/2" para cementar, FOSET,76.5
+43699,Válvula check de PVC 2" para cementar, FOSET,126
+43783,Tapón macho de PVC 1/2", FOSET,0.9
+43784,Tapón macho de PVC 3/4", FOSET,1.8
+43785,Tapón macho de PVC 1", FOSET,2.7
+43799,Tapón hembra de PVC 1/2", FOSET,1.35
+43838,Tapón hembra de PVC 3/4", FOSET,2.25
+43839,Tapón hembra de PVC 1", FOSET,3.15
+43843,Yee sencilla de PVC 1/2", FOSET,8.1
+43844,Yee sencilla de PVC 3/4", FOSET,13.5
+43845,Yee sencilla de PVC 1", FOSET,22.5
+43840,Cople de compresión PVC de 1/2", FOSET,17.1
+43841,Cople de compresión PVC de 3/4", FOSET,22.5
+43842,Cople de compresión PVC de 1", FOSET,31.5
+43747,Conector Yee de polipropileno de 1" para bomba p/agua, FOSET,31.5
+43264,Regadera cuadrada 3-3/4" brazo y chapetón, blíster, BASIC,103.5
+43423,Brazo y chapetón para regadera, blíster, cromo, FOSET BASIC,49.5
+43411,Casquillo de plástico para contracanasta, 1-1/2", 20 cm,13.5
+43410,Casquillo de plástico para contracanasta, 1-1/2", 15 cm,11.7
+43409,Casquillo de plástico para contracanasta, 1-1/2", 10 cm,9
+43553,Soporte de escritorio para monitor de 13" a 32", VOLTECK,405
+43496,Base para Watthorímetro, 5 terminales, cuadrada, VOLTECK,247.5
+43434,Clip pelícano para vidrio, chico, cromo, par, HERMEX,85.5
+43448,Clip pelícano para vidrio, mediano, cromo, par, HERMEX,121.5
+43459,Clip pelícano para vidrio, grande, cromo, par, HERMEX,202.5
+43433,Clip pelícano para vidrio, chico, níquel satín, par, HERMEX,85.5
+43447,Clip pelícano para vidrio, mediano, níquel satín,par, HERMEX,121.5
+43449,Clip pelícano para vidrio, grande, níquel satín,par, HERMEX,202.5
+43400,Candado laminado, 30 mm, gancho largo, blíster, HERMEX BASIC,33.3
+43401,Candado laminado, 40 mm, gancho largo, blíster, HERMEX BASIC,49.5
+43402,Candado laminado, 45 mm, gancho largo, blíster, HERMEX BASIC,56.7
+43403,Candado laminado, 50 mm, gancho largo, blíster, HERMEX BASIC,67.5
