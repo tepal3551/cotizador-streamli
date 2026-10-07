@@ -2,11 +2,11 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 from fpdf import FPDF
-from urllib.parse import quote_plus 
-import re 
+from urllib.parse import quote_plus
+import re
 import os
 import json
-import requests 
+import requests
 
 # ==============================================================================
 # SECCIÓN 1: DEFINICIÓN DE FUNCIONES
@@ -15,9 +15,9 @@ import requests
 def limpiar_nombre_archivo(nombre):
     """Convierte el nombre del cliente en un nombre de archivo seguro."""
     reemplazos = {
-        'á':'a', 'é':'e', 'í':'i', 'ó':'o', 'ú':'u',
-        'Á':'A', 'É':'E', 'Í':'I', 'Ó':'O', 'Ú':'U',
-        'ñ':'n', 'Ñ':'N', 'ü':'u', 'Ü':'U'
+        'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u',
+        'Á': 'A', 'É': 'E', 'Í': 'I', 'Ó': 'O', 'Ú': 'U',
+        'ñ': 'n', 'Ñ': 'N', 'ü': 'u', 'Ü': 'U'
     }
     for k, v in reemplazos.items():
         nombre = nombre.replace(k, v)
@@ -28,7 +28,6 @@ def limpiar_nombre_archivo(nombre):
     return nombre[:50] if nombre else "MOSTRADOR"
 
 
-
 @st.cache_data
 def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
     catalogo = []
@@ -37,17 +36,20 @@ def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
             for line in f:
                 try:
                     partes = line.strip().split(',')
-                    if len(partes) < 3: continue
+                    if len(partes) < 3:
+                        continue
                     codigo = partes[0].strip()
                     precio = float(partes[-1].strip())
                     descripcion = ','.join(partes[1:-1]).strip()
                     catalogo.append({'codigo': codigo, 'descripcion': descripcion, 'precio': precio})
-                except (ValueError, IndexError): continue
+                except (ValueError, IndexError):
+                    continue
     except FileNotFoundError:
         return pd.DataFrame()
 
     df = pd.DataFrame(catalogo)
-    if df.empty: return pd.DataFrame(columns=['codigo', 'descripcion', 'precio'])
+    if df.empty:
+        return pd.DataFrame(columns=['codigo', 'descripcion', 'precio'])
     df = df.set_index('codigo')
 
     try:
@@ -55,38 +57,50 @@ def cargar_catalogo(nombre_archivo_catalogo, nombre_archivo_actualizaciones):
             for line in f:
                 try:
                     partes = line.strip().split(',')
-                    if len(partes) < 3: continue 
+                    if len(partes) < 3:
+                        continue
                     codigo = partes[0].strip()
                     nuevo_precio = float(partes[-1].strip())
                     nueva_descripcion = ','.join(partes[1:-1]).strip()
                     df.loc[codigo] = {'descripcion': nueva_descripcion, 'precio': nuevo_precio}
-                except: continue
-    except FileNotFoundError: pass
+                except Exception:
+                    continue
+    except FileNotFoundError:
+        pass
 
     df = df.reset_index()
     df['display'] = df['codigo'] + " - " + df['descripcion']
     return df
 
+
 URL_CLIENTES_SHEET = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTxPh4_poWxwC63UWWeczmFn-iAItg6UYnrZjtzBHcz-7SRs550_0pqwRHS8LCvu3PYe7oLgmn1IKoz/pub?gid=0&single=true&output=csv"
+
 
 @st.cache_data(ttl=600)
 def cargar_clientes(nombre_archivo_clientes):
     # 1) Intenta leer desde Google Sheets
     try:
         df = pd.read_csv(URL_CLIENTES_SHEET, dtype=str).fillna("")
+        # Limpia encabezados: quita espacios sobrantes y pasa a minúsculas
+        df.columns = [str(c).strip().lower() for c in df.columns]
         df = df.rename(columns={
-            'ID Vendedor': 'cve_age',
-            'ID Cliente': 'cve',
-            'Nombre Cliente ': 'nombre'
+            'id vendedor': 'cve_age',
+            'nombre vendedor': 'nombre_vend',
+            'id cliente': 'cve',
+            'nombre cliente': 'nombre'
         })
+        if 'nombre_vend' not in df.columns:
+            df['nombre_vend'] = ""
         df = df[df['cve'].str.strip() != ""]
         df['cve'] = df['cve'].str.strip()
         df['cve_age'] = df['cve_age'].str.strip()
         df['nombre'] = df['nombre'].str.strip()
+        df['nombre_vend'] = df['nombre_vend'].str.strip()
         df['display'] = df['cve'] + " - " + df['nombre'] + " (Vend: " + df['cve_age'] + ")"
-        return df[['cve', 'cve_age', 'nombre', 'display']]
+        return df[['cve', 'cve_age', 'nombre', 'nombre_vend', 'display']]
     except Exception as e:
         st.error(f"Error leyendo Sheet: {e}")
+
     # 2) Respaldo: archivo local si el Sheet falla
     clientes = []
     try:
@@ -98,67 +112,27 @@ def cargar_clientes(nombre_archivo_clientes):
                     cve_age = partes[1].strip()
                     nombre = partes[2].strip()
                     display = f"{cve} - {nombre} (Vend: {cve_age})"
-                    clientes.append({'cve': cve, 'cve_age': cve_age, 'nombre': nombre, 'display': display})
+                    clientes.append({'cve': cve, 'cve_age': cve_age, 'nombre': nombre,
+                                     'nombre_vend': '', 'display': display})
     except FileNotFoundError:
         return pd.DataFrame()
     return pd.DataFrame(clientes)
-    def obtener_siguiente_folio_render():
-        url = "https://servidor-pedidos.onrender.com/api/folio-actual"
-    intentos_maximos = 3
-    
-    for intento in range(1, intentos_maximos + 1):
-        try:
-            # Mensaje visible al usuario sobre el intento actual
-            if intento > 1:
-                st.info(f"⏳ Intento {intento}/{intentos_maximos}: El servidor está despertando...")
-            
-            respuesta = requests.get(url, timeout=60)  # 60 seg para cold start
-            
-            if respuesta.status_code == 200:
-                datos = respuesta.json()
-                return int(datos['folio'])
-            else:
-                # AHORA SÍ vemos qué código devuelve
-                st.error(f"❌ El servidor respondió código {respuesta.status_code}")
-                st.code(respuesta.text[:500])  # Muestra el mensaje del servidor
-                return 99999
-                
-        except requests.exceptions.Timeout:
-            if intento < intentos_maximos:
-                continue  # Reintenta sin avisar todavía
-            st.error("❌ Timeout: El servidor tardó más de 60 seg en responder en cada intento.")
-            return 99999
-            
-        except requests.exceptions.ConnectionError as e:
-            st.error(f"❌ No se puede conectar al servidor. ¿Está caído?")
-            st.code(str(e))
-            return 99999
-            
-        except ValueError as e:
-            # JSON inválido
-            st.error(f"❌ El servidor respondió, pero no es JSON válido.")
-            st.code(f"Respuesta: {respuesta.text[:500]}")
-            return 99999
-            
-        except Exception as e:
-            st.error(f"❌ Error inesperado: {type(e)._name_}: {e}")
-            return 99999
-    
-    return 99999
+
+
 def crear_pedido_render(nombre_cliente, id_vendedor, id_cliente, cotizacion):
     url = "https://servidor-pedidos.onrender.com/api/crear-pedido"
-    
+
     # 1. Traducimos los datos de Python al formato exacto que pide Node.js
     productos_formateados = []
     for item in cotizacion:
         productos_formateados.append({
-            "key": item["codigo"],        # server.js busca 'key'
-            "quantity": item["cantidad"], # server.js busca 'quantity'
-            "cve_suc": "PED",             
+            "key": item["codigo"],         # server.js busca 'key'
+            "quantity": item["cantidad"],  # server.js busca 'quantity'
+            "cve_suc": "PED",
             "cve_mon": 1,
-            "lugar": "A2"                 # Forzando almacén A2 por defecto
+            "lugar": "A2"                  # Forzando almacén A2 por defecto
         })
-        
+
     # 2. Armamos el paquete de envío
     payload = {
         "clientName": nombre_cliente,
@@ -166,47 +140,45 @@ def crear_pedido_render(nombre_cliente, id_vendedor, id_cliente, cotizacion):
         "clientId": id_cliente,
         "products": productos_formateados
     }
-    
+
     # 3. Enviamos la orden de crear pedido al servidor
     try:
         respuesta = requests.post(url, json=payload, timeout=30)
-        
+
         if respuesta.status_code == 201:
             datos = respuesta.json()
-            return datos["folio"] 
+            return datos["folio"]
         else:
             st.error(f"⚠️ El servidor rechazó el pedido: {respuesta.text}")
             return None
-            
+
     except Exception as e:
         st.error(f"🔍 Problema de comunicación con Render: {e}")
         return None
 
-# --- AJUSTES EN GENERAR_PDF ---
+
 def generar_pdf(df, cliente, tipo_doc, lista, total):
     pdf = FPDF()
     pdf.add_page()
-    
+
     if os.path.exists("logo_tepalcates.png"):
         pdf.image("logo_tepalcates.png", x=10, y=8, w=35)
-        
-    if os.path.exists("logo_truper_completo.png"): # Asegúrate de que tu imagen nueva se llame así
+
+    if os.path.exists("logo_truper_completo.png"):
         pdf.image("logo_truper_completo.png", x=165, y=8, w=35)
 
-    # TÍTULO SIMPLIFICADO
     pdf.set_font("Arial", 'B', 16)
-    pdf.cell(200, 10, txt="Cotización", ln=True, align='C') 
-    
-    pdf.ln(15) 
-    # ... (el resto de la función sigue igual)
-    
+    pdf.cell(200, 10, txt="Cotización", ln=True, align='C')
+
+    pdf.ln(15)
+
     pdf.set_font("Arial", size=12)
     pdf.cell(200, 8, txt=f"Cliente: {cliente}", ln=True)
     pdf.cell(200, 8, txt=f"Tipo: {tipo_doc}", ln=True)
     pdf.cell(200, 8, txt=f"Lista: {lista}", ln=True)
     pdf.cell(200, 8, txt=f"Fecha: {datetime.now().strftime('%d/%m/%Y')}", ln=True)
     pdf.ln(10)
-    
+
     pdf.set_font("Arial", 'B', 10)
     pdf.cell(30, 10, "Código", 1)
     pdf.cell(90, 10, "Descripción", 1)
@@ -214,7 +186,7 @@ def generar_pdf(df, cliente, tipo_doc, lista, total):
     pdf.cell(25, 10, "P. Unit", 1)
     pdf.cell(25, 10, "Subt.", 1)
     pdf.ln()
-    
+
     pdf.set_font("Arial", size=9)
     for _, row in df.iterrows():
         pdf.cell(30, 8, str(row['codigo']), 1)
@@ -223,24 +195,22 @@ def generar_pdf(df, cliente, tipo_doc, lista, total):
         pdf.cell(25, 8, f"${row['precio_unitario']:,.2f}", 1)
         pdf.cell(25, 8, f"${row['Subtotal']:,.2f}", 1)
         pdf.ln()
-        
+
     pdf.ln(5)
     pdf.set_font("Arial", 'B', 12)
     pdf.cell(200, 10, txt=f"TOTAL: ${total:,.2f}", ln=True, align='R')
-    
-    pdf.ln(10) 
-    pdf.set_font("Arial", 'I', 10) 
+
+    pdf.ln(10)
+    pdf.set_font("Arial", 'I', 10)
     pdf.cell(200, 10, txt="Válida únicamente durante el mes de emisión de este documento.", ln=True, align='C')
-    
+
     try:
         return bytes(pdf.output())
     except TypeError:
         return pdf.output(dest='S').encode('latin-1')
     except AttributeError:
         return pdf.output()
-    
-    
-    
+
 
 def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
     lineas = [line.strip() for line in texto_pedido.split('\n') if line.strip()]
@@ -255,31 +225,36 @@ def analizar_y_cargar_pedido(texto_pedido, df_catalogo):
             cant = int(match.group(2))
             if cod in catalogo_map:
                 p_base = float(catalogo_map[cod]['precio'])
-                precio_final = p_base if st.session_state.tipo_lista == "Distribuidor" else p_base / 0.90
                 nuevos_productos.append({
-                    'codigo': cod, 'descripcion': catalogo_map[cod]['descripcion'],
+                    'codigo': cod,
+                    'descripcion': catalogo_map[cod]['descripcion'],
                     'cantidad': cant,
-                    'precio_base': p_base,
-                    'precio_unitario': precio_final
+                    'precio_base': p_base
                 })
     if nuevos_productos:
         st.session_state.cotizacion.extend(nuevos_productos)
-        if 'folio_generado' in st.session_state: del st.session_state.folio_generado
+        if 'folio_generado' in st.session_state:
+            del st.session_state.folio_generado
+
+
 def agregar_producto_manual():
     if st.session_state.prod_sel:
         info = st.session_state.catalogo_df[st.session_state.catalogo_df['display'] == st.session_state.prod_sel].iloc[0]
         p_base = float(info['precio'])
-        
         st.session_state.cotizacion.append({
-            'codigo': info['codigo'], 'descripcion': info['descripcion'],
-            'cantidad': st.session_state.cant_sel, 'precio_base': p_base
+            'codigo': info['codigo'],
+            'descripcion': info['descripcion'],
+            'cantidad': st.session_state.cant_sel,
+            'precio_base': p_base
         })
-        
-        st.session_state.prod_sel = None 
+        st.session_state.prod_sel = None
         st.session_state.cant_sel = 1
-        if 'folio_generado' in st.session_state: del st.session_state.folio_generado
+        if 'folio_generado' in st.session_state:
+            del st.session_state.folio_generado
+
 
 ARCHIVO_HISTORIAL = "historial_cotizaciones.json"
+
 
 def leer_historial():
     if os.path.exists(ARCHIVO_HISTORIAL):
@@ -290,16 +265,17 @@ def leer_historial():
                 return {}
     return {}
 
+
 def guardar_cotizacion(cliente_display, tipo_doc, tipo_lista, total):
     historial = leer_historial()
-    
+
     if st.session_state.editando_id:
         cot_id = st.session_state.editando_id
-        fecha_registro = historial[cot_id]['fecha'] 
+        fecha_registro = historial[cot_id]['fecha']
     else:
         cot_id = datetime.now().strftime("%Y%m%d%H%M%S")
         fecha_registro = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    
+
     historial[cot_id] = {
         "id": cot_id,
         "fecha": fecha_registro,
@@ -309,22 +285,25 @@ def guardar_cotizacion(cliente_display, tipo_doc, tipo_lista, total):
         "total": round(total, 2),
         "productos": st.session_state.cotizacion
     }
-    
+
     with open(ARCHIVO_HISTORIAL, 'w', encoding='utf-8') as f:
         json.dump(historial, f, indent=4)
-    
+
     st.session_state.editando_id = None
     st.session_state.cotizacion = []
     st.session_state.cliente_seleccionado = None
     st.session_state.vendedor_input = ""
     st.session_state.tipo_doc_input = "Remisión"
-    if 'folio_generado' in st.session_state: del st.session_state.folio_generado
+    if 'folio_generado' in st.session_state:
+        del st.session_state.folio_generado
+
 
 # ==============================================================================
 # SECCIÓN 2: INTERFAZ
 # ==============================================================================
 
 st.set_page_config(page_title="Cotizador Truper", layout="wide")
+
 # --- CSS PARA MARCA DE AGUA ---
 page_bg_img = """
 <style>
@@ -335,21 +314,26 @@ page_bg_img = """
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-blend-mode: lighten;
-    background-color: rgba(255, 255, 255, 0.95); /* El 0.95 hace que la marca sea sutil */
+    background-color: rgba(255, 255, 255, 0.95);
 }
 </style>
 """
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
-if 'cotizacion' not in st.session_state: st.session_state.cotizacion = []
-if 'tipo_lista' not in st.session_state: st.session_state.tipo_lista = "Distribuidor"
-if 'editando_id' not in st.session_state: st.session_state.editando_id = None
-if 'cliente_seleccionado' not in st.session_state: st.session_state.cliente_seleccionado = None
-if 'vendedor_input' not in st.session_state: st.session_state.vendedor_input = ""
-if 'tipo_doc_input' not in st.session_state: st.session_state.tipo_doc_input = "Remisión"
+if 'cotizacion' not in st.session_state:
+    st.session_state.cotizacion = []
+if 'tipo_lista' not in st.session_state:
+    st.session_state.tipo_lista = "Distribuidor"
+if 'editando_id' not in st.session_state:
+    st.session_state.editando_id = None
+if 'cliente_seleccionado' not in st.session_state:
+    st.session_state.cliente_seleccionado = None
+if 'vendedor_input' not in st.session_state:
+    st.session_state.vendedor_input = ""
+if 'tipo_doc_input' not in st.session_state:
+    st.session_state.tipo_doc_input = "Remisión"
 
 # --- LOGOS EN LA PANTALLA PRINCIPAL ---
-#c# Cambia el 1 por un 1.5 en el último valor
 col_logo1, col_titulo, col_logo2 = st.columns([1, 4, 1.5])
 
 with col_logo1:
@@ -363,7 +347,6 @@ with col_titulo:
     st.markdown(f"<h1 style='text-align: center;'>{titulo_texto}</h1>", unsafe_allow_html=True)
 
 with col_logo2:
-    # AQUÍ PONEMOS LA IMAGEN NUEVA DE LAS MARCAS
     if os.path.exists("logo_truper_completo.png"):
         st.image("logo_truper_completo.png", use_container_width=True)
 
@@ -379,21 +362,21 @@ c_cfg1, c_cfg2, c_cfg3 = st.columns(3)
 with c_cfg1:
     vendedor = st.text_input("Clave Vendedor (Sirve de Filtro):", value=st.session_state.vendedor_input)
     st.session_state.vendedor_input = vendedor
-    
+
     opciones_clientes = []
     if not clientes_df.empty:
-        if vendedor: 
+        if vendedor:
             df_filtrado = clientes_df[clientes_df['cve_age'] == str(vendedor).strip()]
             opciones_clientes = df_filtrado['display'].tolist()
-        else: 
+        else:
             opciones_clientes = clientes_df['display'].tolist()
-    
+
     index_cliente = None
     if st.session_state.cliente_seleccionado in opciones_clientes:
         index_cliente = opciones_clientes.index(st.session_state.cliente_seleccionado)
-        
+
     cliente_seleccionado = st.selectbox(
-        "Seleccione Cliente:", 
+        "Seleccione Cliente:",
         options=opciones_clientes,
         index=index_cliente,
         placeholder="Teclee nombre o clave..."
@@ -403,28 +386,34 @@ with c_cfg1:
 with c_cfg2:
     tipo_doc = st.text_input("Tipo de Documento:", value=st.session_state.tipo_doc_input)
     st.session_state.tipo_doc_input = tipo_doc
-    
+
     no_ped_manual = st.text_input("No. Pedido (Dejar vacío para autogenerar):", value="")
 
+    observaciones = st.text_input("Observaciones:", value="")
+
 with c_cfg3:
-    st.session_state.tipo_lista = st.radio("Lista de Precios:", ["Distribuidor", "Dimefet"], horizontal=True)
+    opciones_lista = ["Distribuidor", "Dimefet"]
+    idx_lista = opciones_lista.index(st.session_state.tipo_lista) if st.session_state.tipo_lista in opciones_lista else 0
+    st.session_state.tipo_lista = st.radio("Lista de Precios:", opciones_lista, index=idx_lista, horizontal=True)
 
 cve_cliente_real = ""
-cve_vendedor_real = vendedor 
+cve_vendedor_real = vendedor
 nombre_cliente_limpio = "MOSTRADOR"
+nombre_vendedor_real = ""
 
 if cliente_seleccionado and not clientes_df.empty:
     info_cliente = clientes_df[clientes_df['display'] == cliente_seleccionado].iloc[0]
     cve_cliente_real = info_cliente['cve']
-    nombre_cliente_limpio = info_cliente['nombre'] 
-    
+    nombre_cliente_limpio = info_cliente['nombre']
+    nombre_vendedor_real = info_cliente.get('nombre_vend', '')
+
     if not cve_vendedor_real and info_cliente['cve_age']:
         cve_vendedor_real = info_cliente['cve_age']
 
 with st.expander("🔍 Búsqueda de Productos"):
-    c1, c2, c3 = st.columns([4,1,1])
+    c1, c2, c3 = st.columns([4, 1, 1])
     c1.selectbox(
-        "Producto:", catalogo_df['display'], index=None, 
+        "Producto:", catalogo_df['display'], index=None,
         placeholder="Escriba o seleccione un producto...", key="prod_sel"
     )
     c2.number_input("Cant:", min_value=1, value=1, key="cant_sel")
@@ -438,33 +427,36 @@ with st.expander("🚀 Carga Rápida"):
 
 if st.session_state.cotizacion:
     df_cot = pd.DataFrame(st.session_state.cotizacion)
-    
-    # --- AQUÍ EMPIEZA LO NUEVO QUE VAS A PEGAR ---
+
+    # --- PRECIOS SEGÚN LA LISTA SELECCIONADA ---
+    # Productos de cotizaciones viejas pueden no traer precio_base:
+    # se reconstruye a partir del precio_unitario que tenían guardado.
     if 'precio_base' not in df_cot.columns:
+        df_cot['precio_base'] = float('nan')
+    faltan = df_cot['precio_base'].isna()
+    if faltan.any() and 'precio_unitario' in df_cot.columns:
         if st.session_state.tipo_lista == "Dimefet":
-            df_cot['precio_base'] = df_cot['precio_unitario'] * 0.90
+            df_cot.loc[faltan, 'precio_base'] = df_cot.loc[faltan, 'precio_unitario'] * 0.90
         else:
-            df_cot['precio_base'] = df_cot['precio_unitario']
+            df_cot.loc[faltan, 'precio_base'] = df_cot.loc[faltan, 'precio_unitario']
+    df_cot['precio_base'] = df_cot['precio_base'].fillna(0)
 
     if st.session_state.tipo_lista == "Distribuidor":
         df_cot['precio_unitario'] = df_cot['precio_base']
     else:
         df_cot['precio_unitario'] = df_cot['precio_base'] / 0.90
-    # --- AQUÍ TERMINA LO NUEVO ---
 
-    # Esta línea ya la tenías, solo se empuja hacia abajo
     df_cot['Subtotal'] = df_cot['cantidad'] * df_cot['precio_unitario']
 
     st.write("### Detalle Actual")
-    # ... todo el resto de tu código (el for i, row in df_cot.iterrows(): etc...) se queda exactamente igual.    
-    st.write("### Detalle Actual")
     for i, row in df_cot.iterrows():
         col_item1, col_item2, col_item3 = st.columns([6, 2, 1])
-        col_item1.write(f"*{row['codigo']}* - {row['descripcion']}")
-        col_item2.write(f"{row['cantidad']} x ${row['precio_unitario']:,.2f} = *${row['Subtotal']:,.2f}*")
+        col_item1.write(f"**{row['codigo']}** - {row['descripcion']}")
+        col_item2.write(f"{row['cantidad']} x ${row['precio_unitario']:,.2f} = **${row['Subtotal']:,.2f}**")
         if col_item3.button("❌", key=f"del_{i}"):
             st.session_state.cotizacion.pop(i)
-            if 'folio_generado' in st.session_state: del st.session_state.folio_generado
+            if 'folio_generado' in st.session_state:
+                del st.session_state.folio_generado
             st.rerun()
 
     total = df_cot['Subtotal'].sum()
@@ -475,9 +467,9 @@ if st.session_state.cotizacion:
     for _, fila in df_cot.iterrows():
         mensaje_cot += f"· {fila['codigo']} {int(fila['cantidad'])} {fila['descripcion']}\n"
     wa_url_cot = f"https://wa.me/?text={quote_plus(mensaje_cot)}"
-    
+
     col_acc1, col_acc2, col_acc3, col_acc4 = st.columns(4)
-    with col_acc1: 
+    with col_acc1:
         st.link_button("📲 Enviar Cotización (WhatsApp)", wa_url_cot, use_container_width=True)
     with col_acc2:
         pdf_bytes = generar_pdf(df_cot, nombre_cliente_limpio, tipo_doc, st.session_state.tipo_lista, total)
@@ -503,17 +495,17 @@ if st.session_state.cotizacion:
             st.session_state.cliente_seleccionado = None
             st.session_state.vendedor_input = ""
             st.session_state.tipo_doc_input = "Remisión"
-            if 'folio_generado' in st.session_state: del st.session_state.folio_generado
+            if 'folio_generado' in st.session_state:
+                del st.session_state.folio_generado
             st.rerun()
-            
-    # --- CONVERSIÓN A PEDIDO (WhatsApp Directo) ---
-   # --- CONVERSIÓN A PEDIDO (WhatsApp Directo) ---
+
+    # --- CONVERSIÓN A PEDIDO ---
     st.write("---")
     st.write("### 🚀 Levantar Pedido")
-    
+
     if cve_vendedor_real and cve_cliente_real:
         col_erp1, col_erp2 = st.columns(2)
-        
+
         with col_erp1:
             if st.button("🔄 Convertir a Pedido", use_container_width=True):
                 if no_ped_manual:
@@ -521,38 +513,40 @@ if st.session_state.cotizacion:
                     st.warning("⚠️ Folio manual. El pedido NO se registró en el servidor.")
                 else:
                     with st.spinner("Creando pedido en el servidor..."):
-                        # Aquí obligamos a Python a usar la función que creamos arriba
                         folio_nuevo = crear_pedido_render(nombre_cliente_limpio, cve_vendedor_real, cve_cliente_real, st.session_state.cotizacion)
-                        
+
                         if folio_nuevo:
                             st.session_state.folio_generado = folio_nuevo
                             st.success(f"✅ Pedido registrado con folio {folio_nuevo}")
-        
+
         with col_erp2:
             if 'folio_generado' in st.session_state:
-                # Armamos el texto para WhatsApp
-                mensaje_pedido = "Pedido Registrado\n"
-                mensaje_pedido += f"Vendedor: {vendedor}\n"
-                mensaje_pedido += f"Cliente: {cve_cliente_real} - {nombre_cliente_limpio}\n"
-                mensaje_pedido += f"Documento: {tipo_doc}\n"
-                mensaje_pedido += f"Folio: {st.session_state.folio_generado}\n\n"
-                mensaje_pedido += "Detalle del Pedido:\n\n"
-                
+                # Mensaje de WhatsApp con el mismo formato que la app de pedidos
+                vendedor_mostrar = nombre_vendedor_real if nombre_vendedor_real else vendedor
+                mensaje_pedido = "*Pedido Registrado*\n"
+                mensaje_pedido += f"*Vendedor:* {vendedor_mostrar}\n"
+                mensaje_pedido += f"*Cliente:* {cve_cliente_real} - {nombre_cliente_limpio}\n"
+                mensaje_pedido += f"*Documento:* {tipo_doc}\n"
+                mensaje_pedido += f"*Folio:* {st.session_state.folio_generado}\n"
+                if observaciones.strip():
+                    mensaje_pedido += f"*Observaciones:* {observaciones.strip()}\n"
+                mensaje_pedido += "\n*Detalle del Pedido:*\n\n"
+
                 for _, fila in df_cot.iterrows():
-                    mensaje_pedido += f"· {fila['codigo']} {int(fila['cantidad'])} {fila['descripcion']}\n"
-                
+                    mensaje_pedido += f"· {fila['codigo']} *{int(fila['cantidad'])}* {str(fila['descripcion']).upper()}\n"
+
                 wa_url_pedido = f"https://wa.me/?text={quote_plus(mensaje_pedido)}"
                 st.link_button(f"📲 Enviar por WhatsApp (Folio: {st.session_state.folio_generado})", wa_url_pedido, use_container_width=True)
     else:
         st.warning("⚠️ Selecciona un Cliente del catálogo para habilitar la conversión a pedido.")
-            
+
 else:
     st.info("Agregue productos para iniciar la cotización.")
 
 st.divider()
 with st.expander("📂 Historial de Cotizaciones Guardadas (Cargar y Editar)"):
     historial = leer_historial()
-    
+
     if not historial:
         st.write("No hay cotizaciones guardadas.")
     else:
@@ -564,28 +558,25 @@ with st.expander("📂 Historial de Cotizaciones Guardadas (Cargar y Editar)"):
                 "Cliente": datos['cliente'],
                 "Total": f"${datos['total']:,.2f}"
             })
-        
+
         df_hist = pd.DataFrame(lista_historial).sort_values(by="Fecha", ascending=False)
         st.dataframe(df_hist, use_container_width=True, hide_index=True)
-        
+
         st.write("---")
-      # --- AQUÍ ESTÁ EL AJUSTE ---
-        st.write("*Selecciona una cotización para cargarla y editarla:*")
-        
-        # Cambiamos el orden para que muestre: Cliente | Fecha | ID
+        st.write("**Selecciona una cotización para cargarla y editarla:**")
+
         opciones_select = [f"{datos['cliente']} | {datos['fecha']} | {cot_id}" for cot_id, datos in historial.items()]
         cot_seleccionada = st.selectbox("Cotizaciones Guardadas:", opciones_select, index=None, placeholder="Elige una por nombre de cliente...")
-        
+
         if cot_seleccionada:
-            # Ahora el ID está al final (posición 2 después del split)
             id_a_cargar = cot_seleccionada.split(" | ")[2]
             if st.button("✏️ Cargar al Editor"):
-                # ... (el resto sigue igual)
                 datos_cot = historial[id_a_cargar]
                 st.session_state.cotizacion = datos_cot['productos']
                 st.session_state.cliente_seleccionado = datos_cot['cliente']
                 st.session_state.tipo_doc_input = datos_cot['tipo_doc']
                 st.session_state.tipo_lista = datos_cot['lista_precios']
                 st.session_state.editando_id = datos_cot['id']
-                if 'folio_generado' in st.session_state: del st.session_state.folio_generado
+                if 'folio_generado' in st.session_state:
+                    del st.session_state.folio_generado
                 st.rerun()
